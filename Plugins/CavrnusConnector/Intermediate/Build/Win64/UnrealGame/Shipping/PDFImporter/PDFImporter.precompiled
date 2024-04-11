@@ -1,0 +1,13 @@
+{
+	"OutputFiles": [
+		"ConvertPdfToPdfAsset.cpp.obj",
+		"GhostscriptCore.cpp.obj",
+		"PDF.cpp.obj",
+		"PDFImporter.cpp.obj",
+		"PDFImporterBPLibrary.cpp.obj",
+		"ConvertPdfToPdfAsset.gen.cpp.obj",
+		"PDF.gen.cpp.obj",
+		"PDFImporter.init.gen.cpp.obj",
+		"PDFImporterBPLibrary.gen.cpp.obj"
+	]
+}
