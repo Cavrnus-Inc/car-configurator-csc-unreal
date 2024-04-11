@@ -1,0 +1,9 @@
+{
+	"BuildId": "19505902",
+	"Modules": 
+	{
+		"CavrnusConnector": "UnrealEditor-CavrnusConnector.dll",
+		"CavrnusConnectorEditor": "UnrealEditor-CavrnusConnectorEditor.dll",
+		"PDFImporter": "UnrealEditor-PDFImporter.dll"
+	}
+}
