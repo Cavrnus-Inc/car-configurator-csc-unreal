@@ -46,6 +46,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusConnectorSettings() {}
 #endif
 		static const UECodeGen_Private::FStrPropertyParams NewProp_RelayNetExecutableRelativeLocation;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RelayNetSilent_MetaData[];
+#endif
+		static void NewProp_RelayNetSilent_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_RelayNetSilent;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_RelayNetVerboseLogging_MetaData[];
 #endif
 		static void NewProp_RelayNetVerboseLogging_SetBit(void* Obj);
@@ -111,6 +116,19 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusConnectorSettings() {}
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetExecutableRelativeLocation = { "RelayNetExecutableRelativeLocation", nullptr, (EPropertyFlags)0x0010000000004001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusConnectorSettings, RelayNetExecutableRelativeLocation), METADATA_PARAMS(Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetExecutableRelativeLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetExecutableRelativeLocation_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetSilent_MetaData[] = {
+		{ "Category", "Configuration" },
+		{ "Comment", "// Prevents the console window from being visible to users\n" },
+		{ "ModuleRelativePath", "Public/CavrnusConnectorSettings.h" },
+		{ "ToolTip", "Prevents the console window from being visible to users" },
+	};
+#endif
+	void Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetSilent_SetBit(void* Obj)
+	{
+		((UCavrnusConnectorSettings*)Obj)->RelayNetSilent = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetSilent = { "RelayNetSilent", nullptr, (EPropertyFlags)0x0010000000004001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UCavrnusConnectorSettings), &Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetSilent_SetBit, METADATA_PARAMS(Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetSilent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetSilent_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetVerboseLogging_MetaData[] = {
 		{ "Category", "Configuration" },
 		{ "Comment", "// Optional Parameters:\n//   \"-v\" or \"-V\": Verbose logging in the CavrnusRelayNet process\n" },
@@ -141,6 +159,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusConnectorSettings() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetPort,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetIPAddress,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetExecutableRelativeLocation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetSilent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetVerboseLogging,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusConnectorSettings_Statics::NewProp_RelayNetLogOutputToFile,
 	};
@@ -180,9 +199,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusConnectorSettings() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusConnectorSettings_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusConnectorSettings, UCavrnusConnectorSettings::StaticClass, TEXT("UCavrnusConnectorSettings"), &Z_Registration_Info_UClass_UCavrnusConnectorSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusConnectorSettings), 2329018975U) },
+		{ Z_Construct_UClass_UCavrnusConnectorSettings, UCavrnusConnectorSettings::StaticClass, TEXT("UCavrnusConnectorSettings"), &Z_Registration_Info_UClass_UCavrnusConnectorSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusConnectorSettings), 1679611711U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusConnectorSettings_h_2503333689(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusConnectorSettings_h_1170635499(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusConnectorSettings_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusConnectorSettings_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

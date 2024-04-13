@@ -18,6 +18,13 @@
  *
  */
 
+typedef TFunction<void(FString, FString, FString)> CavrnusStringFunction;
+typedef TFunction<void(bool, FString, FString)> CavrnusBoolFunction;
+typedef TFunction<void(float, FString, FString)> CavrnusFloatFunction;
+typedef TFunction<void(FLinearColor, FString, FString)> CavrnusColorFunction;
+typedef TFunction<void(FVector4, FString, FString)> CavrnusVectorFunction;
+typedef TFunction<void(FTransform, FString, FString)> CavrnusTransformFunction;
+
 DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusError, FString, Error);
 
 DECLARE_DYNAMIC_DELEGATE_ThreeParams(FStringPropertyUpdated, FString, Value, FString, ContainerName, FString, PropertyName);

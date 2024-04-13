@@ -46,6 +46,10 @@ public:
 	UPROPERTY(Config, EditAnywhere, Category = "Configuration")
 	FString RelayNetExecutableRelativeLocation;
 
+	// Prevents the console window from being visible to users
+	UPROPERTY(Config, EditAnywhere, Category = "Configuration")
+	bool RelayNetSilent;
+
 	// Optional Parameters:
 	//   "-v" or "-V": Verbose logging in the CavrnusRelayNet process
 	UPROPERTY(Config, EditAnywhere, Category = "Configuration")

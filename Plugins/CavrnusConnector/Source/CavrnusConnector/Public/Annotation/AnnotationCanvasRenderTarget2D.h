@@ -5,6 +5,13 @@
 #include "CoreMinimal.h"
 #include "Engine/CanvasRenderTarget2D.h"
 #include "Materials/MaterialInstanceDynamic.h"
+
+#include <Misc/EngineVersionComparison.h>
+#if !UE_VERSION_OLDER_THAN(5,4,0)
+#define UE_5_4_LINKER_FIX
+#include <PixelFormat.h>
+#endif
+
 #include "AnnotationCanvasRenderTarget2D.generated.h"
 
 /**
@@ -81,6 +88,18 @@ public:
 	* The current world is updated with this helper.
 	*/
 	void SetCavrnusWorld(UObject* WorldContext);
+
+#ifdef UE_5_4_LINKER_FIX
+#if WITH_EDITOR
+	virtual bool CanEditChange(const FProperty* InProperty) const override;
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+#endif
+	virtual bool CanConvertToTexture(ETextureSourceFormat& OutTextureSourceFormat, EPixelFormat& OutPixelFormat, FText* OutErrorMessage) const override;
+	virtual TSubclassOf<UTexture> GetTextureUClass() const override;
+	virtual EPixelFormat GetFormat() const override;
+	virtual bool IsSRGB() const override;
+	virtual float GetDisplayGamma() const override;
+#endif
 
 private:
 	class FAnnotationTextItem BuildTextAnnotationRenderData(class UTextRenderer2D* Text);

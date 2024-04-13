@@ -12,6 +12,9 @@
 #include "TextureResource.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include <Misc/EngineVersionComparison.h>
+#ifdef UE_5_4_LINKER_FIX
+#include <ImageCoreUtils.h>
+#endif
 
 #define TEXT_RENDER_TARGET_RES_MULTIPLIER 1
 
@@ -228,6 +231,156 @@ void UAnnotationCanvasRenderTarget2D::SetCavrnusWorld(UObject* WorldContext)
 {
 	World = WorldContext->GetWorld();
 }
+
+#ifdef UE_5_4_LINKER_FIX
+#if WITH_EDITOR
+bool UAnnotationCanvasRenderTarget2D::CanEditChange(const FProperty* InProperty) const
+{
+	if (!UTextureRenderTarget2D::CanEditChange(InProperty))
+	{
+		return false;
+	}
+
+	const FName& Name = InProperty->GetFName();
+
+	if (Name == GET_MEMBER_NAME_CHECKED(ThisClass, SampleCount))
+	{
+		return !bAutoGenerateMips;
+	}
+	else if (Name == GET_MEMBER_NAME_CHECKED(ThisClass, bAutoGenerateMips))
+	{
+		return SampleCount == ETextureRenderTargetSampleCount::RTSC_1;
+	}
+
+	return true;
+}
+
+void UAnnotationCanvasRenderTarget2D::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+{
+	const FName PropertyName = (PropertyChangedEvent.Property != nullptr) ? PropertyChangedEvent.Property->GetFName() : NAME_None;
+
+	if (PropertyName == GET_MEMBER_NAME_CHECKED(ThisClass, SampleCount))
+	{
+		//UCanvasRenderTarget2D::OnSampleCountChanged();
+			// UAVs are not supported for sample counts higher than one.
+		bCanCreateUAV = (SampleCount == ETextureRenderTargetSampleCount::RTSC_1);
+
+		if (bAutoGenerateMips && SampleCount != ETextureRenderTargetSampleCount::RTSC_1)
+		{
+			UE_LOG(LogTexture, Warning, TEXT("Auto-generate mips is not supported with sample counts above 1, disabling."));
+			bAutoGenerateMips = false;
+		}
+	}
+
+	UTextureRenderTarget2D::PostEditChangeProperty(PropertyChangedEvent);
+}
+#endif
+
+bool UAnnotationCanvasRenderTarget2D::CanConvertToTexture(ETextureSourceFormat& OutTextureSourceFormat, EPixelFormat& OutPixelFormat, FText* OutErrorMessage) const
+{
+	const EPixelFormat LocalFormat = GetFormat();
+
+	auto ValidateTextureFormatForConversionToTextureInternal = [this](EPixelFormat InFormat, const TArrayView<const EPixelFormat>& InCompatibleFormats, FText* OutErrorMessage)
+		{
+			// InCompatibleFormats can be empty, meaning anything works
+			if (InCompatibleFormats.Num() != 0 && !InCompatibleFormats.Contains(InFormat))
+			{
+				if (OutErrorMessage != nullptr)
+				{
+					TArray<const TCHAR*> CompatibleFormatStrings;
+					Algo::Transform(InCompatibleFormats, CompatibleFormatStrings, [](EPixelFormat InCompatiblePixelFormat) { return GetPixelFormatString(InCompatiblePixelFormat); });
+
+					*OutErrorMessage = FText::Format(NSLOCTEXT("TextureRenderTarget", "UnsupportedFormatForConversionToTexture", "Unsupported format ({0}) for converting {1} to {2}. Supported formats are: {3}"),
+						FText::FromString(FString(GetPixelFormatString(InFormat))),
+						FText::FromString(GetClass()->GetName()),
+						FText::FromString(GetTextureUClass()->GetName()),
+						FText::FromString(FString::Join(CompatibleFormatStrings, TEXT(","))));
+				}
+				return TSF_Invalid;
+			}
+
+			// Return what ETextureSourceFormat corresponds to this EPixelFormat (must match the conversion capabilities of UTextureRenderTarget::UpdateTexture) : 
+			ERawImageFormat::Type RawFormat = FImageCoreUtils::GetRawImageFormatForPixelFormat(InFormat);
+			ETextureSourceFormat TextureFormat = FImageCoreUtils::ConvertToTextureSourceFormat(RawFormat);
+
+			return TextureFormat;
+		};
+
+	// empty array means all formats supported
+	const ETextureSourceFormat TextureSourceFormat = ValidateTextureFormatForConversionToTextureInternal(LocalFormat, { }, OutErrorMessage);
+	if (TextureSourceFormat == TSF_Invalid)
+	{
+		return false;
+	}
+
+	if ((SizeX <= 0) || (SizeY <= 0))
+	{
+		if (OutErrorMessage != nullptr)
+		{
+			*OutErrorMessage = FText::Format(NSLOCTEXT("TextureRenderTarget2D", "InvalidSizeForConversionToTexture", "Invalid size ({0},{1}) for converting {2} to {3}"),
+				FText::AsNumber(SizeX),
+				FText::AsNumber(SizeY),
+				FText::FromString(GetClass()->GetName()),
+				FText::FromString(GetTextureUClass()->GetName()));
+		}
+		return false;
+	}
+
+	OutPixelFormat = LocalFormat;
+	OutTextureSourceFormat = TextureSourceFormat;
+	return true;
+}
+TSubclassOf<UTexture> UAnnotationCanvasRenderTarget2D::GetTextureUClass() const
+{
+	return UTexture2D::StaticClass();
+}
+EPixelFormat UAnnotationCanvasRenderTarget2D::GetFormat() const
+{
+	if (OverrideFormat == PF_Unknown)
+	{
+		return GetPixelFormatFromRenderTargetFormat(RenderTargetFormat);
+	}
+	else
+	{
+		return OverrideFormat;
+	}
+}
+bool UAnnotationCanvasRenderTarget2D::IsSRGB() const
+{
+	// in theory you'd like the "bool SRGB" variable to == this, but it does not
+
+	// ?? note: UTextureRenderTarget::TargetGamma is ignored here
+	// ?? note: GetDisplayGamma forces linear for some float formats, but this doesn't
+
+	if (OverrideFormat == PF_Unknown)
+	{
+		return RenderTargetFormat == RTF_RGBA8_SRGB;
+	}
+	else
+	{
+		return !bForceLinearGamma;
+	}
+}
+float UAnnotationCanvasRenderTarget2D::GetDisplayGamma() const
+{
+	// if TargetGamma is set (not zero), it overrides everything else
+	if (TargetGamma > UE_KINDA_SMALL_NUMBER * 10.0f)
+	{
+		return TargetGamma;
+	}
+
+	// ?? special casing just two of the float PixelFormats to force 1.0 gamma here is inconsistent
+	//		(there are lots of other float formats)
+	// ignores Owner->IsSRGB() ? it's similar but not quite the same
+	EPixelFormat Format = GetFormat();
+	if (Format == PF_FloatRGB || Format == PF_FloatRGBA || bForceLinearGamma)
+	{
+		return 1.0f;
+	}
+
+	return 2.2f;//UTextureRenderTarget::GetDefaultDisplayGamma(); // hard-coded 2.2 , actually means SRGB
+}
+#endif //UE_5_4_LINKER_FIX
 
 FAnnotationTextItem UAnnotationCanvasRenderTarget2D::BuildTextAnnotationRenderData(UTextRenderer2D* Text)
 {

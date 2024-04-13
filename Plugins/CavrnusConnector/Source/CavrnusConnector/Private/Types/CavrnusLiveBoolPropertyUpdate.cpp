@@ -16,16 +16,22 @@ void UCavrnusLiveBoolPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* rela
 
 	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::BoolPropValue(value));
 	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildBeginLiveBoolUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
+
+	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
 }
 
 void UCavrnusLiveBoolPropertyUpdate::UpdateWithNewData(bool value)
 {
 	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::BoolPropValue(value));
 	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildContinueLiveBoolUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
+
+	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
 }
 
 void UCavrnusLiveBoolPropertyUpdate::Finalize(bool value)
 {
 	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::BoolPropValue(value));
 	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFinalizeLiveBoolUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
+
+	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
 }

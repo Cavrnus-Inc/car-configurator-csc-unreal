@@ -733,7 +733,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest_Statics::NewProp_Server = { "Server", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateAsGuest_Parms, Server), METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest_Statics::NewProp_UserName = { "UserName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateAsGuest_Parms, UserName), METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest_Statics::NewProp_OnSuccess = { "OnSuccess", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateAsGuest_Parms, OnSuccess), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusAuthRecv__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 4062566673
-	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest_Statics::NewProp_OnFailure = { "OnFailure", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateAsGuest_Parms, OnFailure), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusError__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 3241144230
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest_Statics::NewProp_OnFailure = { "OnFailure", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateAsGuest_Parms, OnFailure), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusError__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 2317053288
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest_Statics::NewProp_Server,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest_Statics::NewProp_UserName,
@@ -784,7 +784,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword_Statics::NewProp_Email = { "Email", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateWithPassword_Parms, Email), METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword_Statics::NewProp_Password = { "Password", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateWithPassword_Parms, Password), METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword_Statics::NewProp_OnSuccess = { "OnSuccess", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateWithPassword_Parms, OnSuccess), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusAuthRecv__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 4062566673
-	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword_Statics::NewProp_OnFailure = { "OnFailure", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateWithPassword_Parms, OnFailure), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusError__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 3241144230
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword_Statics::NewProp_OnFailure = { "OnFailure", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventAuthenticateWithPassword_Parms, OnFailure), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusError__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 2317053288
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword_Statics::NewProp_Server,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword_Statics::NewProp_Email,
@@ -2946,7 +2946,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 	};
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_JoinSpace_Statics::NewProp_SpaceId = { "SpaceId", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventJoinSpace_Parms, SpaceId), METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_JoinSpace_Statics::NewProp_OnConnected = { "OnConnected", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventJoinSpace_Parms, OnConnected), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 1900413424
-	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_JoinSpace_Statics::NewProp_OnFailure = { "OnFailure", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventJoinSpace_Parms, OnFailure), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusError__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 3241144230
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_JoinSpace_Statics::NewProp_OnFailure = { "OnFailure", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventJoinSpace_Parms, OnFailure), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusError__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 2317053288
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusFunctionLibrary_JoinSpace_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_JoinSpace_Statics::NewProp_SpaceId,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_JoinSpace_Statics::NewProp_OnConnected,
@@ -3606,8 +3606,8 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusFunctionLibrary_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest, "AuthenticateAsGuest" }, // 2572329632
-		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword, "AuthenticateWithPassword" }, // 2144197049
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateAsGuest, "AuthenticateAsGuest" }, // 2862773309
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_AuthenticateWithPassword, "AuthenticateWithPassword" }, // 803322852
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_AwaitAnySpaceBeginLoading, "AwaitAnySpaceBeginLoading" }, // 916224620
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_AwaitAnySpaceConnection, "AwaitAnySpaceConnection" }, // 3682258504
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_AwaitAuthentication, "AwaitAuthentication" }, // 1067668787
@@ -3652,7 +3652,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_GetVectorPropertyValue, "GetVectorPropertyValue" }, // 4007845519
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_IsConnectedToAnySpace, "IsConnectedToAnySpace" }, // 2182759317
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_IsLoggedIn, "IsLoggedIn" }, // 2158691812
-		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_JoinSpace, "JoinSpace" }, // 2816706284
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_JoinSpace, "JoinSpace" }, // 1258960649
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_PostBoolPropertyUpdate, "PostBoolPropertyUpdate" }, // 4281926846
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_PostColorPropertyUpdate, "PostColorPropertyUpdate" }, // 1546114905
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_PostFloatPropertyUpdate, "PostFloatPropertyUpdate" }, // 1272174703
@@ -3712,9 +3712,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusFunctionLibrary, UCavrnusFunctionLibrary::StaticClass, TEXT("UCavrnusFunctionLibrary"), &Z_Registration_Info_UClass_UCavrnusFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusFunctionLibrary), 4278678385U) },
+		{ Z_Construct_UClass_UCavrnusFunctionLibrary, UCavrnusFunctionLibrary::StaticClass, TEXT("UCavrnusFunctionLibrary"), &Z_Registration_Info_UClass_UCavrnusFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusFunctionLibrary), 1495955187U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_2544733794(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_3795870511(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -44,14 +44,14 @@ namespace Cavrnus
 		return false;
 	}
 
-	bool RelayNetRunner::startService(int Port, const std::string& ExecutablePath, const std::string& OptionalParameters)
+	bool RelayNetRunner::startService(int Port, bool bSilent, const std::string& ExecutablePath, const std::string& OptionalParameters)
 	{
 		std::string arg = std::to_string(Port); // Convert integer to wstring
 		std::string cmd = ExecutablePath + " " + arg + (OptionalParameters.empty() ? "" : " " + OptionalParameters);
 
 		std::wstring cmd_wchar(cmd.begin(), cmd.end());
 
-		return CreateProcess(NULL, const_cast<wchar_t*>(cmd_wchar.c_str()), NULL, NULL, 0, 0, NULL, NULL, &RelayNetStartupInfo, &RelayNetProcess);
+		return CreateProcess(NULL, const_cast<wchar_t*>(cmd_wchar.c_str()), NULL, NULL, 0, bSilent ? CREATE_NO_WINDOW : 0, NULL, NULL, &RelayNetStartupInfo, &RelayNetProcess);
 	}
 
 	bool RelayNetRunner::stopService()
@@ -96,7 +96,7 @@ namespace Cavrnus
 		if (!IsRelayNetProcessRunning())
 		{
 			//start relay net
-			startService(PORT_DEFAULT, PATH_RELAY_NET_DEFAULT, "");
+			startService(PORT_DEFAULT, false, PATH_RELAY_NET_DEFAULT, "");
 
 			//give it time to start up
 			Sleep(100);

@@ -1,11 +1,13 @@
-C:\_Tools\1_DEV\Cavrnus-UE5.0-RelayPlugin-2023.2.507-Dev
-josh.criz: ue - master [5e0a1e433bba0534bb6acfd97d0f267eebe7f104]
-Fix transform update fighting between clients
+C:\_Tools\1_DEV\Cavrnus-UE5.0-RelayPlugin-2023.2.522-Dev
+josh.criz: ue - master [efe1786fc25c11f85964d98de4778c4114b994a3]
+CavrnusRelayNet Silent
 
-Issue was happening because of independent delta threshold evaluation between clients, especially problematic when source is doing a single change but receiver is getting approach change.
-- Transform update logic is decided by sender only. If the sender decides to send an update, other clients should receive updates without additional logic. Therefore, receiver threshold checking is removed - always broadcast whenever local property cache is updated.
-- per conversation with Nick, I updated the FPropertyValue::operator== check for transforms to use a much smaller threshold, in case there's a reason we do want to check this in the future. Threshold for sending should be wider than receiving.
+Set CavrnusPlugin\Config\DefaultEngine.ini RelayNetSilent to True to launch RelayNet without a visible console window.
 
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusPropertyValue.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/SpacePropertyModel.cpp
+	CavrnusPlugin/Config/DefaultEngine.ini
+	CavrnusPlugin/Plugins/CavrnusConnector/Config/DefaultEngine.ini
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Interop/CavrnusInteropLayer.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Relay/RelayNetRunner.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Relay/RelayNetRunner.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusConnectorSettings.h
 

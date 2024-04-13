@@ -63,7 +63,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusCallbackTypes() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusError__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "Comment", "/**\n *\n */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
 	};
 #endif

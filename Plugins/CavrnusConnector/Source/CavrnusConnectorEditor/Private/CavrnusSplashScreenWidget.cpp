@@ -2,7 +2,7 @@
 #include "Components/Button.h"
 #include "Components/CheckBox.h"
 #include "CavrnusConnectorEditorModule.h"
-#include <Blutility/Public/EditorUtilitySubsystem.h>
+#include <EditorUtilitySubsystem.h>
 #include <Kismet/KismetSystemLibrary.h>
 
 void UCavrnusSplashScreenWidget::NativePreConstruct()

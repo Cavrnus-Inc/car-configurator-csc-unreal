@@ -175,7 +175,19 @@ FLinearColor UCavrnusFunctionLibrary::GetColorPropertyValue(FCavrnusSpaceConnect
 FCavrnusBinding UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FColorPropertyUpdated PropertyUpdateEvent)
 {
 	CheckErrors(SpaceConnection);
-	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindColorProperty(Cavrnus::PropertyId(ContainerName, PropertyName), PropertyUpdateEvent);
+
+	CavrnusColorFunction propUpdateCallback = [PropertyUpdateEvent](const FLinearColor& Color, const FString& ContainerName, const FString& PropertyName)
+		{
+			PropertyUpdateEvent.ExecuteIfBound(Color, ContainerName, PropertyName);
+		};
+
+	return BindColorPropertyValue(SpaceConnection, ContainerName, PropertyName, propUpdateCallback);
+}
+
+FCavrnusBinding UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, const CavrnusColorFunction& OnPropertyUpdated)
+{
+	CheckErrors(SpaceConnection);
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindColorProperty(Cavrnus::PropertyId(ContainerName, PropertyName), OnPropertyUpdated);
 }
 
 UCavrnusLiveColorPropertyUpdate* UCavrnusFunctionLibrary::BeginTransientColorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FLinearColor PropertyValue)
@@ -215,7 +227,19 @@ bool UCavrnusFunctionLibrary::GetBoolPropertyValue(FCavrnusSpaceConnection Space
 FCavrnusBinding UCavrnusFunctionLibrary::BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FBoolPropertyUpdated PropertyUpdateEvent)
 {
 	CheckErrors(SpaceConnection);
-	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindBoolProperty(Cavrnus::PropertyId(ContainerName, PropertyName), PropertyUpdateEvent);
+
+	CavrnusBoolFunction propUpdateCallback = [PropertyUpdateEvent](bool Value, const FString& ContainerName, const FString& PropertyName)
+		{
+			PropertyUpdateEvent.ExecuteIfBound(Value, ContainerName, PropertyName);
+		};
+
+	return BindBooleanPropertyValue(SpaceConnection, ContainerName, PropertyName, propUpdateCallback);
+}
+
+FCavrnusBinding UCavrnusFunctionLibrary::BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, const CavrnusBoolFunction& OnPropertyUpdated)
+{
+	CheckErrors(SpaceConnection);
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindBoolProperty(Cavrnus::PropertyId(ContainerName, PropertyName), OnPropertyUpdated);
 }
 
 UCavrnusLiveBoolPropertyUpdate* UCavrnusFunctionLibrary::BeginTransientBoolPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, bool PropertyValue)
@@ -255,7 +279,19 @@ float UCavrnusFunctionLibrary::GetFloatPropertyValue(FCavrnusSpaceConnection Spa
 FCavrnusBinding UCavrnusFunctionLibrary::BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FFloatPropertyUpdated PropertyUpdateEvent)
 {
 	CheckErrors(SpaceConnection);
-	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindFloatProperty(Cavrnus::PropertyId(ContainerName, PropertyName), PropertyUpdateEvent);
+
+	CavrnusFloatFunction propUpdateCallback = [PropertyUpdateEvent](float Value, const FString& ContainerName, const FString& PropertyName)
+		{
+			PropertyUpdateEvent.ExecuteIfBound(Value, ContainerName, PropertyName);
+		};
+
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindFloatProperty(Cavrnus::PropertyId(ContainerName, PropertyName), propUpdateCallback);
+}
+
+FCavrnusBinding UCavrnusFunctionLibrary::BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, const CavrnusFloatFunction& OnPropertyUpdated)
+{
+	CheckErrors(SpaceConnection);
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindFloatProperty(Cavrnus::PropertyId(ContainerName, PropertyName), OnPropertyUpdated);
 }
 
 UCavrnusLiveFloatPropertyUpdate* UCavrnusFunctionLibrary::BeginTransientFloatPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, float PropertyValue)
@@ -295,9 +331,20 @@ FString UCavrnusFunctionLibrary::GetStringPropertyValue(FCavrnusSpaceConnection 
 FCavrnusBinding UCavrnusFunctionLibrary::BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FStringPropertyUpdated PropertyUpdateEvent)
 {
 	CheckErrors(SpaceConnection);
-	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindStringProperty(Cavrnus::PropertyId(ContainerName, PropertyName), PropertyUpdateEvent);
+
+	CavrnusStringFunction propUpdateCallback = [PropertyUpdateEvent](const FString& Value, const FString& ContainerName, const FString& PropertyName)
+		{
+			PropertyUpdateEvent.ExecuteIfBound(Value, ContainerName, PropertyName);
+		};
+
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindStringProperty(Cavrnus::PropertyId(ContainerName, PropertyName), propUpdateCallback);
 }
 
+FCavrnusBinding UCavrnusFunctionLibrary::BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, const CavrnusStringFunction& OnPropertyUpdated)
+{
+	CheckErrors(SpaceConnection);
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindStringProperty(Cavrnus::PropertyId(ContainerName, PropertyName), OnPropertyUpdated);
+}
 
 UCavrnusLiveStringPropertyUpdate* UCavrnusFunctionLibrary::BeginTransientStringPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FString PropertyValue)
 {
@@ -335,7 +382,18 @@ FVector4 UCavrnusFunctionLibrary::GetVectorPropertyValue(FCavrnusSpaceConnection
 
 FCavrnusBinding UCavrnusFunctionLibrary::BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FVectorPropertyUpdated PropertyUpdateEvent)
 {
-	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindVectorProperty(Cavrnus::PropertyId(ContainerName, PropertyName), PropertyUpdateEvent);
+	CavrnusVectorFunction propUpdateCallback = [PropertyUpdateEvent](const FVector4& Value, const FString& ContainerName, const FString& PropertyName)
+		{
+			PropertyUpdateEvent.ExecuteIfBound(Value, ContainerName, PropertyName);
+		};
+
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindVectorProperty(Cavrnus::PropertyId(ContainerName, PropertyName), propUpdateCallback);
+}
+
+FCavrnusBinding UCavrnusFunctionLibrary::BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, const CavrnusVectorFunction& OnPropertyUpdated)
+{
+	CheckErrors(SpaceConnection);
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindVectorProperty(Cavrnus::PropertyId(ContainerName, PropertyName), OnPropertyUpdated);
 }
 
 UCavrnusLiveVectorPropertyUpdate* UCavrnusFunctionLibrary::BeginTransientVectorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FVector4 PropertyValue)
@@ -375,7 +433,19 @@ FTransform UCavrnusFunctionLibrary::GetTransformPropertyValue(FCavrnusSpaceConne
 FCavrnusBinding UCavrnusFunctionLibrary::BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FTransformPropertyUpdated PropertyUpdateEvent)
 {
 	CheckErrors(SpaceConnection);
-	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindTransformProperty(Cavrnus::PropertyId(ContainerName, PropertyName), PropertyUpdateEvent);
+
+	CavrnusTransformFunction propUpdateCallback = [PropertyUpdateEvent](const FTransform& Value, const FString& ContainerName, const FString& PropertyName)
+		{
+			PropertyUpdateEvent.ExecuteIfBound(Value, ContainerName, PropertyName);
+		};
+
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindTransformProperty(Cavrnus::PropertyId(ContainerName, PropertyName), propUpdateCallback);
+}
+
+FCavrnusBinding UCavrnusFunctionLibrary::BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, const CavrnusTransformFunction& OnPropertyUpdated)
+{
+	CheckErrors(SpaceConnection);
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindTransformProperty(Cavrnus::PropertyId(ContainerName, PropertyName), OnPropertyUpdated);
 }
 
 UCavrnusLiveTransformPropertyUpdate* UCavrnusFunctionLibrary::BeginTransientTransformPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FTransform PropertyValue)

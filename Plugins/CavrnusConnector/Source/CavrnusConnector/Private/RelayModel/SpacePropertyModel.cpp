@@ -114,32 +114,32 @@ namespace Cavrnus
 		if (activePropVal.PropType == FPropertyValue::PropertyType::String && StringPropBindings.Contains(fullPropertyId))
 		{
 			for (int i = 0; i < StringPropBindings[fullPropertyId].Num(); i++)
-				StringPropBindings[fullPropertyId][i].ExecuteIfBound(activePropVal.StringValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+				(*StringPropBindings[fullPropertyId][i])(activePropVal.StringValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
 		}
 		else if (activePropVal.PropType == FPropertyValue::PropertyType::Bool && BoolPropBindings.Contains(fullPropertyId))
 		{
 			for (int i = 0; i < BoolPropBindings[fullPropertyId].Num(); i++)
-				BoolPropBindings[fullPropertyId][i].ExecuteIfBound(activePropVal.BoolValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+				(*BoolPropBindings[fullPropertyId][i])(activePropVal.BoolValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
 		}
 		else if (activePropVal.PropType == FPropertyValue::PropertyType::Float && FloatPropBindings.Contains(fullPropertyId))
 		{
 			for (int i = 0; i < FloatPropBindings[fullPropertyId].Num(); i++)
-				FloatPropBindings[fullPropertyId][i].ExecuteIfBound(activePropVal.FloatValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+				(*FloatPropBindings[fullPropertyId][i])(activePropVal.FloatValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
 		}
 		else if (activePropVal.PropType == FPropertyValue::PropertyType::Color && ColorPropBindings.Contains(fullPropertyId))
 		{
 			for (int i = 0; i < ColorPropBindings[fullPropertyId].Num(); i++)
-				ColorPropBindings[fullPropertyId][i].ExecuteIfBound(activePropVal.ColorValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+				(*ColorPropBindings[fullPropertyId][i])(activePropVal.ColorValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
 		}
 		else if (activePropVal.PropType == FPropertyValue::PropertyType::Vector && VectorPropBindings.Contains(fullPropertyId))
 		{
 			for (int i = 0; i < VectorPropBindings[fullPropertyId].Num(); i++)
-				VectorPropBindings[fullPropertyId][i].ExecuteIfBound(activePropVal.VectorValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+				(*VectorPropBindings[fullPropertyId][i])(activePropVal.VectorValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
 		}
 		else if (activePropVal.PropType == FPropertyValue::PropertyType::Transform && TransformPropBindings.Contains(fullPropertyId))
 		{
 			for (int i = 0; i < TransformPropBindings[fullPropertyId].Num(); i++)
-				TransformPropBindings[fullPropertyId][i].ExecuteIfBound(activePropVal.TransformValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+				(*TransformPropBindings[fullPropertyId][i])(activePropVal.TransformValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
 		}
 	}
 
@@ -149,91 +149,107 @@ namespace Cavrnus
 	}
 
 #pragma region Bind Property
-	FCavrnusBinding SpacePropertyModel::BindStringProperty(PropertyId fullPropertyId, FStringPropertyUpdated callback)
+	FCavrnusBinding SpacePropertyModel::BindStringProperty(PropertyId fullPropertyId, const CavrnusStringFunction& callback)
 	{
 		if (PropValueExists(fullPropertyId))
-			callback.ExecuteIfBound(GetCurrentPropValue(fullPropertyId).StringValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+			callback(GetCurrentPropValue(fullPropertyId).StringValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+
+		using StringFunction = const CavrnusStringFunction;
+		TSharedPtr<StringFunction> CallbackPtr = MakeShareable(new StringFunction(callback));
 
 		StringPropBindings.FindOrAdd(fullPropertyId);
-		StringPropBindings[fullPropertyId].Add(callback);
+		StringPropBindings[fullPropertyId].Add(CallbackPtr);
 
-		return FCavrnusBinding([this, fullPropertyId, callback]() {
-			StringPropBindings[fullPropertyId].Remove(callback);
+		return FCavrnusBinding([this, fullPropertyId, CallbackPtr]() {
+			StringPropBindings[fullPropertyId].Remove(CallbackPtr);
 			if (StringPropBindings[fullPropertyId].IsEmpty())
 				StringPropBindings.Remove(fullPropertyId);
 		});
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindBoolProperty(PropertyId fullPropertyId, FBoolPropertyUpdated callback)
+	FCavrnusBinding SpacePropertyModel::BindBoolProperty(PropertyId fullPropertyId, const CavrnusBoolFunction& callback)
 	{
 		if (PropValueExists(fullPropertyId))
-			callback.ExecuteIfBound(GetCurrentPropValue(fullPropertyId).BoolValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+			callback(GetCurrentPropValue(fullPropertyId).BoolValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+
+		using BoolFunction = const CavrnusBoolFunction;
+		TSharedPtr<BoolFunction> CallbackPtr = MakeShareable(new BoolFunction(callback));
 
 		BoolPropBindings.FindOrAdd(fullPropertyId);
-		BoolPropBindings[fullPropertyId].Add(callback);
+		BoolPropBindings[fullPropertyId].Add(CallbackPtr);
 
-		return FCavrnusBinding([this, fullPropertyId, callback]() {
-			BoolPropBindings[fullPropertyId].Remove(callback);
+		return FCavrnusBinding([this, fullPropertyId, CallbackPtr]() {
+			BoolPropBindings[fullPropertyId].Remove(CallbackPtr);
 			if (BoolPropBindings[fullPropertyId].IsEmpty())
 				BoolPropBindings.Remove(fullPropertyId);
 			});
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindFloatProperty(PropertyId fullPropertyId, FFloatPropertyUpdated callback)
+	FCavrnusBinding SpacePropertyModel::BindFloatProperty(PropertyId fullPropertyId, const CavrnusFloatFunction& callback)
 	{
 		if (PropValueExists(fullPropertyId))
-			callback.ExecuteIfBound(GetCurrentPropValue(fullPropertyId).FloatValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+			callback(GetCurrentPropValue(fullPropertyId).FloatValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+
+		TSharedPtr<CavrnusFloatFunction> CallbackPtr = MakeShareable(new CavrnusFloatFunction(callback));
 
 		FloatPropBindings.FindOrAdd(fullPropertyId);
-		FloatPropBindings[fullPropertyId].Add(callback);
+		FloatPropBindings[fullPropertyId].Add(CallbackPtr);
 
-		return FCavrnusBinding([this, fullPropertyId, callback]() { 
-			FloatPropBindings[fullPropertyId].Remove(callback);
+		return FCavrnusBinding([this, fullPropertyId, CallbackPtr]() {
+			FloatPropBindings[fullPropertyId].Remove(CallbackPtr);
 			if (FloatPropBindings[fullPropertyId].IsEmpty())
 				FloatPropBindings.Remove(fullPropertyId);
 		});
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindColorProperty(PropertyId fullPropertyId, FColorPropertyUpdated callback)
+	FCavrnusBinding SpacePropertyModel::BindColorProperty(PropertyId fullPropertyId, const CavrnusColorFunction& callback)
 	{
 		if (PropValueExists(fullPropertyId))
-			callback.ExecuteIfBound(GetCurrentPropValue(fullPropertyId).ColorValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+			callback(GetCurrentPropValue(fullPropertyId).ColorValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+
+		TSharedPtr<CavrnusColorFunction> CallbackPtr = MakeShareable(new CavrnusColorFunction(callback));
 
 		ColorPropBindings.FindOrAdd(fullPropertyId);
-		ColorPropBindings[fullPropertyId].Add(callback);
+		ColorPropBindings[fullPropertyId].Add(CallbackPtr);
 
-		return FCavrnusBinding([this, fullPropertyId, callback]() { 
-			ColorPropBindings[fullPropertyId].Remove(callback);
+		return FCavrnusBinding([this, fullPropertyId, CallbackPtr]() {
+			ColorPropBindings[fullPropertyId].Remove(CallbackPtr);
 			if (ColorPropBindings[fullPropertyId].IsEmpty())
 				ColorPropBindings.Remove(fullPropertyId);
 			});
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindVectorProperty(PropertyId fullPropertyId, FVectorPropertyUpdated callback)
+	FCavrnusBinding SpacePropertyModel::BindVectorProperty(PropertyId fullPropertyId, const CavrnusVectorFunction& callback)
 	{
 		if (PropValueExists(fullPropertyId))
-			callback.ExecuteIfBound(GetCurrentPropValue(fullPropertyId).VectorValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+			callback(GetCurrentPropValue(fullPropertyId).VectorValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+
+		using VectorFunction = const CavrnusVectorFunction;
+		TSharedPtr<VectorFunction> CallbackPtr = MakeShareable(new VectorFunction(callback));
 
 		VectorPropBindings.FindOrAdd(fullPropertyId);
-		VectorPropBindings[fullPropertyId].Add(callback);
+		VectorPropBindings[fullPropertyId].Add(CallbackPtr);
 
-		return FCavrnusBinding([this, fullPropertyId, callback]() {
-			VectorPropBindings[fullPropertyId].Remove(callback);
+		return FCavrnusBinding([this, fullPropertyId, CallbackPtr]() {
+			VectorPropBindings[fullPropertyId].Remove(CallbackPtr);
 			if (VectorPropBindings[fullPropertyId].IsEmpty())
 				VectorPropBindings.Remove(fullPropertyId);
 			});
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindTransformProperty(PropertyId fullPropertyId, FTransformPropertyUpdated callback)
+	FCavrnusBinding SpacePropertyModel::BindTransformProperty(PropertyId fullPropertyId, const CavrnusTransformFunction& callback)
 	{
 		if (PropValueExists(fullPropertyId))
-			callback.ExecuteIfBound(GetCurrentPropValue(fullPropertyId).TransformValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+			callback(GetCurrentPropValue(fullPropertyId).TransformValue, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+
+		using TransformFunction = const CavrnusTransformFunction;
+		TSharedPtr<TransformFunction> CallbackPtr = MakeShareable(new TransformFunction(callback));
 
 		TransformPropBindings.FindOrAdd(fullPropertyId);
-		TransformPropBindings[fullPropertyId].Add(callback);
+		TransformPropBindings[fullPropertyId].Add(CallbackPtr);
 
-		return FCavrnusBinding([this, fullPropertyId, callback]() {
-			TransformPropBindings[fullPropertyId].Remove(callback);
+		return FCavrnusBinding([this, fullPropertyId, CallbackPtr]() {
+			TransformPropBindings[fullPropertyId].Remove(CallbackPtr);
 			if (TransformPropBindings[fullPropertyId].IsEmpty())
 				TransformPropBindings.Remove(fullPropertyId);
 			});

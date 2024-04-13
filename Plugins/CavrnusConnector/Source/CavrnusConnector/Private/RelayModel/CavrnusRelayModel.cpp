@@ -208,13 +208,13 @@ namespace Cavrnus
 		switch (message.Message_case())
 		{
 		case ServerData::StatusMessage::kLog:
-			UE_LOG(LogCavrnusConnector, Log, TEXT("%s"), message.log().c_str());
+			UE_LOG(LogCavrnusConnector, Log, TEXT("%hs"), message.log().c_str());
 			break;
 		case ServerData::StatusMessage::kWarning:
-			UE_LOG(LogCavrnusConnector, Warning, TEXT("%s"), message.warning().c_str());
+			UE_LOG(LogCavrnusConnector, Warning, TEXT("%hs"), message.warning().c_str());
 			break;
 		case ServerData::StatusMessage::kError:
-			UE_LOG(LogCavrnusConnector, Error, TEXT("%s"), message.error().c_str());
+			UE_LOG(LogCavrnusConnector, Error, TEXT("%hs"), message.error().c_str());
 			break;
 		default:
 			break;

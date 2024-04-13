@@ -38,12 +38,12 @@ namespace Cavrnus
 		void InvalidateLocalPropValue(PropertyId fullPropertyId, int propValidationId);
 		void UpdatePropMetadata(PropertyId fullPropertyId, bool isReadonly);
 
-		FCavrnusBinding BindStringProperty(PropertyId fullPropertyId, FStringPropertyUpdated callback);
-		FCavrnusBinding BindBoolProperty(PropertyId fullPropertyId, FBoolPropertyUpdated callback);
-		FCavrnusBinding BindFloatProperty(PropertyId fullPropertyId, FFloatPropertyUpdated callback);
-		FCavrnusBinding BindColorProperty(PropertyId fullPropertyId, FColorPropertyUpdated callback);
-		FCavrnusBinding BindVectorProperty(PropertyId fullPropertyId, FVectorPropertyUpdated callback);
-		FCavrnusBinding BindTransformProperty(PropertyId fullPropertyId, FTransformPropertyUpdated callback);
+		FCavrnusBinding BindStringProperty(PropertyId fullPropertyId, const CavrnusStringFunction& callback);
+		FCavrnusBinding BindBoolProperty(PropertyId fullPropertyId, const CavrnusBoolFunction& callback);
+		FCavrnusBinding BindFloatProperty(PropertyId fullPropertyId, const CavrnusFloatFunction& callback);
+		FCavrnusBinding BindColorProperty(PropertyId fullPropertyId, const CavrnusColorFunction& callback);
+		FCavrnusBinding BindVectorProperty(PropertyId fullPropertyId, const CavrnusVectorFunction& callback);
+		FCavrnusBinding BindTransformProperty(PropertyId fullPropertyId, const CavrnusTransformFunction& callback);
 		FCavrnusBinding BindUserVideoTexture(const FCavrnusUser& User, FCavrnusUserVideoFrameEvent callback);
 
 		FString GetStringPropValue(PropertyId fullPropertyId);
@@ -74,12 +74,12 @@ namespace Cavrnus
 		int validationIdIncrementer = 0;
 		TMap<PropertyId, int> LocalPropValidationIds;
 				
-		TMap<PropertyId, TArray<FStringPropertyUpdated>> StringPropBindings;
-		TMap<PropertyId, TArray<FBoolPropertyUpdated>> BoolPropBindings;
-		TMap<PropertyId, TArray<FFloatPropertyUpdated>> FloatPropBindings;
-		TMap<PropertyId, TArray<FColorPropertyUpdated>> ColorPropBindings;
-		TMap<PropertyId, TArray<FVectorPropertyUpdated>> VectorPropBindings;
-		TMap<PropertyId, TArray<FTransformPropertyUpdated>> TransformPropBindings;
+		TMap<PropertyId, TArray<TSharedPtr<const CavrnusStringFunction>>> StringPropBindings;
+		TMap<PropertyId, TArray<TSharedPtr<const CavrnusBoolFunction>>> BoolPropBindings;
+		TMap<PropertyId, TArray<TSharedPtr<const CavrnusFloatFunction>>> FloatPropBindings;
+		TMap<PropertyId, TArray<TSharedPtr<const CavrnusColorFunction>>> ColorPropBindings;
+		TMap<PropertyId, TArray<TSharedPtr<const CavrnusVectorFunction>>> VectorPropBindings;
+		TMap<PropertyId, TArray<TSharedPtr<const CavrnusTransformFunction>>> TransformPropBindings;
 
 		TArray<FCavrnusSpaceUserEvent> LocalUserArrivedCallbacks;
 

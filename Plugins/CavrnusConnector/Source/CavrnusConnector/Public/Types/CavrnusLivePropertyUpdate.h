@@ -38,6 +38,8 @@ public:
 		meta = (ToolTip = "Cancels transient operations sent to the server.", ShortToolTip = "Cancels transient operations sent to the server"))
 	void Cancel();
 
+	double lastUpdatedTimeMs;
+
 protected:
 	FCavrnusSpaceConnection SpaceConn;
 

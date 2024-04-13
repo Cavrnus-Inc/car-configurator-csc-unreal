@@ -202,7 +202,13 @@ namespace Cavrnus
 			// \todo fix for packaged builds
 			FString exeLocation = FPaths::Combine(GetPluginPath(), TEXT("Source"), TEXT("CavrnusConnector")) / settings->RelayNetExecutableRelativeLocation;
 
-			if (RelayNetRunner_.startService(Client_.GetServerPort(), TCHAR_TO_UTF8(*exeLocation), TCHAR_TO_UTF8(*settings->GetRelayNetOptionalParameters())))
+#if UE_BUILD_SHIPPING
+			bool bSilent = true;
+#else
+			bool bSilent = settings->RelayNetSilent;
+#endif
+
+			if (RelayNetRunner_.startService(Client_.GetServerPort(), bSilent, TCHAR_TO_UTF8(*exeLocation), TCHAR_TO_UTF8(*settings->GetRelayNetOptionalParameters())))
 			{
 				RelayNetRunner_.runAsync();
 				ServiceIsStarted = true;

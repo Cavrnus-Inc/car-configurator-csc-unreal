@@ -76,7 +76,11 @@ public class CavrnusConnector : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         bUseRTTI = true;
         bEnableExceptions = true;
+#if UE_5_2_OR_LATER
+        IWYUSupport = IWYUSupport.Full;
+#else
         bEnforceIWYU = true;
+#endif
         AddDefaultIncludePaths();
 
         PublicDependencyModuleNames.AddRange(
@@ -95,7 +99,10 @@ public class CavrnusConnector : ModuleRules
             "ProceduralMeshComponent",
             "Networking",
             "Sockets",
-            "JsonBlueprintUtilities"
+            "JsonBlueprintUtilities",
+#if UE_5_4_OR_LATER
+            "ImageCore",
+#endif
         }
         );
 
@@ -115,14 +122,16 @@ public class CavrnusConnector : ModuleRules
         foreach (string libFileName in CavrnusRelayLibRelease)
         {
             string FullPathToLib = "";
-            if (Target.WindowsPlatform.Compiler == WindowsCompiler.VisualStudio2019)
-            {
-                FullPathToLib = Path.Combine(CavrnusRelayLibPath, Platform, "v142", libFileName);
-            }
-            else if (Target.WindowsPlatform.Compiler == WindowsCompiler.VisualStudio2022)
+            if (Target.WindowsPlatform.Compiler == WindowsCompiler.VisualStudio2022)
             {
                 FullPathToLib = Path.Combine(CavrnusRelayLibPath, Platform, "v143", libFileName);
             }
+#if !UE_5_4_OR_LATER
+            else if (Target.WindowsPlatform.Compiler == WindowsCompiler.VisualStudio2019)
+            {
+                FullPathToLib = Path.Combine(CavrnusRelayLibPath, Platform, "v142", libFileName);
+            }
+#endif
             else
             {
                 throw new Exception("Unknown compiler; libraries not selected");

@@ -38,7 +38,11 @@ public class CavrnusConnectorEditor : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         bUseRTTI = true;
         bEnableExceptions = true;
+#if UE_5_2_OR_LATER
+        IWYUSupport = IWYUSupport.Full;
+#else
         bEnforceIWYU = true;
+#endif
         AddDefaultIncludePaths();
 
         PublicDependencyModuleNames.AddRange(
