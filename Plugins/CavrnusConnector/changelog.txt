@@ -1,13 +1,8 @@
-C:\_Tools\1_DEV\Cavrnus-UE5.0-RelayPlugin-2023.2.522-Dev
-josh.criz: ue - master [efe1786fc25c11f85964d98de4778c4114b994a3]
-CavrnusRelayNet Silent
+Cavrnus-UE5.0-RelayPlugin-2023.2.524-Dev
+paul.gothard: ue - master [d2450824573aa4d036c9618377d8cd01eecf7d4e]
+Make spawned object callback optional
 
-Set CavrnusPlugin\Config\DefaultEngine.ini RelayNetSilent to True to launch RelayNet without a visible console window.
-
-	CavrnusPlugin/Config/DefaultEngine.ini
-	CavrnusPlugin/Plugins/CavrnusConnector/Config/DefaultEngine.ini
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Interop/CavrnusInteropLayer.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Relay/RelayNetRunner.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Relay/RelayNetRunner.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusConnectorSettings.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusFunctionLibrary.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusFunctionLibrary.h
 

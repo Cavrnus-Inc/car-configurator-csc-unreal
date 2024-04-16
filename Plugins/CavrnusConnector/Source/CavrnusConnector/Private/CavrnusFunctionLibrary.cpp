@@ -488,13 +488,28 @@ UPARAM(DisplayName = "Disposable")FCavrnusBinding UCavrnusFunctionLibrary::BindS
 
 #pragma region Spawned Objects
 
-FString UCavrnusFunctionLibrary::SpawnObject(FCavrnusSpaceConnection SpaceConnection, FString UniqueIdentifier)
+UPARAM(DisplayName = "Container Name")FString UCavrnusFunctionLibrary::SpawnObject(FCavrnusSpaceConnection SpaceConnection, FString UniqueIdentifier, const FCavrnusSpawnedObjectArrived& spawnedObjectArrived)
+{
+	CheckErrors(SpaceConnection);
+
+	CavrnusSpawnedObjectFunction propUpdateCallback = [spawnedObjectArrived](const FCavrnusSpawnedObject& SpawnedOb)
+	{
+		spawnedObjectArrived.ExecuteIfBound(SpawnedOb);
+	};
+
+	return SpawnObject(SpaceConnection, UniqueIdentifier, propUpdateCallback);
+}
+
+FString UCavrnusFunctionLibrary::SpawnObject(FCavrnusSpaceConnection SpaceConnection, FString UniqueIdentifier, CavrnusSpawnedObjectFunction spawnedObjectArrived)
 {
 	CheckErrors(SpaceConnection);
 
 	FString InstanceId = CreateTransientId();
 
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildCreateOp(SpaceConnection, UniqueIdentifier, InstanceId));
+
+	TSharedPtr<CavrnusSpawnedObjectFunction> CallbackPtr = MakeShareable(new CavrnusSpawnedObjectFunction(spawnedObjectArrived));
+	RelayModel->ObjectCreationCallbacks.Add(InstanceId, CallbackPtr);
 
 	return InstanceId;
 }

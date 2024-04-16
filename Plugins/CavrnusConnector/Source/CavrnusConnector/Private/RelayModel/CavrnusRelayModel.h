@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "../../Public/Types/CavrnusSpaceConnection.h"
+#include "SpacePropertyModel.h"
 
 #include "CavrnusConnectorModule.h"
 
@@ -51,6 +52,8 @@ namespace Cavrnus
 		DataState* GetDataState();
 		void SetPDFManager(UPDFManager* PDFManager);
 		void SendMessage(const ServerData::RelayClientMessage& msg);
+
+		CaseSensitiveMap<FString, TSharedPtr<const CavrnusSpawnedObjectFunction>> ObjectCreationCallbacks;
 
 	private:
 		CavrnusInteropLayer* interopLayer;

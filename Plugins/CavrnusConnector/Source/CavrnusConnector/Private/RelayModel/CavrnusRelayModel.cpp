@@ -262,6 +262,11 @@ namespace Cavrnus
 		}
 
 		SpawnedObjectsManager->RegisterSpawnedObject(SpawnedObject);
+
+		if (ObjectCreationCallbacks.Contains(SpawnedObject.PropertiesContainerName)) {
+			(*ObjectCreationCallbacks[SpawnedObject.PropertiesContainerName])(SpawnedObject);
+			ObjectCreationCallbacks.Remove(SpawnedObject.PropertiesContainerName);
+		}
 	}
 
 	void CavrnusRelayModel::HandleSpaceObjectRemoved(const ServerData::ObjectRemoved& ObjectRemoved)

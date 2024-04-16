@@ -11,6 +11,7 @@
 #include "Types/CavrnusSpaceInfo.h"
 #include "Types/CavrnusUser.h"
 #include "Types/CavrnusBinding.h"
+#include "Types/CavrnusSpawnedObject.h"
 
 // Always last
 #include "CavrnusCallbackTypes.generated.h"
@@ -24,6 +25,8 @@ typedef TFunction<void(float, FString, FString)> CavrnusFloatFunction;
 typedef TFunction<void(FLinearColor, FString, FString)> CavrnusColorFunction;
 typedef TFunction<void(FVector4, FString, FString)> CavrnusVectorFunction;
 typedef TFunction<void(FTransform, FString, FString)> CavrnusTransformFunction;
+
+typedef TFunction<void(FCavrnusSpawnedObject)> CavrnusSpawnedObjectFunction;
 
 DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusError, FString, Error);
 
@@ -50,6 +53,8 @@ DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusAvailableOutputDevices, const TArray<F
 DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusAvailableVideoInputDevices, const TArray<FCavrnusVideoInputDevice>&, VideoInputDevices);
 
 DECLARE_DYNAMIC_DELEGATE_TwoParams(FCavrnusPolicyUpdated, FString, Policy, bool, IsAllowed);
+
+DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSpawnedObjectArrived, FCavrnusSpawnedObject, spawnedObject);
 
 UCLASS(Abstract)
 class UCavrnusCallbackTypes : public UBlueprintFunctionLibrary

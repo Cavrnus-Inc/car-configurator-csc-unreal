@@ -17,12 +17,13 @@ class UTexture2D;
 struct FCavrnusInputDevice;
 struct FCavrnusOutputDevice;
 struct FCavrnusVideoInputDevice;
+struct FCavrnusSpawnedObject;
 #ifdef CAVRNUSCONNECTOR_CavrnusCallbackTypes_generated_h
 #error "CavrnusCallbackTypes.generated.h already included, missing '#pragma once' in CavrnusCallbackTypes.h"
 #endif
 #define CAVRNUSCONNECTOR_CavrnusCallbackTypes_generated_h
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_28_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_31_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusError_Parms \
 { \
 	FString Error; \
@@ -35,7 +36,7 @@ static inline void FCavrnusError_DelegateWrapper(const FScriptDelegate& CavrnusE
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_30_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_33_DELEGATE \
 struct _Script_CavrnusConnector_eventStringPropertyUpdated_Parms \
 { \
 	FString Value; \
@@ -52,7 +53,7 @@ static inline void FStringPropertyUpdated_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_31_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_34_DELEGATE \
 struct _Script_CavrnusConnector_eventBoolPropertyUpdated_Parms \
 { \
 	bool Value; \
@@ -69,7 +70,7 @@ static inline void FBoolPropertyUpdated_DelegateWrapper(const FScriptDelegate& B
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_32_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_35_DELEGATE \
 struct _Script_CavrnusConnector_eventFloatPropertyUpdated_Parms \
 { \
 	float Value; \
@@ -86,7 +87,7 @@ static inline void FFloatPropertyUpdated_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_33_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_36_DELEGATE \
 struct _Script_CavrnusConnector_eventVectorPropertyUpdated_Parms \
 { \
 	FVector4 Value; \
@@ -103,7 +104,7 @@ static inline void FVectorPropertyUpdated_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_34_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_37_DELEGATE \
 struct _Script_CavrnusConnector_eventColorPropertyUpdated_Parms \
 { \
 	FLinearColor Value; \
@@ -120,7 +121,7 @@ static inline void FColorPropertyUpdated_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_35_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_38_DELEGATE \
 struct _Script_CavrnusConnector_eventTransformPropertyUpdated_Parms \
 { \
 	FTransform Value; \
@@ -137,7 +138,7 @@ static inline void FTransformPropertyUpdated_DelegateWrapper(const FScriptDelega
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_37_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_40_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusAuthRecv_Parms \
 { \
 	FCavrnusAuthentication Auth; \
@@ -150,7 +151,7 @@ static inline void FCavrnusAuthRecv_DelegateWrapper(const FScriptDelegate& Cavrn
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_38_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_41_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusLinkAuthRecv_Parms \
 { \
 	FCavrnusAuthentication Auth; \
@@ -165,7 +166,7 @@ static inline void FCavrnusLinkAuthRecv_DelegateWrapper(const FScriptDelegate& C
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_40_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_43_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusAllSpacesInfoEvent_Parms \
 { \
 	TArray<FCavrnusSpaceInfo> SpacesInfo; \
@@ -178,7 +179,7 @@ static inline void FCavrnusAllSpacesInfoEvent_DelegateWrapper(const FScriptDeleg
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_41_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_44_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusSpaceInfoEvent_Parms \
 { \
 	FCavrnusSpaceInfo SpaceInfo; \
@@ -191,7 +192,7 @@ static inline void FCavrnusSpaceInfoEvent_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_42_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_45_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusSpaceBeginLoading_Parms \
 { \
 	FString SpaceIdBeingLoaded; \
@@ -204,7 +205,7 @@ static inline void FCavrnusSpaceBeginLoading_DelegateWrapper(const FScriptDelega
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_43_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_46_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusSpaceConnected_Parms \
 { \
 	FCavrnusSpaceConnection SpaceConnection; \
@@ -217,7 +218,7 @@ static inline void FCavrnusSpaceConnected_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_45_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_48_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusSpaceUserEvent_Parms \
 { \
 	FCavrnusUser User; \
@@ -230,7 +231,7 @@ static inline void FCavrnusSpaceUserEvent_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_46_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_49_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusUserVideoFrameEvent_Parms \
 { \
 	UTexture2D* UserVideoFrame; \
@@ -243,7 +244,7 @@ static inline void FCavrnusUserVideoFrameEvent_DelegateWrapper(const FScriptDele
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_48_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_51_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusAvailableInputDevices_Parms \
 { \
 	TArray<FCavrnusInputDevice> InputDevices; \
@@ -256,7 +257,7 @@ static inline void FCavrnusAvailableInputDevices_DelegateWrapper(const FScriptDe
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_49_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_52_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusAvailableOutputDevices_Parms \
 { \
 	TArray<FCavrnusOutputDevice> OutputDevices; \
@@ -269,7 +270,7 @@ static inline void FCavrnusAvailableOutputDevices_DelegateWrapper(const FScriptD
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_50_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_53_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusAvailableVideoInputDevices_Parms \
 { \
 	TArray<FCavrnusVideoInputDevice> VideoInputDevices; \
@@ -282,7 +283,7 @@ static inline void FCavrnusAvailableVideoInputDevices_DelegateWrapper(const FScr
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_52_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_55_DELEGATE \
 struct _Script_CavrnusConnector_eventCavrnusPolicyUpdated_Parms \
 { \
 	FString Policy; \
@@ -297,10 +298,23 @@ static inline void FCavrnusPolicyUpdated_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_SPARSE_DATA
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_RPC_WRAPPERS
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_INCLASS_NO_PURE_DECLS \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_DELEGATE \
+struct _Script_CavrnusConnector_eventCavrnusSpawnedObjectArrived_Parms \
+{ \
+	FCavrnusSpawnedObject spawnedObject; \
+}; \
+static inline void FCavrnusSpawnedObjectArrived_DelegateWrapper(const FScriptDelegate& CavrnusSpawnedObjectArrived, FCavrnusSpawnedObject spawnedObject) \
+{ \
+	_Script_CavrnusConnector_eventCavrnusSpawnedObjectArrived_Parms Parms; \
+	Parms.spawnedObject=spawnedObject; \
+	CavrnusSpawnedObjectArrived.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_SPARSE_DATA
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_RPC_WRAPPERS
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUCavrnusCallbackTypes(); \
 	friend struct Z_Construct_UClass_UCavrnusCallbackTypes_Statics; \
@@ -309,7 +323,7 @@ public: \
 	DECLARE_SERIALIZER(UCavrnusCallbackTypes)
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_INCLASS \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_INCLASS \
 private: \
 	static void StaticRegisterNativesUCavrnusCallbackTypes(); \
 	friend struct Z_Construct_UClass_UCavrnusCallbackTypes_Statics; \
@@ -318,7 +332,7 @@ public: \
 	DECLARE_SERIALIZER(UCavrnusCallbackTypes)
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_STANDARD_CONSTRUCTORS \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCavrnusCallbackTypes(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCavrnusCallbackTypes) \
@@ -331,7 +345,7 @@ private: \
 public:
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_ENHANCED_CONSTRUCTORS \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCavrnusCallbackTypes(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -344,25 +358,25 @@ public: \
 	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCavrnusCallbackTypes)
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_54_PROLOG
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_GENERATED_BODY_LEGACY \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_59_PROLOG
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_SPARSE_DATA \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_RPC_WRAPPERS \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_INCLASS \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_STANDARD_CONSTRUCTORS \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_SPARSE_DATA \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_RPC_WRAPPERS \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_INCLASS \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_GENERATED_BODY \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_SPARSE_DATA \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_INCLASS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_57_ENHANCED_CONSTRUCTORS \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_SPARSE_DATA \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_INCLASS_NO_PURE_DECLS \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_62_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

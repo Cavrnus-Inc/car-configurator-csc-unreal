@@ -288,10 +288,14 @@ public:
 	// Spawned Objects
 	// ============================================
 
-	//TODO: RETURN FCavrnusSpawnedObject directly!
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Objects",
-		meta = (ToolTip = "Instantiates the given object with no set properties (note you will need to pull the Container ID out of the Spawned Object and assign property values to it)", ShortToolTip = "Instantiates the given object"))
-	static UPARAM(DisplayName = "Container Name") FString SpawnObject(FCavrnusSpaceConnection SpaceConnection, FString UniqueIdentifier);
+		meta = (
+			AutoCreateRefTerm = "spawnedObjectArrived",
+			ToolTip = "Instantiates the given object with no set properties (note you will need to pull the Container ID out of the Spawned Object and assign property values to it)", 
+			ShortToolTip = "Instantiates the given object"))
+	static UPARAM(DisplayName = "Container Name") FString SpawnObject(FCavrnusSpaceConnection SpaceConnection, FString UniqueIdentifier, const FCavrnusSpawnedObjectArrived& spawnedObjectArrived);
+
+	static FString SpawnObject(FCavrnusSpaceConnection SpaceConnection, FString UniqueIdentifier, CavrnusSpawnedObjectFunction spawnedObjectArrived);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Objects",
 		meta = (ToolTip = "Destroys the given object", ShortToolTip = "Destroys the given object"))
