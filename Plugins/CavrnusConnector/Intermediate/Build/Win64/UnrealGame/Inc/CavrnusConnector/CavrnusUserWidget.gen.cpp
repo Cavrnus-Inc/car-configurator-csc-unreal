@@ -11,21 +11,12 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 // Cross Module References
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusUserWidget_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusUserWidget();
-	UMG_API UClass* Z_Construct_UClass_UUserWidget();
+	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusWidgetBase();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpaceConnection();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusUser();
-	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(UCavrnusUserWidget::execUpdateVideoTexture)
-	{
-		P_GET_OBJECT(UTexture2D,Z_Param_InTexture);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->UpdateVideoTexture(Z_Param_InTexture);
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(UCavrnusUserWidget::execInitializeUserConnection)
 	{
 		P_GET_STRUCT_REF(FCavrnusSpaceConnection,Z_Param_Out_InSpaceConnection);
@@ -40,7 +31,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 		UClass* Class = UCavrnusUserWidget::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "InitializeUserConnection", &UCavrnusUserWidget::execInitializeUserConnection },
-			{ "UpdateVideoTexture", &UCavrnusUserWidget::execUpdateVideoTexture },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -97,38 +87,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics
-	{
-		struct CavrnusUserWidget_eventUpdateVideoTexture_Parms
-		{
-			UTexture2D* InTexture;
-		};
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_InTexture;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::NewProp_InTexture = { "InTexture", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusUserWidget_eventUpdateVideoTexture_Parms, InTexture), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::NewProp_InTexture,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/UI/CavrnusUserWidget.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusUserWidget, nullptr, "UpdateVideoTexture", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::CavrnusUserWidget_eventUpdateVideoTexture_Parms), Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCavrnusUserWidget);
 	UClass* Z_Construct_UClass_UCavrnusUserWidget_NoRegister()
 	{
@@ -162,12 +120,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_UCavrnusUserWidget_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UUserWidget,
+		(UObject* (*)())Z_Construct_UClass_UCavrnusWidgetBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusUserWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCavrnusUserWidget_InitializeUserConnection, "InitializeUserConnection" }, // 413622592
-		{ &Z_Construct_UFunction_UCavrnusUserWidget_UpdateVideoTexture, "UpdateVideoTexture" }, // 3914409670
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusUserWidget_Statics::Class_MetaDataParams[] = {
@@ -251,9 +208,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusUserWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusUserWidget, UCavrnusUserWidget::StaticClass, TEXT("UCavrnusUserWidget"), &Z_Registration_Info_UClass_UCavrnusUserWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusUserWidget), 3605497130U) },
+		{ Z_Construct_UClass_UCavrnusUserWidget, UCavrnusUserWidget::StaticClass, TEXT("UCavrnusUserWidget"), &Z_Registration_Info_UClass_UCavrnusUserWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusUserWidget), 4118120425U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusUserWidget_h_2493133339(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusUserWidget_h_1081547082(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusUserWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusUserWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

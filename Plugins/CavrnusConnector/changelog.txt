@@ -1,8 +1,10 @@
-Cavrnus-UE5.0-RelayPlugin-2023.2.524-Dev
-paul.gothard: ue - master [d2450824573aa4d036c9618377d8cd01eecf7d4e]
-Make spawned object callback optional
+C:\_Tools\1_DEV\Cavrnus-UE5.0-RelayPlugin-2023.2.591-Dev
+josh.criz: ue - master [3dea57988bb4c0fe0be9db56a46b28658bd176de]
+Perf Test Cleanup
 
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusFunctionLibrary.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusFunctionLibrary.h
+- Fixed L_PerformanceTestMap to not use my test account credentials
+- Removed variable category that was hiding spawned object ID
+
+	CavrnusPlugin/Content/InternalTesting/Levels/L_PerformanceTestMap.umap
+	CavrnusPlugin/Content/SampleBehaviors/BP_PerfTestSpawner.uasset
 

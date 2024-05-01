@@ -14,25 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusValueSyncBase();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
-	ENGINE_API UClass* Z_Construct_UClass_UMaterialInstanceDynamic_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(UCavrnusValueSyncVector::execSetMaterialDoubleVectorParameterValue)
-	{
-		P_GET_OBJECT(UMaterialInstanceDynamic,Z_Param_Material);
-		P_GET_STRUCT_REF(FVector,Z_Param_Out_Value);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->SetMaterialDoubleVectorParameterValue(Z_Param_Material,Z_Param_Out_Value);
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(UCavrnusValueSyncVector::execVectorPropertyUpdated)
-	{
-		P_GET_STRUCT(FVector,Z_Param_PropertyValue);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->VectorPropertyUpdated(Z_Param_PropertyValue);
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(UCavrnusValueSyncVector::execSetVector)
 	{
 		P_GET_STRUCT(FVector,Z_Param_PropertyValue);
@@ -67,9 +49,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 		UClass* Class = UCavrnusValueSyncVector::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetVector", &UCavrnusValueSyncVector::execGetVector },
-			{ "SetMaterialDoubleVectorParameterValue", &UCavrnusValueSyncVector::execSetMaterialDoubleVectorParameterValue },
 			{ "SetVector", &UCavrnusValueSyncVector::execSetVector },
-			{ "VectorPropertyUpdated", &UCavrnusValueSyncVector::execVectorPropertyUpdated },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -101,51 +81,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics
-	{
-		struct CavrnusValueSyncVector_eventSetMaterialDoubleVectorParameterValue_Parms
-		{
-			UMaterialInstanceDynamic* Material;
-			FVector Value;
-		};
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_Material;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::NewProp_Material = { "Material", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusValueSyncVector_eventSetMaterialDoubleVectorParameterValue_Parms, Material), Z_Construct_UClass_UMaterialInstanceDynamic_NoRegister, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::NewProp_Value_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusValueSyncVector_eventSetMaterialDoubleVectorParameterValue_Parms, Value), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::NewProp_Value_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::NewProp_Value_MetaData)) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::NewProp_Material,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::NewProp_Value,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Cavrnus" },
-		{ "ModuleRelativePath", "Public/CavrnusValueSyncVector.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncVector, nullptr, "SetMaterialDoubleVectorParameterValue", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::CavrnusValueSyncVector_eventSetMaterialDoubleVectorParameterValue_Parms), Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04C20401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector_Statics
 	{
 		static const UECodeGen_Private::FStructPropertyParams NewProp_PropertyValue;
@@ -174,38 +109,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics
-	{
-		struct CavrnusValueSyncVector_eventVectorPropertyUpdated_Parms
-		{
-			FVector PropertyValue;
-		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_PropertyValue;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::NewProp_PropertyValue = { "PropertyValue", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusValueSyncVector_eventVectorPropertyUpdated_Parms, PropertyValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::NewProp_PropertyValue,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/CavrnusValueSyncVector.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncVector, nullptr, "VectorPropertyUpdated", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::CavrnusValueSyncVector_eventVectorPropertyUpdated_Parms), Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00820401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCavrnusValueSyncVector);
 	UClass* Z_Construct_UClass_UCavrnusValueSyncVector_NoRegister()
 	{
@@ -227,9 +130,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusValueSyncVector_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCavrnusValueSyncVector_GetVector, "GetVector" }, // 1393934692
-		{ &Z_Construct_UFunction_UCavrnusValueSyncVector_SetMaterialDoubleVectorParameterValue, "SetMaterialDoubleVectorParameterValue" }, // 1423122953
 		{ &Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector, "SetVector" }, // 28436837
-		{ &Z_Construct_UFunction_UCavrnusValueSyncVector_VectorPropertyUpdated, "VectorPropertyUpdated" }, // 3693959993
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusValueSyncVector_Statics::Class_MetaDataParams[] = {
@@ -278,9 +179,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncVector_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusValueSyncVector, UCavrnusValueSyncVector::StaticClass, TEXT("UCavrnusValueSyncVector"), &Z_Registration_Info_UClass_UCavrnusValueSyncVector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncVector), 2949903061U) },
+		{ Z_Construct_UClass_UCavrnusValueSyncVector, UCavrnusValueSyncVector::StaticClass, TEXT("UCavrnusValueSyncVector"), &Z_Registration_Info_UClass_UCavrnusValueSyncVector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncVector), 3461465849U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncVector_h_2814601475(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncVector_h_3921024059(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncVector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncVector_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -1,6 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
+#include <Engine/GameInstance.h>
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "UObject/Object.h"
 
 #include "Types/CavrnusAuthentication.h"
 #include "Types/CavrnusSpawnedObject.h"
@@ -71,10 +73,19 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
 	UPDFManager* GetPDFManager();
-protected:
-	void ShowGuestLoginWidget();
 
-	void ShowLoginWidget();
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
+	class UCavrnusUIManager* GetUIManager();
+
+private:
+	UFUNCTION()
+	void OnPawnControllerChanged(APawn* InPawn, AController* InController);
+
+	UFUNCTION()
+	void OnPossessedPawnChanged(APawn* OldPawn, APawn* NewPawn);
+
+	UFUNCTION()
+	void AttachLocalUserComponentToPawn();
 
 private:
 	TWeakObjectPtr<ACavrnusSpatialConnector> CurrentCavrnusSpatialConnector;
@@ -83,6 +94,9 @@ private:
 	FCavrnusError AuthFailure;
 	FCavrnusSpaceConnected SpaceConnectionSuccess;
 	FCavrnusError SpaceConnectionFailure;
+
+	UPROPERTY()
+	class UCavrnusUIManager* UIManager;
 
 	UPROPERTY()
 	FCavrnusAuthentication Authentication;
@@ -99,27 +113,12 @@ private:
 	UPROPERTY()
 	UPDFManager* PDFManager;
 
-	UPROPERTY()
-	UUserWidget* LoadingWidget;
+	TWeakObjectPtr<UGameInstance> GameInstance;
+	TWeakObjectPtr<UObject> ObjectOwner;
 
-	UPROPERTY()
-	UGameInstance* GameInstance;
-
-	UPROPERTY()
-	UObject* ObjectOwner;
-
-	UFUNCTION()
-	UUserWidget* SpawnWidget(TSubclassOf<UUserWidget> WidgetClass);
-
-	UFUNCTION()
-	void OnPawnControllerChanged(APawn* InPawn, AController* InController);
-
-	UFUNCTION()
-	void OnPossessedPawnChanged(APawn* OldPawn, APawn* NewPawn);
-
-	UFUNCTION()
-	void AttachLocalUserComponentToPawn();
-
+public:
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus")
+	bool bInEditorMode = false;
 };
 
 // Class definition

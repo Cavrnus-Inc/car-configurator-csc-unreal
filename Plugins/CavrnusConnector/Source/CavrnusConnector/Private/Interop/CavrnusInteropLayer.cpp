@@ -4,6 +4,8 @@
 #include <HAL/FileManager.h>
 #include <Misc/Paths.h>
 
+#define PERFORMANCE_TRACKING 0
+
 namespace Cavrnus
 {
 
@@ -42,6 +44,8 @@ namespace Cavrnus
 	//===============================================================
 	CavrnusInteropLayer::~CavrnusInteropLayer()
 	{
+		LogPerformance();
+
 		//Kill RelayNet.exe process
 		if (ServiceIsStarted)
 		{
@@ -76,6 +80,28 @@ namespace Cavrnus
 		Status_ = newStatus;
 	}
 
+	//===============================================================
+	void CavrnusInteropLayer::LogPerformance()
+	{
+#if PERFORMANCE_TRACKING
+		int totalEntries = 0;
+		int totalMessages = 0;
+		int maxMessagesPerSecond = 0;
+		float avgMessagesPerSecond = 0;
+
+		for (std::map<int, int>::iterator it = PropertiesSentPerSecond.begin(); it != PropertiesSentPerSecond.end(); it++)
+		{
+			totalEntries++;
+			totalMessages += it->second;
+			maxMessagesPerSecond = it->second > maxMessagesPerSecond ? it->second : maxMessagesPerSecond;
+			avgMessagesPerSecond = (float)(totalMessages) / (float)(totalEntries);
+		}
+		UE_LOG(LogTemp, Log, TEXT("Total number of messages: %d"), totalMessages);
+		UE_LOG(LogTemp, Log, TEXT("Total number of 1 second time windows: %d"), totalEntries);
+		UE_LOG(LogTemp, Log, TEXT("Max messages per second: %d"), maxMessagesPerSecond);
+		UE_LOG(LogTemp, Log, TEXT("Average messages per second: %f"), avgMessagesPerSecond);
+#endif
+	}
 
 	//===============================================================
 	void CavrnusInteropLayer::SendMessage(const ServerData::RelayClientMessage& message)
@@ -146,7 +172,21 @@ namespace Cavrnus
 			{
 				// lock the message queue while we're processing it
 				std::lock_guard<std::mutex> lock(Send_mutex_);
-				
+
+#if PERFORMANCE_TRACKING				
+				int seconds = (int)(FPlatformTime::Seconds());
+				int numMessages = SendMessageBatch.messages_size();
+				std::map<int,int>::iterator it = PropertiesSentPerSecond.find(seconds);
+				if (it != PropertiesSentPerSecond.end())
+				{
+					it->second += numMessages;
+				}
+				else
+				{
+					PropertiesSentPerSecond[seconds] = numMessages;
+				}
+#endif
+
 				// Send the message to the server
 				Client_.SendMessage(SendMessageBatch);
 

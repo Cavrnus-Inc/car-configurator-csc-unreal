@@ -14,6 +14,7 @@
 
 #include <HAL/PlatformFileManager.h>
 #include <Async/Async.h>
+#include <Misc/Paths.h>
 
 APDFBoard::APDFBoard(const FObjectInitializer& ObjectInitializer)
 	: ABoardObject(ObjectInitializer)

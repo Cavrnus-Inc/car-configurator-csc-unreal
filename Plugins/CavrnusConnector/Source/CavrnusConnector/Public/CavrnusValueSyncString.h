@@ -20,9 +20,6 @@ public:
 	// Destructor
 	~UCavrnusValueSyncString();
 
-	virtual void BeginPlay();
-	virtual void EndPlay(EEndPlayReason::Type Reason);
-
 	UFUNCTION(BlueprintNativeEvent)
 	FString GetString();
 	virtual FString GetString_Implementation() { return ""; }
@@ -31,24 +28,6 @@ public:
 	void SetString(const FString& PropertyValue);
 	virtual void SetString_Implementation(const FString& PropertyValue) {}
 
-	UFUNCTION()
-	void StringPropertyUpdated(FString PropertyValue);
-
-	void PostStringToServerTransiently();
-
-	// --------------------- IPropertySyncInterface implementation ---------------------------------------
-
-	void DefineDefaultPropertyValue();
-
-	FCavrnusBinding BindPropertyValue();
-
-	void SendPropertyChanges();
-
-	// ----------------------------------------------------------------------------------------------------
-
-protected:
-
-	FCavrnusSpaceConnected OnSpaceConnected;
-	FStringPropertyUpdated OnStringPropertyUpdated;
-	FString lastPostedTransientValue;
+	Cavrnus::FPropertyValue GetPropertyValue() override;
+	void SetPropertyValue(Cavrnus::FPropertyValue value) override;
 };

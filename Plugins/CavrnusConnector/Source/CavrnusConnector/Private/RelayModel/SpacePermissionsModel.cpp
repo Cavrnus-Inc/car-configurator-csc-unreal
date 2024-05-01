@@ -1,4 +1,4 @@
-﻿#include "SpacePermissionsModel.h"
+﻿#include "RelayModel/SpacePermissionsModel.h"
 
 namespace Cavrnus
 {

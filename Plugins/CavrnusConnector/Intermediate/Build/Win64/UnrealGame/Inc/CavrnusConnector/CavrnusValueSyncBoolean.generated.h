@@ -18,14 +18,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	virtual void SetBoolean_Implementation(bool bPropertyValue); \
 	virtual bool GetBoolean_Implementation(); \
  \
-	DECLARE_FUNCTION(execBooleanPropertyUpdated); \
 	DECLARE_FUNCTION(execSetBoolean); \
 	DECLARE_FUNCTION(execGetBoolean);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncBoolean_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execBooleanPropertyUpdated); \
 	DECLARE_FUNCTION(execSetBoolean); \
 	DECLARE_FUNCTION(execGetBoolean);
 

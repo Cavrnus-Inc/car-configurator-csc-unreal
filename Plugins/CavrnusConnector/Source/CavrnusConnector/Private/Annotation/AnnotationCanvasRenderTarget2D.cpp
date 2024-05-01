@@ -13,6 +13,7 @@
 #include "Materials/MaterialInstanceDynamic.h"
 #include <Misc/EngineVersionComparison.h>
 #ifdef UE_5_4_LINKER_FIX
+#include <Engine/Texture2D.h>
 #include <ImageCoreUtils.h>
 #endif
 

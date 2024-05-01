@@ -24,39 +24,28 @@ void UCavrnusUserWidget::InitializeUserConnection(const FCavrnusSpaceConnection&
 
 void UCavrnusUserWidget::BindUserVideo()
 {
-	if (!UserVideoFrameEvent.IsBound())
-	{
-		UserVideoFrameEvent.BindUFunction(this, GET_FUNCTION_NAME_CHECKED(UCavrnusUserWidget, UpdateVideoTexture));
-	}
+	auto UserVideoFrameUpdate = [this](UTexture2D* InTexture) {
+		if (!RtcStreamImage)
+		{
+			return;
+		}
 
-	UserVideoFrameBinding = UCavrnusFunctionLibrary::BindUserVideoFrames(SpaceConnection, User, UserVideoFrameEvent);
+		if (InTexture)
+		{
+			RtcStreamImage->SetBrushFromTexture(InTexture);
+		}
+
+		//RtcStreamImage->Brush.SetImageSize(FVector2D(InTexture->GetSizeX(), InTexture->GetSizeY()));
+	};
+
+	UserVideoFrameBinding = UCavrnusFunctionLibrary::BindUserVideoFrames(SpaceConnection, User, UserVideoFrameUpdate);
 }
 
 void UCavrnusUserWidget::UnbindUserVideo()
 {
-	if (UserVideoFrameEvent.IsBound())
-	{
-		UserVideoFrameEvent.Clear();
-	}
-
 	if (UserVideoFrameBinding.Unhook)
 	{
 		UserVideoFrameBinding.Unhook();
 	}
-}
-
-void UCavrnusUserWidget::UpdateVideoTexture(UTexture2D* InTexture)
-{
-	if (!RtcStreamImage)
-	{
-		return;
-	}
-
-	if (InTexture)
-	{
-		RtcStreamImage->SetBrushFromTexture(InTexture);
-	}
-
-	//RtcStreamImage->Brush.SetImageSize(FVector2D(InTexture->GetSizeX(), InTexture->GetSizeY()));
 }
 

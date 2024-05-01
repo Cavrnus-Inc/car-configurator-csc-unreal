@@ -12,6 +12,8 @@
 #include "Types/CavrnusUser.h"
 #include "Types/CavrnusBinding.h"
 #include "Types/CavrnusSpawnedObject.h"
+#include "RelayModel/CavrnusPropertyValue.h"
+#include "CavrnusRemoteContent.h"
 
 // Always last
 #include "CavrnusCallbackTypes.generated.h"
@@ -19,14 +21,19 @@
  *
  */
 
+typedef TFunction<void(FCavrnusSpaceConnection)> CavrnusSpaceFunction;
+typedef TFunction<void(Cavrnus::FPropertyValue, FString, FString)> CavrnusPropertyFunction;
 typedef TFunction<void(FString, FString, FString)> CavrnusStringFunction;
 typedef TFunction<void(bool, FString, FString)> CavrnusBoolFunction;
 typedef TFunction<void(float, FString, FString)> CavrnusFloatFunction;
 typedef TFunction<void(FLinearColor, FString, FString)> CavrnusColorFunction;
 typedef TFunction<void(FVector4, FString, FString)> CavrnusVectorFunction;
 typedef TFunction<void(FTransform, FString, FString)> CavrnusTransformFunction;
-
+typedef TFunction<void(UTexture2D*)> VideoFrameUpdateFunction;
 typedef TFunction<void(FCavrnusSpawnedObject)> CavrnusSpawnedObjectFunction;
+typedef TFunction<void(float, FString)> CavrnusContentProgressFunction;
+typedef TFunction<void(TArray<uint8>)> CavrnusContentFunction;
+typedef TFunction<void(TArray<FCavrnusRemoteContent>)> CavrnusRemoteContentFunction;
 
 DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusError, FString, Error);
 
@@ -55,6 +62,12 @@ DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusAvailableVideoInputDevices, const TArr
 DECLARE_DYNAMIC_DELEGATE_TwoParams(FCavrnusPolicyUpdated, FString, Policy, bool, IsAllowed);
 
 DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSpawnedObjectArrived, FCavrnusSpawnedObject, spawnedObject);
+
+DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusContentFunction, const TArray<uint8>&, bytes);
+DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusContentFileFunction, FString, fileDest);
+DECLARE_DYNAMIC_DELEGATE_TwoParams(FCavrnusContentProgressFunction, float, Progress, FString, Step);
+
+DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusRemoteContentFunction, const TArray<FCavrnusRemoteContent>&, availableContent);
 
 UCLASS(Abstract)
 class UCavrnusCallbackTypes : public UBlueprintFunctionLibrary

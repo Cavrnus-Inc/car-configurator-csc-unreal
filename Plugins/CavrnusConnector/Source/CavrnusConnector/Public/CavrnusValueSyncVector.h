@@ -19,9 +19,6 @@ public:
 	// Destructor
 	~UCavrnusValueSyncVector();
 
-	virtual void BeginPlay();
-	virtual void EndPlay(EEndPlayReason::Type Reason);
-
 	UFUNCTION(BlueprintNativeEvent)
 	FVector GetVector();
 	virtual FVector GetVector_Implementation() { return FVector(); }
@@ -30,27 +27,6 @@ public:
 	void SetVector(FVector PropertyValue);
 	virtual void SetVector_Implementation(FVector PropertyValue) {}
 
-	UFUNCTION()
-	void VectorPropertyUpdated(FVector PropertyValue);
-
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	void SetMaterialDoubleVectorParameterValue(UMaterialInstanceDynamic* Material, const FVector& Value);
-
-	void PostVectorToServerTransiently();
-
-	// --------------------- IPropertySyncInterface implementation ---------------------------------------
-
-	void DefineDefaultPropertyValue();
-
-	FCavrnusBinding BindPropertyValue();
-
-	void SendPropertyChanges();
-
-	// ----------------------------------------------------------------------------------------------------
-
-protected:
-
-	FCavrnusSpaceConnected OnSpaceConnected;
-	FVectorPropertyUpdated OnVectorPropertyUpdated;
-	FVector lastPostedTransientValue;
+	Cavrnus::FPropertyValue GetPropertyValue() override;
+	void SetPropertyValue(Cavrnus::FPropertyValue value) override;
 };

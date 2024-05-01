@@ -14,14 +14,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncFloat() {}
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusValueSyncBase();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 // End Cross Module References
-	DEFINE_FUNCTION(UCavrnusValueSyncFloat::execFloatPropertyUpdated)
-	{
-		P_GET_PROPERTY(FFloatProperty,Z_Param_PropertyValue);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->FloatPropertyUpdated(Z_Param_PropertyValue);
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(UCavrnusValueSyncFloat::execSetFloat)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_PropertyValue);
@@ -55,43 +47,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncFloat() {}
 	{
 		UClass* Class = UCavrnusValueSyncFloat::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "FloatPropertyUpdated", &UCavrnusValueSyncFloat::execFloatPropertyUpdated },
 			{ "GetFloat", &UCavrnusValueSyncFloat::execGetFloat },
 			{ "SetFloat", &UCavrnusValueSyncFloat::execSetFloat },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics
-	{
-		struct CavrnusValueSyncFloat_eventFloatPropertyUpdated_Parms
-		{
-			float PropertyValue;
-		};
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_PropertyValue;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::NewProp_PropertyValue = { "PropertyValue", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusValueSyncFloat_eventFloatPropertyUpdated_Parms, PropertyValue), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::NewProp_PropertyValue,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/CavrnusValueSyncFloat.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncFloat, nullptr, "FloatPropertyUpdated", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::CavrnusValueSyncFloat_eventFloatPropertyUpdated_Parms), Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat_Statics
 	{
@@ -169,7 +128,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncFloat() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusValueSyncFloat_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusValueSyncFloat_FloatPropertyUpdated, "FloatPropertyUpdated" }, // 2644208854
 		{ &Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat, "GetFloat" }, // 3360717617
 		{ &Z_Construct_UFunction_UCavrnusValueSyncFloat_SetFloat, "SetFloat" }, // 2409117386
 	};
@@ -220,9 +178,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncFloat() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncFloat_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusValueSyncFloat, UCavrnusValueSyncFloat::StaticClass, TEXT("UCavrnusValueSyncFloat"), &Z_Registration_Info_UClass_UCavrnusValueSyncFloat, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncFloat), 2662016607U) },
+		{ Z_Construct_UClass_UCavrnusValueSyncFloat, UCavrnusValueSyncFloat::StaticClass, TEXT("UCavrnusValueSyncFloat"), &Z_Registration_Info_UClass_UCavrnusValueSyncFloat, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncFloat), 3952019349U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncFloat_h_3804293599(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncFloat_h_1975539777(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncFloat_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncFloat_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

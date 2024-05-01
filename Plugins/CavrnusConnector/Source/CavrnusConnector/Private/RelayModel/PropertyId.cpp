@@ -1,64 +1,61 @@
-﻿#include "PropertyId.h"
+﻿#include "RelayModel/PropertyId.h"
 
-namespace Cavrnus
+FPropertyId::FPropertyId()
 {
-	PropertyId::PropertyId()
-	{
-		PropValueId = "";
-		ContainerName = "";
-	}
-	PropertyId::PropertyId(FString fullName)
-	{
-		if (fullName.StartsWith("/"))
-			fullName.RemoveFromStart("/");
-		if (fullName.EndsWith("/"))
-			fullName.RemoveFromEnd("/");
+	PropValueId = "";
+	ContainerName = "";
+}
+FPropertyId::FPropertyId(FString fullName)
+{
+	if (fullName.StartsWith("/"))
+		fullName.RemoveFromStart("/");
+	if (fullName.EndsWith("/"))
+		fullName.RemoveFromEnd("/");
 
-		PropValueId = "";
-		for (int i = fullName.Len() - 1; i >= 0; i--) 
+	PropValueId = "";
+	for (int i = fullName.Len() - 1; i >= 0; i--) 
+	{
+		if (fullName[i] == '/') 
 		{
-			if (fullName[i] == '/') 
-			{
-				PropValueId = PropValueId.Reverse();
-				break;
-			}
-			PropValueId.AppendChar(fullName[i]);
+			PropValueId = PropValueId.Reverse();
+			break;
 		}
-
-		ContainerName = fullName;
-		ContainerName.RemoveFromEnd("/" + PropValueId);
+		PropValueId.AppendChar(fullName[i]);
 	}
 
-	PropertyId::PropertyId(FString containerName, FString propId)
-	{
-		PropValueId = propId;
-		ContainerName = containerName;
+	ContainerName = fullName;
+	ContainerName.RemoveFromEnd("/" + PropValueId);
+}
 
-		//Clean up & standardize the ContainerName
-		if (ContainerName.StartsWith("/"))
-			ContainerName.RemoveFromStart("/");
-		if (ContainerName.EndsWith("/"))
-			ContainerName.RemoveFromEnd("/");
-	}
+FPropertyId::FPropertyId(FString containerName, FString propId)
+{
+	PropValueId = propId;
+	ContainerName = containerName;
 
-	PropertyId::~PropertyId()
-	{
+	//Clean up & standardize the ContainerName
+	if (ContainerName.StartsWith("/"))
+		ContainerName.RemoveFromStart("/");
+	if (ContainerName.EndsWith("/"))
+		ContainerName.RemoveFromEnd("/");
+}
 
-	}
+FPropertyId::~FPropertyId()
+{
 
-	/*FString PropertyId::GetCombinedName()
-	{
-		return ContainerName + "/" + PropValueId;
-	}*/
+}
 
-	const FString PropertyId::GetCombinedName(PropertyId pId)
-	{
-		return pId.ContainerName + "/" + pId.PropValueId;
-	}
+/*FString FPropertyId::GetCombinedName()
+{
+	return ContainerName + "/" + PropValueId;
+}*/
 
-	bool Cavrnus::PropertyId::operator==(const PropertyId& other) const
-	{
-		return ContainerName.Equals(other.ContainerName, ESearchCase::CaseSensitive) && PropValueId.Equals(other.PropValueId, ESearchCase::CaseSensitive);
-	}
+const FString FPropertyId::GetCombinedName(FPropertyId pId)
+{
+	return pId.ContainerName + "/" + pId.PropValueId;
+}
+
+bool FPropertyId::operator==(const FPropertyId& other) const
+{
+	return ContainerName.Equals(other.ContainerName, ESearchCase::CaseSensitive) && PropValueId.Equals(other.PropValueId, ESearchCase::CaseSensitive);
 }
 

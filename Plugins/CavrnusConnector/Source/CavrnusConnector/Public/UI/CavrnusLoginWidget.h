@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "UI/CavrnusWidgetBase.h"
 
 #include <Blueprint/UserWidget.h>
 
@@ -19,9 +20,15 @@ class UTexture2D;
 DECLARE_MULTICAST_DELEGATE_TwoParams(FOnLoginClicked, FString, FString);
 
 UCLASS(Abstract)
-class CAVRNUSCONNECTOR_API UCavrnusLoginWidget : public UUserWidget
+class CAVRNUSCONNECTOR_API UCavrnusLoginWidget : public UCavrnusWidgetBase
 {
 	GENERATED_BODY()
+
+public:
+	void InitializeCavrnusWidget() override;
+
+	UFUNCTION()
+	void OnLoginClicked();
 
 public:
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
@@ -33,11 +40,5 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
 	class UButton* LoginButton;
 
-	UFUNCTION()
-	void OnLoginClicked();
-
 	FOnLoginClicked OnLogin;
-
-private:
-	void NativeOnInitialized() override;
 };

@@ -10,28 +10,17 @@ UCavrnusLiveVectorPropertyUpdate::~UCavrnusLiveVectorPropertyUpdate()
 {
 }
 
-void UCavrnusLiveVectorPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const Cavrnus::PropertyId& propertyId, FVector value)
+void UCavrnusLiveVectorPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, FVector value)
 {
-	Super::Initialize(relayModel, spaceConn, propertyId);
-
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::VectorPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildBeginLiveVectorUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate = Cavrnus::CavrnusVirtualPropertyUpdate(relayModel, spaceConn, propertyId, Cavrnus::FPropertyValue::VectorPropValue(value));
 }
 
 void UCavrnusLiveVectorPropertyUpdate::UpdateWithNewData(FVector value)
 {
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::VectorPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildContinueLiveVectorUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate.UpdateWithNewData(Cavrnus::FPropertyValue::VectorPropValue(value));
 }
 
 void UCavrnusLiveVectorPropertyUpdate::Finalize(FVector value)
 {
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::VectorPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFinalizeLiveVectorUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate.Finalize(Cavrnus::FPropertyValue::VectorPropValue(value));
 }

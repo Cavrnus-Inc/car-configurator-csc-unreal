@@ -13,9 +13,9 @@
 #include "Types/CavrnusUser.h"
 #include "Types/CavrnusSpawnedObject.h"
 #include "Types/CavrnusBinding.h"
-#include "../Private/RelayModel/PropertyId.h"
+#include "RelayModel/CavrnusRelayModel.h"
+#include "RelayModel/PropertyId.h"
 #include "Types/CavrnusCallbackTypes.h"
-#include "../Private/RelayModel/CavrnusRelayModel.h"
 
 #include <algorithm>
 
@@ -67,6 +67,9 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus")
 	static class UCavrnusSpatialConnectorSubSystemProxy* GetCavrnusSpatialConnectorSubSystemProxy();
 
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus")
+	static class ACavrnusSpatialConnector* GetCavrnusSpatialConnector();
+
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Authentication",
 		meta = (ToolTip = "Checks if you are logged in", ShortToolTip = "Checks if you are logged in"))
 	static bool IsLoggedIn();
@@ -115,6 +118,8 @@ public:
 		meta = (ToolTip = "Triggers immediately if you are already in a space, otherwise triggers as soon as you connect", ShortToolTip = "Triggers as soon as you connect to a space"))
 	static void AwaitAnySpaceConnection(FCavrnusSpaceConnected OnConnected);
 
+	static void AwaitAnySpaceConnection(CavrnusSpaceFunction OnConnected);
+
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
 		meta = (ToolTip = "Disconnects you from a given space.  You will stop recieving property updates, and lose user & voice connections", ShortToolTip = "Disconnects you from a given space"))
 	static void ExitSpace(FCavrnusSpaceConnection SpaceConnection);
@@ -124,6 +129,17 @@ public:
 	// ============================================
 	// Property Functions
 	// ============================================
+
+#pragma region Generic Prop Functions
+	static void DefineGenericPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, Cavrnus::FPropertyValue PropertyValue, bool overrideExistingDefault = true);
+
+	static Cavrnus::FPropertyValue GetGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName);
+
+	static FCavrnusBinding BindGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, const CavrnusPropertyFunction& OnPropertyUpdated);
+
+	static void PostGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, Cavrnus::FPropertyValue PropertyValue);
+
+#pragma endregion
 
 #pragma region Color Prop Functions
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
@@ -289,10 +305,7 @@ public:
 	// ============================================
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Objects",
-		meta = (
-			AutoCreateRefTerm = "spawnedObjectArrived",
-			ToolTip = "Instantiates the given object with no set properties (note you will need to pull the Container ID out of the Spawned Object and assign property values to it)", 
-			ShortToolTip = "Instantiates the given object"))
+		meta = (AutoCreateRefTerm = "spawnedObjectArrived",	ToolTip = "Instantiates the given object with no set properties (note you will need to pull the Container ID out of the Spawned Object and assign property values to it)", ShortToolTip = "Instantiates the given object"))
 	static UPARAM(DisplayName = "Container Name") FString SpawnObject(FCavrnusSpaceConnection SpaceConnection, FString UniqueIdentifier, const FCavrnusSpawnedObjectArrived& spawnedObjectArrived);
 
 	static FString SpawnObject(FCavrnusSpaceConnection SpaceConnection, FString UniqueIdentifier, CavrnusSpawnedObjectFunction spawnedObjectArrived);
@@ -331,6 +344,7 @@ public:
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, FCavrnusUserVideoFrameEvent OnVideoFrameUpdate);
 
+	static FCavrnusBinding BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, const VideoFrameUpdateFunction& UpdateFrameCallback);
 #pragma endregion
 
 #pragma region Voice and Video
@@ -374,18 +388,24 @@ public:
 
 
 #pragma region Remote Content
-	//TODO:
-	/*
-	public static void FetchFileById(CavrnusSpaceConnection spaceConn, string id, Action<string, float> progress, Func<Stream, long, Task> onStreamLoaded)
-		{
-			CavrnusContentHelpers.FetchFileById(spaceConn, id, progress, onStreamLoaded);
-		}
 
-		public static void FetchAllUploadedContent(Action<List<CavrnusRemoteContent>> onCurrentContentArrived)
-		{
-			CavrnusContentHelpers.FetchAllUploadedContent(onCurrentContentArrived);
-		}
-		*/
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
+		meta = (ToolTip = "Downloads the given content on your device and returns an array of its bytes", ShortToolTip = "Downloads the given content"))
+	static void FetchFileById(FCavrnusSpaceConnection SpaceConnection, FString ContentId, FCavrnusContentProgressFunction OnProgress, FCavrnusContentFunction OnContentLoaded);
+
+	static void FetchFileById(FCavrnusSpaceConnection SpaceConnection, FString ContentId, const CavrnusContentProgressFunction& OnProgress, const CavrnusContentFunction& OnContentLoaded);
+
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
+		meta = (ToolTip = "Downloads the given content to your disk and returns the filepath", ShortToolTip = "Downloads the given content"))
+	static void FetchFileByIdToDisk(FCavrnusSpaceConnection SpaceConnection, FString ContentId, FString FileDestination, FCavrnusContentProgressFunction OnProgress, FCavrnusContentFileFunction OnContentLoaded);
+
+	static void FetchFileByIdToDisk(FCavrnusSpaceConnection SpaceConnection, FString ContentId, FString FileDestination, const CavrnusContentProgressFunction& OnProgress, const TFunction<void(FString)>& OnContentLoaded);
+
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
+		meta = (ToolTip = "Fetch metadata on all uploaded content stored on the Cavrnus server", ShortToolTip = "Fetch metadata on all uploaded content"))
+	static void FetchAllUploadedContent(FCavrnusRemoteContentFunction OnAvailableContentFetched);
+
+	static void FetchAllUploadedContent(const CavrnusRemoteContentFunction& OnAvailableContentFetched);
 
 #pragma endregion
 

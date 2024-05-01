@@ -18,14 +18,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	virtual void SetFloat_Implementation(float PropertyValue); \
 	virtual float GetFloat_Implementation(); \
  \
-	DECLARE_FUNCTION(execFloatPropertyUpdated); \
 	DECLARE_FUNCTION(execSetFloat); \
 	DECLARE_FUNCTION(execGetFloat);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncFloat_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execFloatPropertyUpdated); \
 	DECLARE_FUNCTION(execSetFloat); \
 	DECLARE_FUNCTION(execGetFloat);
 

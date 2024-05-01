@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "UI/CavrnusWidgetBase.h"
 
 #include <Blueprint/UserWidget.h>
 
@@ -17,19 +18,19 @@
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnCavrnusSpaceSelected, FString);
 
 UCLASS(Abstract)
-class CAVRNUSCONNECTOR_API UCavrnusSpaceListWidget : public UUserWidget
+class CAVRNUSCONNECTOR_API UCavrnusSpaceListWidget : public UCavrnusWidgetBase
 {
 	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintImplementableEvent, Category = "Cavrnus")
+	FString GetSpaceID(UObject* Item);
+
+	void InitializeCavrnusWidget() override;
 
 public:
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
 	class UListView* SpaceList;
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "Cavrnus")
-	FString GetSpaceID(UObject* Item);
-
 	FOnCavrnusSpaceSelected OnCavrnusSpaceSelected;
-
-private:
-	void NativeOnInitialized() override;
 };

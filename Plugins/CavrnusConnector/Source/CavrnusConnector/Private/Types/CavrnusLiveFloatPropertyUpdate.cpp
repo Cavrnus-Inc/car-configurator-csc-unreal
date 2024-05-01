@@ -10,28 +10,17 @@ UCavrnusLiveFloatPropertyUpdate::~UCavrnusLiveFloatPropertyUpdate()
 {
 }
 
-void UCavrnusLiveFloatPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const Cavrnus::PropertyId& propertyId, float value)
+void UCavrnusLiveFloatPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, float value)
 {
-	Super::Initialize(relayModel, spaceConn, propertyId);
-
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::FloatPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildBeginLiveFloatUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate = Cavrnus::CavrnusVirtualPropertyUpdate(relayModel, spaceConn, propertyId, Cavrnus::FPropertyValue::FloatPropValue(value));
 }
 
 void UCavrnusLiveFloatPropertyUpdate::UpdateWithNewData(float value)
 {
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::FloatPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildContinueLiveFloatUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate.UpdateWithNewData(Cavrnus::FPropertyValue::FloatPropValue(value));
 }
 
 void UCavrnusLiveFloatPropertyUpdate::Finalize(float value)
 {
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::FloatPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFinalizeLiveFloatUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate.Finalize(Cavrnus::FPropertyValue::FloatPropValue(value));
 }

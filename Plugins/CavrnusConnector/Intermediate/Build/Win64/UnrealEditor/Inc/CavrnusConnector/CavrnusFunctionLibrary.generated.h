@@ -9,10 +9,10 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UObject;
+struct FCavrnusSpaceConnection;
 struct FCavrnusVideoInputDevice;
 struct FCavrnusOutputDevice;
 struct FCavrnusInputDevice;
-struct FCavrnusSpaceConnection;
 struct FCavrnusUser;
 struct FCavrnusBinding;
 class AActor;
@@ -24,6 +24,7 @@ class UCavrnusLiveFloatPropertyUpdate;
 class UCavrnusLiveBoolPropertyUpdate;
 struct FLinearColor;
 class UCavrnusLiveColorPropertyUpdate;
+class ACavrnusSpatialConnector;
 class UCavrnusSpatialConnectorSubSystemProxy;
 #ifdef CAVRNUSCONNECTOR_CavrnusFunctionLibrary_generated_h
 #error "CavrnusFunctionLibrary.generated.h already included, missing '#pragma once' in CavrnusFunctionLibrary.h"
@@ -34,6 +35,9 @@ class UCavrnusSpatialConnectorSubSystemProxy;
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execSetInputModeMix); \
+	DECLARE_FUNCTION(execFetchAllUploadedContent); \
+	DECLARE_FUNCTION(execFetchFileByIdToDisk); \
+	DECLARE_FUNCTION(execFetchFileById); \
 	DECLARE_FUNCTION(execUpdateVideoInput); \
 	DECLARE_FUNCTION(execFetchVideoInputs); \
 	DECLARE_FUNCTION(execUpdateAudioOutput); \
@@ -92,6 +96,7 @@ class UCavrnusSpatialConnectorSubSystemProxy;
 	DECLARE_FUNCTION(execAuthenticateAsGuest); \
 	DECLARE_FUNCTION(execAuthenticateWithPassword); \
 	DECLARE_FUNCTION(execIsLoggedIn); \
+	DECLARE_FUNCTION(execGetCavrnusSpatialConnector); \
 	DECLARE_FUNCTION(execGetCavrnusSpatialConnectorSubSystemProxy); \
 	DECLARE_FUNCTION(execUnbind);
 
@@ -99,6 +104,9 @@ class UCavrnusSpatialConnectorSubSystemProxy;
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execSetInputModeMix); \
+	DECLARE_FUNCTION(execFetchAllUploadedContent); \
+	DECLARE_FUNCTION(execFetchFileByIdToDisk); \
+	DECLARE_FUNCTION(execFetchFileById); \
 	DECLARE_FUNCTION(execUpdateVideoInput); \
 	DECLARE_FUNCTION(execFetchVideoInputs); \
 	DECLARE_FUNCTION(execUpdateAudioOutput); \
@@ -157,6 +165,7 @@ class UCavrnusSpatialConnectorSubSystemProxy;
 	DECLARE_FUNCTION(execAuthenticateAsGuest); \
 	DECLARE_FUNCTION(execAuthenticateWithPassword); \
 	DECLARE_FUNCTION(execIsLoggedIn); \
+	DECLARE_FUNCTION(execGetCavrnusSpatialConnector); \
 	DECLARE_FUNCTION(execGetCavrnusSpatialConnectorSubSystemProxy); \
 	DECLARE_FUNCTION(execUnbind);
 

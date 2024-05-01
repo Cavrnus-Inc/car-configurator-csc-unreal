@@ -20,7 +20,7 @@ ABoardObject::ABoardObject(const FObjectInitializer& ObjectInitializer)
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	const ConstructorHelpers::FObjectFinder<UStaticMesh> BPMesh(TEXT("StaticMesh'/CavrnusConnector/Assets/SM_Whiteboard.SM_Whiteboard'"));
+	const ConstructorHelpers::FObjectFinder<UStaticMesh> BPMesh(TEXT("StaticMesh'/Game/Boards/SM_Whiteboard.SM_Whiteboard'"));
 	if (BPMesh.Succeeded())
 	{
 		MeshComponent->SetStaticMesh(BPMesh.Object);

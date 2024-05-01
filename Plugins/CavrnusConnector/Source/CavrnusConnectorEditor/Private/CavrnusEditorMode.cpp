@@ -9,6 +9,7 @@
 #include "CavrnusSpatialConnector.h"
 #include "CavrnusConnectorEditorModule.h"
 #include "CavrnusValueSyncBase.h"
+#include "UI/CavrnusUIManager.h"
 
 #include <EngineUtils.h>
 #include <Async/Async.h>
@@ -34,19 +35,16 @@ void FCavrnusEditorMode::Enter()
 	{
 		SubSystemProxy = NewObject<UCavrnusSpatialConnectorSubSystemProxy>(EditorWorld);
 	}
+	SubSystemProxy->bInEditorMode = true;
 	SubSystemProxy->Initialize();
 
 	// Register spatial connector.
-	TArray<UObject*> Results;
-	GetObjectsOfClass(ACavrnusSpatialConnector::StaticClass(), Results);
-	ensure(Results.Num() == 1); // We don't expect more than one spatial connector.
-
-	if (Results.Num() > 0)
+	if (ACavrnusSpatialConnector* SpatialConnector = UCavrnusFunctionLibrary::GetCavrnusSpatialConnector())
 	{
-		CavrnusSpatialConnector = Cast<ACavrnusSpatialConnector>(Results.Top());
+		CavrnusSpatialConnector = SpatialConnector;
 		SubSystemProxy->RegisterCavrnusSpatialConnector(CavrnusSpatialConnector);
 
-		CavrnusSpatialConnector->DispatchBeginPlay(); // Start login.
+		CavrnusSpatialConnector->CavrnusBeginPlay(); // Start login.
 	}
 	else
 	{
@@ -86,10 +84,18 @@ void FCavrnusEditorMode::Exit()
 		SetSyncStatus(JournalActor, false);
 	}
 
+	UCavrnusUIManager* UIManager = SubSystemProxy->GetUIManager();
+	UIManager->RemoveAllWidgets();
+
 	JournalizedActors.Empty();
+	SubSystemProxy->RemoveFromRoot();
 	SubSystemProxy->Deinitialize();
-	SubSystemProxy = nullptr;
+	SubSystemProxy->bInEditorMode = false;
+	SubSystemProxy->ConditionalBeginDestroy();
+
+	CavrnusSpatialConnector->CavrnusEndPlay();
 	CavrnusSpatialConnector = nullptr;
+	SubSystemProxy = nullptr;
 
 	GAllowActorScriptExecutionInEditor = false;
 }
@@ -134,11 +140,11 @@ void FCavrnusEditorMode::SetSyncStatus(AActor* Actor, bool sync)
 		{
 			if (sync)
 			{
-				SyncComp->StartSyncing();
+				//SyncComp->StartSyncing();
 			}
 			else
 			{
-				SyncComp->StopSyncing();
+				//SyncComp->StopSyncing();
 			}
 		}
 	}

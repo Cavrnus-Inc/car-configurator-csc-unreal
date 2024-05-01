@@ -8,6 +8,7 @@
 #include "Types/CavrnusBinding.h"
 #include "Types/CavrnusCallbackTypes.h"
 #include "CavrnusConnectorVideoRequest.h"
+#include "UI/CavrnusWidgetBase.h"
 
 #include "CavrnusUserWidget.generated.h"
 
@@ -20,7 +21,7 @@ class UTexture2D;
  */
 
 UCLASS(Abstract)
-class CAVRNUSCONNECTOR_API UCavrnusUserWidget : public UUserWidget
+class CAVRNUSCONNECTOR_API UCavrnusUserWidget : public UCavrnusWidgetBase
 {
 	GENERATED_BODY()
 
@@ -46,10 +47,5 @@ private:
 	void BindUserVideo();
 	void UnbindUserVideo();
 
-	UFUNCTION()
-	void UpdateVideoTexture(UTexture2D* InTexture);
-
 	FCavrnusBinding UserVideoFrameBinding;
-
-	FCavrnusUserVideoFrameEvent UserVideoFrameEvent;
 };

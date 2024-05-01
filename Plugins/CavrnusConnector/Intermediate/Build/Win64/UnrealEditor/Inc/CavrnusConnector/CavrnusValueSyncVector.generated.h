@@ -8,7 +8,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UMaterialInstanceDynamic;
 #ifdef CAVRNUSCONNECTOR_CavrnusValueSyncVector_generated_h
 #error "CavrnusValueSyncVector.generated.h already included, missing '#pragma once' in CavrnusValueSyncVector.h"
 #endif
@@ -19,16 +18,12 @@ class UMaterialInstanceDynamic;
 	virtual void SetVector_Implementation(FVector PropertyValue); \
 	virtual FVector GetVector_Implementation(); \
  \
-	DECLARE_FUNCTION(execSetMaterialDoubleVectorParameterValue); \
-	DECLARE_FUNCTION(execVectorPropertyUpdated); \
 	DECLARE_FUNCTION(execSetVector); \
 	DECLARE_FUNCTION(execGetVector);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncVector_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execSetMaterialDoubleVectorParameterValue); \
-	DECLARE_FUNCTION(execVectorPropertyUpdated); \
 	DECLARE_FUNCTION(execSetVector); \
 	DECLARE_FUNCTION(execGetVector);
 

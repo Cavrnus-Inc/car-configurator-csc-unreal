@@ -1,4 +1,4 @@
-﻿#include "DataState.h"
+﻿#include "RelayModel/DataState.h"
 
 namespace Cavrnus
 {
@@ -23,20 +23,23 @@ namespace Cavrnus
 
 		for (int i = 0; i < spaceConnectionBindings.Num(); i++)
 		{
-			spaceConnectionBindings[i].ExecuteIfBound(spaceConnection);
+			(*spaceConnectionBindings[i])(spaceConnection);
 		}
 		spaceConnectionBindings.Empty();
 	}
 
-	void DataState::AwaitAnySpaceConnection(const FCavrnusSpaceConnected& onConnected)
+	void DataState::AwaitAnySpaceConnection(const CavrnusSpaceFunction& onConnected)
 	{
 		if (CurrentSpaceConnections.Num() > 0)
 		{
-			onConnected.ExecuteIfBound(CurrentSpaceConnections[0]);
+			onConnected(CurrentSpaceConnections[0]);
 		}
 		else
 		{
-			spaceConnectionBindings.Add(onConnected);
+			using spaceFunction = const CavrnusSpaceFunction;
+			TSharedPtr<spaceFunction> CallbackPtr = MakeShareable(new spaceFunction(onConnected));
+
+			spaceConnectionBindings.Add(CallbackPtr);
 		}
 	}
 

@@ -10,28 +10,17 @@ UCavrnusLiveTransformPropertyUpdate::~UCavrnusLiveTransformPropertyUpdate()
 {
 }
 
-void UCavrnusLiveTransformPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const Cavrnus::PropertyId& propertyId, FTransform value)
+void UCavrnusLiveTransformPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, FTransform value)
 {
-	Super::Initialize(relayModel, spaceConn, propertyId);
-
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::TransformPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildBeginLiveTransformUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate = Cavrnus::CavrnusVirtualPropertyUpdate(relayModel, spaceConn, propertyId, Cavrnus::FPropertyValue::TransformPropValue(value));
 }
 
 void UCavrnusLiveTransformPropertyUpdate::UpdateWithNewData(FTransform value)
 {
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::TransformPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildContinueLiveTransformUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate.UpdateWithNewData(Cavrnus::FPropertyValue::TransformPropValue(value));
 }
 
 void UCavrnusLiveTransformPropertyUpdate::Finalize(FTransform value)
 {
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::TransformPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFinalizeLiveTransformUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate.Finalize(Cavrnus::FPropertyValue::TransformPropValue(value));
 }

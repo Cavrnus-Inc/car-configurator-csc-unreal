@@ -20,9 +20,6 @@ public:
 	// Destructor
 	~UCavrnusValueSyncBoolean();
 
-	virtual void BeginPlay();
-	virtual void EndPlay(EEndPlayReason::Type Reason);
-
 	UFUNCTION(BlueprintNativeEvent)
 	bool GetBoolean();
 	virtual bool GetBoolean_Implementation() { return false; }
@@ -31,24 +28,6 @@ public:
 	void SetBoolean(bool bPropertyValue);
 	virtual void SetBoolean_Implementation(bool bPropertyValue) {}
 
-	UFUNCTION()
-	void BooleanPropertyUpdated(bool bPropertyValue);
-
-	void PostBooleanToServerTransiently();
-
-	// --------------------- IPropertySyncInterface implementation ---------------------------------------
-
-	void DefineDefaultPropertyValue();
-
-	FCavrnusBinding BindPropertyValue();
-
-	void SendPropertyChanges();
-
-	// ----------------------------------------------------------------------------------------------------
-
-protected:
-
-	FCavrnusSpaceConnected OnSpaceConnected;
-	FBoolPropertyUpdated OnBoolPropertyUpdated;
-	bool lastPostedTransientValue;
+	Cavrnus::FPropertyValue GetPropertyValue() override;
+	void SetPropertyValue(Cavrnus::FPropertyValue value) override;
 };

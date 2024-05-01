@@ -1,10 +1,10 @@
-﻿#include "CavrnusRelayModel.h"
+﻿#include "RelayModel/CavrnusRelayModel.h"
 #include "CavrnusConnectorSettings.h"
-#include "SpacePropertyModel.h"
-#include "SpacePermissionsModel.h"
+#include "RelayModel/SpacePropertyModel.h"
+#include "RelayModel/SpacePermissionsModel.h"
 #include "../Interop/CavrnusInteropLayer.h"
-#include "RelayCallbackModel.h"
-#include "DataState.h"
+#include "RelayModel/RelayCallbackModel.h"
+#include "RelayModel/DataState.h"
 #include <HAL/PlatformTime.h>
 #include "CoreMinimal.h"
 #include "Types/CavrnusSpawnedObject.h"
@@ -197,6 +197,15 @@ namespace Cavrnus
 		case ServerData::RelayRemoteMessage::kPropMetadataStatus:
 			HandlePropMetadataStatus(msg.propmetadatastatus());
 			break;
+		case ServerData::RelayRemoteMessage::kFetchFileByIdProgressResp:
+			ContentModel.HandleProgressCallback(msg.fetchfilebyidprogressresp().contentid().c_str(), msg.fetchfilebyidprogressresp().progress(), msg.fetchfilebyidprogressresp().progressstep().c_str());
+			break;
+		case ServerData::RelayRemoteMessage::kFetchFileByIdCompletedResp:
+			ContentModel.HandleCompletionCallback(msg.fetchfilebyidcompletedresp().contentid().c_str(), msg.fetchfilebyidcompletedresp().filepath().c_str());
+			break;
+		case ServerData::RelayRemoteMessage::kFetchAllUploadedContentResp:
+			callbackModel->HandleServerCallback(msg.fetchalluploadedcontentresp().reqid(), msg);
+			break;
 		default:
 			UE_LOG(LogCavrnusConnector, Warning, TEXT("Unhandled server message, message type: %d"), static_cast<int>(msg.Msg_case()));
 			break;
@@ -308,7 +317,7 @@ namespace Cavrnus
 		if (!spacePropertyModelLookup.Contains(spaceConnId))
 			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
 
-		spacePropertyModelLookup[spaceConnId]->InvalidateLocalPropValue(PropertyId(localPropHandled.propertypath().id().c_str()), localPropHandled.localpropchangeid());
+		spacePropertyModelLookup[spaceConnId]->InvalidateLocalPropValue(FPropertyId(localPropHandled.propertypath().id().c_str()), localPropHandled.localpropchangeid());
 	}
 
 	void CavrnusRelayModel::HandlePropMetadataStatus(const ServerData::PropMetadataStatus& metadataStatus)

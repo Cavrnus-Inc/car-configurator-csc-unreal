@@ -20,9 +20,6 @@ public:
 	// Destructor
 	~UCavrnusValueSyncColor();
 
-	virtual void BeginPlay();
-	virtual void EndPlay(EEndPlayReason::Type Reason);
-
 	UFUNCTION(BlueprintNativeEvent)
 	FLinearColor GetColor();
 	virtual FLinearColor GetColor_Implementation() { return FLinearColor::Black; }
@@ -31,25 +28,6 @@ public:
 	void SetColor(FLinearColor PropertyValue);
 	virtual void SetColor_Implementation(FLinearColor PropertyValue) {};
 
-	UFUNCTION()
-	void ColorPropertyUpdated(FLinearColor PropertyValue);
-
-	void PostColorToServerTransiently();
-
-	// --------------------- IPropertySyncInterface implementation ---------------------------------------
-
-	void DefineDefaultPropertyValue();
-
-	FCavrnusBinding BindPropertyValue();
-
-	void SendPropertyChanges();
-
-	// ----------------------------------------------------------------------------------------------------
-
-protected:
-
-	FCavrnusSpaceConnected OnSpaceConnected;
-	FColorPropertyUpdated OnColorPropertyUpdated;
-
-	FLinearColor lastPostedTransientValue;
+	Cavrnus::FPropertyValue GetPropertyValue() override;
+	void SetPropertyValue(Cavrnus::FPropertyValue value) override;
 };

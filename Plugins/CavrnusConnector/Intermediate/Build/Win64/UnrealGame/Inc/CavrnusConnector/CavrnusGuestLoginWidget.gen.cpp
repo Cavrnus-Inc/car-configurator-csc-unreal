@@ -11,7 +11,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 // Cross Module References
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusGuestLoginWidget_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusGuestLoginWidget();
-	UMG_API UClass* Z_Construct_UClass_UUserWidget();
+	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusWidgetBase();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 	UMG_API UClass* Z_Construct_UClass_UEditableTextBox_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
@@ -78,7 +78,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UUserWidget,
+		(UObject* (*)())Z_Construct_UClass_UCavrnusWidgetBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics::FuncInfo[] = {
@@ -148,9 +148,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusGuestLoginWidget, UCavrnusGuestLoginWidget::StaticClass, TEXT("UCavrnusGuestLoginWidget"), &Z_Registration_Info_UClass_UCavrnusGuestLoginWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusGuestLoginWidget), 464768938U) },
+		{ Z_Construct_UClass_UCavrnusGuestLoginWidget, UCavrnusGuestLoginWidget::StaticClass, TEXT("UCavrnusGuestLoginWidget"), &Z_Registration_Info_UClass_UCavrnusGuestLoginWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusGuestLoginWidget), 179546545U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_1883376036(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_2559190470(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

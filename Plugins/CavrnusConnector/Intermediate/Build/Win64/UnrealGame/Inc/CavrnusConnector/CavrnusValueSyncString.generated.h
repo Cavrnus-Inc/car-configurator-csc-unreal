@@ -18,14 +18,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	virtual void SetString_Implementation(const FString& PropertyValue); \
 	virtual FString GetString_Implementation(); \
  \
-	DECLARE_FUNCTION(execStringPropertyUpdated); \
 	DECLARE_FUNCTION(execSetString); \
 	DECLARE_FUNCTION(execGetString);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncString_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execStringPropertyUpdated); \
 	DECLARE_FUNCTION(execSetString); \
 	DECLARE_FUNCTION(execGetString);
 

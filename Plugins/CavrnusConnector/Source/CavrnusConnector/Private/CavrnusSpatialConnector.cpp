@@ -35,7 +35,11 @@ void ACavrnusSpatialConnector::PostInitializeComponents()
 void ACavrnusSpatialConnector::BeginPlay()
 {
 	Super::BeginPlay();
+	CavrnusBeginPlay();
+}
 
+void ACavrnusSpatialConnector::CavrnusBeginPlay()
+{
 	UWorld* WorldPtr = GetWorld();
 	if (!WorldPtr)
 	{
@@ -52,6 +56,11 @@ void ACavrnusSpatialConnector::BeginPlay()
 void ACavrnusSpatialConnector::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
+	CavrnusEndPlay();
+}
+
+void ACavrnusSpatialConnector::CavrnusEndPlay()
+{
 }
 
 AActor* ACavrnusSpatialConnector::SpawnActorFromIdentifier_Implementation(const FString& Identifier, const FTransform& Transform)

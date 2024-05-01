@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "UI/CavrnusWidgetBase.h"
 
 #include <Blueprint/UserWidget.h>
 
@@ -17,9 +18,15 @@
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnGuestLoginClicked, FString);
 
 UCLASS(Abstract)
-class CAVRNUSCONNECTOR_API UCavrnusGuestLoginWidget : public UUserWidget
+class CAVRNUSCONNECTOR_API UCavrnusGuestLoginWidget : public UCavrnusWidgetBase
 {
 	GENERATED_BODY()
+
+public:
+	void InitializeCavrnusWidget() override;
+
+	UFUNCTION()
+	void OnLoginClicked();
 
 public:
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
@@ -28,11 +35,5 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
 	class UButton* LoginButton;
 
-	UFUNCTION()
-	void OnLoginClicked();
-
 	FOnGuestLoginClicked OnLogin;
-
-private:
-	void NativeOnInitialized() override;
 };

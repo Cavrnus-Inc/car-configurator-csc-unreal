@@ -52,6 +52,9 @@ public:
 	// Sets default values for this actor's properties
 	ACavrnusSpatialConnector();
 
+	void CavrnusBeginPlay();
+	void CavrnusEndPlay();
+
 protected:
 	virtual void PostInitializeComponents() override;
 
@@ -63,66 +66,66 @@ protected:
 
 public:
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	FString MyServer;
 
 	// ------------------------------------------------------------ Authentication --------------------------------------------------------------------
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (DisplayName = "Authentication Method"))
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (DisplayName = "Authentication Method"))
 	ECavrnusAuthMethod AuthMethod;
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsGuest", EditConditionHides))
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsGuest", EditConditionHides))
 	ECavrnusGuestLoginMethod GuestLoginMethod;
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember", EditConditionHides))
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember", EditConditionHides))
 	ECavrnusMemberLoginMethod MemberLoginMethod;
 
 	// Guest Join Auto
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsGuest && GuestLoginMethod == ECavrnusGuestLoginMethod::EnterNameBelow", EditConditionHides))
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsGuest && GuestLoginMethod == ECavrnusGuestLoginMethod::EnterNameBelow", EditConditionHides))
 	FString GuestName;
 
 	// Guest Join Manual
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsGuest && GuestLoginMethod == ECavrnusGuestLoginMethod::PromptToEnterName", EditConditionHides))
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsGuest && GuestLoginMethod == ECavrnusGuestLoginMethod::PromptToEnterName", EditConditionHides))
 	TSubclassOf<UCavrnusGuestLoginWidget> GuestJoinMenu;
 
 	// Login Auto
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::EnterMemberLoginCredentials", EditConditionHides))
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::EnterMemberLoginCredentials", EditConditionHides))
 	FString MemberLoginEmail;
 
 	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::EnterMemberLoginCredentials", EditConditionHides))
 	FString MemberLoginPassword;
 
 	// Login Manual
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::PromptMemberToLogin", EditConditionHides))
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::PromptMemberToLogin", EditConditionHides))
 	TSubclassOf<UCavrnusLoginWidget> MemberLoginMenu;
 
 	// --------------------------------------------------------- Space Joining ------------------------------------------------------------------
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	ECavrnusSpaceJoinMethod SpaceJoinMethod;
 
 	// Space Join Automatic
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "SpaceJoinMethod == ECavrnusSpaceJoinMethod::EnterSpaceId", EditConditionHides))
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "SpaceJoinMethod == ECavrnusSpaceJoinMethod::EnterSpaceId", EditConditionHides))
 	FString AutomaticSpaceJoinId;
 
 	// Space Join Manual
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "SpaceJoinMethod == ECavrnusSpaceJoinMethod::SpacesList", EditConditionHides))
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "SpaceJoinMethod == ECavrnusSpaceJoinMethod::SpacesList", EditConditionHides))
 	TSubclassOf<UCavrnusSpaceListWidget> SpaceJoinMenu;
 
 	// ------------------------------------------- Avatar Management ----------------------------------------------------------------------------
 
 	// Asset class type used to represent remote users
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Cavrnus")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, BlueprintReadOnly, Category = "Cavrnus")
 	TSubclassOf<class AActor> RemoteAvatarClass;
 
 	// ------------------------------------------- In Space UI ----------------------------------------------------------------------------------
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus")
-	TSubclassOf<UUserWidget> LoadingWidgetClass;
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
+	TSubclassOf<class UCavrnusWidgetBase> LoadingWidgetClass;
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus")
-	TArray<TSubclassOf<UUserWidget>> WidgetsToLoad;
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
+	TArray<TSubclassOf<class UCavrnusWidgetBase>> WidgetsToLoad;
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	TMap<FString, TSubclassOf<AActor>> SpawnableIdentifiers;
 
 	UFUNCTION(BlueprintNativeEvent, Category = "Cavrnus")
@@ -133,6 +136,6 @@ public:
 	void DestroyCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject);
 	virtual void DestroyCavrnusActor_Implementation(const FCavrnusSpawnedObject& SpawnedObject);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Cavrnus")
 	bool Lasers = true;
 };

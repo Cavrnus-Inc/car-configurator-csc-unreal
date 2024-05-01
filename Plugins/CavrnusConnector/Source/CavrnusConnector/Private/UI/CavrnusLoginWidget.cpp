@@ -2,15 +2,19 @@
 #include <Components/EditableTextBox.h>
 #include <Components/Button.h>
 
-void UCavrnusLoginWidget::NativeOnInitialized()
+void UCavrnusLoginWidget::InitializeCavrnusWidget()
 {
-	Super::NativeOnInitialized();
+	if (bCavrnusWidgetInitialized)
+	{
+		return;
+	}
 
 	LoginButton->OnClicked.AddUniqueDynamic(this, &UCavrnusLoginWidget::OnLoginClicked);
+	Super::InitializeCavrnusWidget();
 }
 
 void UCavrnusLoginWidget::OnLoginClicked()
 {
 	OnLogin.Broadcast(EmailInput->GetText().ToString(), PasswordInput->GetText().ToString());
-	RemoveFromParent();
+	RemoveCavrnusWidget();
 }

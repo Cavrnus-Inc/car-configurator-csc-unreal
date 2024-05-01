@@ -24,6 +24,8 @@ namespace Cavrnus
 
 		void RunService();
 
+		void LogPerformance();
+
 	private:
 		void SendLoop();
 		void ReceiveLoop();
@@ -70,6 +72,8 @@ namespace Cavrnus
 			std::generate_n(str.begin(), length, randchar);
 			return str;
 		}
+
+		std::map<int, int> PropertiesSentPerSecond;
 	};
 
 } // namespace CavrnusRelay

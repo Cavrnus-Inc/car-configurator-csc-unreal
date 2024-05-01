@@ -18,14 +18,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	virtual void SetTransform_Implementation(FTransform PropertyValue); \
 	virtual FTransform GetTransform_Implementation(); \
  \
-	DECLARE_FUNCTION(execTransformPropertyUpdated); \
 	DECLARE_FUNCTION(execSetTransform); \
 	DECLARE_FUNCTION(execGetTransform);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncTransform_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execTransformPropertyUpdated); \
 	DECLARE_FUNCTION(execSetTransform); \
 	DECLARE_FUNCTION(execGetTransform);
 

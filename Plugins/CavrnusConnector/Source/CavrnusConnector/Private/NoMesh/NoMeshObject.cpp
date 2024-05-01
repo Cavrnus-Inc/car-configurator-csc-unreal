@@ -14,6 +14,7 @@
 #include <Components/StaticMeshComponent.h>
 #include <Components/TextBlock.h>
 #include <Misc/FileHelper.h>
+#include <Misc/Paths.h>
 #include <Modules/ModuleManager.h>
 
 #include "CavrnusSpatialConnectorSubSystem.h"

@@ -19,14 +19,12 @@ struct FLinearColor;
 	virtual void SetColor_Implementation(FLinearColor PropertyValue); \
 	virtual FLinearColor GetColor_Implementation(); \
  \
-	DECLARE_FUNCTION(execColorPropertyUpdated); \
 	DECLARE_FUNCTION(execSetColor); \
 	DECLARE_FUNCTION(execGetColor);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncColor_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execColorPropertyUpdated); \
 	DECLARE_FUNCTION(execSetColor); \
 	DECLARE_FUNCTION(execGetColor);
 

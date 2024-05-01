@@ -2,14 +2,34 @@
 #include "CavrnusConnectorModule.h"
 #include <Components/ListView.h>
 
-void UCavrnusSpaceListWidget::NativeOnInitialized()
-{
-	Super::NativeOnInitialized();
+#include "CavrnusSpatialConnectorSubSystem.h"
+#include "CavrnusFunctionLibrary.h"
 
-	SpaceList->OnItemSelectionChanged().AddLambda([this](UObject* Item) {
-		FString SpaceJoinId = GetSpaceID(Item);
-		UE_LOG(LogCavrnusConnector, Log, TEXT("Space list item selection changed"));
-		OnCavrnusSpaceSelected.Broadcast(SpaceJoinId);
-		RemoveFromParent();
-		});
+void UCavrnusSpaceListWidget::InitializeCavrnusWidget()
+{
+	if (bCavrnusWidgetInitialized)
+	{
+		return;
+	}
+
+	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
+	{
+		if (SubProxy->bInEditorMode)
+		{
+			OnInitialized(); // This will run the scripts in blueprint.
+		}
+	}
+
+	SpaceList->OnItemSelectionChanged().AddLambda
+	(
+		[this](UObject* Item)
+		{
+			FString SpaceJoinId = GetSpaceID(Item);
+			UE_LOG(LogCavrnusConnector, Log, TEXT("Space list item selection changed"));
+			OnCavrnusSpaceSelected.Broadcast(SpaceJoinId);
+			RemoveCavrnusWidget();
+		}
+	);
+
+	Super::InitializeCavrnusWidget();
 }

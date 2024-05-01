@@ -2,13 +2,14 @@
 #include "Comm/relay.pb.h"
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "../../Public/Types/CavrnusSpaceConnection.h"
-#include "../../Public/Types/CavrnusSpaceInfo.h"
-#include "../../Public/Types/CavrnusInputDevice.h"
-#include "../../Public/Types/CavrnusOutputDevice.h"
-#include "../../Public/Types/CavrnusVideoInputDevice.h"
-#include "../../Public/Types/CavrnusUser.h"
-#include "../RelayModel/PropertyId.h"
+#include "Types/CavrnusSpaceConnection.h"
+#include "Types/CavrnusSpaceInfo.h"
+#include "Types/CavrnusInputDevice.h"
+#include "Types/CavrnusOutputDevice.h"
+#include "Types/CavrnusVideoInputDevice.h"
+#include "Types/CavrnusUser.h"
+#include "RelayModel/PropertyId.h"
+#include "RelayModel/CavrnusPropertyValue.h"
 
 namespace Cavrnus
 {
@@ -44,42 +45,11 @@ namespace Cavrnus
 		static const ServerData::RelayClientMessage BuildJoinSpaceWithId(int callbackId, const FString& spaceId);
 		static const ServerData::RelayClientMessage BuildExitSpaceMsg(const FCavrnusSpaceConnection& spaceConn);
 
-		static const ServerData::RelayClientMessage BuildDefineColorPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const FLinearColor& value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildUpdateColorPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const FLinearColor& value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildBeginLiveColorUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FLinearColor value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildContinueLiveColorUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FLinearColor value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildFinalizeLiveColorUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FLinearColor value, const int localChangeId);
-
-		static const ServerData::RelayClientMessage BuildDefineStringPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const FString& value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildUpdateStringPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const FString& value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildBeginLiveStringUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FString value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildContinueLiveStringUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FString value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildFinalizeLiveStringUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FString value, const int localChangeId);
-
-		static const ServerData::RelayClientMessage BuildDefineBoolPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, bool value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildUpdateBoolPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, bool value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildBeginLiveBoolUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, bool value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildContinueLiveBoolUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, bool value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildFinalizeLiveBoolUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, bool value, const int localChangeId);
-
-		static const ServerData::RelayClientMessage BuildDefineFloatPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, float value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildUpdateFloatPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, float value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildBeginLiveFloatUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, float value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildContinueLiveFloatUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, float value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildFinalizeLiveFloatUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, float value, const int localChangeId);
-
-		static const ServerData::RelayClientMessage BuildDefineVectorPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const FVector& value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildUpdateVectorPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const FVector& value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildBeginLiveVectorUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FVector value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildContinueLiveVectorUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FVector value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildFinalizeLiveVectorUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FVector value, const int localChangeId);
-
-		static const ServerData::RelayClientMessage BuildDefineTransformPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const FTransform& value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildUpdateTransformPropMsg(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const FTransform& value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildBeginLiveTransformUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FTransform value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildContinueLiveTransformUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FTransform value, const int localChangeId);
-		static const ServerData::RelayClientMessage BuildFinalizeLiveTransformUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const PropertyId& propertyId, FTransform value, const int localChangeId);
-
+		static const ServerData::RelayClientMessage BuildDefinePropMsg(const FCavrnusSpaceConnection& spaceConn, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId);
+		static const ServerData::RelayClientMessage BuildUpdatePropMsg(const FCavrnusSpaceConnection& spaceConn, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId);
+		static const ServerData::RelayClientMessage BuildBeginLivePropertyUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId);
+		static const ServerData::RelayClientMessage BuildContinueLivePropertyUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId);
+		static const ServerData::RelayClientMessage BuildFinalizeLivePropertyUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId);
 		static const ServerData::RelayClientMessage BuildCancelLiveUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId);
 
 		static const ServerData::RelayClientMessage BuildSetLocalUserMuted(FCavrnusSpaceConnection spaceConn, bool muted);
@@ -98,82 +68,34 @@ namespace Cavrnus
 
 		static const ServerData::RelayClientMessage BuildRequestGlobalPermission(const FString& permission);
 		static const ServerData::RelayClientMessage BuildRequestSpacePermission(const FCavrnusSpaceConnection& spaceConn, const FString& permission);
+
+		static const ServerData::RelayClientMessage BuildRequestFileById(const FString& contentId);
+		static const ServerData::RelayClientMessage BuildRequestAllUploadedContent(int callbackId);
 #pragma endregion
 
 
 
 	private:
 
-		static ServerData::PropertyValue GenerateColorPropVal(const FLinearColor& value)
+		static ServerData::PropertyValue GeneratePropVal(const FPropertyValue& value)
 		{
 			ServerData::PropertyValue propVal;
-			propVal.mutable_colorval()->CopyFrom(ToProtoColor(value));
+
+			if (value.PropType == FPropertyValue::PropertyType::Bool)
+				propVal.set_boolval(value.BoolValue);
+			if (value.PropType == FPropertyValue::PropertyType::Float)
+				propVal.set_scalarval(value.FloatValue);
+			if (value.PropType == FPropertyValue::PropertyType::String)
+				propVal.set_stringval(TCHAR_TO_UTF8(*value.StringValue));
+			if (value.PropType == FPropertyValue::PropertyType::Color)
+				propVal.mutable_colorval()->CopyFrom(ToProtoColor(value.ColorValue));
+			if (value.PropType == FPropertyValue::PropertyType::Vector)
+				propVal.mutable_vectorval()->CopyFrom(ToProtoVector(value.VectorValue));
+			if (value.PropType == FPropertyValue::PropertyType::Transform)
+				propVal.mutable_transformval()->CopyFrom(ToProtoTransform(value.TransformValue));
+			
 			return propVal;
 		}
-
-		static ServerData::PropertyValue GenerateStringPropVal(const FString& value)
-		{
-			ServerData::PropertyValue propVal;
-			propVal.set_stringval(TCHAR_TO_UTF8(*value));
-			return propVal;
-		}
-
-		static ServerData::PropertyValue GenerateBoolPropVal(bool value)
-		{
-			ServerData::PropertyValue propVal;
-			propVal.set_boolval(value);
-			return propVal;
-		}
-
-		static ServerData::PropertyValue GenerateFloatPropVal(float value)
-		{
-			ServerData::PropertyValue propVal;
-			propVal.set_scalarval(value);
-			return propVal;
-		}
-
-		static ServerData::PropertyValue GenerateVectorPropVal(const FVector& value)
-		{
-			ServerData::PropertyValue propVal;
-			propVal.mutable_vectorval()->CopyFrom(ToProtoVector(value));
-			return propVal;
-		}
-
-		static ServerData::PropertyValue GenerateTransformPropVal(const FTransform& value)
-		{
-			ServerData::PropertyValue propVal;
-			propVal.mutable_transformval()->CopyFrom(ToProtoTransform(value));
-			return propVal;
-		}
-
-		static ServerData::RelayClientMessage GeneratePropBoilerplate(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const ServerData::PropertyValue& propVal, int localChangeId)
-		{
-			ServerData::PostPropertyUpdate req;
-			req.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
-			req.set_propertyid(TCHAR_TO_UTF8(*(PropertyId::GetCombinedName(propertyId))));
-			req.mutable_propertyvalue()->CopyFrom(propVal);
-			req.set_localchangeid(localChangeId);
-
-			ServerData::RelayClientMessage msg;
-			msg.mutable_postpropertyupdate()->CopyFrom(req);
-
-			return msg;
-		}
-
-		static ServerData::RelayClientMessage GenerateDefinePropBoilerplate(const FCavrnusSpaceConnection& spaceConn, const PropertyId& propertyId, const ServerData::PropertyValue& propVal, int localChangeId)
-		{
-			ServerData::DefinePropertyDefaultValue req;
-			req.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
-			req.set_propertyid(TCHAR_TO_UTF8(*(PropertyId::GetCombinedName(propertyId))));
-			req.mutable_propertyvalue()->CopyFrom(propVal);
-			req.set_localchangeid(localChangeId);
-
-			ServerData::RelayClientMessage msg;
-			msg.mutable_definepropertydefaultvalue()->CopyFrom(req);
-
-			return msg;
-		}
-
 	};
 
 } // namespace CavrnusRelay

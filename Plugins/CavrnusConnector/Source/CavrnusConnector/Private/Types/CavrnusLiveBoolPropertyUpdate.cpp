@@ -10,28 +10,17 @@ UCavrnusLiveBoolPropertyUpdate::~UCavrnusLiveBoolPropertyUpdate()
 {
 }
 
-void UCavrnusLiveBoolPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const Cavrnus::PropertyId& propertyId, bool value)
+void UCavrnusLiveBoolPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, bool value)
 {
-	Super::Initialize(relayModel, spaceConn, propertyId);
-
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::BoolPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildBeginLiveBoolUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate = Cavrnus::CavrnusVirtualPropertyUpdate(relayModel, spaceConn, propertyId, Cavrnus::FPropertyValue::BoolPropValue(value));
 }
 
 void UCavrnusLiveBoolPropertyUpdate::UpdateWithNewData(bool value)
 {
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::BoolPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildContinueLiveBoolUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate.UpdateWithNewData(Cavrnus::FPropertyValue::BoolPropValue(value));
 }
 
 void UCavrnusLiveBoolPropertyUpdate::Finalize(bool value)
 {
-	int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, Cavrnus::FPropertyValue::BoolPropValue(value));
-	RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFinalizeLiveBoolUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, value, localChangeId));
-
-	lastUpdatedTimeMs = FPlatformTime::ToMilliseconds(FPlatformTime::Cycles());
+	livePropertyUpdate.Finalize(Cavrnus::FPropertyValue::BoolPropValue(value));
 }

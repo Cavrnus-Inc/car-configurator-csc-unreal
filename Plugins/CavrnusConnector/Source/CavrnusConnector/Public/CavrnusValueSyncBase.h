@@ -4,6 +4,7 @@
 #include "Interfaces/IPropertySyncInterface.h"
 #include "Types/CavrnusBinding.h"
 #include "Types/CavrnusSpaceConnection.h"
+#include "RelayModel/CavrnusVirtualPropertyUpdate.h"
 
 #include "CavrnusValueSyncBase.generated.h"
 
@@ -23,42 +24,13 @@ public:
 	// Destructor
 	~UCavrnusValueSyncBase();
 
-	UCavrnusPropertiesContainer* GetContainer() const;
-
-	virtual void BeginPlay();
-	virtual void EndPlay(const EEndPlayReason::Type Reason);
-
-	/**
-	* Set the syncing flag and perform checks.
-	*/
-	virtual void StartSyncing();
-
-	/**
-	* Clear the event poll and unbind property which stops syncing the values.
-	*/
-	virtual void StopSyncing();
+	void BeginPlay();
+	void EndPlay(const EEndPlayReason::Type Reason);
+	void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	void OnComponentCreated() override;
 	void AutoAttachPropertiesContainer();
 	FString GetGeneratedContainerName() const;
-
-	UFUNCTION()
-	void SpaceConnected(FCavrnusSpaceConnection spaceConn);
-
-	UFUNCTION()
-	void PollForPropertyChanges();
-
-	UPROPERTY()
-	FCavrnusSpaceConnection SpaceConn;
-
-	UPROPERTY()
-	FCavrnusBinding PropertyBinding;
-
-	UPROPERTY()
-	FTimerHandle PollTimer;
-
-	UPROPERTY()
-	FString ContainerName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Cavrnus", meta = (ExposeOnSpawn))
 	FString PropertyName;
@@ -66,22 +38,37 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Cavrnus", meta = (ExposeOnSpawn))
 	bool SendChanges = true;
 
+	//TODO: Custom Inspector like CSC to hide this???
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Cavrnus")
+	bool InitialSetupComplete = false;
+
 	bool RecvChanges = true;
 
-	// IPropertySyncInterface implementation
-	virtual void DefineDefaultPropertyValue() PURE_VIRTUAL(IPropertySyncInterface::DefineDefaultPropertyValue);
-	virtual FCavrnusBinding BindPropertyValue() PURE_VIRTUAL(IPropertySyncInterface::BindPropertyValue, return FCavrnusBinding([]() {}););
-	virtual void SendPropertyChanges() PURE_VIRTUAL(IPropertySyncInterface::SendPropertyChanges);
-
-protected:
-
-	UPROPERTY()
-	UCavrnusLivePropertyUpdate* liveUpdater = nullptr;
-
-	bool bSyncingValue; // Indicates if sync started or not.
-
-	FString ReportOwnerName() const;
+	virtual Cavrnus::FPropertyValue GetPropertyValue()PURE_VIRTUAL(IPropertySyncInterface::GetPropertyValue, return Cavrnus::FPropertyValue(););
+	virtual void SetPropertyValue(Cavrnus::FPropertyValue value)PURE_VIRTUAL(IPropertySyncInterface::SetPropertyValue);
 
 private:
 	bool ShouldAutoAddPropertiesContainer() const;
+
+	Cavrnus::CavrnusVirtualPropertyUpdate* liveUpdater = nullptr;
+	Cavrnus::FPropertyValue lastSentPropValue;
+
+	void SpaceConnected(FCavrnusSpaceConnection spaceConn);
+
+	void PollForPropertyChanges();
+	void TrySendPropertyChanges();
+
+	const float msPollingTime = 100;
+	float msLastPollTime;
+
+	const float msToWaitBeforePosting = 200;
+
+	bool shouldSync = false;
+	FCavrnusSpaceConnection SpaceConn;
+	FCavrnusBinding PropertyBinding;
+
+	FString ReportOwnerName() const;
+
+	UCavrnusPropertiesContainer* GetContainer() const;
+	FString GetContainerName() const;
 };

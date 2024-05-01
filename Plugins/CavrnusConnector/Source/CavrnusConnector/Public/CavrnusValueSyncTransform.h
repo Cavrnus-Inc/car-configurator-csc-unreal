@@ -20,9 +20,6 @@ public:
 	// Destructor
 	~UCavrnusValueSyncTransform();
 
-	virtual void BeginPlay();
-	virtual void EndPlay(EEndPlayReason::Type Reason);
-
 	UFUNCTION(BlueprintNativeEvent)
 	FTransform GetTransform();
 	virtual FTransform GetTransform_Implementation() { return FTransform(); }
@@ -31,26 +28,6 @@ public:
 	void SetTransform(FTransform PropertyValue);
 	virtual void SetTransform_Implementation(FTransform PropertyValue) { }
 
-	UFUNCTION()
-	void TransformPropertyUpdated(FTransform PropertyValue);
-
-	void PostTransformToServerTransiently();
-
-	// --------------------- IPropertySyncInterface implementation ---------------------------------------
-
-	void DefineDefaultPropertyValue();
-
-	FCavrnusBinding BindPropertyValue();
-
-	void SendPropertyChanges();
-
-	// ----------------------------------------------------------------------------------------------------
-
-protected:
-
-	FCavrnusSpaceConnected OnSpaceConnected;
-	FTransformPropertyUpdated OnTransformPropertyUpdated;
-	FTransform lastPostedTransientValue;
-
-	bool EulersAreEqual(FQuat4d a, FQuat4d b, float lambda);
+	Cavrnus::FPropertyValue GetPropertyValue() override;
+	void SetPropertyValue(Cavrnus::FPropertyValue value) override;
 };

@@ -18,14 +18,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_ACavrnusSpatialConnector_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UPDFManager_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_USpawnedObjectsManager_NoRegister();
+	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusUIManager_NoRegister();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusAuthentication();
 	ENGINE_API UClass* Z_Construct_UClass_APawn_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AController_NoRegister();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpaceConnection();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_UGameInstance_NoRegister();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem();
 	ENGINE_API UClass* Z_Construct_UClass_UGameInstanceSubsystem();
@@ -55,12 +52,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		P_THIS->OnPawnControllerChanged(Z_Param_InPawn,Z_Param_InController);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UCavrnusSpatialConnectorSubSystemProxy::execSpawnWidget)
+	DEFINE_FUNCTION(UCavrnusSpatialConnectorSubSystemProxy::execGetUIManager)
 	{
-		P_GET_OBJECT(UClass,Z_Param_WidgetClass);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(UUserWidget**)Z_Param__Result=P_THIS->SpawnWidget(Z_Param_WidgetClass);
+		*(UCavrnusUIManager**)Z_Param__Result=P_THIS->GetUIManager();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UCavrnusSpatialConnectorSubSystemProxy::execGetPDFManager)
@@ -132,13 +128,13 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 			{ "GetCavrnusSpatialConnector", &UCavrnusSpatialConnectorSubSystemProxy::execGetCavrnusSpatialConnector },
 			{ "GetPDFManager", &UCavrnusSpatialConnectorSubSystemProxy::execGetPDFManager },
 			{ "GetSpawnedObjectsManager", &UCavrnusSpatialConnectorSubSystemProxy::execGetSpawnedObjectsManager },
+			{ "GetUIManager", &UCavrnusSpatialConnectorSubSystemProxy::execGetUIManager },
 			{ "OnAuthFailure", &UCavrnusSpatialConnectorSubSystemProxy::execOnAuthFailure },
 			{ "OnAuthSuccess", &UCavrnusSpatialConnectorSubSystemProxy::execOnAuthSuccess },
 			{ "OnPawnControllerChanged", &UCavrnusSpatialConnectorSubSystemProxy::execOnPawnControllerChanged },
 			{ "OnPossessedPawnChanged", &UCavrnusSpatialConnectorSubSystemProxy::execOnPossessedPawnChanged },
 			{ "OnSpaceConnectionFailure", &UCavrnusSpatialConnectorSubSystemProxy::execOnSpaceConnectionFailure },
 			{ "OnSpaceConnectionSuccess", &UCavrnusSpatialConnectorSubSystemProxy::execOnSpaceConnectionSuccess },
-			{ "SpawnWidget", &UCavrnusSpatialConnectorSubSystemProxy::execSpawnWidget },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -293,6 +289,39 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetSpawnedObjectsManager_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics
+	{
+		struct CavrnusSpatialConnectorSubSystemProxy_eventGetUIManager_Parms
+		{
+			UCavrnusUIManager* ReturnValue;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnectorSubSystemProxy_eventGetUIManager_Parms, ReturnValue), Z_Construct_UClass_UCavrnusUIManager_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Cavrnus" },
+		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "GetUIManager", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::CavrnusSpatialConnectorSubSystemProxy_eventGetUIManager_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -496,50 +525,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics
-	{
-		struct CavrnusSpatialConnectorSubSystemProxy_eventSpawnWidget_Parms
-		{
-			TSubclassOf<UUserWidget>  WidgetClass;
-			UUserWidget* ReturnValue;
-		};
-		static const UECodeGen_Private::FClassPropertyParams NewProp_WidgetClass;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::NewProp_WidgetClass = { "WidgetClass", nullptr, (EPropertyFlags)0x0014000000000080, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnectorSubSystemProxy_eventSpawnWidget_Parms, WidgetClass), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::NewProp_ReturnValue_MetaData[] = {
-		{ "EditInline", "true" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnectorSubSystemProxy_eventSpawnWidget_Parms, ReturnValue), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::NewProp_ReturnValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::NewProp_ReturnValue_MetaData)) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::NewProp_WidgetClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "SpawnWidget", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::CavrnusSpatialConnectorSubSystemProxy_eventSpawnWidget_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCavrnusSpatialConnectorSubSystemProxy);
 	UClass* Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_NoRegister()
 	{
@@ -552,6 +537,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_UIManager_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_UIManager;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Authentication_MetaData[];
 #endif
@@ -574,17 +563,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PDFManager;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_LoadingWidget_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bInEditorMode_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_LoadingWidget;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_GameInstance_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_GameInstance;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ObjectOwner_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_ObjectOwner;
+		static void NewProp_bInEditorMode_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bInEditorMode;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -599,13 +581,13 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector, "GetCavrnusSpatialConnector" }, // 1938082408
 		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetPDFManager, "GetPDFManager" }, // 3770796121
 		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetSpawnedObjectsManager, "GetSpawnedObjectsManager" }, // 427144334
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetUIManager, "GetUIManager" }, // 1085943757
 		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure, "OnAuthFailure" }, // 2515410594
 		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess, "OnAuthSuccess" }, // 1610404855
 		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged, "OnPawnControllerChanged" }, // 1420126048
 		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged, "OnPossessedPawnChanged" }, // 609138142
 		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure, "OnSpaceConnectionFailure" }, // 3809005008
 		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess, "OnSpaceConnectionSuccess" }, // 1591242161
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SpawnWidget, "SpawnWidget" }, // 2187008709
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::Class_MetaDataParams[] = {
@@ -615,6 +597,12 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_UIManager_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_UIManager = { "UIManager", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystemProxy, UIManager), Z_Construct_UClass_UCavrnusUIManager_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_UIManager_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_UIManager_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_Authentication_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
@@ -650,33 +638,24 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_PDFManager = { "PDFManager", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystemProxy, PDFManager), Z_Construct_UClass_UPDFManager_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_PDFManager_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_PDFManager_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_LoadingWidget_MetaData[] = {
-		{ "EditInline", "true" },
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bInEditorMode_MetaData[] = {
+		{ "Category", "Cavrnus" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_LoadingWidget = { "LoadingWidget", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystemProxy, LoadingWidget), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_LoadingWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_LoadingWidget_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_GameInstance_MetaData[] = {
-		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_GameInstance = { "GameInstance", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystemProxy, GameInstance), Z_Construct_UClass_UGameInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_GameInstance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_GameInstance_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_ObjectOwner_MetaData[] = {
-		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_ObjectOwner = { "ObjectOwner", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystemProxy, ObjectOwner), Z_Construct_UClass_UObject_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_ObjectOwner_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_ObjectOwner_MetaData)) };
+	void Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bInEditorMode_SetBit(void* Obj)
+	{
+		((UCavrnusSpatialConnectorSubSystemProxy*)Obj)->bInEditorMode = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bInEditorMode = { "bInEditorMode", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UCavrnusSpatialConnectorSubSystemProxy), &Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bInEditorMode_SetBit, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bInEditorMode_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bInEditorMode_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_UIManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_Authentication,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bHasSpaceConnection,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_SpawnedObjectsManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_AvatarManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_PDFManager,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_LoadingWidget,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_GameInstance,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_ObjectOwner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bInEditorMode,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCavrnusSpatialConnectorSubSystemProxy>::IsAbstract,
@@ -693,7 +672,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::PropPointers),
 		0,
-		0x009000A0u,
+		0x001000A0u,
 		METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::Class_MetaDataParams))
 	};
 	UClass* Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy()
@@ -839,10 +818,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, UCavrnusSpatialConnectorSubSystemProxy::StaticClass, TEXT("UCavrnusSpatialConnectorSubSystemProxy"), &Z_Registration_Info_UClass_UCavrnusSpatialConnectorSubSystemProxy, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpatialConnectorSubSystemProxy), 940691764U) },
+		{ Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, UCavrnusSpatialConnectorSubSystemProxy::StaticClass, TEXT("UCavrnusSpatialConnectorSubSystemProxy"), &Z_Registration_Info_UClass_UCavrnusSpatialConnectorSubSystemProxy, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpatialConnectorSubSystemProxy), 2775371828U) },
 		{ Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem, UCavrnusSpatialConnectorSubSystem::StaticClass, TEXT("UCavrnusSpatialConnectorSubSystem"), &Z_Registration_Info_UClass_UCavrnusSpatialConnectorSubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpatialConnectorSubSystem), 700046752U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_2131879171(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_3280893595(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

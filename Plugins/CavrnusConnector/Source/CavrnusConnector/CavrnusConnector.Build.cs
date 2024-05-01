@@ -163,6 +163,6 @@ public class CavrnusConnector : ModuleRules
 
         RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "CavrnusRelayNet/..."));
 
-        Console.WriteLine("====== Exiting from CavrnusRelay.Build.cs ====== ");
+        Console.WriteLine("====== Exiting from CavrnusConnector.Build.cs ====== ");
     }
 }

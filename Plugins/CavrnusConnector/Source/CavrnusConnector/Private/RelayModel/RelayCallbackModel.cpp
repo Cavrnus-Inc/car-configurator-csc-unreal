@@ -1,7 +1,8 @@
-﻿#include "RelayCallbackModel.h"
+﻿#include "RelayModel/RelayCallbackModel.h"
 #include "CoreMinimal.h"
-#include "CavrnusRelayModel.h"
+#include "RelayModel/CavrnusRelayModel.h"
 #include "CavrnusConnectorModule.h"
+#include "Types\CavrnusRemoteContent.h"
 
 namespace Cavrnus
 {
@@ -38,6 +39,9 @@ namespace Cavrnus
 			break;
 		case ServerData::RelayRemoteMessage::kAllJoinableSpacesResp:
 			HandleJoinableSpacesRecv(callbackId, msg.alljoinablespacesresp());
+			break;
+		case ServerData::RelayRemoteMessage::kFetchAllUploadedContentResp:
+			HandleAllRemoteContentRecv(callbackId, msg.fetchalluploadedcontentresp());
 			break;
 		default:
 			UE_LOG(LogCavrnusConnector, Warning, TEXT("Unhandled server message, message type: %d"), static_cast<int>(msg.Msg_case()));
@@ -286,5 +290,32 @@ namespace Cavrnus
 
 		if (FetchVideoInputsCallbacks.Contains(callbackId))
 			FetchVideoInputsCallbacks[callbackId].ExecuteIfBound(devices);
+	}
+
+	int RelayCallbackModel::RegisterFetchAllAvailableContent(CavrnusRemoteContentFunction onfetchedContent)
+	{
+		int reqId = ++currReqId;
+
+		using contentFunction = const CavrnusRemoteContentFunction;
+		TSharedPtr<contentFunction> CallbackPtr = MakeShareable(new contentFunction(onfetchedContent));
+
+		AllRemoteContentCallbacks.Add(reqId, CallbackPtr);
+
+		return reqId;
+	}
+
+	void RelayCallbackModel::HandleAllRemoteContentRecv(int callbackId, ServerData::FetchAllUploadedContentResp resp)
+	{
+		TArray<FCavrnusRemoteContent> remoteContent;
+		for (int i = 0; i < resp.availablecontent().size(); i++) 
+		{
+			remoteContent.Add(FCavrnusRemoteContent(resp.availablecontent()[i].id().c_str(), resp.availablecontent()[i].name().c_str(), resp.availablecontent()[i].filename().c_str(), resp.availablecontent()[i].thumbnailurl().c_str()));
+		}
+
+		if (AllRemoteContentCallbacks.Contains(callbackId))
+		{
+			(*AllRemoteContentCallbacks[callbackId])(remoteContent);
+			AllRemoteContentCallbacks.Remove(callbackId);
+		}
 	}
 }

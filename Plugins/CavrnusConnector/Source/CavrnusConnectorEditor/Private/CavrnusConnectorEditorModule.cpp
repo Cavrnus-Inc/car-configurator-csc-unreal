@@ -4,6 +4,7 @@
 #include "Editor/EditorEngine.h"
 #include "CavrnusEditorMode.h"
 #include "CavrnusEditorStyle.h"
+#include "UI/CavrnusWidgetBase.h"
 
 #include <ContentBrowserModule.h>
 #include <Misc/Paths.h>
@@ -301,7 +302,7 @@ void FCavrnusConnectorEditorModule::RegisterStartupTab()
 		if (bShowSplashScreen)
 		{
 			UEditorUtilitySubsystem* EditorUtilitySubsystem = GEditor->GetEditorSubsystem<UEditorUtilitySubsystem>();
-			FString BlueprintPath = TEXT("/CavrnusConnector/HUD/SplashScreen.SplashScreen");
+			FString BlueprintPath = TEXT("/CavrnusConnector/UI/EditorMenus/EUW_SplashScreen.EWU_SplashScreen");
 			UEditorUtilityWidgetBlueprint* LoadedBlueprintClass = LoadObject<UEditorUtilityWidgetBlueprint>(NULL, *BlueprintPath, NULL, LOAD_None, NULL);
 			if (LoadedBlueprintClass)
 			{
@@ -533,15 +534,15 @@ void FCavrnusConnectorEditorModule::AddCavrnusSpatialConnectorToLevel()
 				{
 					CavrnusSpatialConnector->SetIsSpatiallyLoaded(false);
 					CavrnusSpatialConnector->SpawnableIdentifiers = SpawnableIdentifiers;
-					CavrnusSpatialConnector->MemberLoginMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/HUD/CavrnusCore/WBP_LoginCredentials.WBP_LoginCredentials_C"), UCavrnusLoginWidget::StaticClass());
-					CavrnusSpatialConnector->GuestJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/HUD/CavrnusCore/WBP_GuestLoginCredentials.WBP_GuestLoginCredentials_C"), UCavrnusGuestLoginWidget::StaticClass());
-					CavrnusSpatialConnector->SpaceJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/HUD/CavrnusCore/WBP_SpaceSelection.WBP_SpaceSelection_C"), UCavrnusSpaceListWidget::StaticClass());
-					CavrnusSpatialConnector->LoadingWidgetClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/HUD/WBP_LoadingWidget.WBP_LoadingWidget_C"), UUserWidget::StaticClass());
-					CavrnusSpatialConnector->RemoteAvatarClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/Pawns/Blueprints/BP_TouchFlyModePawn.BP_TouchFlyModePawn_C"), AActor::StaticClass());
-					
-					TArray<TSubclassOf<UUserWidget>> WidgetsToLoad;
-					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/Menus/WBP_AudioVideoWidget.WBP_AudioVideoWidget_C"), UUserWidget::StaticClass()));
-					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/HUD/WBP_UserListWidget.WBP_UserListWidget_C"), UUserWidget::StaticClass()));
+					CavrnusSpatialConnector->MemberLoginMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoginMenus/WBP_MemberLogin.WBP_MemberLogin_C"), UCavrnusLoginWidget::StaticClass());
+					CavrnusSpatialConnector->GuestJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoginMenus/WBP_GuestLogin.WBP_GuestLogin_C"), UCavrnusGuestLoginWidget::StaticClass());
+					CavrnusSpatialConnector->SpaceJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/SpaceListMenu/WBP_SpaceSelection.WBP_SpaceSelection_C"), UCavrnusSpaceListWidget::StaticClass());
+					CavrnusSpatialConnector->LoadingWidgetClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoadingMenu/WBP_LoadingWidget.WBP_LoadingWidget_C"), UUserWidget::StaticClass());
+					CavrnusSpatialConnector->RemoteAvatarClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/Pawns/Blueprints/BP_CavrnusPawn.BP_CavrnusPawn_C"), AActor::StaticClass());
+
+					TArray<TSubclassOf<UCavrnusWidgetBase>> WidgetsToLoad;
+					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/AudioVideoMenu/WBP_AudioVideoWidget.WBP_AudioVideoWidget_C"), UCavrnusWidgetBase::StaticClass()));
+					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/UsersMenu/WBP_UserListWidget.WBP_UserListWidget_C"), UCavrnusWidgetBase::StaticClass()));
 					CavrnusSpatialConnector->WidgetsToLoad = WidgetsToLoad;
 				}
 			}
