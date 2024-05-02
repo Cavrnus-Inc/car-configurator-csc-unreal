@@ -1,0 +1,22 @@
+Cavrnus-UE5.0-RelayPlugin-2023.2.594-Dev
+bhaddad5: ue - master [5f5ed51df3af4d6701523b30e57da96f7a0f3c7b]
+File uploads working in Unreal
+
+	CavrnusPlugin/Content/InternalTesting/Blueprints/BP_DownloaderCube.uasset
+	CavrnusPlugin/Content/InternalTesting/Blueprints/BP_UploaderCube.uasset
+	CavrnusPlugin/Content/InternalTesting/Levels/L_AuthenticateWithLinkSample.umap
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/CavrnusRelayNet/net6.0-windows/CavrnusRelayNet.exe
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusFunctionLibrary.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay.pb.cc.generated
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay.pb.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay_types.pb.cc.generated
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay_types.pb.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/RelayCallbackModel.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Translation/CavrnusProtoTranslation.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Translation/CavrnusProtoTranslation.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusFunctionLibrary.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/RelayModel/RelayCallbackModel.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusCallbackTypes.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusRemoteContent.h
+
