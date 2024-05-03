@@ -58,9 +58,6 @@ namespace Cavrnus
 
 		CaseSensitiveMap<FString, TSharedPtr<const CavrnusSpawnedObjectFunction>> ObjectCreationCallbacks;
 
-		void RegisterObjectCreationCallback(TFunction<void(FCavrnusSpawnedObject, FString)> cb);
-		void RegisterObjectDestructionCallback(TFunction<void(FCavrnusSpawnedObject)> cb);
-
 	private:
 		CavrnusInteropLayer* interopLayer;
 		RelayCallbackModel* callbackModel;
@@ -70,9 +67,6 @@ namespace Cavrnus
 		TMap<int, SpacePropertyModel*> spacePropertyModelLookup;
 		class UPDFManager* PDFManager = nullptr;
 		void HandleServerMsg(const ServerData::RelayRemoteMessage& msg);
-
-		TSharedPtr<const TFunction<void(FCavrnusSpawnedObject, FString)>> ObjectCreationCallback = nullptr;
-		TSharedPtr<const TFunction<void(FCavrnusSpawnedObject)>> ObjectDestructionCallback = nullptr;
 
 		void HandleLogging(const ServerData::StatusMessage& message);
 		void HandleSpaceUserAdded(ServerData::CavrnusSpaceConnection spaceConn, ServerData::CavrnusUser userId);

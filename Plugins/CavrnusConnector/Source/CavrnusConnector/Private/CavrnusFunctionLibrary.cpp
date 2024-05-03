@@ -613,6 +613,16 @@ void UCavrnusFunctionLibrary::DestroyObject(FCavrnusSpawnedObject SpawnedObject)
 
 }
 
+FCavrnusSpawnedObject UCavrnusFunctionLibrary::GetIfIsSpawnedObject(FCavrnusSpaceConnection SpaceConnection, AActor* Actor)
+{
+	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
+	{
+		return SubProxy->GetSpawnedObject(Actor);
+	}
+
+	return 	FCavrnusSpawnedObject();
+}
+
 #pragma endregion
 
 

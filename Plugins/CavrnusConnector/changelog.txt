@@ -1,19 +1,7 @@
-Cavrnus-UE5.0-RelayPlugin-2023.2.604-Dev
-bhaddad5: ue - master [9c1f143d98fbbf5c9c34d1a419084445dadd2f2b]
-Major refactor/cleanup to how Spawning Objects works under-the-hood
+Cavrnus-UE5.0-RelayPlugin-2023.2.603-Dev
+cody.tedrick: ue - master [654328e00368bbc32ef57ce829c26b96cb81ed03]
+Remove debug prints
 
-	CavrnusPlugin/Content/InternalTesting/Blueprints/BP_SpawnedSphere.uasset
-	CavrnusPlugin/Content/InternalTesting/Levels/L_AuthenticateWithLinkSample.umap
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusFunctionLibrary.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusSpatialConnector.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusSpatialConnectorSubSystem.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/NoMesh/NoMeshObject.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/SpawnedObjectsManager.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusFunctionLibrary.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusSpatialConnector.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusSpatialConnectorSubSystem.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/SpawnedObjectsManager.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusSpawnedObject.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Content/SampleLevel/Blueprints/BP_SamplePostProcessing.uasset
+	CavrnusPlugin/Plugins/CavrnusConnector/Content/SampleLevel/L_SampleCavrnusConnectedSpaced.umap
 

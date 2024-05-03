@@ -8,6 +8,8 @@
 #include "CoreMinimal.h"
 #include <Kismet/GameplayStatics.h>
 
+TWeakObjectPtr<USpawnedObjectsManager> USpawnedObjectsManager::Instance = nullptr;
+
 // Sets default values
 USpawnedObjectsManager::USpawnedObjectsManager()
 {
@@ -17,78 +19,111 @@ USpawnedObjectsManager::~USpawnedObjectsManager()
 {
 }
 
-void USpawnedObjectsManager::RegisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, TSubclassOf<AActor>* ActorClass, UWorld* World)
+void USpawnedObjectsManager::RegisterSpawnManager(USpawnedObjectsManager* Manager)
 {
-	FTransform SpawnTransform = UCavrnusFunctionLibrary::GetTransformPropertyValue(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName, "Transform");
-
-	AActor* SpawnedActor = World->SpawnActor(*ActorClass, &SpawnTransform);
-	spawnedActors.Add(SpawnedObject.PropertiesContainerName, SpawnedActor);
-
-	TArray<USceneComponent*> PropertiesContainers;
-	USceneComponent* ActorRoot = SpawnedActor->GetRootComponent();
-
-	if (ActorRoot == nullptr) 
-	{
-		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to successfully spawn actor"));
-		return;
-	}
-
-	UCavrnusSpawnedObjectFlag* ActorComponent = Cast<UCavrnusSpawnedObjectFlag>(SpawnedActor->AddComponentByClass(
-		UCavrnusSpawnedObjectFlag::StaticClass(),
-		true,
-		FTransform::Identity,
-		false));
-
-	if (ActorComponent)
-	{
-		ActorComponent->SpawnedObject = SpawnedObject;
-		ActorComponent->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
-	}
-
-	TArray<USceneComponent*> RootChildren;
-	ActorRoot->GetChildrenComponents(false, RootChildren);
-	PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
-		return SceneComponent->IsA<UCavrnusPropertiesContainer>();
-	});
-
-	if (PropertiesContainers.IsEmpty())
-	{
-		// Add a properties container to the root if none found
-		UCavrnusPropertiesContainer* RootContainer = Cast<UCavrnusPropertiesContainer>(SpawnedActor->AddComponentByClass(
-			UCavrnusPropertiesContainer::StaticClass(),
-			true,
-			FTransform::Identity,
-			false));
-		if (RootContainer)
-		{
-			RootContainer->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
-		}
-
-		ActorRoot->GetChildrenComponents(false, RootChildren);
-		PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
-			return SceneComponent->IsA<UCavrnusPropertiesContainer>();
-		});
-	}
-
-	checkf(PropertiesContainers.Num() == 1, TEXT("Expected a single properties container component on the root of the actor"));
-	for (USceneComponent* Component : PropertiesContainers)
-	{
-		if (UCavrnusPropertiesContainer* PropertiesContainer = Cast<UCavrnusPropertiesContainer>(Component))
-		{
-			PropertiesContainer->SetContainerName(SpawnedObject.PropertiesContainerName);
-		}
-	}
-
-	UCavrnusPropertiesContainer::ReplaceClassNameInPropertiesContainers(SpawnedActor, SpawnedObject.PropertiesContainerName);
+	Instance = Manager;
 }
 
-void USpawnedObjectsManager::UnregisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, UWorld* World)
+
+USpawnedObjectsManager* USpawnedObjectsManager::GetInstance()
 {
-	if (!spawnedActors.Contains(SpawnedObject.PropertiesContainerName))
+	return Instance.Get();
+}
+
+FCavrnusSpawnedObject USpawnedObjectsManager::GetSpawnedObject(AActor* Actor)
+{
+	if (UCavrnusSpawnedObjectFlag* CavrnusActorComponent = Actor->FindComponentByClass<UCavrnusSpawnedObjectFlag>())
 	{
-		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to destroy actor, could not find spawned object with Container Name %s"), *SpawnedObject.PropertiesContainerName);
+		return CavrnusActorComponent->SpawnedObject;
+	}
+
+	return FCavrnusSpawnedObject();
+}
+
+void USpawnedObjectsManager::RegisterSpawnedObject(FCavrnusSpawnedObject SpawnedObject)
+{
+	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
+	{
+		SubProxy->SpawnCavrnusActor(SpawnedObject);
+	}
+	else
+	{
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Attempting to spawn object but Game Instance not found"));
+	}
+}
+
+void USpawnedObjectsManager::UnregisterSpawnedObject(FCavrnusSpawnedObject SpawnedObject)
+{
+	UGameInstance* GameInstance = Cast<UGameInstance>(GetOuter());
+	if (!GameInstance)
+	{
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Attempting to delete object but Game Instance not found"));
 		return;
 	}
 
-	spawnedActors[SpawnedObject.PropertiesContainerName]->Destroy();
+	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
+	{
+		SubProxy->DestroyCavrnusActor(SpawnedObject);
+	}
+}
+
+void USpawnedObjectsManager::SpawnCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject, ACavrnusSpatialConnector* CavrnusSpatialConnector)
+{
+	FTransform SpawnTransform = UCavrnusFunctionLibrary::GetTransformPropertyValue(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName, "Transform");
+	AActor* SpawnedActor = CavrnusSpatialConnector->SpawnActorFromIdentifier(SpawnedObject.UniqueIdentifier, SpawnTransform);
+	if (SpawnedActor)
+	{
+		TArray<USceneComponent*> PropertiesContainers;
+		USceneComponent* ActorRoot = SpawnedActor->GetRootComponent();
+		if (ActorRoot)
+		{
+			UCavrnusSpawnedObjectFlag* ActorComponent = Cast<UCavrnusSpawnedObjectFlag>(SpawnedActor->AddComponentByClass(
+				UCavrnusSpawnedObjectFlag::StaticClass(),
+				true,
+				FTransform::Identity,
+				false));
+
+			if (ActorComponent)
+			{
+				ActorComponent->SpawnedObject = SpawnedObject;
+				ActorComponent->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
+			}
+
+			TArray<USceneComponent*> RootChildren;
+			ActorRoot->GetChildrenComponents(false, RootChildren);
+			PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
+				return SceneComponent->IsA<UCavrnusPropertiesContainer>();
+				});
+
+			if (PropertiesContainers.IsEmpty())
+			{
+				// Add a properties container to the root if none found
+				UCavrnusPropertiesContainer* RootContainer = Cast<UCavrnusPropertiesContainer>(SpawnedActor->AddComponentByClass(
+					UCavrnusPropertiesContainer::StaticClass(),
+					true,
+					FTransform::Identity,
+					false));
+				if (RootContainer)
+				{
+					RootContainer->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
+				}
+
+				ActorRoot->GetChildrenComponents(false, RootChildren);
+				PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
+					return SceneComponent->IsA<UCavrnusPropertiesContainer>();
+					});
+			}
+
+			checkf(PropertiesContainers.Num() == 1, TEXT("Expected a single properties container component on the root of the actor"));
+			for (USceneComponent* Component : PropertiesContainers)
+			{
+				if (UCavrnusPropertiesContainer* PropertiesContainer = Cast<UCavrnusPropertiesContainer>(Component))
+				{
+					PropertiesContainer->SetContainerName(SpawnedObject.PropertiesContainerName);
+				}
+			}
+
+			UCavrnusPropertiesContainer::ReplaceClassNameInPropertiesContainers(SpawnedActor, SpawnedObject.PropertiesContainerName);
+		}
+	}
 }

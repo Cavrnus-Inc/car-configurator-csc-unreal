@@ -8,14 +8,48 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FCavrnusSpawnedObject;
+class AActor;
 #ifdef CAVRNUSCONNECTOR_CavrnusSpatialConnector_generated_h
 #error "CavrnusSpatialConnector.generated.h already included, missing '#pragma once' in CavrnusSpatialConnector.h"
 #endif
 #define CAVRNUSCONNECTOR_CavrnusSpatialConnector_generated_h
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_SPARSE_DATA
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_RPC_WRAPPERS
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_RPC_WRAPPERS \
+	virtual void DestroyCavrnusActor_Implementation(FCavrnusSpawnedObject const& SpawnedObject); \
+	virtual AActor* SpawnActorFromIdentifier_Implementation(const FString& Identifier, FTransform const& InTransform); \
+ \
+	DECLARE_FUNCTION(execDestroyCavrnusActor); \
+	DECLARE_FUNCTION(execSpawnActorFromIdentifier);
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execDestroyCavrnusActor); \
+	DECLARE_FUNCTION(execSpawnActorFromIdentifier);
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_EVENT_PARMS \
+	struct CavrnusSpatialConnector_eventDestroyCavrnusActor_Parms \
+	{ \
+		FCavrnusSpawnedObject SpawnedObject; \
+	}; \
+	struct CavrnusSpatialConnector_eventSpawnActorFromIdentifier_Parms \
+	{ \
+		FString Identifier; \
+		FTransform InTransform; \
+		AActor* ReturnValue; \
+ \
+		/** Constructor, initializes return property only **/ \
+		CavrnusSpatialConnector_eventSpawnActorFromIdentifier_Parms() \
+			: ReturnValue(NULL) \
+		{ \
+		} \
+	};
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_CALLBACK_WRAPPERS
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACavrnusSpatialConnector(); \
@@ -58,12 +92,16 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ACavrnusSpatialConnector)
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_46_PROLOG
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_46_PROLOG \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_EVENT_PARMS
+
+
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_SPARSE_DATA \
 	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_RPC_WRAPPERS \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_CALLBACK_WRAPPERS \
 	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_INCLASS \
 	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_STANDARD_CONSTRUCTORS \
 public: \
@@ -75,6 +113,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_SPARSE_DATA \
 	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_CALLBACK_WRAPPERS \
 	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_INCLASS_NO_PURE_DECLS \
 	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_49_ENHANCED_CONSTRUCTORS \
 private: \

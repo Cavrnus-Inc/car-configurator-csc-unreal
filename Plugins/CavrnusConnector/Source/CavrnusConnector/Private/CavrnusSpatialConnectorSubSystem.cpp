@@ -34,24 +34,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::Initialize()
 	SpaceConnectionSuccess.BindUFunction(this, GET_FUNCTION_NAME_CHECKED(UCavrnusSpatialConnectorSubSystemProxy, OnSpaceConnectionSuccess));
 	SpaceConnectionFailure.BindUFunction(this, GET_FUNCTION_NAME_CHECKED(UCavrnusSpatialConnectorSubSystemProxy, OnSpaceConnectionFailure));
 
-	SpawnedObjectsManager = new USpawnedObjectsManager();
-
-	TFunction<void(FCavrnusSpawnedObject, FString)> onObjectCreation = [this](const FCavrnusSpawnedObject& ob, FString uniqueId)
-	{
-		if (!GetCavrnusSpatialConnector()->SpawnableIdentifiers.Contains(uniqueId))
-		{
-			UE_LOG(LogCavrnusConnector, Error, TEXT("Could not find spawnable object with Unique ID %s in the Cavrnus Spatial Connector"), *uniqueId);
-			return;
-		}
-		SpawnedObjectsManager->RegisterSpawnedObject(ob, &GetCavrnusSpatialConnector()->SpawnableIdentifiers[uniqueId], GetWorld());
-	};
-	UCavrnusFunctionLibrary::GetDataModel()->RegisterObjectCreationCallback(onObjectCreation);
-
-	TFunction<void(FCavrnusSpawnedObject)> onObjectDestruction = [this](const FCavrnusSpawnedObject& ob)
-	{
-		SpawnedObjectsManager->UnregisterSpawnedObject(ob, GetWorld());
-	};
-	UCavrnusFunctionLibrary::GetDataModel()->RegisterObjectDestructionCallback(onObjectDestruction);
+	GetSpawnedObjectsManager();
 }
 
 void UCavrnusSpatialConnectorSubSystemProxy::Deinitialize()
@@ -276,6 +259,17 @@ void UCavrnusSpatialConnectorSubSystemProxy::AttemptToJoinSpace(FString JoinSpac
 	UCavrnusFunctionLibrary::JoinSpace(JoinSpaceId, SpaceConnectionSuccess, SpaceConnectionFailure);
 }
 
+USpawnedObjectsManager* UCavrnusSpatialConnectorSubSystemProxy::GetSpawnedObjectsManager()
+{
+	if (!SpawnedObjectsManager)
+	{
+		SpawnedObjectsManager = NewObject<USpawnedObjectsManager>(ObjectOwner.Get());
+		USpawnedObjectsManager::RegisterSpawnManager(SpawnedObjectsManager);
+	}
+
+	return SpawnedObjectsManager;
+}
+
 UPDFManager* UCavrnusSpatialConnectorSubSystemProxy::GetPDFManager()
 {
 	if (!PDFManager)
@@ -291,6 +285,43 @@ UPDFManager* UCavrnusSpatialConnectorSubSystemProxy::GetPDFManager()
 UCavrnusUIManager* UCavrnusSpatialConnectorSubSystemProxy::GetUIManager()
 {
 	return UIManager;
+}
+
+void UCavrnusSpatialConnectorSubSystemProxy::SpawnCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject)
+{
+	if (ACavrnusSpatialConnector* CavrnusSpatialConnector = GetCavrnusSpatialConnector())
+	{
+		if (USpawnedObjectsManager* SpawnedObjectManager = GetSpawnedObjectsManager())
+		{
+			FTimerHandle UnusedHandle;
+			FTimerDelegate Delegate;
+			Delegate.BindUFunction(SpawnedObjectManager, "SpawnCavrnusActor", SpawnedObject, CavrnusSpatialConnector);
+
+			if (UWorld* World = GetWorld())
+			{
+				FTimerManager& TimeMan = World->GetTimerManager();
+				TimeMan.SetTimer(UnusedHandle, Delegate, .1f, false);
+			}
+		}
+	}
+}
+
+void UCavrnusSpatialConnectorSubSystemProxy::DestroyCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject)
+{
+	if (ACavrnusSpatialConnector* CavrnusSpatialConnector = GetCavrnusSpatialConnector())
+	{
+		CavrnusSpatialConnector->DestroyCavrnusActor(SpawnedObject);
+	}
+}
+
+FCavrnusSpawnedObject UCavrnusSpatialConnectorSubSystemProxy::GetSpawnedObject(AActor* Actor)
+{
+	if (USpawnedObjectsManager* SpawnedObjectManager = GetSpawnedObjectsManager())
+	{
+		return SpawnedObjectManager->GetSpawnedObject(Actor);
+	}
+
+	return FCavrnusSpawnedObject();
 }
 
 UCavrnusSpatialConnectorSubSystem::UCavrnusSpatialConnectorSubSystem()

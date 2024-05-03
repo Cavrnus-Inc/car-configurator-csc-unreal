@@ -8,6 +8,8 @@
 #include <HAL/PlatformTime.h>
 #include "CoreMinimal.h"
 #include "Types/CavrnusSpawnedObject.h"
+#include "SpawnedObjectsManager.h"
+#include "PDFManager.h"
 
 namespace Cavrnus
 {
@@ -57,6 +59,9 @@ namespace Cavrnus
 		{
 			HandleServerMsg(receivedMessages[i]);
 		}
+
+		if (PDFManager)
+			PDFManager->Update(DeltaTime);
 	}
 
 	TStatId CavrnusRelayModel::GetStatId() const
@@ -106,16 +111,6 @@ namespace Cavrnus
 	void CavrnusRelayModel::SendMessage(const ServerData::RelayClientMessage& msg)
 	{
 		interopLayer->SendMessage(msg);
-	}
-
-	void CavrnusRelayModel::RegisterObjectCreationCallback(TFunction<void(FCavrnusSpawnedObject, FString)> cb)
-	{
-		ObjectCreationCallback = MakeShareable(new TFunction<void(FCavrnusSpawnedObject, FString)>(cb));
-	}
-
-	void CavrnusRelayModel::RegisterObjectDestructionCallback(TFunction<void(FCavrnusSpawnedObject)> cb)
-	{
-		ObjectDestructionCallback = MakeShareable(new TFunction<void(FCavrnusSpawnedObject)>(cb));
 	}
 
 	void CavrnusRelayModel::HandleServerMsg(const ServerData::RelayRemoteMessage& msg)
@@ -269,8 +264,16 @@ namespace Cavrnus
 		SpawnedObject.SpaceConnection = Cavrnus::CavrnusProtoTranslation::FromPb(ObjectAdded.spaceconn());
 		SpawnedObject.CreationOpId = (FString(UTF8_TO_TCHAR(ObjectAdded.creationopid().c_str())));
 		SpawnedObject.PropertiesContainerName = (FString(UTF8_TO_TCHAR(ObjectAdded.propertiescontainer().c_str())));
+		SpawnedObject.UniqueIdentifier = (FString(UTF8_TO_TCHAR(ObjectAdded.objectcreated().c_str())));
 
-		(*ObjectCreationCallback)(SpawnedObject, ObjectAdded.objectcreated().c_str());
+		USpawnedObjectsManager* SpawnedObjectsManager = USpawnedObjectsManager::GetInstance();
+		if (!SpawnedObjectsManager)
+		{
+			UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to obtain spawned objects manager when space object added"));
+			return;
+		}
+
+		SpawnedObjectsManager->RegisterSpawnedObject(SpawnedObject);
 
 		if (ObjectCreationCallbacks.Contains(SpawnedObject.PropertiesContainerName)) {
 			(*ObjectCreationCallbacks[SpawnedObject.PropertiesContainerName])(SpawnedObject);
@@ -283,7 +286,14 @@ namespace Cavrnus
 		FCavrnusSpawnedObject SpawnedObject;
 		SpawnedObject.PropertiesContainerName = (FString(UTF8_TO_TCHAR(ObjectRemoved.propertiescontainer().c_str())));
 
-		(*ObjectDestructionCallback)(SpawnedObject);
+		USpawnedObjectsManager* SpawnedObjectsManager = USpawnedObjectsManager::GetInstance();
+		if (!SpawnedObjectsManager)
+		{
+			UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to obtain spawned objects manager when space object removed"));
+			return;
+		}
+
+		SpawnedObjectsManager->UnregisterSpawnedObject(SpawnedObject);
 	}
 
 	void CavrnusRelayModel::HandlePermissionStatus(const ServerData::PermissionStatus& PermissionStatus)

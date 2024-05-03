@@ -330,6 +330,11 @@ public:
 		meta = (ToolTip = "Destroys the given object", ShortToolTip = "Destroys the given object"))
 	static void DestroyObject(FCavrnusSpawnedObject SpawnedObject);
 
+	//TODO: USE COMPONENTS
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Objects",
+		meta = (ToolTip = "Gets the spawned object's data if it was created by Cavrnus", ShortToolTip = "Gets the spawned object's data"))
+	static FCavrnusSpawnedObject GetIfIsSpawnedObject(FCavrnusSpaceConnection SpaceConnection, AActor* Actor);
+
 #pragma endregion
 
 

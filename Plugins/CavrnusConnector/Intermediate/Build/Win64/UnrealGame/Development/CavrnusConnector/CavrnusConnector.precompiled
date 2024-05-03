@@ -124,6 +124,7 @@
 		"PDFManager.gen.cpp.obj",
 		"PlayerAvatarPawn.gen.cpp.obj",
 		"PropertyId.gen.cpp.obj",
+		"SpawnedObjectsManager.gen.cpp.obj",
 		"TextAnnotationWidget.gen.cpp.obj",
 		"TextRenderer.gen.cpp.obj",
 		"TextRenderer2D.gen.cpp.obj",

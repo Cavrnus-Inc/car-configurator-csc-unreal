@@ -53,6 +53,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusAvailableVideoInputDevices__DelegateSignature();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_ACavrnusSpatialConnector_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusInputDevice();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusOutputDevice();
@@ -359,7 +360,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::NewProp_spawnedObject = { "spawnedObject", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventCavrnusSpawnedObjectArrived_Parms, spawnedObject), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(nullptr, 0) }; // 1542944519
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::NewProp_spawnedObject = { "spawnedObject", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventCavrnusSpawnedObjectArrived_Parms, spawnedObject), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(nullptr, 0) }; // 2250269897
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::NewProp_spawnedObject,
 	};
@@ -731,6 +732,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		UCavrnusFunctionLibrary::AwaitLocalUser(Z_Param_SpaceConnection,FCavrnusSpaceUserEvent(Z_Param_LocalUserArrived));
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UCavrnusFunctionLibrary::execGetIfIsSpawnedObject)
+	{
+		P_GET_STRUCT(FCavrnusSpaceConnection,Z_Param_SpaceConnection);
+		P_GET_OBJECT(AActor,Z_Param_Actor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FCavrnusSpawnedObject*)Z_Param__Result=UCavrnusFunctionLibrary::GetIfIsSpawnedObject(Z_Param_SpaceConnection,Z_Param_Actor);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UCavrnusFunctionLibrary::execDestroyObject)
@@ -1261,6 +1271,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 			{ "GetColorPropertyValue", &UCavrnusFunctionLibrary::execGetColorPropertyValue },
 			{ "GetCurrentSpaceUsers", &UCavrnusFunctionLibrary::execGetCurrentSpaceUsers },
 			{ "GetFloatPropertyValue", &UCavrnusFunctionLibrary::execGetFloatPropertyValue },
+			{ "GetIfIsSpawnedObject", &UCavrnusFunctionLibrary::execGetIfIsSpawnedObject },
 			{ "GetStringPropertyValue", &UCavrnusFunctionLibrary::execGetStringPropertyValue },
 			{ "GetTransformPropertyValue", &UCavrnusFunctionLibrary::execGetTransformPropertyValue },
 			{ "GetVectorPropertyValue", &UCavrnusFunctionLibrary::execGetVectorPropertyValue },
@@ -2801,7 +2812,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_DestroyObject_Statics::NewProp_SpawnedObject = { "SpawnedObject", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventDestroyObject_Parms, SpawnedObject), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(nullptr, 0) }; // 1542944519
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_DestroyObject_Statics::NewProp_SpawnedObject = { "SpawnedObject", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventDestroyObject_Parms, SpawnedObject), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(nullptr, 0) }; // 2250269897
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusFunctionLibrary_DestroyObject_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_DestroyObject_Statics::NewProp_SpawnedObject,
 	};
@@ -3391,6 +3402,50 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusFunctionLibrary_GetFloatPropertyValue_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics
+	{
+		struct CavrnusFunctionLibrary_eventGetIfIsSpawnedObject_Parms
+		{
+			FCavrnusSpaceConnection SpaceConnection;
+			AActor* Actor;
+			FCavrnusSpawnedObject ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_SpaceConnection;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Actor;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::NewProp_SpaceConnection = { "SpaceConnection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventGetIfIsSpawnedObject_Parms, SpaceConnection), Z_Construct_UScriptStruct_FCavrnusSpaceConnection, METADATA_PARAMS(nullptr, 0) }; // 3908145014
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::NewProp_Actor = { "Actor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventGetIfIsSpawnedObject_Parms, Actor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventGetIfIsSpawnedObject_Parms, ReturnValue), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(nullptr, 0) }; // 2250269897
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::NewProp_SpaceConnection,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::NewProp_Actor,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::Function_MetaDataParams[] = {
+		{ "CallInEditor", "true" },
+		{ "Category", "Cavrnus|Objects" },
+		{ "ModuleRelativePath", "Public/CavrnusFunctionLibrary.h" },
+		{ "ShortToolTip", "Gets the spawned object's data" },
+		{ "ToolTip", "Gets the spawned object's data if it was created by Cavrnus" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusFunctionLibrary, nullptr, "GetIfIsSpawnedObject", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::CavrnusFunctionLibrary_eventGetIfIsSpawnedObject_Parms), Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022601, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -4115,7 +4170,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_SpawnObject_Statics::NewProp_spawnedObjectArrived = { "spawnedObjectArrived", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventSpawnObject_Parms, spawnedObjectArrived), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusFunctionLibrary_SpawnObject_Statics::NewProp_spawnedObjectArrived_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusFunctionLibrary_SpawnObject_Statics::NewProp_spawnedObjectArrived_MetaData)) }; // 23550630
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_SpawnObject_Statics::NewProp_spawnedObjectArrived = { "spawnedObjectArrived", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventSpawnObject_Parms, spawnedObjectArrived), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusFunctionLibrary_SpawnObject_Statics::NewProp_spawnedObjectArrived_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusFunctionLibrary_SpawnObject_Statics::NewProp_spawnedObjectArrived_MetaData)) }; // 2446778676
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusFunctionLibrary_SpawnObject_Statics::NewProp_ReturnValue_MetaData[] = {
 		{ "DisplayName", "Container Name" },
@@ -4431,7 +4486,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusContentProgressFunction__DelegateSignature, "CavrnusContentProgressFunction__DelegateSignature" }, // 777088323
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusPolicyUpdated__DelegateSignature, "CavrnusPolicyUpdated__DelegateSignature" }, // 3882550958
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusRemoteContentFunction__DelegateSignature, "CavrnusRemoteContentFunction__DelegateSignature" }, // 1017906000
-		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature, "CavrnusSpawnedObjectArrived__DelegateSignature" }, // 23550630
+		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature, "CavrnusSpawnedObjectArrived__DelegateSignature" }, // 2446778676
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusUploadCompleteFunction__DelegateSignature, "CavrnusUploadCompleteFunction__DelegateSignature" }, // 2678578502
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_ColorPropertyUpdated__DelegateSignature, "ColorPropertyUpdated__DelegateSignature" }, // 3130625495
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_DefineBoolPropertyDefaultValue, "DefineBoolPropertyDefaultValue" }, // 2193452744
@@ -4440,7 +4495,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_DefineStringPropertyDefaultValue, "DefineStringPropertyDefaultValue" }, // 2492725599
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_DefineTransformPropertyDefaultValue, "DefineTransformPropertyDefaultValue" }, // 1398870438
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_DefineVectorPropertyDefaultValue, "DefineVectorPropertyDefaultValue" }, // 1465716675
-		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_DestroyObject, "DestroyObject" }, // 1821138958
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_DestroyObject, "DestroyObject" }, // 711128653
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_ExitSpace, "ExitSpace" }, // 1616128500
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchAllUploadedContent, "FetchAllUploadedContent" }, // 2477702552
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchAudioInputs, "FetchAudioInputs" }, // 357530257
@@ -4456,6 +4511,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_GetColorPropertyValue, "GetColorPropertyValue" }, // 1082443800
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_GetCurrentSpaceUsers, "GetCurrentSpaceUsers" }, // 3043572157
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_GetFloatPropertyValue, "GetFloatPropertyValue" }, // 2090867828
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_GetIfIsSpawnedObject, "GetIfIsSpawnedObject" }, // 3859717729
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_GetStringPropertyValue, "GetStringPropertyValue" }, // 369580320
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_GetTransformPropertyValue, "GetTransformPropertyValue" }, // 875328289
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_GetVectorPropertyValue, "GetVectorPropertyValue" }, // 4007845519
@@ -4471,7 +4527,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_SetInputModeMix, "SetInputModeMix" }, // 2310526682
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_SetLocalUserMutedState, "SetLocalUserMutedState" }, // 2795873466
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_SetLocalUserStreamingState, "SetLocalUserStreamingState" }, // 1850237424
-		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_SpawnObject, "SpawnObject" }, // 462866426
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_SpawnObject, "SpawnObject" }, // 1634771317
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_StringPropertyUpdated__DelegateSignature, "StringPropertyUpdated__DelegateSignature" }, // 2852833607
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_TransformPropertyUpdated__DelegateSignature, "TransformPropertyUpdated__DelegateSignature" }, // 2280429764
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_Unbind, "Unbind" }, // 1420901146
@@ -4526,9 +4582,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusFunctionLibrary, UCavrnusFunctionLibrary::StaticClass, TEXT("UCavrnusFunctionLibrary"), &Z_Registration_Info_UClass_UCavrnusFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusFunctionLibrary), 882589226U) },
+		{ Z_Construct_UClass_UCavrnusFunctionLibrary, UCavrnusFunctionLibrary::StaticClass, TEXT("UCavrnusFunctionLibrary"), &Z_Registration_Info_UClass_UCavrnusFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusFunctionLibrary), 655394174U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_4137210215(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_4068044557(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

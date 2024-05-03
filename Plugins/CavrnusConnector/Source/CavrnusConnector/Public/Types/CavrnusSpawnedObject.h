@@ -23,7 +23,11 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpawnedObject
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Users")
 	FString CreationOpId;
 
-	FCavrnusSpawnedObject(const FString& PropertiesContainerName, const FString& CreationOpId, AActor* Actor)
+	//TODO: REMOVE THIS BIT
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Users")
+	FString UniqueIdentifier;
+
+	FCavrnusSpawnedObject(const FString& PropertiesContainerName, const FString& CreationOpId)
 		: PropertiesContainerName(PropertiesContainerName), CreationOpId(CreationOpId)
 	{
 	}

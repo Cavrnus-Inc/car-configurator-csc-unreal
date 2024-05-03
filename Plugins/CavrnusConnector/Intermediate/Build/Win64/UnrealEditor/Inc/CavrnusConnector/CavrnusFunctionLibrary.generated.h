@@ -19,6 +19,7 @@ struct FCavrnusInputDevice;
 struct FCavrnusSpaceConnection;
 struct FCavrnusUser;
 struct FCavrnusBinding;
+class AActor;
 class UCavrnusLiveTransformPropertyUpdate;
 class UCavrnusLiveVectorPropertyUpdate;
 class UCavrnusLiveStringPropertyUpdate;
@@ -162,7 +163,7 @@ static inline void FCavrnusSpawnedObjectArrived_DelegateWrapper(const FScriptDel
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_403_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_408_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusContentProgressFunction_Parms \
 { \
 	float Progress; \
@@ -177,7 +178,7 @@ static inline void FCavrnusContentProgressFunction_DelegateWrapper(const FScript
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_404_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_409_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusContentFunction_Parms \
 { \
 	TArray<uint8> bytes; \
@@ -190,7 +191,7 @@ static inline void FCavrnusContentFunction_DelegateWrapper(const FScriptDelegate
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_410_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_415_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusContentFileFunction_Parms \
 { \
 	FString fileDest; \
@@ -203,7 +204,7 @@ static inline void FCavrnusContentFileFunction_DelegateWrapper(const FScriptDele
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_416_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_421_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusRemoteContentFunction_Parms \
 { \
 	TArray<FCavrnusRemoteContent> availableContent; \
@@ -216,7 +217,7 @@ static inline void FCavrnusRemoteContentFunction_DelegateWrapper(const FScriptDe
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_422_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_427_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusUploadCompleteFunction_Parms \
 { \
 	FCavrnusRemoteContent uploadedContent; \
@@ -250,6 +251,7 @@ static inline void FCavrnusUploadCompleteFunction_DelegateWrapper(const FScriptD
 	DECLARE_FUNCTION(execBindSpaceUsers); \
 	DECLARE_FUNCTION(execGetCurrentSpaceUsers); \
 	DECLARE_FUNCTION(execAwaitLocalUser); \
+	DECLARE_FUNCTION(execGetIfIsSpawnedObject); \
 	DECLARE_FUNCTION(execDestroyObject); \
 	DECLARE_FUNCTION(execSpawnObject); \
 	DECLARE_FUNCTION(execBindSpacePolicy); \
@@ -320,6 +322,7 @@ static inline void FCavrnusUploadCompleteFunction_DelegateWrapper(const FScriptD
 	DECLARE_FUNCTION(execBindSpaceUsers); \
 	DECLARE_FUNCTION(execGetCurrentSpaceUsers); \
 	DECLARE_FUNCTION(execAwaitLocalUser); \
+	DECLARE_FUNCTION(execGetIfIsSpawnedObject); \
 	DECLARE_FUNCTION(execDestroyObject); \
 	DECLARE_FUNCTION(execSpawnObject); \
 	DECLARE_FUNCTION(execBindSpacePolicy); \
