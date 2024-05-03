@@ -17,13 +17,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnector() {}
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_ACavrnusSpatialConnector_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_ACavrnusSpatialConnector();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
-	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpawnedObject();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusGuestLoginWidget_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusLoginWidget_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusSpaceListWidget_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusWidgetBase_NoRegister();
 // End Cross Module References
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_ECavrnusAuthMethod;
@@ -242,135 +240,8 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnector() {}
 		}
 		return Z_Registration_Info_UEnum_ECavrnusSpaceJoinMethod.InnerSingleton;
 	}
-	DEFINE_FUNCTION(ACavrnusSpatialConnector::execDestroyCavrnusActor)
-	{
-		P_GET_STRUCT_REF(FCavrnusSpawnedObject,Z_Param_Out_SpawnedObject);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->DestroyCavrnusActor_Implementation(Z_Param_Out_SpawnedObject);
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(ACavrnusSpatialConnector::execSpawnActorFromIdentifier)
-	{
-		P_GET_PROPERTY(FStrProperty,Z_Param_Identifier);
-		P_GET_STRUCT_REF(FTransform,Z_Param_Out_InTransform);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(AActor**)Z_Param__Result=P_THIS->SpawnActorFromIdentifier_Implementation(Z_Param_Identifier,Z_Param_Out_InTransform);
-		P_NATIVE_END;
-	}
-	static FName NAME_ACavrnusSpatialConnector_DestroyCavrnusActor = FName(TEXT("DestroyCavrnusActor"));
-	void ACavrnusSpatialConnector::DestroyCavrnusActor(FCavrnusSpawnedObject const& SpawnedObject)
-	{
-		CavrnusSpatialConnector_eventDestroyCavrnusActor_Parms Parms;
-		Parms.SpawnedObject=SpawnedObject;
-		ProcessEvent(FindFunctionChecked(NAME_ACavrnusSpatialConnector_DestroyCavrnusActor),&Parms);
-	}
-	static FName NAME_ACavrnusSpatialConnector_SpawnActorFromIdentifier = FName(TEXT("SpawnActorFromIdentifier"));
-	AActor* ACavrnusSpatialConnector::SpawnActorFromIdentifier(const FString& Identifier, FTransform const& InTransform)
-	{
-		CavrnusSpatialConnector_eventSpawnActorFromIdentifier_Parms Parms;
-		Parms.Identifier=Identifier;
-		Parms.InTransform=InTransform;
-		ProcessEvent(FindFunctionChecked(NAME_ACavrnusSpatialConnector_SpawnActorFromIdentifier),&Parms);
-		return Parms.ReturnValue;
-	}
 	void ACavrnusSpatialConnector::StaticRegisterNativesACavrnusSpatialConnector()
 	{
-		UClass* Class = ACavrnusSpatialConnector::StaticClass();
-		static const FNameNativePtrPair Funcs[] = {
-			{ "DestroyCavrnusActor", &ACavrnusSpatialConnector::execDestroyCavrnusActor },
-			{ "SpawnActorFromIdentifier", &ACavrnusSpatialConnector::execSpawnActorFromIdentifier },
-		};
-		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpawnedObject_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_SpawnedObject;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::NewProp_SpawnedObject_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::NewProp_SpawnedObject = { "SpawnedObject", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnector_eventDestroyCavrnusActor_Parms, SpawnedObject), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::NewProp_SpawnedObject_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::NewProp_SpawnedObject_MetaData)) }; // 2250269897
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::NewProp_SpawnedObject,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Cavrnus" },
-		{ "ModuleRelativePath", "Public/CavrnusSpatialConnector.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACavrnusSpatialConnector, nullptr, "DestroyCavrnusActor", nullptr, nullptr, sizeof(CavrnusSpatialConnector_eventDestroyCavrnusActor_Parms), Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08420C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Identifier_MetaData[];
-#endif
-		static const UECodeGen_Private::FStrPropertyParams NewProp_Identifier;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_InTransform_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_InTransform;
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_Identifier_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_Identifier = { "Identifier", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnector_eventSpawnActorFromIdentifier_Parms, Identifier), METADATA_PARAMS(Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_Identifier_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_Identifier_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_InTransform_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_InTransform = { "InTransform", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnector_eventSpawnActorFromIdentifier_Parms, InTransform), Z_Construct_UScriptStruct_FTransform, METADATA_PARAMS(Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_InTransform_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_InTransform_MetaData)) };
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnector_eventSpawnActorFromIdentifier_Parms, ReturnValue), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_Identifier,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_InTransform,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Cavrnus" },
-		{ "ModuleRelativePath", "Public/CavrnusSpatialConnector.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACavrnusSpatialConnector, nullptr, "SpawnActorFromIdentifier", nullptr, nullptr, sizeof(CavrnusSpatialConnector_eventSpawnActorFromIdentifier_Parms), Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08C20C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ACavrnusSpatialConnector);
 	UClass* Z_Construct_UClass_ACavrnusSpatialConnector_NoRegister()
@@ -380,7 +251,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnector() {}
 	struct Z_Construct_UClass_ACavrnusSpatialConnector_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
-		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -467,10 +337,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnector() {}
 	UObject* (*const Z_Construct_UClass_ACavrnusSpatialConnector_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AActor,
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
-	};
-	const FClassFunctionLinkInfo Z_Construct_UClass_ACavrnusSpatialConnector_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ACavrnusSpatialConnector_DestroyCavrnusActor, "DestroyCavrnusActor" }, // 3889696656
-		{ &Z_Construct_UFunction_ACavrnusSpatialConnector_SpawnActorFromIdentifier, "SpawnActorFromIdentifier" }, // 2459091879
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACavrnusSpatialConnector_Statics::Class_MetaDataParams[] = {
@@ -681,11 +547,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnector() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		FuncInfo,
+		nullptr,
 		Z_Construct_UClass_ACavrnusSpatialConnector_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		UE_ARRAY_COUNT(FuncInfo),
+		0,
 		UE_ARRAY_COUNT(Z_Construct_UClass_ACavrnusSpatialConnector_Statics::PropPointers),
 		0,
 		0x009000A4u,
@@ -716,9 +582,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnector() {}
 		{ ECavrnusSpaceJoinMethod_StaticEnum, TEXT("ECavrnusSpaceJoinMethod"), &Z_Registration_Info_UEnum_ECavrnusSpaceJoinMethod, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3919926405U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACavrnusSpatialConnector, ACavrnusSpatialConnector::StaticClass, TEXT("ACavrnusSpatialConnector"), &Z_Registration_Info_UClass_ACavrnusSpatialConnector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACavrnusSpatialConnector), 3946334273U) },
+		{ Z_Construct_UClass_ACavrnusSpatialConnector, ACavrnusSpatialConnector::StaticClass, TEXT("ACavrnusSpatialConnector"), &Z_Registration_Info_UClass_ACavrnusSpatialConnector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACavrnusSpatialConnector), 493640686U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_3400671572(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_3128850252(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::EnumInfo));

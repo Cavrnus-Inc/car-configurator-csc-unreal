@@ -128,14 +128,6 @@ public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	TMap<FString, TSubclassOf<AActor>> SpawnableIdentifiers;
 
-	UFUNCTION(BlueprintNativeEvent, Category = "Cavrnus")
-	AActor* SpawnActorFromIdentifier(const FString& Identifier, const FTransform& InTransform);
-	virtual AActor* SpawnActorFromIdentifier_Implementation(const FString& Identifier, const FTransform& Transform);
-
-	UFUNCTION(BlueprintNativeEvent, Category = "Cavrnus")
-	void DestroyCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject);
-	virtual void DestroyCavrnusActor_Implementation(const FCavrnusSpawnedObject& SpawnedObject);
-
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Cavrnus")
 	bool Lasers = true;
 };

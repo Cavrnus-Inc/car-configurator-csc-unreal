@@ -13,8 +13,8 @@
 #include "Types/CavrnusUser.h"
 #include "Types/CavrnusSpawnedObject.h"
 #include "Types/CavrnusBinding.h"
-#include "RelayModel/CavrnusRelayModel.h"
-#include "RelayModel/PropertyId.h"
+#include "../Private/RelayModel/CavrnusRelayModel.h"
+#include "Types/PropertyId.h"
 #include "Types/CavrnusCallbackTypes.h"
 
 #include <algorithm>
@@ -110,15 +110,19 @@ public:
 		meta = (ToolTip = "Connects to a Space; joining voice & video and recieving/processing the journal", ShortToolTip = "Connects to a Space"))
 	static void JoinSpace(FString SpaceId, FCavrnusSpaceConnected OnConnected, FCavrnusError OnFailure);
 
+	static void JoinSpace(FString SpaceId, CavrnusSpaceConnected OnConnected, CavrnusError OnFailure);
+
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
 		meta = (ToolTip = "Triggers when you begin attempting to join a space, returning the ID of the space being joined", ShortToolTip = "Triggers when you begin attempting to join a space"))
 	static void AwaitAnySpaceBeginLoading(FCavrnusSpaceBeginLoading OnConnected);
+
+	static void AwaitAnySpaceBeginLoading(CavrnusSpaceBeginLoading OnConnected);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
 		meta = (ToolTip = "Triggers immediately if you are already in a space, otherwise triggers as soon as you connect", ShortToolTip = "Triggers as soon as you connect to a space"))
 	static void AwaitAnySpaceConnection(FCavrnusSpaceConnected OnConnected);
 
-	static void AwaitAnySpaceConnection(CavrnusSpaceFunction OnConnected);
+	static void AwaitAnySpaceConnection(CavrnusSpaceConnected OnConnected);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
 		meta = (ToolTip = "Disconnects you from a given space.  You will stop recieving property updates, and lose user & voice connections", ShortToolTip = "Disconnects you from a given space"))
@@ -150,6 +154,7 @@ public:
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static FLinearColor GetColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName);
 
+	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FColorPropertyUpdated, FLinearColor, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FColorPropertyUpdated OnPropertyUpdated);
@@ -174,6 +179,7 @@ public:
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static bool GetBoolPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName);
 
+	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FBoolPropertyUpdated, bool, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FBoolPropertyUpdated OnPropertyUpdated);
@@ -198,6 +204,7 @@ public:
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static float GetFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName);
 
+	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FFloatPropertyUpdated, float, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FFloatPropertyUpdated OnPropertyUpdated);
@@ -222,6 +229,7 @@ public:
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static FString GetStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName);
 
+	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FStringPropertyUpdated, FString, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FStringPropertyUpdated OnPropertyUpdated);
@@ -246,6 +254,7 @@ public:
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static FVector4 GetVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName);
 
+	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FVectorPropertyUpdated, FVector4, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FVectorPropertyUpdated OnPropertyUpdated);
@@ -270,6 +279,7 @@ public:
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static FTransform GetTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName);
 
+	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FTransformPropertyUpdated, FTransform, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, FString ContainerName, FString PropertyName, FTransformPropertyUpdated OnPropertyUpdated);
@@ -290,13 +300,18 @@ public:
 	// Permissions
 	// ============================================
 
+	DECLARE_DYNAMIC_DELEGATE_TwoParams(FCavrnusPolicyUpdated, FString, Policy, bool, IsAllowed);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Internal",
 		meta = (ToolTip = "Binds an event to throw when a policy is/isn't allowed for the user (returns false until policies are fetched & resolved)", ShortToolTip = "Throws an event if a policy is allowed"))
 	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindGlobalPolicy(FString Policy, FCavrnusPolicyUpdated OnPolicyUpdated);
 
+	static FCavrnusBinding BindGlobalPolicy(FString Policy, CavrnusPolicyUpdated OnPolicyUpdated);
+
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Internal",
 		meta = (ToolTip = "Binds an event to throw when a policy is/isn't allowed for the user in a given space (returns false until policies are fetched & resolved)", ShortToolTip = "Throws an event if a policy is allowed"))
 	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, FString Policy, FCavrnusPolicyUpdated OnPolicyUpdated);
+
+	static FCavrnusBinding BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, FString Policy, CavrnusPolicyUpdated OnPolicyUpdated);
 #pragma endregion
 
 #pragma region Spawned Objects
@@ -304,6 +319,7 @@ public:
 	// Spawned Objects
 	// ============================================
 
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSpawnedObjectArrived, FCavrnusSpawnedObject, spawnedObject);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Objects",
 		meta = (AutoCreateRefTerm = "spawnedObjectArrived",	ToolTip = "Instantiates the given object with no set properties (note you will need to pull the Container ID out of the Spawned Object and assign property values to it)", ShortToolTip = "Instantiates the given object"))
 	static UPARAM(DisplayName = "Container Name") FString SpawnObject(FCavrnusSpaceConnection SpaceConnection, FString UniqueIdentifier, const FCavrnusSpawnedObjectArrived& spawnedObjectArrived);
@@ -313,11 +329,6 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Objects",
 		meta = (ToolTip = "Destroys the given object", ShortToolTip = "Destroys the given object"))
 	static void DestroyObject(FCavrnusSpawnedObject SpawnedObject);
-
-	//TODO: USE COMPONENTS
-	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Objects",
-		meta = (ToolTip = "Gets the spawned object's data if it was created by Cavrnus", ShortToolTip = "Gets the spawned object's data"))
-	static FCavrnusSpawnedObject GetIfIsSpawnedObject(FCavrnusSpaceConnection SpaceConnection, AActor* Actor);
 
 #pragma endregion
 
@@ -389,21 +400,26 @@ public:
 
 #pragma region Remote Content
 
+	DECLARE_DYNAMIC_DELEGATE_TwoParams(FCavrnusContentProgressFunction, float, Progress, FString, Step);
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusContentFunction, const TArray<uint8>&, bytes);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
 		meta = (ToolTip = "Downloads the given content on your device and returns an array of its bytes", ShortToolTip = "Downloads the given content"))
 	static void FetchFileById(FString ContentId, FCavrnusContentProgressFunction OnProgress, FCavrnusContentFunction OnContentLoaded);
 	static void FetchFileById(FString ContentId, const CavrnusContentProgressFunction& OnProgress, const CavrnusContentFunction& OnContentLoaded);
 
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusContentFileFunction, FString, fileDest);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
 		meta = (ToolTip = "Downloads the given content to your disk and returns the filepath", ShortToolTip = "Downloads the given content"))
 	static void FetchFileByIdToDisk(FString ContentId, FString FileDestination, FCavrnusContentProgressFunction OnProgress, FCavrnusContentFileFunction OnContentLoaded);
 	static void FetchFileByIdToDisk(FString ContentId, FString FileDestination, const CavrnusContentProgressFunction& OnProgress, const TFunction<void(FString)>& OnContentLoaded);
 
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusRemoteContentFunction, const TArray<FCavrnusRemoteContent>&, availableContent);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
 		meta = (ToolTip = "Fetch metadata on all uploaded content stored on the Cavrnus server", ShortToolTip = "Fetch metadata on all uploaded content"))
 	static void FetchAllUploadedContent(FCavrnusRemoteContentFunction OnAvailableContentFetched);
 	static void FetchAllUploadedContent(const CavrnusRemoteContentFunction& OnAvailableContentFetched);
 
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusUploadCompleteFunction, const FCavrnusRemoteContent&, uploadedContent);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
 		meta = (ToolTip = "Uploads the given file path to the Cavrnus server", ShortToolTip = "Uploads the given file path"))
 	static void UploadContent(FString FilePath, FCavrnusUploadCompleteFunction OnUploadComplete);

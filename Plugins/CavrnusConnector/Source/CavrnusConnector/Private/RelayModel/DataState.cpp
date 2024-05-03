@@ -28,7 +28,7 @@ namespace Cavrnus
 		spaceConnectionBindings.Empty();
 	}
 
-	void DataState::AwaitAnySpaceConnection(const CavrnusSpaceFunction& onConnected)
+	void DataState::AwaitAnySpaceConnection(const CavrnusSpaceConnected& onConnected)
 	{
 		if (CurrentSpaceConnections.Num() > 0)
 		{
@@ -36,7 +36,7 @@ namespace Cavrnus
 		}
 		else
 		{
-			using spaceFunction = const CavrnusSpaceFunction;
+			using spaceFunction = const CavrnusSpaceConnected;
 			TSharedPtr<spaceFunction> CallbackPtr = MakeShareable(new spaceFunction(onConnected));
 
 			spaceConnectionBindings.Add(CallbackPtr);

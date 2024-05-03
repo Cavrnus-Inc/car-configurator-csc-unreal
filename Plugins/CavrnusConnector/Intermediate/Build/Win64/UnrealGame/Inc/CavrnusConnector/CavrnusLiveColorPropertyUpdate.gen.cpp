@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "CavrnusConnector/Public/Types/CavrnusLiveColorPropertyUpdate.h"
+#include "CavrnusConnector/Public/LivePropertyUpdates/CavrnusLiveColorPropertyUpdate.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCavrnusLiveColorPropertyUpdate() {}
 // Cross Module References
@@ -61,7 +61,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveColorPropertyUpdate() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusLiveColorPropertyUpdate_Finalize_Statics::Function_MetaDataParams[] = {
 		{ "CallInEditor", "true" },
 		{ "Category", "Cavrnus|Properties" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusLiveColorPropertyUpdate.h" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveColorPropertyUpdate.h" },
 		{ "ShortToolTip", "Posts and finalizes the data to the server" },
 		{ "ToolTip", "Posts and finalizes the data to the server.  This object will no longer be valid to use afterwards." },
 	};
@@ -97,7 +97,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveColorPropertyUpdate() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusLiveColorPropertyUpdate_UpdateWithNewData_Statics::Function_MetaDataParams[] = {
 		{ "CallInEditor", "true" },
 		{ "Category", "Cavrnus|Properties" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusLiveColorPropertyUpdate.h" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveColorPropertyUpdate.h" },
 		{ "ShortToolTip", "Updates the temporary value sent to the server" },
 		{ "ToolTip", "Updates the temporary value sent to the server" },
 	};
@@ -132,15 +132,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveColorPropertyUpdate() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusLiveColorPropertyUpdate_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusLiveColorPropertyUpdate_Finalize, "Finalize" }, // 2663546104
-		{ &Z_Construct_UFunction_UCavrnusLiveColorPropertyUpdate_UpdateWithNewData, "UpdateWithNewData" }, // 3321000441
+		{ &Z_Construct_UFunction_UCavrnusLiveColorPropertyUpdate_Finalize, "Finalize" }, // 1046421885
+		{ &Z_Construct_UFunction_UCavrnusLiveColorPropertyUpdate_UpdateWithNewData, "UpdateWithNewData" }, // 2698300268
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusLiveColorPropertyUpdate_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 		{ "Comment", "/**\n *\n */" },
-		{ "IncludePath", "Types/CavrnusLiveColorPropertyUpdate.h" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusLiveColorPropertyUpdate.h" },
+		{ "IncludePath", "LivePropertyUpdates/CavrnusLiveColorPropertyUpdate.h" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveColorPropertyUpdate.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusLiveColorPropertyUpdate_Statics::StaticCppClassTypeInfo = {
@@ -174,15 +174,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveColorPropertyUpdate() {}
 		return UCavrnusLiveColorPropertyUpdate::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCavrnusLiveColorPropertyUpdate);
-	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveColorPropertyUpdate_h_Statics
+	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveColorPropertyUpdate_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveColorPropertyUpdate_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLiveColorPropertyUpdate, UCavrnusLiveColorPropertyUpdate::StaticClass, TEXT("UCavrnusLiveColorPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveColorPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveColorPropertyUpdate), 1512249220U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveColorPropertyUpdate_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCavrnusLiveColorPropertyUpdate, UCavrnusLiveColorPropertyUpdate::StaticClass, TEXT("UCavrnusLiveColorPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveColorPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveColorPropertyUpdate), 4090326414U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveColorPropertyUpdate_h_1603187964(TEXT("/Script/CavrnusConnector"),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveColorPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveColorPropertyUpdate_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveColorPropertyUpdate_h_4062586407(TEXT("/Script/CavrnusConnector"),
+		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveColorPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveColorPropertyUpdate_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

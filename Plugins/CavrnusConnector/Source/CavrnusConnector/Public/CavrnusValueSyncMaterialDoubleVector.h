@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CavrnusValueSyncVector.h"
+#include "ValueSyncs/CavrnusValueSyncVector.h"
 #include "CavrnusValueSyncMaterialDoubleVector.generated.h"
 
 // Class definition

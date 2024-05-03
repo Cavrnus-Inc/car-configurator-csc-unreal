@@ -8,6 +8,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FLinearColor;
+struct FCavrnusSpawnedObject;
+struct FCavrnusRemoteContent;
 class UObject;
  
 struct FCavrnusVideoInputDevice;
@@ -16,14 +19,11 @@ struct FCavrnusInputDevice;
 struct FCavrnusSpaceConnection;
 struct FCavrnusUser;
 struct FCavrnusBinding;
-class AActor;
-struct FCavrnusSpawnedObject;
 class UCavrnusLiveTransformPropertyUpdate;
 class UCavrnusLiveVectorPropertyUpdate;
 class UCavrnusLiveStringPropertyUpdate;
 class UCavrnusLiveFloatPropertyUpdate;
 class UCavrnusLiveBoolPropertyUpdate;
-struct FLinearColor;
 class UCavrnusLiveColorPropertyUpdate;
 class ACavrnusSpatialConnector;
 class UCavrnusSpatialConnectorSubSystemProxy;
@@ -31,6 +31,203 @@ class UCavrnusSpatialConnectorSubSystemProxy;
 #error "CavrnusFunctionLibrary.generated.h already included, missing '#pragma once' in CavrnusFunctionLibrary.h"
 #endif
 #define CAVRNUSCONNECTOR_CavrnusFunctionLibrary_generated_h
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_157_DELEGATE \
+struct CavrnusFunctionLibrary_eventColorPropertyUpdated_Parms \
+{ \
+	FLinearColor Value; \
+	FString ContainerName; \
+	FString PropertyName; \
+}; \
+static inline void FColorPropertyUpdated_DelegateWrapper(const FScriptDelegate& ColorPropertyUpdated, FLinearColor Value, const FString& ContainerName, const FString& PropertyName) \
+{ \
+	CavrnusFunctionLibrary_eventColorPropertyUpdated_Parms Parms; \
+	Parms.Value=Value; \
+	Parms.ContainerName=ContainerName; \
+	Parms.PropertyName=PropertyName; \
+	ColorPropertyUpdated.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_182_DELEGATE \
+struct CavrnusFunctionLibrary_eventBoolPropertyUpdated_Parms \
+{ \
+	bool Value; \
+	FString ContainerName; \
+	FString PropertyName; \
+}; \
+static inline void FBoolPropertyUpdated_DelegateWrapper(const FScriptDelegate& BoolPropertyUpdated, bool Value, const FString& ContainerName, const FString& PropertyName) \
+{ \
+	CavrnusFunctionLibrary_eventBoolPropertyUpdated_Parms Parms; \
+	Parms.Value=Value ? true : false; \
+	Parms.ContainerName=ContainerName; \
+	Parms.PropertyName=PropertyName; \
+	BoolPropertyUpdated.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_207_DELEGATE \
+struct CavrnusFunctionLibrary_eventFloatPropertyUpdated_Parms \
+{ \
+	float Value; \
+	FString ContainerName; \
+	FString PropertyName; \
+}; \
+static inline void FFloatPropertyUpdated_DelegateWrapper(const FScriptDelegate& FloatPropertyUpdated, float Value, const FString& ContainerName, const FString& PropertyName) \
+{ \
+	CavrnusFunctionLibrary_eventFloatPropertyUpdated_Parms Parms; \
+	Parms.Value=Value; \
+	Parms.ContainerName=ContainerName; \
+	Parms.PropertyName=PropertyName; \
+	FloatPropertyUpdated.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_232_DELEGATE \
+struct CavrnusFunctionLibrary_eventStringPropertyUpdated_Parms \
+{ \
+	FString Value; \
+	FString ContainerName; \
+	FString PropertyName; \
+}; \
+static inline void FStringPropertyUpdated_DelegateWrapper(const FScriptDelegate& StringPropertyUpdated, const FString& Value, const FString& ContainerName, const FString& PropertyName) \
+{ \
+	CavrnusFunctionLibrary_eventStringPropertyUpdated_Parms Parms; \
+	Parms.Value=Value; \
+	Parms.ContainerName=ContainerName; \
+	Parms.PropertyName=PropertyName; \
+	StringPropertyUpdated.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_257_DELEGATE \
+struct CavrnusFunctionLibrary_eventVectorPropertyUpdated_Parms \
+{ \
+	FVector4 Value; \
+	FString ContainerName; \
+	FString PropertyName; \
+}; \
+static inline void FVectorPropertyUpdated_DelegateWrapper(const FScriptDelegate& VectorPropertyUpdated, FVector4 Value, const FString& ContainerName, const FString& PropertyName) \
+{ \
+	CavrnusFunctionLibrary_eventVectorPropertyUpdated_Parms Parms; \
+	Parms.Value=Value; \
+	Parms.ContainerName=ContainerName; \
+	Parms.PropertyName=PropertyName; \
+	VectorPropertyUpdated.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_282_DELEGATE \
+struct CavrnusFunctionLibrary_eventTransformPropertyUpdated_Parms \
+{ \
+	FTransform Value; \
+	FString ContainerName; \
+	FString PropertyName; \
+}; \
+static inline void FTransformPropertyUpdated_DelegateWrapper(const FScriptDelegate& TransformPropertyUpdated, FTransform Value, const FString& ContainerName, const FString& PropertyName) \
+{ \
+	CavrnusFunctionLibrary_eventTransformPropertyUpdated_Parms Parms; \
+	Parms.Value=Value; \
+	Parms.ContainerName=ContainerName; \
+	Parms.PropertyName=PropertyName; \
+	TransformPropertyUpdated.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_303_DELEGATE \
+struct CavrnusFunctionLibrary_eventCavrnusPolicyUpdated_Parms \
+{ \
+	FString Policy; \
+	bool IsAllowed; \
+}; \
+static inline void FCavrnusPolicyUpdated_DelegateWrapper(const FScriptDelegate& CavrnusPolicyUpdated, const FString& Policy, bool IsAllowed) \
+{ \
+	CavrnusFunctionLibrary_eventCavrnusPolicyUpdated_Parms Parms; \
+	Parms.Policy=Policy; \
+	Parms.IsAllowed=IsAllowed ? true : false; \
+	CavrnusPolicyUpdated.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_322_DELEGATE \
+struct CavrnusFunctionLibrary_eventCavrnusSpawnedObjectArrived_Parms \
+{ \
+	FCavrnusSpawnedObject spawnedObject; \
+}; \
+static inline void FCavrnusSpawnedObjectArrived_DelegateWrapper(const FScriptDelegate& CavrnusSpawnedObjectArrived, FCavrnusSpawnedObject spawnedObject) \
+{ \
+	CavrnusFunctionLibrary_eventCavrnusSpawnedObjectArrived_Parms Parms; \
+	Parms.spawnedObject=spawnedObject; \
+	CavrnusSpawnedObjectArrived.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_403_DELEGATE \
+struct CavrnusFunctionLibrary_eventCavrnusContentProgressFunction_Parms \
+{ \
+	float Progress; \
+	FString Step; \
+}; \
+static inline void FCavrnusContentProgressFunction_DelegateWrapper(const FScriptDelegate& CavrnusContentProgressFunction, float Progress, const FString& Step) \
+{ \
+	CavrnusFunctionLibrary_eventCavrnusContentProgressFunction_Parms Parms; \
+	Parms.Progress=Progress; \
+	Parms.Step=Step; \
+	CavrnusContentProgressFunction.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_404_DELEGATE \
+struct CavrnusFunctionLibrary_eventCavrnusContentFunction_Parms \
+{ \
+	TArray<uint8> bytes; \
+}; \
+static inline void FCavrnusContentFunction_DelegateWrapper(const FScriptDelegate& CavrnusContentFunction, TArray<uint8> const& bytes) \
+{ \
+	CavrnusFunctionLibrary_eventCavrnusContentFunction_Parms Parms; \
+	Parms.bytes=bytes; \
+	CavrnusContentFunction.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_410_DELEGATE \
+struct CavrnusFunctionLibrary_eventCavrnusContentFileFunction_Parms \
+{ \
+	FString fileDest; \
+}; \
+static inline void FCavrnusContentFileFunction_DelegateWrapper(const FScriptDelegate& CavrnusContentFileFunction, const FString& fileDest) \
+{ \
+	CavrnusFunctionLibrary_eventCavrnusContentFileFunction_Parms Parms; \
+	Parms.fileDest=fileDest; \
+	CavrnusContentFileFunction.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_416_DELEGATE \
+struct CavrnusFunctionLibrary_eventCavrnusRemoteContentFunction_Parms \
+{ \
+	TArray<FCavrnusRemoteContent> availableContent; \
+}; \
+static inline void FCavrnusRemoteContentFunction_DelegateWrapper(const FScriptDelegate& CavrnusRemoteContentFunction, TArray<FCavrnusRemoteContent> const& availableContent) \
+{ \
+	CavrnusFunctionLibrary_eventCavrnusRemoteContentFunction_Parms Parms; \
+	Parms.availableContent=availableContent; \
+	CavrnusRemoteContentFunction.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_422_DELEGATE \
+struct CavrnusFunctionLibrary_eventCavrnusUploadCompleteFunction_Parms \
+{ \
+	FCavrnusRemoteContent uploadedContent; \
+}; \
+static inline void FCavrnusUploadCompleteFunction_DelegateWrapper(const FScriptDelegate& CavrnusUploadCompleteFunction, FCavrnusRemoteContent const& uploadedContent) \
+{ \
+	CavrnusFunctionLibrary_eventCavrnusUploadCompleteFunction_Parms Parms; \
+	Parms.uploadedContent=uploadedContent; \
+	CavrnusUploadCompleteFunction.ProcessDelegate<UObject>(&Parms); \
+}
+
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_SPARSE_DATA
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS \
@@ -53,7 +250,6 @@ class UCavrnusSpatialConnectorSubSystemProxy;
 	DECLARE_FUNCTION(execBindSpaceUsers); \
 	DECLARE_FUNCTION(execGetCurrentSpaceUsers); \
 	DECLARE_FUNCTION(execAwaitLocalUser); \
-	DECLARE_FUNCTION(execGetIfIsSpawnedObject); \
 	DECLARE_FUNCTION(execDestroyObject); \
 	DECLARE_FUNCTION(execSpawnObject); \
 	DECLARE_FUNCTION(execBindSpacePolicy); \
@@ -124,7 +320,6 @@ class UCavrnusSpatialConnectorSubSystemProxy;
 	DECLARE_FUNCTION(execBindSpaceUsers); \
 	DECLARE_FUNCTION(execGetCurrentSpaceUsers); \
 	DECLARE_FUNCTION(execAwaitLocalUser); \
-	DECLARE_FUNCTION(execGetIfIsSpawnedObject); \
 	DECLARE_FUNCTION(execDestroyObject); \
 	DECLARE_FUNCTION(execSpawnObject); \
 	DECLARE_FUNCTION(execBindSpacePolicy); \

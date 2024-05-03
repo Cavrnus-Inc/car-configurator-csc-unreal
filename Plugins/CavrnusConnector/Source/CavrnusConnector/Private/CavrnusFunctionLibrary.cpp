@@ -5,19 +5,19 @@
 #include <Misc/FileHelper.h>
 #include <Misc/Paths.h>
 #include "Types/CavrnusCallbackTypes.h"
-#include "Types/CavrnusLiveBoolPropertyUpdate.h"
-#include "Types/CavrnusLiveColorPropertyUpdate.h"
-#include "Types/CavrnusLiveFloatPropertyUpdate.h"
-#include "Types/CavrnusLiveStringPropertyUpdate.h"
-#include "Types/CavrnusLiveTransformPropertyUpdate.h"
-#include "Types/CavrnusLiveVectorPropertyUpdate.h"
-#include "RelayModel\CavrnusPropertyValue.h"
+#include "LivePropertyUpdates/CavrnusLiveBoolPropertyUpdate.h"
+#include "LivePropertyUpdates/CavrnusLiveColorPropertyUpdate.h"
+#include "LivePropertyUpdates/CavrnusLiveFloatPropertyUpdate.h"
+#include "LivePropertyUpdates/CavrnusLiveStringPropertyUpdate.h"
+#include "LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h"
+#include "LivePropertyUpdates/CavrnusLiveVectorPropertyUpdate.h"
+#include "Types\CavrnusPropertyValue.h"
 #include "CavrnusSpatialConnectorSubSystem.h"
 #include "RelayModel\CavrnusRelayModel.h"
 #include "RelayModel\RelayCallbackModel.h"
 #include "RelayModel\DataState.h"
 #include "RelayModel\SpacePropertyModel.h"
-#include "RelayModel\PropertyId.h"
+#include "Types\PropertyId.h"
 #include "RelayModel\SpacePermissionsModel.h"
 #include "Translation\CavrnusProtoTranslation.h"
 #include "CavrnusSpatialConnector.h"
@@ -147,6 +147,20 @@ bool UCavrnusFunctionLibrary::IsConnectedToAnySpace()
 
 void UCavrnusFunctionLibrary::JoinSpace(FString SpaceId, FCavrnusSpaceConnected OnConnected, FCavrnusError OnFailure)
 {
+	CavrnusSpaceConnected callback = [OnConnected](const FCavrnusSpaceConnection& val)
+	{
+		OnConnected.ExecuteIfBound(val);
+	};
+	CavrnusError errorCallback = [OnFailure](const FString& val)
+	{
+		OnFailure.ExecuteIfBound(val);
+	};
+
+	JoinSpace(SpaceId, callback, errorCallback);
+}
+
+void UCavrnusFunctionLibrary::JoinSpace(FString SpaceId, CavrnusSpaceConnected OnConnected, CavrnusError OnFailure)
+{
 	int RequestId = GetDataModel()->GetCallbackModel()->RegisterJoinSpaceCallback(OnConnected, OnFailure);
 	GetDataModel()->GetCallbackModel()->HandleSpaceBeginLoading(SpaceId);
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildJoinSpaceWithId(RequestId, SpaceId));
@@ -154,20 +168,30 @@ void UCavrnusFunctionLibrary::JoinSpace(FString SpaceId, FCavrnusSpaceConnected 
 
 void UCavrnusFunctionLibrary::AwaitAnySpaceBeginLoading(FCavrnusSpaceBeginLoading OnBeginLoading)
 {
+	CavrnusSpaceBeginLoading callback = [OnBeginLoading](const FString& val)
+	{
+		OnBeginLoading.ExecuteIfBound(val);
+	};
+
+	AwaitAnySpaceBeginLoading(callback);
+}
+
+void UCavrnusFunctionLibrary::AwaitAnySpaceBeginLoading(CavrnusSpaceBeginLoading OnBeginLoading)
+{
 	GetDataModel()->GetCallbackModel()->RegisterBeginLoadingSpaceCallback(OnBeginLoading);
 }
 
 void UCavrnusFunctionLibrary::AwaitAnySpaceConnection(FCavrnusSpaceConnected OnConnected)
 {
-	CavrnusSpaceFunction spaceCallback = [OnConnected](const FCavrnusSpaceConnection& SpaceConn)
+	CavrnusSpaceConnected callback = [OnConnected](const FCavrnusSpaceConnection& SpaceConn)
 	{
 		OnConnected.ExecuteIfBound(SpaceConn);
 	};
 
-	GetDataModel()->GetDataState()->AwaitAnySpaceConnection(spaceCallback);
+	AwaitAnySpaceConnection(callback);
 }
 
-void UCavrnusFunctionLibrary::AwaitAnySpaceConnection(CavrnusSpaceFunction OnConnected)
+void UCavrnusFunctionLibrary::AwaitAnySpaceConnection(CavrnusSpaceConnected OnConnected)
 {
 	GetDataModel()->GetDataState()->AwaitAnySpaceConnection(OnConnected);
 }
@@ -519,12 +543,32 @@ void UCavrnusFunctionLibrary::PostTransformPropertyUpdate(FCavrnusSpaceConnectio
 
 UPARAM(DisplayName = "Disposable")FCavrnusBinding UCavrnusFunctionLibrary::BindGlobalPolicy(FString Policy, FCavrnusPolicyUpdated OnPolicyUpdated)
 {
+	CavrnusPolicyUpdated callback = [OnPolicyUpdated](const FString& policy, bool allowed)
+	{
+		OnPolicyUpdated.ExecuteIfBound(policy, allowed);
+	};
+
+	return BindGlobalPolicy(Policy, callback);
+}
+
+FCavrnusBinding UCavrnusFunctionLibrary::BindGlobalPolicy(FString Policy, CavrnusPolicyUpdated OnPolicyUpdated)
+{
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildRequestGlobalPermission(Policy));
 
 	return GetDataModel()->GetGlobalPermissionsModel()->BindPolicyAllowed(Policy, OnPolicyUpdated);
 }
 
 UPARAM(DisplayName = "Disposable")FCavrnusBinding UCavrnusFunctionLibrary::BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, FString Policy, FCavrnusPolicyUpdated OnPolicyUpdated)
+{
+	CavrnusPolicyUpdated callback = [OnPolicyUpdated](const FString& policy, bool allowed)
+	{
+		OnPolicyUpdated.ExecuteIfBound(policy, allowed);
+	};
+
+	return BindSpacePolicy(SpaceConnection, Policy, callback);
+}
+
+FCavrnusBinding UCavrnusFunctionLibrary::BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, FString Policy, CavrnusPolicyUpdated OnPolicyUpdated)
 {
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildRequestSpacePermission(SpaceConnection, Policy));
 
@@ -567,16 +611,6 @@ void UCavrnusFunctionLibrary::DestroyObject(FCavrnusSpawnedObject SpawnedObject)
 	CheckErrors(SpawnedObject.SpaceConnection);
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildDestroyOp(SpawnedObject.SpaceConnection, SpawnedObject.CreationOpId));
 
-}
-
-FCavrnusSpawnedObject UCavrnusFunctionLibrary::GetIfIsSpawnedObject(FCavrnusSpaceConnection SpaceConnection, AActor* Actor)
-{
-	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
-	{
-		return SubProxy->GetSpawnedObject(Actor);
-	}
-
-	return 	FCavrnusSpawnedObject();
 }
 
 #pragma endregion

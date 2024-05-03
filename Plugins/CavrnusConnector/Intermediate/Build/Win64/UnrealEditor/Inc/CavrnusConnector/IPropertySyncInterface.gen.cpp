@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "CavrnusConnector/Public/Interfaces/IPropertySyncInterface.h"
+#include "CavrnusConnector/Public/ValueSyncs/IPropertySyncInterface.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeIPropertySyncInterface() {}
 // Cross Module References
@@ -39,7 +39,7 @@ void EmptyLinkFunctionForGeneratedCodeIPropertySyncInterface() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPropertySyncInterface_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 		{ "CannotImplementInterfaceInBlueprint", "" },
-		{ "ModuleRelativePath", "Public/Interfaces/IPropertySyncInterface.h" },
+		{ "ModuleRelativePath", "Public/ValueSyncs/IPropertySyncInterface.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPropertySyncInterface_Statics::StaticCppClassTypeInfo = {
@@ -73,15 +73,15 @@ void EmptyLinkFunctionForGeneratedCodeIPropertySyncInterface() {}
 		return UPropertySyncInterface::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UPropertySyncInterface);
-	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Interfaces_IPropertySyncInterface_h_Statics
+	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_IPropertySyncInterface_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Interfaces_IPropertySyncInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPropertySyncInterface, UPropertySyncInterface::StaticClass, TEXT("UPropertySyncInterface"), &Z_Registration_Info_UClass_UPropertySyncInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPropertySyncInterface), 1509868635U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_IPropertySyncInterface_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UPropertySyncInterface, UPropertySyncInterface::StaticClass, TEXT("UPropertySyncInterface"), &Z_Registration_Info_UClass_UPropertySyncInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPropertySyncInterface), 1163929717U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Interfaces_IPropertySyncInterface_h_1686143627(TEXT("/Script/CavrnusConnector"),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Interfaces_IPropertySyncInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Interfaces_IPropertySyncInterface_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_IPropertySyncInterface_h_1291360269(TEXT("/Script/CavrnusConnector"),
+		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_IPropertySyncInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_IPropertySyncInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

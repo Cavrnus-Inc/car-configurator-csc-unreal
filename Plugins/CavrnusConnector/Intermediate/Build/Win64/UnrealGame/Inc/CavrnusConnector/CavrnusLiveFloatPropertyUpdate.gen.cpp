@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "CavrnusConnector/Public/Types/CavrnusLiveFloatPropertyUpdate.h"
+#include "CavrnusConnector/Public/LivePropertyUpdates/CavrnusLiveFloatPropertyUpdate.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCavrnusLiveFloatPropertyUpdate() {}
 // Cross Module References
@@ -60,7 +60,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveFloatPropertyUpdate() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusLiveFloatPropertyUpdate_Finalize_Statics::Function_MetaDataParams[] = {
 		{ "CallInEditor", "true" },
 		{ "Category", "Cavrnus|Properties" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusLiveFloatPropertyUpdate.h" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveFloatPropertyUpdate.h" },
 		{ "ShortToolTip", "Posts and finalizes the data to the server" },
 		{ "ToolTip", "Posts and finalizes the data to the server.  This object will no longer be valid to use afterwards." },
 	};
@@ -96,7 +96,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveFloatPropertyUpdate() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusLiveFloatPropertyUpdate_UpdateWithNewData_Statics::Function_MetaDataParams[] = {
 		{ "CallInEditor", "true" },
 		{ "Category", "Cavrnus|Properties" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusLiveFloatPropertyUpdate.h" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveFloatPropertyUpdate.h" },
 		{ "ShortToolTip", "Updates the temporary value sent to the server" },
 		{ "ToolTip", "Updates the temporary value sent to the server" },
 	};
@@ -131,15 +131,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveFloatPropertyUpdate() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusLiveFloatPropertyUpdate_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusLiveFloatPropertyUpdate_Finalize, "Finalize" }, // 140538638
-		{ &Z_Construct_UFunction_UCavrnusLiveFloatPropertyUpdate_UpdateWithNewData, "UpdateWithNewData" }, // 1221524891
+		{ &Z_Construct_UFunction_UCavrnusLiveFloatPropertyUpdate_Finalize, "Finalize" }, // 2331381148
+		{ &Z_Construct_UFunction_UCavrnusLiveFloatPropertyUpdate_UpdateWithNewData, "UpdateWithNewData" }, // 586082006
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusLiveFloatPropertyUpdate_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 		{ "Comment", "/**\n *\n */" },
-		{ "IncludePath", "Types/CavrnusLiveFloatPropertyUpdate.h" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusLiveFloatPropertyUpdate.h" },
+		{ "IncludePath", "LivePropertyUpdates/CavrnusLiveFloatPropertyUpdate.h" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveFloatPropertyUpdate.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusLiveFloatPropertyUpdate_Statics::StaticCppClassTypeInfo = {
@@ -173,15 +173,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveFloatPropertyUpdate() {}
 		return UCavrnusLiveFloatPropertyUpdate::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCavrnusLiveFloatPropertyUpdate);
-	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveFloatPropertyUpdate_h_Statics
+	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveFloatPropertyUpdate_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLiveFloatPropertyUpdate, UCavrnusLiveFloatPropertyUpdate::StaticClass, TEXT("UCavrnusLiveFloatPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveFloatPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveFloatPropertyUpdate), 3791966111U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCavrnusLiveFloatPropertyUpdate, UCavrnusLiveFloatPropertyUpdate::StaticClass, TEXT("UCavrnusLiveFloatPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveFloatPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveFloatPropertyUpdate), 4240241256U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveFloatPropertyUpdate_h_2208492468(TEXT("/Script/CavrnusConnector"),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveFloatPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveFloatPropertyUpdate_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_720936560(TEXT("/Script/CavrnusConnector"),
+		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

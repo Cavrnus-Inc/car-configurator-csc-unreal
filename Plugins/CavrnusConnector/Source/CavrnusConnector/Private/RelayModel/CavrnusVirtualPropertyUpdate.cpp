@@ -1,6 +1,6 @@
 ﻿#include "RelayModel/CavrnusVirtualPropertyUpdate.h"
-#include "RelayModel/CavrnusPropertyValue.h"
-#include "RelayModel/PropertyId.h"
+#include "Types/CavrnusPropertyValue.h"
+#include "Types/PropertyId.h"
 #include "Translation/CavrnusProtoTranslation.h"
 
 namespace Cavrnus

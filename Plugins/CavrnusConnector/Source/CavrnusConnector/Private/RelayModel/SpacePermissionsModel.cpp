@@ -23,18 +23,25 @@ namespace Cavrnus
 		if (PolicyBindings.Contains(policy) && (!exists || changed))
 		{
 			for (int i = 0; i < PolicyBindings[policy].Num(); i++)
-				PolicyBindings[policy][i].ExecuteIfBound(policy, allowed);
+				(*PolicyBindings[policy][i])(policy, allowed);
 		}
 	}
 
-	FCavrnusBinding SpacePermissionsModel::BindPolicyAllowed(FString policy, FCavrnusPolicyUpdated callback)
+	FCavrnusBinding SpacePermissionsModel::BindPolicyAllowed(FString policy, CavrnusPolicyUpdated callback)
 	{
 		if (CurrPolicyAllowedValues.Contains(policy))
-			callback.ExecuteIfBound(policy, CurrPolicyAllowedValues[policy]);
+			callback(policy, CurrPolicyAllowedValues[policy]);
+
+		using func = const CavrnusPolicyUpdated;
+		TSharedPtr<func> CallbackPtr = MakeShareable(new func(callback));
 
 		PolicyBindings.FindOrAdd(policy);
-		PolicyBindings[policy].Add(callback);
+		PolicyBindings[policy].Add(CallbackPtr);
 
-		return FCavrnusBinding([this, policy, callback]() { PolicyBindings[policy].Remove(callback); });
+		return FCavrnusBinding([this, policy, CallbackPtr]() {
+			PolicyBindings[policy].Remove(CallbackPtr);
+			if (PolicyBindings[policy].IsEmpty())
+				PolicyBindings.Remove(policy);
+		});
 	}
 }

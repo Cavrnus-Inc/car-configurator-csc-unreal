@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "CavrnusConnector/Public/CavrnusValueSyncBoolean.h"
+#include "CavrnusConnector/Public/ValueSyncs/CavrnusValueSyncBoolean.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBoolean() {}
 // Cross Module References
@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBoolean() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/CavrnusValueSyncBoolean.h" },
+		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncBoolean.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncBoolean, nullptr, "GetBoolean", nullptr, nullptr, sizeof(CavrnusValueSyncBoolean_eventGetBoolean_Parms), Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::Function_MetaDataParams)) };
@@ -105,7 +105,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBoolean() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/CavrnusValueSyncBoolean.h" },
+		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncBoolean.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncBoolean, nullptr, "SetBoolean", nullptr, nullptr, sizeof(CavrnusValueSyncBoolean_eventSetBoolean_Parms), Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::Function_MetaDataParams)) };
@@ -138,17 +138,17 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBoolean() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusValueSyncBoolean_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean, "GetBoolean" }, // 72074090
-		{ &Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean, "SetBoolean" }, // 1357961490
+		{ &Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean, "GetBoolean" }, // 2834185852
+		{ &Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean, "SetBoolean" }, // 1903974778
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusValueSyncBoolean_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 		{ "Comment", "// Class definition\n" },
 		{ "HideCategories", "Transform Physics Collision Rendering Trigger PhysicsVolume" },
-		{ "IncludePath", "CavrnusValueSyncBoolean.h" },
+		{ "IncludePath", "ValueSyncs/CavrnusValueSyncBoolean.h" },
 		{ "IsBlueprintBase", "true" },
-		{ "ModuleRelativePath", "Public/CavrnusValueSyncBoolean.h" },
+		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncBoolean.h" },
 		{ "ToolTip", "Class definition" },
 	};
 #endif
@@ -183,15 +183,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBoolean() {}
 		return UCavrnusValueSyncBoolean::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCavrnusValueSyncBoolean);
-	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncBoolean_h_Statics
+	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncBoolean_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusValueSyncBoolean, UCavrnusValueSyncBoolean::StaticClass, TEXT("UCavrnusValueSyncBoolean"), &Z_Registration_Info_UClass_UCavrnusValueSyncBoolean, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncBoolean), 2888459928U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCavrnusValueSyncBoolean, UCavrnusValueSyncBoolean::StaticClass, TEXT("UCavrnusValueSyncBoolean"), &Z_Registration_Info_UClass_UCavrnusValueSyncBoolean, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncBoolean), 545178527U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncBoolean_h_832845144(TEXT("/Script/CavrnusConnector"),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncBoolean_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusValueSyncBoolean_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_2708023651(TEXT("/Script/CavrnusConnector"),
+		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

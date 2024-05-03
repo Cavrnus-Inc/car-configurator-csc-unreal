@@ -1,7 +1,7 @@
 #include "CavrnusSyncMaterial.h"
-#include "CavrnusValueSyncVector.h"
-#include "CavrnusValueSyncFloat.h"
-#include "CavrnusValueSyncString.h"
+#include "ValueSyncs/CavrnusValueSyncVector.h"
+#include "ValueSyncs/CavrnusValueSyncFloat.h"
+#include "ValueSyncs/CavrnusValueSyncString.h"
 #include <Kismet/KismetSystemLibrary.h>
 #include <Materials/MaterialInstanceDynamic.h>
 #include <Materials/Material.h>

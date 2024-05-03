@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "CavrnusConnector/Public/Types/CavrnusLiveTransformPropertyUpdate.h"
+#include "CavrnusConnector/Public/LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 // Cross Module References
@@ -61,7 +61,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_Finalize_Statics::Function_MetaDataParams[] = {
 		{ "CallInEditor", "true" },
 		{ "Category", "Cavrnus|Properties" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusLiveTransformPropertyUpdate.h" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h" },
 		{ "ShortToolTip", "Posts and finalizes the data to the server" },
 		{ "ToolTip", "Posts and finalizes the data to the server.  This object will no longer be valid to use afterwards." },
 	};
@@ -97,7 +97,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_UpdateWithNewData_Statics::Function_MetaDataParams[] = {
 		{ "CallInEditor", "true" },
 		{ "Category", "Cavrnus|Properties" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusLiveTransformPropertyUpdate.h" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h" },
 		{ "ShortToolTip", "Updates the temporary value sent to the server" },
 		{ "ToolTip", "Updates the temporary value sent to the server" },
 	};
@@ -132,15 +132,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusLiveTransformPropertyUpdate_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_Finalize, "Finalize" }, // 1835361432
-		{ &Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_UpdateWithNewData, "UpdateWithNewData" }, // 1881762966
+		{ &Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_Finalize, "Finalize" }, // 3087789644
+		{ &Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_UpdateWithNewData, "UpdateWithNewData" }, // 2476636746
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusLiveTransformPropertyUpdate_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 		{ "Comment", "/**\n *\n */" },
-		{ "IncludePath", "Types/CavrnusLiveTransformPropertyUpdate.h" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusLiveTransformPropertyUpdate.h" },
+		{ "IncludePath", "LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusLiveTransformPropertyUpdate_Statics::StaticCppClassTypeInfo = {
@@ -174,15 +174,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 		return UCavrnusLiveTransformPropertyUpdate::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCavrnusLiveTransformPropertyUpdate);
-	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveTransformPropertyUpdate_h_Statics
+	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveTransformPropertyUpdate_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLiveTransformPropertyUpdate, UCavrnusLiveTransformPropertyUpdate::StaticClass, TEXT("UCavrnusLiveTransformPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveTransformPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveTransformPropertyUpdate), 889240301U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCavrnusLiveTransformPropertyUpdate, UCavrnusLiveTransformPropertyUpdate::StaticClass, TEXT("UCavrnusLiveTransformPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveTransformPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveTransformPropertyUpdate), 4070224020U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveTransformPropertyUpdate_h_1212733907(TEXT("/Script/CavrnusConnector"),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveTransformPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusLiveTransformPropertyUpdate_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_3214329116(TEXT("/Script/CavrnusConnector"),
+		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

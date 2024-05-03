@@ -19,7 +19,7 @@
 #include <EditorUtilityWidgetBlueprint.h>
 #include <Framework/Docking/TabManager.h>
 #include <Widgets/Docking/SDockTab.h>
-#include "CavrnusValueSyncBase.h"
+#include "ValueSyncs/CavrnusValueSyncBase.h"
 #include "CavrnusPropertiesContainer.h"
 #include <Engine/Blueprint.h>
 #include <Engine/SimpleConstructionScript.h>

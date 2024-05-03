@@ -8,7 +8,7 @@
 #include "CavrnusFunctionLibrary.h"
 #include "CavrnusSpatialConnector.h"
 #include "CavrnusConnectorEditorModule.h"
-#include "CavrnusValueSyncBase.h"
+#include "ValueSyncs/CavrnusValueSyncBase.h"
 #include "UI/CavrnusUIManager.h"
 
 #include <EngineUtils.h>

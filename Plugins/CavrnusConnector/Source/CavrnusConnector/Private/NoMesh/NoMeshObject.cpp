@@ -254,14 +254,14 @@ void ANoMeshObject::SetNewComponentMaterial(FString ComponentId, UMaterialInstan
 
 void ANoMeshObject::Remove()
 {
-	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
+	/*if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
 	{
 		FCavrnusSpawnedObject SpawnedObject = SubProxy->GetSpawnedObject(this);
 		if (!SpawnedObject.PropertiesContainerName.IsEmpty())
 		{
 			UCavrnusFunctionLibrary::DestroyObject(SpawnedObject);
 		}
-	}
+	}*/
 }
 
 void ANoMeshObject::CreateContent(const FString& ContentPath)

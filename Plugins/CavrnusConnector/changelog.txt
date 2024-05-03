@@ -1,22 +1,19 @@
-Cavrnus-UE5.0-RelayPlugin-2023.2.594-Dev
-bhaddad5: ue - master [5f5ed51df3af4d6701523b30e57da96f7a0f3c7b]
-File uploads working in Unreal
+Cavrnus-UE5.0-RelayPlugin-2023.2.604-Dev
+bhaddad5: ue - master [9c1f143d98fbbf5c9c34d1a419084445dadd2f2b]
+Major refactor/cleanup to how Spawning Objects works under-the-hood
 
-	CavrnusPlugin/Content/InternalTesting/Blueprints/BP_DownloaderCube.uasset
-	CavrnusPlugin/Content/InternalTesting/Blueprints/BP_UploaderCube.uasset
+	CavrnusPlugin/Content/InternalTesting/Blueprints/BP_SpawnedSphere.uasset
 	CavrnusPlugin/Content/InternalTesting/Levels/L_AuthenticateWithLinkSample.umap
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/CavrnusRelayNet/net6.0-windows/CavrnusRelayNet.exe
 	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusFunctionLibrary.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay.pb.cc.generated
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay.pb.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay_types.pb.cc.generated
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay_types.pb.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusSpatialConnector.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusSpatialConnectorSubSystem.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/NoMesh/NoMeshObject.cpp
 	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/RelayCallbackModel.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Translation/CavrnusProtoTranslation.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Translation/CavrnusProtoTranslation.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/SpawnedObjectsManager.cpp
 	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusFunctionLibrary.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/RelayModel/RelayCallbackModel.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusCallbackTypes.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusRemoteContent.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusSpatialConnector.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusSpatialConnectorSubSystem.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/SpawnedObjectsManager.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusSpawnedObject.h
 

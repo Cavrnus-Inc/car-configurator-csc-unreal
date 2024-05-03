@@ -11,24 +11,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusCallbackTypes() {}
 // Cross Module References
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusError__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector4();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FLinearColor();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusAuthRecv__DelegateSignature();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusAuthentication();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusAllSpacesInfoEvent__DelegateSignature();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpaceInfo();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceInfoEvent__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature();
-	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpaceConnection();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceUserEvent__DelegateSignature();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusUser();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUserVideoFrameEvent__DelegateSignature();
@@ -39,15 +26,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusCallbackTypes() {}
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusOutputDevice();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusAvailableVideoInputDevices__DelegateSignature();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusVideoInputDevice();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature();
-	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpawnedObject();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature();
-	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusRemoteContent();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature();
+	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature();
+	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpaceConnection();
+	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusCallbackTypes_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusCallbackTypes();
 	ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
@@ -84,251 +65,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusCallbackTypes() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventStringPropertyUpdated_Parms
-		{
-			FString Value;
-			FString ContainerName;
-			FString PropertyName;
-		};
-		static const UECodeGen_Private::FStrPropertyParams NewProp_Value;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_ContainerName;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_PropertyName;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventStringPropertyUpdated_Parms, Value), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName = { "ContainerName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventStringPropertyUpdated_Parms, ContainerName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName = { "PropertyName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventStringPropertyUpdated_Parms, PropertyName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::NewProp_Value,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "StringPropertyUpdated__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::_Script_CavrnusConnector_eventStringPropertyUpdated_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_StringPropertyUpdated__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventBoolPropertyUpdated_Parms
-		{
-			bool Value;
-			FString ContainerName;
-			FString PropertyName;
-		};
-		static void NewProp_Value_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_Value;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_ContainerName;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_PropertyName;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	void Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::NewProp_Value_SetBit(void* Obj)
-	{
-		((_Script_CavrnusConnector_eventBoolPropertyUpdated_Parms*)Obj)->Value = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(_Script_CavrnusConnector_eventBoolPropertyUpdated_Parms), &Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::NewProp_Value_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName = { "ContainerName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventBoolPropertyUpdated_Parms, ContainerName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName = { "PropertyName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventBoolPropertyUpdated_Parms, PropertyName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::NewProp_Value,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "BoolPropertyUpdated__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::_Script_CavrnusConnector_eventBoolPropertyUpdated_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_BoolPropertyUpdated__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventFloatPropertyUpdated_Parms
-		{
-			float Value;
-			FString ContainerName;
-			FString PropertyName;
-		};
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_Value;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_ContainerName;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_PropertyName;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventFloatPropertyUpdated_Parms, Value), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName = { "ContainerName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventFloatPropertyUpdated_Parms, ContainerName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName = { "PropertyName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventFloatPropertyUpdated_Parms, PropertyName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::NewProp_Value,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "FloatPropertyUpdated__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::_Script_CavrnusConnector_eventFloatPropertyUpdated_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_FloatPropertyUpdated__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventVectorPropertyUpdated_Parms
-		{
-			FVector4 Value;
-			FString ContainerName;
-			FString PropertyName;
-		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_ContainerName;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_PropertyName;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventVectorPropertyUpdated_Parms, Value), Z_Construct_UScriptStruct_FVector4, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName = { "ContainerName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventVectorPropertyUpdated_Parms, ContainerName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName = { "PropertyName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventVectorPropertyUpdated_Parms, PropertyName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::NewProp_Value,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "VectorPropertyUpdated__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::_Script_CavrnusConnector_eventVectorPropertyUpdated_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_VectorPropertyUpdated__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventColorPropertyUpdated_Parms
-		{
-			FLinearColor Value;
-			FString ContainerName;
-			FString PropertyName;
-		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_ContainerName;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_PropertyName;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventColorPropertyUpdated_Parms, Value), Z_Construct_UScriptStruct_FLinearColor, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName = { "ContainerName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventColorPropertyUpdated_Parms, ContainerName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName = { "PropertyName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventColorPropertyUpdated_Parms, PropertyName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::NewProp_Value,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "ColorPropertyUpdated__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::_Script_CavrnusConnector_eventColorPropertyUpdated_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_ColorPropertyUpdated__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventTransformPropertyUpdated_Parms
-		{
-			FTransform Value;
-			FString ContainerName;
-			FString PropertyName;
-		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_ContainerName;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_PropertyName;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventTransformPropertyUpdated_Parms, Value), Z_Construct_UScriptStruct_FTransform, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName = { "ContainerName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventTransformPropertyUpdated_Parms, ContainerName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName = { "PropertyName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventTransformPropertyUpdated_Parms, PropertyName), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::NewProp_Value,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::NewProp_ContainerName,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::NewProp_PropertyName,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "TransformPropertyUpdated__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::_Script_CavrnusConnector_eventTransformPropertyUpdated_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_TransformPropertyUpdated__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusAuthRecv__DelegateSignature_Statics
 	{
 		struct _Script_CavrnusConnector_eventCavrnusAuthRecv_Parms
@@ -358,42 +94,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusCallbackTypes() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusAuthRecv__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventCavrnusLinkAuthRecv_Parms
-		{
-			FCavrnusAuthentication Auth;
-			FString SpaceToJoin;
-		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Auth;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_SpaceToJoin;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::NewProp_Auth = { "Auth", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusLinkAuthRecv_Parms, Auth), Z_Construct_UScriptStruct_FCavrnusAuthentication, METADATA_PARAMS(nullptr, 0) }; // 1318212557
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::NewProp_SpaceToJoin = { "SpaceToJoin", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusLinkAuthRecv_Parms, SpaceToJoin), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::NewProp_Auth,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::NewProp_SpaceToJoin,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusLinkAuthRecv__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusLinkAuthRecv_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusLinkAuthRecv__DelegateSignature_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -461,70 +161,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusCallbackTypes() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceInfoEvent__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventCavrnusSpaceBeginLoading_Parms
-		{
-			FString SpaceIdBeingLoaded;
-		};
-		static const UECodeGen_Private::FStrPropertyParams NewProp_SpaceIdBeingLoaded;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::NewProp_SpaceIdBeingLoaded = { "SpaceIdBeingLoaded", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusSpaceBeginLoading_Parms, SpaceIdBeingLoaded), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::NewProp_SpaceIdBeingLoaded,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusSpaceBeginLoading__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusSpaceBeginLoading_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventCavrnusSpaceConnected_Parms
-		{
-			FCavrnusSpaceConnection SpaceConnection;
-		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_SpaceConnection;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::NewProp_SpaceConnection = { "SpaceConnection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusSpaceConnected_Parms, SpaceConnection), Z_Construct_UScriptStruct_FCavrnusSpaceConnection, METADATA_PARAMS(nullptr, 0) }; // 3908145014
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::NewProp_SpaceConnection,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusSpaceConnected__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusSpaceConnected_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -721,270 +357,67 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusCallbackTypes() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics
+	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics
 	{
-		struct _Script_CavrnusConnector_eventCavrnusPolicyUpdated_Parms
+		struct _Script_CavrnusConnector_eventCavrnusSpaceConnected_Parms
 		{
-			FString Policy;
-			bool IsAllowed;
+			FCavrnusSpaceConnection SpaceConnection;
 		};
-		static const UECodeGen_Private::FStrPropertyParams NewProp_Policy;
-		static void NewProp_IsAllowed_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsAllowed;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_SpaceConnection;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::NewProp_Policy = { "Policy", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusPolicyUpdated_Parms, Policy), METADATA_PARAMS(nullptr, 0) };
-	void Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::NewProp_IsAllowed_SetBit(void* Obj)
-	{
-		((_Script_CavrnusConnector_eventCavrnusPolicyUpdated_Parms*)Obj)->IsAllowed = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::NewProp_IsAllowed = { "IsAllowed", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(_Script_CavrnusConnector_eventCavrnusPolicyUpdated_Parms), &Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::NewProp_IsAllowed_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::NewProp_Policy,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::NewProp_IsAllowed,
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::NewProp_SpaceConnection = { "SpaceConnection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusSpaceConnected_Parms, SpaceConnection), Z_Construct_UScriptStruct_FCavrnusSpaceConnection, METADATA_PARAMS(nullptr, 0) }; // 3908145014
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::NewProp_SpaceConnection,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusPolicyUpdated__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusPolicyUpdated_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusSpaceConnected__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusSpaceConnected_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusPolicyUpdated__DelegateSignature_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceConnected__DelegateSignature_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics
+	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics
 	{
-		struct _Script_CavrnusConnector_eventCavrnusSpawnedObjectArrived_Parms
+		struct _Script_CavrnusConnector_eventCavrnusSpaceBeginLoading_Parms
 		{
-			FCavrnusSpawnedObject spawnedObject;
+			FString SpaceIdBeingLoaded;
 		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_spawnedObject;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_SpaceIdBeingLoaded;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::NewProp_spawnedObject = { "spawnedObject", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusSpawnedObjectArrived_Parms, spawnedObject), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(nullptr, 0) }; // 2250269897
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::NewProp_spawnedObject,
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::NewProp_SpaceIdBeingLoaded = { "SpaceIdBeingLoaded", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusSpaceBeginLoading_Parms, SpaceIdBeingLoaded), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::NewProp_SpaceIdBeingLoaded,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusSpawnedObjectArrived__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusSpawnedObjectArrived_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusSpaceBeginLoading__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusSpaceBeginLoading_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpawnedObjectArrived__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventCavrnusContentFunction_Parms
-		{
-			TArray<uint8> bytes;
-		};
-		static const UECodeGen_Private::FBytePropertyParams NewProp_bytes_Inner;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_bytes_MetaData[];
-#endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_bytes;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FBytePropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::NewProp_bytes_Inner = { "bytes", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::NewProp_bytes_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::NewProp_bytes = { "bytes", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusContentFunction_Parms, bytes), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::NewProp_bytes_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::NewProp_bytes_MetaData)) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::NewProp_bytes_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::NewProp_bytes,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusContentFunction__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusContentFunction_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFunction__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventCavrnusContentFileFunction_Parms
-		{
-			FString fileDest;
-		};
-		static const UECodeGen_Private::FStrPropertyParams NewProp_fileDest;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::NewProp_fileDest = { "fileDest", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusContentFileFunction_Parms, fileDest), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::NewProp_fileDest,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusContentFileFunction__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusContentFileFunction_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentFileFunction__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventCavrnusContentProgressFunction_Parms
-		{
-			float Progress;
-			FString Step;
-		};
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_Progress;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_Step;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::NewProp_Progress = { "Progress", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusContentProgressFunction_Parms, Progress), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::NewProp_Step = { "Step", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusContentProgressFunction_Parms, Step), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::NewProp_Progress,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::NewProp_Step,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusContentProgressFunction__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusContentProgressFunction_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusContentProgressFunction__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventCavrnusRemoteContentFunction_Parms
-		{
-			TArray<FCavrnusRemoteContent> availableContent;
-		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_availableContent_Inner;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_availableContent_MetaData[];
-#endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_availableContent;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::NewProp_availableContent_Inner = { "availableContent", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FCavrnusRemoteContent, METADATA_PARAMS(nullptr, 0) }; // 3393470447
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::NewProp_availableContent_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::NewProp_availableContent = { "availableContent", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusRemoteContentFunction_Parms, availableContent), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::NewProp_availableContent_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::NewProp_availableContent_MetaData)) }; // 3393470447
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::NewProp_availableContent_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::NewProp_availableContent,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusRemoteContentFunction__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusRemoteContentFunction_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusRemoteContentFunction__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics
-	{
-		struct _Script_CavrnusConnector_eventCavrnusUploadCompleteFunction_Parms
-		{
-			FCavrnusRemoteContent uploadedContent;
-		};
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_uploadedContent_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_uploadedContent;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::NewProp_uploadedContent_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::NewProp_uploadedContent = { "uploadedContent", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventCavrnusUploadCompleteFunction_Parms, uploadedContent), Z_Construct_UScriptStruct_FCavrnusRemoteContent, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::NewProp_uploadedContent_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::NewProp_uploadedContent_MetaData)) }; // 3393470447
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::NewProp_uploadedContent,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_CavrnusConnector, nullptr, "CavrnusUploadCompleteFunction__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::_Script_CavrnusConnector_eventCavrnusUploadCompleteFunction_Parms), Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusUploadCompleteFunction__DelegateSignature_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_CavrnusConnector_CavrnusSpaceBeginLoading__DelegateSignature_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}

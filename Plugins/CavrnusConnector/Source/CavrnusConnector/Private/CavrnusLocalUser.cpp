@@ -1,7 +1,7 @@
 #include "CavrnusLocalUser.h"
-#include "CavrnusValueSyncVector.h"
-#include "CavrnusValueSyncFloat.h"
-#include "CavrnusValueSyncTransform.h"
+#include "ValueSyncs/CavrnusValueSyncVector.h"
+#include "ValueSyncs/CavrnusValueSyncFloat.h"
+#include "ValueSyncs/CavrnusValueSyncTransform.h"
 #include <GameFramework/Actor.h>
 #include <Kismet/KismetSystemLibrary.h>
 #include "CavrnusPropertiesContainer.h"

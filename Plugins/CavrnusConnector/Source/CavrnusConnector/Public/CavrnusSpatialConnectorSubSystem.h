@@ -60,16 +60,8 @@ public:
 	UFUNCTION()
 	void OnSpaceConnectionFailure(FString Error);
 
-	void SpawnCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject);
-	FCavrnusSpawnedObject GetSpawnedObject(AActor* Actor);
-
-	void DestroyCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject);
-
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
 	UCavrnusAvatarManager* GetAvatarManager();
-
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	USpawnedObjectsManager* GetSpawnedObjectsManager();
 
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
 	UPDFManager* GetPDFManager();
@@ -104,7 +96,6 @@ private:
 	UPROPERTY()
 	bool bHasSpaceConnection = false;
 
-	UPROPERTY()
 	USpawnedObjectsManager* SpawnedObjectsManager;
 
 	UPROPERTY()

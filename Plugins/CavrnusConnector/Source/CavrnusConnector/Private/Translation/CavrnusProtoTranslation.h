@@ -8,8 +8,8 @@
 #include "Types/CavrnusOutputDevice.h"
 #include "Types/CavrnusVideoInputDevice.h"
 #include "Types/CavrnusUser.h"
-#include "RelayModel/PropertyId.h"
-#include "RelayModel/CavrnusPropertyValue.h"
+#include "Types/PropertyId.h"
+#include "Types/CavrnusPropertyValue.h"
 
 namespace Cavrnus
 {

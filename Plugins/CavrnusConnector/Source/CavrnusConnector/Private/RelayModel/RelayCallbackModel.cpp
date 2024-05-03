@@ -145,26 +145,30 @@ namespace Cavrnus
 		LoginGuestErrorCallbacks.Remove(callbackId);
 	}
 
-	void RelayCallbackModel::RegisterBeginLoadingSpaceCallback(FCavrnusSpaceBeginLoading onBeginLoading)
+	void RelayCallbackModel::RegisterBeginLoadingSpaceCallback(CavrnusSpaceBeginLoading onBeginLoading)
 	{
-		BeginLoadingSpaceCallbacks.Add(onBeginLoading);
+		TSharedPtr<const CavrnusSpaceBeginLoading> CallbackPtr = MakeShareable(new const CavrnusSpaceBeginLoading(onBeginLoading));
+		BeginLoadingSpaceCallbacks.Add(CallbackPtr);
 	}
 
 	void RelayCallbackModel::HandleSpaceBeginLoading(FString spaceId)
 	{
 		for (int i = 0; i < BeginLoadingSpaceCallbacks.Num(); i++) 
 		{
-			BeginLoadingSpaceCallbacks[i].ExecuteIfBound(spaceId);
+			(*BeginLoadingSpaceCallbacks[i])(spaceId);
 		}
 		BeginLoadingSpaceCallbacks.Empty();
 	}
 
-	int RelayCallbackModel::RegisterJoinSpaceCallback(FCavrnusSpaceConnected onConnected, FCavrnusError onFailure)
+	int RelayCallbackModel::RegisterJoinSpaceCallback(CavrnusSpaceConnected onConnected, CavrnusError onFailure)
 	{
 		int reqId = ++currReqId;
 
-		JoinSpaceSuccessCallbacks.Add(reqId, onConnected);
-		JoinSpaceErrorCallbacks.Add(reqId, onFailure);
+		TSharedPtr<const CavrnusSpaceConnected> CallbackPtr = MakeShareable(new const CavrnusSpaceConnected(onConnected));
+		TSharedPtr<const CavrnusError> ErrorPtr = MakeShareable(new const CavrnusError(onFailure));
+
+		JoinSpaceSuccessCallbacks.Add(reqId, CallbackPtr);
+		JoinSpaceErrorCallbacks.Add(reqId, ErrorPtr);
 
 		return reqId;
 	}
@@ -203,14 +207,14 @@ namespace Cavrnus
 
 			UE_LOG(LogCavrnusConnector, Log, TEXT("[JOIN SPACE SUCCESS]"));
 			if (JoinSpaceSuccessCallbacks.Contains(callbackId))
-				JoinSpaceSuccessCallbacks[callbackId].ExecuteIfBound(FCavrnusSpaceConnection(spaceConn));
+				(*JoinSpaceSuccessCallbacks[callbackId])(FCavrnusSpaceConnection(spaceConn));
 		}
 		else
 		{
 			FString error = resp.error().c_str();
 			UE_LOG(LogCavrnusConnector, Log, TEXT("[JOIN SPACE FAILURE]: %s"), *error);
 			if (JoinSpaceErrorCallbacks.Contains(callbackId))
-				JoinSpaceErrorCallbacks[callbackId].ExecuteIfBound(error);
+				(*JoinSpaceErrorCallbacks[callbackId])(error);
 		}
 
 		JoinSpaceSuccessCallbacks.Remove(callbackId);
