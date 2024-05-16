@@ -23,7 +23,7 @@ namespace Cavrnus
 		return msg;
 	}
 
-	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildUpdateTimeMsg(float currTime)
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildUpdateTimeMsg(double currTime)
 	{
 		ServerData::UpdateTime t;
 		t.set_time(currTime);
@@ -420,11 +420,11 @@ namespace Cavrnus
 	{
 		return FCavrnusSpaceInfo(space.spaceid().c_str(), space.spacename().c_str(), space.spacethumbnailurl().c_str());
 	}
-	FCavrnusUser CavrnusProtoTranslation::ToCavrnusUser(ServerData::CavrnusUser user)
+	FCavrnusUser CavrnusProtoTranslation::ToCavrnusUser(ServerData::CavrnusUser user, const FCavrnusSpaceConnection& spaceConn)
 	{
 		FString UserConnectionId = user.userconnectionid().c_str();
 
-		return { user.islocaluser(), ("users/" + UserConnectionId), UserConnectionId };
+		return FCavrnusUser(user.islocaluser(), ("users/" + UserConnectionId), UserConnectionId, spaceConn);
 	}
 #pragma endregion
 

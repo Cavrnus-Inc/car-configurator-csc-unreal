@@ -3,8 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UI/CavrnusWidgetBase.h"
-
 #include <Blueprint/UserWidget.h>
 
 #include "CavrnusGuestLoginWidget.generated.h"
@@ -18,12 +16,13 @@
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnGuestLoginClicked, FString);
 
 UCLASS(Abstract)
-class CAVRNUSCONNECTOR_API UCavrnusGuestLoginWidget : public UCavrnusWidgetBase
+class CAVRNUSCONNECTOR_API UCavrnusGuestLoginWidget : public UUserWidget
 {
 	GENERATED_BODY()
-
 public:
-	void InitializeCavrnusWidget() override;
+
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus", meta = (BindWidget))
+	void Setup();
 
 	UFUNCTION()
 	void OnLoginClicked();

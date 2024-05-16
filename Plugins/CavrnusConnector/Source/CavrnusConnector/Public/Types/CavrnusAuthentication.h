@@ -13,7 +13,7 @@ struct CAVRNUSCONNECTOR_API FCavrnusAuthentication
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Authorization")
-	FString Token;
+	FString Token = "";
 
 	FCavrnusAuthentication(const FString& Token)
 		: Token(Token)

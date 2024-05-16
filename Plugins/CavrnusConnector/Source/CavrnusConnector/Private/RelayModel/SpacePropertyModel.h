@@ -5,6 +5,7 @@
 #include "Types/CavrnusCallbackTypes.h"
 #include "Types/PropertyId.h"
 #include "Types/CavrnusPropertyValue.h"
+#include "Types/CavrnusSpaceConnection.h"
 
 namespace Cavrnus
 {
@@ -38,9 +39,9 @@ namespace Cavrnus
 		void InvalidateLocalPropValue(FPropertyId fullPropertyId, int propValidationId);
 		void UpdatePropMetadata(FPropertyId fullPropertyId, bool isReadonly);
 
-		FCavrnusBinding BindProperty(FPropertyId fullPropertyId, const CavrnusPropertyFunction& callback);
+		FCavrnusBinding BindProperty(FPropertyId fullPropertyId, CavrnusPropertyFunction callback);
 
-		FCavrnusBinding BindUserVideoTexture(const FCavrnusUser& User, const VideoFrameUpdateFunction& callback);
+		FCavrnusBinding BindUserVideoTexture(const FCavrnusUser& User, VideoFrameUpdateFunction callback);
 
 		Cavrnus::FPropertyValue GetPropValue(FPropertyId fullPropertyId);
 
@@ -51,12 +52,13 @@ namespace Cavrnus
 		void RemoveSpaceUser(FString userId);
 		void UpdateUserVideoTexture(FString userId, int ResX, int ResY, const TArray<uint8>& ByteArray);
 
-		void AwaitLocalUser(FCavrnusSpaceUserEvent localUserArrived);
-		FCavrnusBinding BindSpaceUsers(FCavrnusSpaceUserEvent userAdded, FCavrnusSpaceUserEvent userRemoved);
+		void AwaitLocalUser(CavrnusSpaceUserEvent localUserArrived);
+		FCavrnusBinding BindSpaceUsers(CavrnusSpaceUserEvent userAdded, CavrnusSpaceUserEvent userRemoved);
 
 		CaseSensitiveMap<FString, FCavrnusUser> CurrSpaceUsers;
 
-		FCavrnusUser* LocalUser;
+		FCavrnusUser LocalUser;
+		bool hasLocalUser = false;
 
 	private:
 		TMap<FPropertyId, FPropertyValue> CurrServerPropValues;
@@ -67,14 +69,14 @@ namespace Cavrnus
 		int validationIdIncrementer = 0;
 		TMap<FPropertyId, int> LocalPropValidationIds;
 				
-		TMap<FPropertyId, TArray<TSharedPtr<const CavrnusPropertyFunction>>> PropBindings;
+		TMap<FPropertyId, TArray<CavrnusPropertyFunction*>> PropBindings;
 
-		TArray<FCavrnusSpaceUserEvent> LocalUserArrivedCallbacks;
+		TArray<CavrnusSpaceUserEvent*> LocalUserArrivedCallbacks;
 
-		TArray<FCavrnusSpaceUserEvent> UserAddedBindings;
-		TArray<FCavrnusSpaceUserEvent> UserRemovedBindings;
+		TArray<CavrnusSpaceUserEvent*> UserAddedBindings;
+		TArray<CavrnusSpaceUserEvent*> UserRemovedBindings;
 
-		TMap<FString, TArray<TSharedPtr<const VideoFrameUpdateFunction>>> UserVideoFrameBindings;
+		TMap<FString, TArray<VideoFrameUpdateFunction*>> UserVideoFrameBindings;
 
 		FPropertyValue GetCurrentPropValue(FPropertyId fullPropertyId);
 		void TryExecPropBindings(FPropertyId fullPropertyId);

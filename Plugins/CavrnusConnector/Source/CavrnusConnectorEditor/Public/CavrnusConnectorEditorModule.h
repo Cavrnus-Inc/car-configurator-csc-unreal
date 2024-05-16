@@ -62,8 +62,6 @@ class FCavrnusConnectorEditorModule : public IModuleInterface
 		void RegisterToolsMenus();
 		void AddCavrnusToolsOptions(FToolMenuSection& InSection);
 
-		void RegisterEditorMode();
-
 		void AddCavrnusSpatialConnectorToLevel();
 
 		/**

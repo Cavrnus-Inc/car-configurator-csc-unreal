@@ -81,6 +81,9 @@ extern ObjectType_ChatMessageObjectTypeDefaultTypeInternal _ObjectType_ChatMessa
 class ObjectType_CustomContentId;
 struct ObjectType_CustomContentIdDefaultTypeInternal;
 extern ObjectType_CustomContentIdDefaultTypeInternal _ObjectType_CustomContentId_default_instance_;
+class ObjectType_CustomUsingCavrnusContentId;
+struct ObjectType_CustomUsingCavrnusContentIdDefaultTypeInternal;
+extern ObjectType_CustomUsingCavrnusContentIdDefaultTypeInternal _ObjectType_CustomUsingCavrnusContentId_default_instance_;
 class ObjectType_StreamBoardObjectType;
 struct ObjectType_StreamBoardObjectTypeDefaultTypeInternal;
 extern ObjectType_StreamBoardObjectTypeDefaultTypeInternal _ObjectType_StreamBoardObjectType_default_instance_;
@@ -115,6 +118,7 @@ template<> ::JournalData::ObjectType* Arena::CreateMaybeMessage<::JournalData::O
 template<> ::JournalData::ObjectType_ArTrackerObjectType* Arena::CreateMaybeMessage<::JournalData::ObjectType_ArTrackerObjectType>(Arena*);
 template<> ::JournalData::ObjectType_ChatMessageObjectType* Arena::CreateMaybeMessage<::JournalData::ObjectType_ChatMessageObjectType>(Arena*);
 template<> ::JournalData::ObjectType_CustomContentId* Arena::CreateMaybeMessage<::JournalData::ObjectType_CustomContentId>(Arena*);
+template<> ::JournalData::ObjectType_CustomUsingCavrnusContentId* Arena::CreateMaybeMessage<::JournalData::ObjectType_CustomUsingCavrnusContentId>(Arena*);
 template<> ::JournalData::ObjectType_StreamBoardObjectType* Arena::CreateMaybeMessage<::JournalData::ObjectType_StreamBoardObjectType>(Arena*);
 template<> ::JournalData::ObjectType_TextBoardObjectType* Arena::CreateMaybeMessage<::JournalData::ObjectType_TextBoardObjectType>(Arena*);
 template<> ::JournalData::PartHighlightData* Arena::CreateMaybeMessage<::JournalData::PartHighlightData>(Arena*);
@@ -1834,6 +1838,175 @@ class ObjectType_CustomContentId final :
 };
 // -------------------------------------------------------------------
 
+class ObjectType_CustomUsingCavrnusContentId final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:JournalData.ObjectType.CustomUsingCavrnusContentId) */ {
+ public:
+  inline ObjectType_CustomUsingCavrnusContentId() : ObjectType_CustomUsingCavrnusContentId(nullptr) {}
+  ~ObjectType_CustomUsingCavrnusContentId() override;
+  explicit PROTOBUF_CONSTEXPR ObjectType_CustomUsingCavrnusContentId(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ObjectType_CustomUsingCavrnusContentId(const ObjectType_CustomUsingCavrnusContentId& from);
+  ObjectType_CustomUsingCavrnusContentId(ObjectType_CustomUsingCavrnusContentId&& from) noexcept
+    : ObjectType_CustomUsingCavrnusContentId() {
+    *this = ::std::move(from);
+  }
+
+  inline ObjectType_CustomUsingCavrnusContentId& operator=(const ObjectType_CustomUsingCavrnusContentId& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ObjectType_CustomUsingCavrnusContentId& operator=(ObjectType_CustomUsingCavrnusContentId&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ObjectType_CustomUsingCavrnusContentId& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ObjectType_CustomUsingCavrnusContentId* internal_default_instance() {
+    return reinterpret_cast<const ObjectType_CustomUsingCavrnusContentId*>(
+               &_ObjectType_CustomUsingCavrnusContentId_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(ObjectType_CustomUsingCavrnusContentId& a, ObjectType_CustomUsingCavrnusContentId& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ObjectType_CustomUsingCavrnusContentId* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ObjectType_CustomUsingCavrnusContentId* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ObjectType_CustomUsingCavrnusContentId* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ObjectType_CustomUsingCavrnusContentId>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ObjectType_CustomUsingCavrnusContentId& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ObjectType_CustomUsingCavrnusContentId& from) {
+    ObjectType_CustomUsingCavrnusContentId::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ObjectType_CustomUsingCavrnusContentId* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "JournalData.ObjectType.CustomUsingCavrnusContentId";
+  }
+  protected:
+  explicit ObjectType_CustomUsingCavrnusContentId(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCustomUsageIdFieldNumber = 1,
+    kCustomContentIdFieldNumber = 2,
+  };
+  // string customUsageId = 1;
+  void clear_customusageid();
+  const std::string& customusageid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_customusageid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_customusageid();
+  PROTOBUF_NODISCARD std::string* release_customusageid();
+  void set_allocated_customusageid(std::string* customusageid);
+  private:
+  const std::string& _internal_customusageid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_customusageid(const std::string& value);
+  std::string* _internal_mutable_customusageid();
+  public:
+
+  // string customContentId = 2;
+  void clear_customcontentid();
+  const std::string& customcontentid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_customcontentid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_customcontentid();
+  PROTOBUF_NODISCARD std::string* release_customcontentid();
+  void set_allocated_customcontentid(std::string* customcontentid);
+  private:
+  const std::string& _internal_customcontentid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_customcontentid(const std::string& value);
+  std::string* _internal_mutable_customcontentid();
+  public:
+
+  // @@protoc_insertion_point(class_scope:JournalData.ObjectType.CustomUsingCavrnusContentId)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr customusageid_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr customcontentid_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_journaldata_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ObjectType_ChatMessageObjectType final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:JournalData.ObjectType.ChatMessageObjectType) */ {
  public:
@@ -1882,7 +2055,7 @@ class ObjectType_ChatMessageObjectType final :
                &_ObjectType_ChatMessageObjectType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(ObjectType_ChatMessageObjectType& a, ObjectType_ChatMessageObjectType& b) {
     a.Swap(&b);
@@ -2097,6 +2270,7 @@ class ObjectType final :
     kArTracker = 15,
     kContentIdAsset = 20,
     kCustomContentId = 21,
+    kCustomCavrnusContentId = 22,
     kChatMessage = 50,
     kBlankMaterial = 100,
     kWellKnownObjectId = 500,
@@ -2109,7 +2283,7 @@ class ObjectType final :
                &_ObjectType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(ObjectType& a, ObjectType& b) {
     a.Swap(&b);
@@ -2183,6 +2357,7 @@ class ObjectType final :
   typedef ObjectType_TextBoardObjectType TextBoardObjectType;
   typedef ObjectType_ArTrackerObjectType ArTrackerObjectType;
   typedef ObjectType_CustomContentId CustomContentId;
+  typedef ObjectType_CustomUsingCavrnusContentId CustomUsingCavrnusContentId;
   typedef ObjectType_ChatMessageObjectType ChatMessageObjectType;
 
   // accessors -------------------------------------------------------
@@ -2198,6 +2373,7 @@ class ObjectType final :
     kArTrackerFieldNumber = 15,
     kContentIdAssetFieldNumber = 20,
     kCustomContentIdFieldNumber = 21,
+    kCustomCavrnusContentIdFieldNumber = 22,
     kChatMessageFieldNumber = 50,
     kBlankMaterialFieldNumber = 100,
     kWellKnownObjectIdFieldNumber = 500,
@@ -2378,6 +2554,24 @@ class ObjectType final :
       ::JournalData::ObjectType_CustomContentId* customcontentid);
   ::JournalData::ObjectType_CustomContentId* unsafe_arena_release_customcontentid();
 
+  // .JournalData.ObjectType.CustomUsingCavrnusContentId customCavrnusContentId = 22;
+  bool has_customcavrnuscontentid() const;
+  private:
+  bool _internal_has_customcavrnuscontentid() const;
+  public:
+  void clear_customcavrnuscontentid();
+  const ::JournalData::ObjectType_CustomUsingCavrnusContentId& customcavrnuscontentid() const;
+  PROTOBUF_NODISCARD ::JournalData::ObjectType_CustomUsingCavrnusContentId* release_customcavrnuscontentid();
+  ::JournalData::ObjectType_CustomUsingCavrnusContentId* mutable_customcavrnuscontentid();
+  void set_allocated_customcavrnuscontentid(::JournalData::ObjectType_CustomUsingCavrnusContentId* customcavrnuscontentid);
+  private:
+  const ::JournalData::ObjectType_CustomUsingCavrnusContentId& _internal_customcavrnuscontentid() const;
+  ::JournalData::ObjectType_CustomUsingCavrnusContentId* _internal_mutable_customcavrnuscontentid();
+  public:
+  void unsafe_arena_set_allocated_customcavrnuscontentid(
+      ::JournalData::ObjectType_CustomUsingCavrnusContentId* customcavrnuscontentid);
+  ::JournalData::ObjectType_CustomUsingCavrnusContentId* unsafe_arena_release_customcavrnuscontentid();
+
   // .JournalData.ObjectType.ChatMessageObjectType chatMessage = 50;
   bool has_chatmessage() const;
   private:
@@ -2460,6 +2654,7 @@ class ObjectType final :
   void set_has_artracker();
   void set_has_contentidasset();
   void set_has_customcontentid();
+  void set_has_customcavrnuscontentid();
   void set_has_chatmessage();
   void set_has_blankmaterial();
   void set_has_wellknownobjectid();
@@ -2485,6 +2680,7 @@ class ObjectType final :
       ::JournalData::ObjectType_ArTrackerObjectType* artracker_;
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr contentidasset_;
       ::JournalData::ObjectType_CustomContentId* customcontentid_;
+      ::JournalData::ObjectType_CustomUsingCavrnusContentId* customcavrnuscontentid_;
       ::JournalData::ObjectType_ChatMessageObjectType* chatmessage_;
       bool blankmaterial_;
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr wellknownobjectid_;
@@ -2547,7 +2743,7 @@ class BoardSizeData final :
                &_BoardSizeData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(BoardSizeData& a, BoardSizeData& b) {
     a.Swap(&b);
@@ -2721,7 +2917,7 @@ class ImageContentType final :
                &_ImageContentType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(ImageContentType& a, ImageContentType& b) {
     a.Swap(&b);
@@ -2911,7 +3107,7 @@ class Image2dPlacementData final :
                &_Image2dPlacementData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(Image2dPlacementData& a, Image2dPlacementData& b) {
     a.Swap(&b);
@@ -3130,7 +3326,7 @@ class TagPlacementData final :
                &_TagPlacementData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(TagPlacementData& a, TagPlacementData& b) {
     a.Swap(&b);
@@ -3338,7 +3534,7 @@ class ObjectPlacementData final :
                &_ObjectPlacementData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(ObjectPlacementData& a, ObjectPlacementData& b) {
     a.Swap(&b);
@@ -3535,7 +3731,7 @@ class PartHighlightData final :
                &_PartHighlightData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(PartHighlightData& a, PartHighlightData& b) {
     a.Swap(&b);
@@ -3795,7 +3991,7 @@ class LightingEnvironmentContentType final :
                &_LightingEnvironmentContentType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(LightingEnvironmentContentType& a, LightingEnvironmentContentType& b) {
     a.Swap(&b);
@@ -4994,6 +5190,110 @@ inline void ObjectType_CustomContentId::set_allocated_customcontentid(std::strin
 
 // -------------------------------------------------------------------
 
+// ObjectType_CustomUsingCavrnusContentId
+
+// string customUsageId = 1;
+inline void ObjectType_CustomUsingCavrnusContentId::clear_customusageid() {
+  _impl_.customusageid_.ClearToEmpty();
+}
+inline const std::string& ObjectType_CustomUsingCavrnusContentId::customusageid() const {
+  // @@protoc_insertion_point(field_get:JournalData.ObjectType.CustomUsingCavrnusContentId.customUsageId)
+  return _internal_customusageid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ObjectType_CustomUsingCavrnusContentId::set_customusageid(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.customusageid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:JournalData.ObjectType.CustomUsingCavrnusContentId.customUsageId)
+}
+inline std::string* ObjectType_CustomUsingCavrnusContentId::mutable_customusageid() {
+  std::string* _s = _internal_mutable_customusageid();
+  // @@protoc_insertion_point(field_mutable:JournalData.ObjectType.CustomUsingCavrnusContentId.customUsageId)
+  return _s;
+}
+inline const std::string& ObjectType_CustomUsingCavrnusContentId::_internal_customusageid() const {
+  return _impl_.customusageid_.Get();
+}
+inline void ObjectType_CustomUsingCavrnusContentId::_internal_set_customusageid(const std::string& value) {
+  
+  _impl_.customusageid_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ObjectType_CustomUsingCavrnusContentId::_internal_mutable_customusageid() {
+  
+  return _impl_.customusageid_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ObjectType_CustomUsingCavrnusContentId::release_customusageid() {
+  // @@protoc_insertion_point(field_release:JournalData.ObjectType.CustomUsingCavrnusContentId.customUsageId)
+  return _impl_.customusageid_.Release();
+}
+inline void ObjectType_CustomUsingCavrnusContentId::set_allocated_customusageid(std::string* customusageid) {
+  if (customusageid != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.customusageid_.SetAllocated(customusageid, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.customusageid_.IsDefault()) {
+    _impl_.customusageid_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:JournalData.ObjectType.CustomUsingCavrnusContentId.customUsageId)
+}
+
+// string customContentId = 2;
+inline void ObjectType_CustomUsingCavrnusContentId::clear_customcontentid() {
+  _impl_.customcontentid_.ClearToEmpty();
+}
+inline const std::string& ObjectType_CustomUsingCavrnusContentId::customcontentid() const {
+  // @@protoc_insertion_point(field_get:JournalData.ObjectType.CustomUsingCavrnusContentId.customContentId)
+  return _internal_customcontentid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ObjectType_CustomUsingCavrnusContentId::set_customcontentid(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.customcontentid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:JournalData.ObjectType.CustomUsingCavrnusContentId.customContentId)
+}
+inline std::string* ObjectType_CustomUsingCavrnusContentId::mutable_customcontentid() {
+  std::string* _s = _internal_mutable_customcontentid();
+  // @@protoc_insertion_point(field_mutable:JournalData.ObjectType.CustomUsingCavrnusContentId.customContentId)
+  return _s;
+}
+inline const std::string& ObjectType_CustomUsingCavrnusContentId::_internal_customcontentid() const {
+  return _impl_.customcontentid_.Get();
+}
+inline void ObjectType_CustomUsingCavrnusContentId::_internal_set_customcontentid(const std::string& value) {
+  
+  _impl_.customcontentid_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ObjectType_CustomUsingCavrnusContentId::_internal_mutable_customcontentid() {
+  
+  return _impl_.customcontentid_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ObjectType_CustomUsingCavrnusContentId::release_customcontentid() {
+  // @@protoc_insertion_point(field_release:JournalData.ObjectType.CustomUsingCavrnusContentId.customContentId)
+  return _impl_.customcontentid_.Release();
+}
+inline void ObjectType_CustomUsingCavrnusContentId::set_allocated_customcontentid(std::string* customcontentid) {
+  if (customcontentid != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.customcontentid_.SetAllocated(customcontentid, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.customcontentid_.IsDefault()) {
+    _impl_.customcontentid_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:JournalData.ObjectType.CustomUsingCavrnusContentId.customContentId)
+}
+
+// -------------------------------------------------------------------
+
 // ObjectType_ChatMessageObjectType
 
 // string initialText = 1;
@@ -5938,6 +6238,80 @@ inline ::JournalData::ObjectType_CustomContentId* ObjectType::_internal_mutable_
 inline ::JournalData::ObjectType_CustomContentId* ObjectType::mutable_customcontentid() {
   ::JournalData::ObjectType_CustomContentId* _msg = _internal_mutable_customcontentid();
   // @@protoc_insertion_point(field_mutable:JournalData.ObjectType.customContentId)
+  return _msg;
+}
+
+// .JournalData.ObjectType.CustomUsingCavrnusContentId customCavrnusContentId = 22;
+inline bool ObjectType::_internal_has_customcavrnuscontentid() const {
+  return Ob_case() == kCustomCavrnusContentId;
+}
+inline bool ObjectType::has_customcavrnuscontentid() const {
+  return _internal_has_customcavrnuscontentid();
+}
+inline void ObjectType::set_has_customcavrnuscontentid() {
+  _impl_._oneof_case_[0] = kCustomCavrnusContentId;
+}
+inline void ObjectType::clear_customcavrnuscontentid() {
+  if (_internal_has_customcavrnuscontentid()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.Ob_.customcavrnuscontentid_;
+    }
+    clear_has_Ob();
+  }
+}
+inline ::JournalData::ObjectType_CustomUsingCavrnusContentId* ObjectType::release_customcavrnuscontentid() {
+  // @@protoc_insertion_point(field_release:JournalData.ObjectType.customCavrnusContentId)
+  if (_internal_has_customcavrnuscontentid()) {
+    clear_has_Ob();
+    ::JournalData::ObjectType_CustomUsingCavrnusContentId* temp = _impl_.Ob_.customcavrnuscontentid_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.Ob_.customcavrnuscontentid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::JournalData::ObjectType_CustomUsingCavrnusContentId& ObjectType::_internal_customcavrnuscontentid() const {
+  return _internal_has_customcavrnuscontentid()
+      ? *_impl_.Ob_.customcavrnuscontentid_
+      : reinterpret_cast< ::JournalData::ObjectType_CustomUsingCavrnusContentId&>(::JournalData::_ObjectType_CustomUsingCavrnusContentId_default_instance_);
+}
+inline const ::JournalData::ObjectType_CustomUsingCavrnusContentId& ObjectType::customcavrnuscontentid() const {
+  // @@protoc_insertion_point(field_get:JournalData.ObjectType.customCavrnusContentId)
+  return _internal_customcavrnuscontentid();
+}
+inline ::JournalData::ObjectType_CustomUsingCavrnusContentId* ObjectType::unsafe_arena_release_customcavrnuscontentid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:JournalData.ObjectType.customCavrnusContentId)
+  if (_internal_has_customcavrnuscontentid()) {
+    clear_has_Ob();
+    ::JournalData::ObjectType_CustomUsingCavrnusContentId* temp = _impl_.Ob_.customcavrnuscontentid_;
+    _impl_.Ob_.customcavrnuscontentid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ObjectType::unsafe_arena_set_allocated_customcavrnuscontentid(::JournalData::ObjectType_CustomUsingCavrnusContentId* customcavrnuscontentid) {
+  clear_Ob();
+  if (customcavrnuscontentid) {
+    set_has_customcavrnuscontentid();
+    _impl_.Ob_.customcavrnuscontentid_ = customcavrnuscontentid;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:JournalData.ObjectType.customCavrnusContentId)
+}
+inline ::JournalData::ObjectType_CustomUsingCavrnusContentId* ObjectType::_internal_mutable_customcavrnuscontentid() {
+  if (!_internal_has_customcavrnuscontentid()) {
+    clear_Ob();
+    set_has_customcavrnuscontentid();
+    _impl_.Ob_.customcavrnuscontentid_ = CreateMaybeMessage< ::JournalData::ObjectType_CustomUsingCavrnusContentId >(GetArenaForAllocation());
+  }
+  return _impl_.Ob_.customcavrnuscontentid_;
+}
+inline ::JournalData::ObjectType_CustomUsingCavrnusContentId* ObjectType::mutable_customcavrnuscontentid() {
+  ::JournalData::ObjectType_CustomUsingCavrnusContentId* _msg = _internal_mutable_customcavrnuscontentid();
+  // @@protoc_insertion_point(field_mutable:JournalData.ObjectType.customCavrnusContentId)
   return _msg;
 }
 
@@ -7822,6 +8196,8 @@ inline LightingEnvironmentContentType::ImCase LightingEnvironmentContentType::Im
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -9,6 +9,10 @@
  *
  */
 
+namespace Cavrnus
+{
+	class CavrnusRelayModel;
+}
 
 UCLASS(BlueprintType)
 class CAVRNUSCONNECTOR_API UCavrnusLiveColorPropertyUpdate : public UCavrnusLivePropertyUpdate
@@ -20,7 +24,7 @@ public:
 	UCavrnusLiveColorPropertyUpdate();
 
 	// Destructor
-	~UCavrnusLiveColorPropertyUpdate();
+	virtual ~UCavrnusLiveColorPropertyUpdate();
 
 	void Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, FLinearColor value);
 

@@ -23,8 +23,8 @@ namespace Cavrnus
 
 		CaseSensitiveMap<FString, FString> CompletedContentPaths;
 
-		CaseSensitiveMap<FString, TArray<TSharedPtr<const CavrnusContentProgressFunction>>> ProgressBindings;
-		CaseSensitiveMap<FString, TArray<TSharedPtr<const CavrnusContentFunction>>> CompletionBindings;
+		CaseSensitiveMap<FString, TArray<const CavrnusContentProgressFunction*>> ProgressBindings;
+		CaseSensitiveMap<FString, TArray<const CavrnusContentFunction*>> CompletionBindings;
 
 		TArray<uint8> CompletionToStream(FString filePath);
 	};

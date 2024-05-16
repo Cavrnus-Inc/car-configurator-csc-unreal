@@ -138,7 +138,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveVectorPropertyUpdate() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusLiveVectorPropertyUpdate_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "/**\n *\n */" },
 		{ "IncludePath", "LivePropertyUpdates/CavrnusLiveVectorPropertyUpdate.h" },
 		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveVectorPropertyUpdate.h" },
 	};
@@ -179,9 +178,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveVectorPropertyUpdate() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveVectorPropertyUpdate_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLiveVectorPropertyUpdate, UCavrnusLiveVectorPropertyUpdate::StaticClass, TEXT("UCavrnusLiveVectorPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveVectorPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveVectorPropertyUpdate), 3882885282U) },
+		{ Z_Construct_UClass_UCavrnusLiveVectorPropertyUpdate, UCavrnusLiveVectorPropertyUpdate::StaticClass, TEXT("UCavrnusLiveVectorPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveVectorPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveVectorPropertyUpdate), 3303281517U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveVectorPropertyUpdate_h_2953289151(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveVectorPropertyUpdate_h_1695894932(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveVectorPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveVectorPropertyUpdate_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

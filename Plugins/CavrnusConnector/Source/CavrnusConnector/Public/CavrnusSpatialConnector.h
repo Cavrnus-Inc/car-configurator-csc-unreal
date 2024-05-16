@@ -109,33 +109,22 @@ public:
 
 	// Space Join Manual
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "SpaceJoinMethod == ECavrnusSpaceJoinMethod::SpacesList", EditConditionHides))
-	TSubclassOf<UCavrnusSpaceListWidget> SpaceJoinMenu;
+	TSubclassOf<UUserWidget> SpaceJoinMenu;
 
 	// ------------------------------------------- Avatar Management ----------------------------------------------------------------------------
 
 	// Asset class type used to represent remote users
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, BlueprintReadOnly, Category = "Cavrnus")
-	TSubclassOf<class AActor> RemoteAvatarClass;
+	TSubclassOf<AActor> RemoteAvatarClass;
 
 	// ------------------------------------------- In Space UI ----------------------------------------------------------------------------------
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
-	TSubclassOf<class UCavrnusWidgetBase> LoadingWidgetClass;
+	TSubclassOf<class UUserWidget> LoadingWidgetClass;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
-	TArray<TSubclassOf<class UCavrnusWidgetBase>> WidgetsToLoad;
+	TArray<TSubclassOf<class UUserWidget>> WidgetsToLoad;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	TMap<FString, TSubclassOf<AActor>> SpawnableIdentifiers;
-
-	UFUNCTION(BlueprintNativeEvent, Category = "Cavrnus")
-	AActor* SpawnActorFromIdentifier(const FString& Identifier, const FTransform& InTransform);
-	virtual AActor* SpawnActorFromIdentifier_Implementation(const FString& Identifier, const FTransform& Transform);
-
-	UFUNCTION(BlueprintNativeEvent, Category = "Cavrnus")
-	void DestroyCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject);
-	virtual void DestroyCavrnusActor_Implementation(const FCavrnusSpawnedObject& SpawnedObject);
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Cavrnus")
-	bool Lasers = true;
 };

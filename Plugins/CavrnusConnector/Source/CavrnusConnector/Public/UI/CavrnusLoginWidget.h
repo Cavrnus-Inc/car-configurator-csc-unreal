@@ -3,10 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UI/CavrnusWidgetBase.h"
-
 #include <Blueprint/UserWidget.h>
-
 #include "CavrnusLoginWidget.generated.h"
 
 class UTexture2D;
@@ -20,13 +17,14 @@ class UTexture2D;
 DECLARE_MULTICAST_DELEGATE_TwoParams(FOnLoginClicked, FString, FString);
 
 UCLASS(Abstract)
-class CAVRNUSCONNECTOR_API UCavrnusLoginWidget : public UCavrnusWidgetBase
+class CAVRNUSCONNECTOR_API UCavrnusLoginWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
 public:
-	void InitializeCavrnusWidget() override;
-
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
+	void Setup();
+	
 	UFUNCTION()
 	void OnLoginClicked();
 

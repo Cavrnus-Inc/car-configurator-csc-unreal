@@ -24,41 +24,35 @@ void UCavrnusPropertiesContainer::SetContainerName(const FString& NewContainerNa
 	OnContainerNameUpdated.Broadcast(ContainerName);
 }
 
-void UCavrnusPropertiesContainer::ReplaceClassNameInPropertiesContainers(AActor* Actor, const FString& ReplacementString, bool bIncludeFromChildActors)
+void UCavrnusPropertiesContainer::ResetLiveHierarchyRootName(AActor* Actor, const FString& NewRootName)
 {
+	//What is the ContainerName of the top-level props container?  That is what we'll be replacing.
+	TArray<UCavrnusPropertiesContainer*> RootComponent;
+	Actor->GetComponents(RootComponent);
+	//If nothing on the root, do nothing
+	if (RootComponent.Num() == 0)
+		return;
+	FString rootString = RootComponent[0]->ContainerName;
+
 	TArray<UCavrnusPropertiesContainer*> PropertiesContainers;
-	Actor->GetComponents(PropertiesContainers, bIncludeFromChildActors);
+	Actor->GetComponents(PropertiesContainers, true);
 	for (UCavrnusPropertiesContainer* PropertiesContainer : PropertiesContainers)
 	{
-		UClass* OwnerClass = PropertiesContainer->GetOwner()->GetClass();
-		while (OwnerClass)
-		{
-			FString ActorClassName = OwnerClass->GetName();
-			ActorClassName.RemoveFromEnd(TEXT("_C"));
-
-			if (UCavrnusPropertiesContainer::ReplacePlaceholderInPropertiesContainers(PropertiesContainer, ActorClassName, ReplacementString))
-				continue;
-
-			OwnerClass = OwnerClass->GetSuperClass();
-		}
+		UCavrnusPropertiesContainer::ReplacePlaceholderInPropertiesContainer(PropertiesContainer, rootString, NewRootName);
 	}
 }
 
-bool UCavrnusPropertiesContainer::ReplacePlaceholderInPropertiesContainers(UCavrnusPropertiesContainer* PropertiesContainer, const FString& Placeholder, const FString& ReplacementString)
+void UCavrnusPropertiesContainer::ReplacePlaceholderInPropertiesContainer(UCavrnusPropertiesContainer* PropertiesContainer, const FString& Placeholder, const FString& ReplacementString)
 {
 	FString ContainerName = PropertiesContainer->GetContainerName();
 	if (ContainerName.IsEmpty())
 	{
 		PropertiesContainer->SetContainerName(ReplacementString);
-		return true;
 	}
 	else if (ContainerName.StartsWith(Placeholder))
 	{
 		ContainerName.RemoveFromStart(Placeholder);
 		ContainerName.InsertAt(0, ReplacementString);
 		PropertiesContainer->SetContainerName(ContainerName);
-		return true;
 	}
-
-	return false;
 }

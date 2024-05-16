@@ -10,8 +10,27 @@ namespace Cavrnus
 
 	CavrnusContentModel::~CavrnusContentModel()
 	{
+		// Clean up ProgressBindings's callback arrays
+		for (auto kvp : ProgressBindings)
+		{
+			for (auto callback : kvp.Value)
+			{
+				delete callback;
+			}
+			kvp.Value.Empty();
+		}
 
+		// Clean up CompletionBindings's callback arrays
+		for (auto kvp : CompletionBindings)
+		{
+			for (auto callback : kvp.Value)
+			{
+				delete callback;
+			}
+			kvp.Value.Empty();
+		}
 	}
+
 	void CavrnusContentModel::RegisterContentCallbacks(FString contentId, const CavrnusContentProgressFunction& prog, const CavrnusContentFunction& complete)
 	{
 		if (CompletedContentPaths.Contains(contentId))
@@ -21,12 +40,12 @@ namespace Cavrnus
 		}
 
 		using progFunction = const CavrnusContentProgressFunction;
-		TSharedPtr<progFunction> ProgCallbackPtr = MakeShareable(new progFunction(prog));
+		progFunction* ProgCallbackPtr = new progFunction(prog);
 		ProgressBindings.FindOrAdd(contentId);
 		ProgressBindings[contentId].Add(ProgCallbackPtr);
 
 		using completedFunction = const CavrnusContentFunction;
-		TSharedPtr<completedFunction> CompletedCallbackPtr = MakeShareable(new completedFunction(complete));
+		completedFunction* CompletedCallbackPtr = new completedFunction(complete);
 		CompletionBindings.FindOrAdd(contentId);
 		CompletionBindings[contentId].Add(CompletedCallbackPtr);
 	}
@@ -45,11 +64,20 @@ namespace Cavrnus
 		if (!CompletionBindings.Contains(contentId))
 			return;
 
-		for (int i = 0; i < CompletionBindings[contentId].Num(); i++)
-			(*CompletionBindings[contentId][i])(CompletionToStream(filePath));
-
-		ProgressBindings.Remove(contentId);
+		// Call the CompletionBindings callbacks for this contentId now, and clean them up
+		for (auto callback : CompletionBindings[contentId])
+		{
+			(*callback)(CompletionToStream(filePath));
+			delete callback;
+		}
 		CompletionBindings.Remove(contentId);
+
+		// Also discard the ProgressBindings callbacks for this contentId
+		for (auto callback : ProgressBindings[contentId])
+		{
+			delete callback;
+		}
+		ProgressBindings.Remove(contentId);
 
 		CompletedContentPaths.Add(contentId, filePath);
 	}

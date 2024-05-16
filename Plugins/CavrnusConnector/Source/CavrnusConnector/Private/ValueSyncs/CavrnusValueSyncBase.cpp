@@ -50,7 +50,7 @@ void UCavrnusValueSyncBase::EndPlay(EEndPlayReason::Type EndPlayReason)
 		liveUpdater->Finalize();
 	liveUpdater = nullptr;
 
-	PropertyBinding.Unhook();
+	UCavrnusFunctionLibrary::Unbind(PropertyBinding);
 }
 
 void UCavrnusValueSyncBase::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)

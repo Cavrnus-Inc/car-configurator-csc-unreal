@@ -2,10 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Types/CavrnusSpaceConnection.h"
-#include "RelayModel/CavrnusRelayModel.h"
-#include "RelayModel/SpacePropertyModel.h"
 #include "Types/PropertyId.h"
-#include "RelayModel/CavrnusVirtualPropertyUpdate.h"
 
 // Always last
 #include "CavrnusLivePropertyUpdate.generated.h"
@@ -13,17 +10,16 @@
  *
  */
 
+struct FPropertyId;
+
 namespace Cavrnus
 {
-	class SpacePropertyModel;
+	class CavrnusVirtualPropertyUpdate;
 }
-
-struct FPropertyId;
 
 UCLASS(Abstract, BlueprintType)
 class CAVRNUSCONNECTOR_API UCavrnusLivePropertyUpdate : public UObject
 {
-
 	GENERATED_BODY()
 
 public:
@@ -31,7 +27,7 @@ public:
 	UCavrnusLivePropertyUpdate();
 
 	// Destructor
-	~UCavrnusLivePropertyUpdate();
+	virtual ~UCavrnusLivePropertyUpdate();
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Cancels transient operations sent to the server.", ShortToolTip = "Cancels transient operations sent to the server"))
@@ -41,5 +37,5 @@ public:
 
 protected:
 
-	Cavrnus::CavrnusVirtualPropertyUpdate livePropertyUpdate;
+	Cavrnus::CavrnusVirtualPropertyUpdate* livePropertyUpdate = nullptr;
 };

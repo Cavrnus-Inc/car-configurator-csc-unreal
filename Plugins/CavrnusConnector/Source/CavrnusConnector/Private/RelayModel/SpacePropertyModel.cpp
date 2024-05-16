@@ -3,9 +3,30 @@
 
 namespace Cavrnus
 {
-	SpacePropertyModel::SpacePropertyModel(){}
+	SpacePropertyModel::SpacePropertyModel() 
+	{
+	}
 
-	SpacePropertyModel::~SpacePropertyModel(){}
+	SpacePropertyModel::~SpacePropertyModel()
+	{
+		for (auto& arrived : LocalUserArrivedCallbacks)
+		{
+			delete arrived;
+		}
+		LocalUserArrivedCallbacks.Empty();
+
+		for (auto& added : UserAddedBindings)
+		{
+			delete added;
+		}
+		UserAddedBindings.Empty();
+
+		for (auto& removed : UserRemovedBindings)
+		{
+			delete removed;
+		}
+		UserRemovedBindings.Empty();
+	}
 
 	void SpacePropertyModel::UpdateServerPropVal(FPropertyId fullPropertyId, FPropertyValue value)
 	{
@@ -109,7 +130,7 @@ namespace Cavrnus
 
 		//This shouldn't happen, but could potentially when handling oddly ordered stuff.
 		//We'll ignore it since it shouldn't be the case for long.
-		if (activePropVal.PropType == FPropertyValue::PropertyType::Invalid)
+		if (activePropVal.PropType == FPropertyValue::PropertyType::Unset)
 			return;
 
 		if (PropBindings.Contains(fullPropertyId))
@@ -124,38 +145,43 @@ namespace Cavrnus
 		return CurrLocalPropValues.Contains(fullPropertyId) || CurrServerPropValues.Contains(fullPropertyId);
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindProperty(FPropertyId fullPropertyId, const CavrnusPropertyFunction& callback)
+	FCavrnusBinding SpacePropertyModel::BindProperty(FPropertyId fullPropertyId, CavrnusPropertyFunction callback)
 	{
-		if (PropValueExists(fullPropertyId))
-			callback(GetCurrentPropValue(fullPropertyId), fullPropertyId.ContainerName, fullPropertyId.PropValueId);
-
-		using propFunction = const CavrnusPropertyFunction;
-		TSharedPtr<propFunction> CallbackPtr = MakeShareable(new propFunction(callback));
-
+		CavrnusPropertyFunction* cb = new CavrnusPropertyFunction(callback);
 		PropBindings.FindOrAdd(fullPropertyId);
-		PropBindings[fullPropertyId].Add(CallbackPtr);
+		PropBindings[fullPropertyId].Add(cb);
 
-		return FCavrnusBinding([this, fullPropertyId, CallbackPtr]() {
-			PropBindings[fullPropertyId].Remove(CallbackPtr);
+		callback(GetCurrentPropValue(fullPropertyId), fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+
+		return FCavrnusBinding([this, fullPropertyId, cb]()
+		{
+			if (!PropBindings.Contains(fullPropertyId))
+				return;
+			PropBindings[fullPropertyId].Remove(cb);
 			if (PropBindings[fullPropertyId].IsEmpty())
 				PropBindings.Remove(fullPropertyId);
 		});
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindUserVideoTexture(const FCavrnusUser& User, const VideoFrameUpdateFunction& Callback)
+	FCavrnusBinding SpacePropertyModel::BindUserVideoTexture(const FCavrnusUser& User, VideoFrameUpdateFunction Callback)
 	{
 		FString UserConnectionId = User.UserConnectionId;
 
 		if (CurrSpaceUsers.Contains(UserConnectionId))
 			Callback(CurrSpaceUsers[UserConnectionId].VideoFrameTexture);
 
-		using FrameUpdateFunction = const VideoFrameUpdateFunction;
-		TSharedPtr<FrameUpdateFunction> CallbackPtr = MakeShareable(new FrameUpdateFunction(Callback));
-
+		VideoFrameUpdateFunction* cb = new VideoFrameUpdateFunction(Callback);
 		UserVideoFrameBindings.FindOrAdd(UserConnectionId);
-		UserVideoFrameBindings[UserConnectionId].Add(CallbackPtr);
+		UserVideoFrameBindings[UserConnectionId].Add(cb);
 
-		return FCavrnusBinding([this, UserConnectionId, CallbackPtr]() { UserVideoFrameBindings[UserConnectionId].Remove(CallbackPtr); });
+		return FCavrnusBinding([this, UserConnectionId, cb]()
+		{
+			if (!UserVideoFrameBindings.Contains(UserConnectionId))
+				return;
+			UserVideoFrameBindings[UserConnectionId].Remove(cb);
+			if (UserVideoFrameBindings[UserConnectionId].IsEmpty())
+				UserVideoFrameBindings.Remove(UserConnectionId);
+		});
 	}
 	
 	Cavrnus::FPropertyValue SpacePropertyModel::GetPropValue(FPropertyId fullPropertyId)
@@ -175,18 +201,20 @@ namespace Cavrnus
 	{
 		if (user.IsLocalUser)
 		{
-			LocalUser = &user;
+			LocalUser = user;
+			hasLocalUser = true;
 
 			for (int i = 0; i < LocalUserArrivedCallbacks.Num(); i++)
 			{
-				LocalUserArrivedCallbacks[i].ExecuteIfBound(user);
+				(*LocalUserArrivedCallbacks[i])(user);
+				delete LocalUserArrivedCallbacks[i];
 			}
 			LocalUserArrivedCallbacks.Empty();
 		}
 
 		CurrSpaceUsers.Add(user.UserConnectionId, user);
 		for (int i = 0; i < UserAddedBindings.Num(); i++)
-			UserAddedBindings[i].ExecuteIfBound(user);
+			(*UserAddedBindings[i])(user);
 	}
 
 	void SpacePropertyModel::RemoveSpaceUser(FString userId)
@@ -197,7 +225,7 @@ namespace Cavrnus
 			CurrSpaceUsers.Remove(userId);
 
 			for (int i = 0; i < UserRemovedBindings.Num(); i++)
-				UserRemovedBindings[i].ExecuteIfBound(removedUser);
+				(*UserRemovedBindings[i])(removedUser);
 		}
 	}
 
@@ -226,23 +254,33 @@ namespace Cavrnus
 		}
 	}
 
-	void SpacePropertyModel::AwaitLocalUser(FCavrnusSpaceUserEvent localUserArrived)
+	void SpacePropertyModel::AwaitLocalUser(CavrnusSpaceUserEvent localUserArrived)
 	{
-		LocalUserArrivedCallbacks.Add(localUserArrived);
+		if (hasLocalUser)
+		{
+			localUserArrived(LocalUser);
+		}
+		else 
+		{
+			CavrnusSpaceUserEvent* callback = new CavrnusSpaceUserEvent(localUserArrived);
+			LocalUserArrivedCallbacks.Add(callback);
+		}
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindSpaceUsers(FCavrnusSpaceUserEvent userAdded, FCavrnusSpaceUserEvent userRemoved)
+	FCavrnusBinding SpacePropertyModel::BindSpaceUsers(CavrnusSpaceUserEvent userAdded, CavrnusSpaceUserEvent userRemoved)
 	{
-		UserAddedBindings.Add(userAdded);
-		UserRemovedBindings.Add(userRemoved);
+		CavrnusSpaceUserEvent* added = new CavrnusSpaceUserEvent(userAdded);
+		UserAddedBindings.Add(added);
+		CavrnusSpaceUserEvent* removed = new CavrnusSpaceUserEvent(userRemoved);
+		UserRemovedBindings.Add(removed);
 
 		for (auto& UserElem : CurrSpaceUsers)
-			userAdded.ExecuteIfBound(UserElem.Value);
+			userAdded(UserElem.Value);
 
-		return FCavrnusBinding([this, userAdded, userRemoved]()
+		return FCavrnusBinding([this, added, removed]()
 			{
-				UserAddedBindings.Remove(userAdded);
-				UserRemovedBindings.Remove(userRemoved);
+				UserAddedBindings.Remove(added);
+				UserRemovedBindings.Remove(removed);
 			});
 	}
 

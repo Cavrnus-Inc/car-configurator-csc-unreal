@@ -16,10 +16,10 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpaceConnection
 	int SpaceConnectionId = -1;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Spaces")
-	FString LocalUserConnectionId;
+	FString LocalUserConnectionId = "";
 
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Spaces")
-	FString LocalUserContainerName;
+	FString LocalUserContainerName = "";
 
 	FCavrnusSpaceConnection() = default;
 

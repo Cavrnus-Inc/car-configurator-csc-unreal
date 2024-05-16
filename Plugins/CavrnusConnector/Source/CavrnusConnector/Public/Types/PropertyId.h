@@ -12,6 +12,9 @@ struct CAVRNUSCONNECTOR_API FPropertyId
 	GENERATED_BODY()
 
 public:
+	FString ContainerName = "";
+	FString PropValueId = "";
+
 	FPropertyId()
 	{
 		PropValueId = "";
@@ -52,9 +55,6 @@ public:
 	}
 
 	~FPropertyId(){}
-
-	FString ContainerName;
-	FString PropValueId;
 
 	static const FString GetCombinedName(FPropertyId pId)
 	{

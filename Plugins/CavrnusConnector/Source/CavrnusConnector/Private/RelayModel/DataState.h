@@ -12,7 +12,7 @@ namespace Cavrnus
 		DataState();
 		virtual ~DataState();
 
-		FCavrnusAuthentication* CurrentAuthentication;
+		FCavrnusAuthentication* CurrentAuthentication = nullptr;
 
 		TArray<FCavrnusSpaceConnection> GetCurrentSpaceConnections();
 
@@ -24,18 +24,18 @@ namespace Cavrnus
 		void UpdateJoinableSpace(FCavrnusSpaceInfo space);
 		void RemoveJoinableSpace(FCavrnusSpaceInfo space);
 
-		FCavrnusBinding BindJoinableSpaces(FCavrnusSpaceInfoEvent spaceAdded, FCavrnusSpaceInfoEvent spaceUpdated, FCavrnusSpaceInfoEvent spaceRemoved);
+		FCavrnusBinding BindJoinableSpaces(CavrnusSpaceInfoEvent spaceAdded, CavrnusSpaceInfoEvent spaceUpdated, CavrnusSpaceInfoEvent spaceRemoved);
 
 	private:
 		TArray<FCavrnusSpaceConnection> CurrentSpaceConnections;
 
-		TArray<TSharedPtr<const CavrnusSpaceConnected>> spaceConnectionBindings;
+		TArray<CavrnusSpaceConnected*> spaceConnectionBindings;
 
 		TArray<FCavrnusSpaceInfo> CurrJoinableSpaces;
 
-		TArray<FCavrnusSpaceInfoEvent> JoinableSpaceAddedBindings;
-		TArray<FCavrnusSpaceInfoEvent> JoinableSpaceUpdatedBindings;
-		TArray<FCavrnusSpaceInfoEvent> JoinableSpaceRemovedBindings;
+		TArray<CavrnusSpaceInfoEvent*> JoinableSpaceAddedBindings;
+		TArray<CavrnusSpaceInfoEvent*> JoinableSpaceUpdatedBindings;
+		TArray<CavrnusSpaceInfoEvent*> JoinableSpaceRemovedBindings;
 	};
 
 } // namespace CavrnusRelay

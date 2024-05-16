@@ -543,51 +543,6 @@ struct SetVideoInputDeviceReqDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SetVideoInputDeviceReqDefaultTypeInternal _SetVideoInputDeviceReq_default_instance_;
-PROTOBUF_CONSTEXPR SetAudioInputDeviceResp::SetAudioInputDeviceResp(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.reqid_)*/0
-  , /*decltype(_impl_.Resp_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_._oneof_case_)*/{}} {}
-struct SetAudioInputDeviceRespDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR SetAudioInputDeviceRespDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~SetAudioInputDeviceRespDefaultTypeInternal() {}
-  union {
-    SetAudioInputDeviceResp _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SetAudioInputDeviceRespDefaultTypeInternal _SetAudioInputDeviceResp_default_instance_;
-PROTOBUF_CONSTEXPR SetAudioOutputDeviceResp::SetAudioOutputDeviceResp(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.reqid_)*/0
-  , /*decltype(_impl_.Resp_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_._oneof_case_)*/{}} {}
-struct SetAudioOutputDeviceRespDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR SetAudioOutputDeviceRespDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~SetAudioOutputDeviceRespDefaultTypeInternal() {}
-  union {
-    SetAudioOutputDeviceResp _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SetAudioOutputDeviceRespDefaultTypeInternal _SetAudioOutputDeviceResp_default_instance_;
-PROTOBUF_CONSTEXPR SetVideoInputDeviceResp::SetVideoInputDeviceResp(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.reqid_)*/0
-  , /*decltype(_impl_.Resp_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_._oneof_case_)*/{}} {}
-struct SetVideoInputDeviceRespDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR SetVideoInputDeviceRespDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~SetVideoInputDeviceRespDefaultTypeInternal() {}
-  union {
-    SetVideoInputDeviceResp _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SetVideoInputDeviceRespDefaultTypeInternal _SetVideoInputDeviceResp_default_instance_;
 PROTOBUF_CONSTEXPR PostCreateObject::PostCreateObject(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.newinstanceid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -954,7 +909,7 @@ struct AllJoinableSpacesRespDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AllJoinableSpacesRespDefaultTypeInternal _AllJoinableSpacesResp_default_instance_;
 }  // namespace ServerData
-static ::_pb::Metadata file_level_metadata_relay_2eproto[64];
+static ::_pb::Metadata file_level_metadata_relay_2eproto[61];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_relay_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_relay_2eproto = nullptr;
 
@@ -1015,9 +970,6 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::RelayRemoteMessage, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
@@ -1339,36 +1291,6 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::SetVideoInputDeviceReq, _impl_.reqid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::SetVideoInputDeviceReq, _impl_.device_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetAudioInputDeviceResp, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetAudioInputDeviceResp, _impl_._oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetAudioInputDeviceResp, _impl_.reqid_),
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetAudioInputDeviceResp, _impl_.Resp_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetAudioOutputDeviceResp, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetAudioOutputDeviceResp, _impl_._oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetAudioOutputDeviceResp, _impl_.reqid_),
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetAudioOutputDeviceResp, _impl_.Resp_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetVideoInputDeviceResp, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetVideoInputDeviceResp, _impl_._oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetVideoInputDeviceResp, _impl_.reqid_),
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::ServerData::SetVideoInputDeviceResp, _impl_.Resp_),
-  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::PostCreateObject, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -1592,66 +1514,63 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 7, -1, -1, sizeof(::ServerData::RelayClientMessage)},
   { 43, -1, -1, sizeof(::ServerData::RelayRemoteMessageBatch)},
   { 50, -1, -1, sizeof(::ServerData::RelayRemoteMessage)},
-  { 86, -1, -1, sizeof(::ServerData::KeepAlive)},
-  { 92, -1, -1, sizeof(::ServerData::UpdateTime)},
-  { 99, -1, -1, sizeof(::ServerData::StatusMessage)},
-  { 109, -1, -1, sizeof(::ServerData::AuthenticateReq)},
-  { 119, -1, -1, sizeof(::ServerData::AuthenticateGuestReq)},
-  { 128, -1, -1, sizeof(::ServerData::AuthenticateResp)},
-  { 138, -1, -1, sizeof(::ServerData::AuthenticateGuestResp)},
-  { 148, -1, -1, sizeof(::ServerData::AuthenticateWithLinkReq)},
-  { 156, -1, -1, sizeof(::ServerData::AuthenticateWithLinkResp)},
-  { 166, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutReq)},
-  { 173, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutResp)},
-  { 184, -1, -1, sizeof(::ServerData::JoinSpaceFromIdReq)},
-  { 192, -1, -1, sizeof(::ServerData::JoinSpaceFromIdResp)},
-  { 202, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionReq)},
-  { 210, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionResp)},
-  { 220, -1, -1, sizeof(::ServerData::PropertyValue)},
-  { 234, -1, -1, sizeof(::ServerData::DefinePropertyDefaultValue)},
-  { 244, -1, -1, sizeof(::ServerData::PostPropertyUpdate)},
-  { 254, -1, -1, sizeof(::ServerData::BeginTransientPropertyUpdate)},
-  { 265, -1, -1, sizeof(::ServerData::ContinueTransientPropertyUpdate)},
-  { 276, -1, -1, sizeof(::ServerData::FinalizeTransientPropertyUpdate)},
-  { 287, -1, -1, sizeof(::ServerData::CancelTransientPropertyUpdate)},
-  { 295, -1, -1, sizeof(::ServerData::TransformPropertyValue)},
-  { 304, -1, -1, sizeof(::ServerData::GetAudioInputDevicesReq)},
-  { 311, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesReq)},
-  { 318, -1, -1, sizeof(::ServerData::GetVideoInputDevicesReq)},
-  { 325, -1, -1, sizeof(::ServerData::GetAudioInputDevicesResp)},
-  { 335, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesResp)},
-  { 345, -1, -1, sizeof(::ServerData::GetVideoInputDevicesResp)},
-  { 355, -1, -1, sizeof(::ServerData::SetAudioInputDeviceReq)},
-  { 363, -1, -1, sizeof(::ServerData::SetAudioOutputDeviceReq)},
-  { 371, -1, -1, sizeof(::ServerData::SetVideoInputDeviceReq)},
-  { 379, -1, -1, sizeof(::ServerData::SetAudioInputDeviceResp)},
-  { 389, -1, -1, sizeof(::ServerData::SetAudioOutputDeviceResp)},
-  { 399, -1, -1, sizeof(::ServerData::SetVideoInputDeviceResp)},
-  { 409, -1, -1, sizeof(::ServerData::PostCreateObject)},
-  { 418, -1, -1, sizeof(::ServerData::PostRemoveObject)},
-  { 426, -1, -1, sizeof(::ServerData::FetchFileByIdReq)},
-  { 433, -1, -1, sizeof(::ServerData::FetchFileByIdProgressResp)},
-  { 442, -1, -1, sizeof(::ServerData::FetchFileByIdCompletedResp)},
-  { 450, -1, -1, sizeof(::ServerData::FetchAllUploadedContentReq)},
-  { 457, -1, -1, sizeof(::ServerData::UploadLocalFileResp)},
-  { 465, -1, -1, sizeof(::ServerData::UploadLocalFileReq)},
-  { 475, -1, -1, sizeof(::ServerData::FetchAllUploadedContentResp)},
-  { 483, -1, -1, sizeof(::ServerData::PropMetadataStatus)},
-  { 492, -1, -1, sizeof(::ServerData::PropertyValueStatus)},
-  { 502, -1, -1, sizeof(::ServerData::LocalPropertyHandledResp)},
-  { 511, -1, -1, sizeof(::ServerData::UserAdded)},
-  { 519, -1, -1, sizeof(::ServerData::UserRemoved)},
-  { 527, -1, -1, sizeof(::ServerData::UserVideoFrame)},
-  { 538, -1, -1, sizeof(::ServerData::SpaceInfo)},
-  { 548, -1, -1, sizeof(::ServerData::ObjectAdded)},
-  { 558, -1, -1, sizeof(::ServerData::ObjectRemoved)},
-  { 566, -1, -1, sizeof(::ServerData::UpdateLocalUserMuted)},
-  { 574, -1, -1, sizeof(::ServerData::UpdateLocalUserCoPresence)},
-  { 582, -1, -1, sizeof(::ServerData::UpdateLocalUserStreamState)},
-  { 590, 598, -1, sizeof(::ServerData::PermissionStatusReq)},
-  { 600, 609, -1, sizeof(::ServerData::PermissionStatus)},
-  { 612, -1, -1, sizeof(::ServerData::AllJoinableSpacesReq)},
-  { 619, -1, -1, sizeof(::ServerData::AllJoinableSpacesResp)},
+  { 83, -1, -1, sizeof(::ServerData::KeepAlive)},
+  { 89, -1, -1, sizeof(::ServerData::UpdateTime)},
+  { 96, -1, -1, sizeof(::ServerData::StatusMessage)},
+  { 106, -1, -1, sizeof(::ServerData::AuthenticateReq)},
+  { 116, -1, -1, sizeof(::ServerData::AuthenticateGuestReq)},
+  { 125, -1, -1, sizeof(::ServerData::AuthenticateResp)},
+  { 135, -1, -1, sizeof(::ServerData::AuthenticateGuestResp)},
+  { 145, -1, -1, sizeof(::ServerData::AuthenticateWithLinkReq)},
+  { 153, -1, -1, sizeof(::ServerData::AuthenticateWithLinkResp)},
+  { 163, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutReq)},
+  { 170, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutResp)},
+  { 181, -1, -1, sizeof(::ServerData::JoinSpaceFromIdReq)},
+  { 189, -1, -1, sizeof(::ServerData::JoinSpaceFromIdResp)},
+  { 199, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionReq)},
+  { 207, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionResp)},
+  { 217, -1, -1, sizeof(::ServerData::PropertyValue)},
+  { 231, -1, -1, sizeof(::ServerData::DefinePropertyDefaultValue)},
+  { 241, -1, -1, sizeof(::ServerData::PostPropertyUpdate)},
+  { 251, -1, -1, sizeof(::ServerData::BeginTransientPropertyUpdate)},
+  { 262, -1, -1, sizeof(::ServerData::ContinueTransientPropertyUpdate)},
+  { 273, -1, -1, sizeof(::ServerData::FinalizeTransientPropertyUpdate)},
+  { 284, -1, -1, sizeof(::ServerData::CancelTransientPropertyUpdate)},
+  { 292, -1, -1, sizeof(::ServerData::TransformPropertyValue)},
+  { 301, -1, -1, sizeof(::ServerData::GetAudioInputDevicesReq)},
+  { 308, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesReq)},
+  { 315, -1, -1, sizeof(::ServerData::GetVideoInputDevicesReq)},
+  { 322, -1, -1, sizeof(::ServerData::GetAudioInputDevicesResp)},
+  { 332, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesResp)},
+  { 342, -1, -1, sizeof(::ServerData::GetVideoInputDevicesResp)},
+  { 352, -1, -1, sizeof(::ServerData::SetAudioInputDeviceReq)},
+  { 360, -1, -1, sizeof(::ServerData::SetAudioOutputDeviceReq)},
+  { 368, -1, -1, sizeof(::ServerData::SetVideoInputDeviceReq)},
+  { 376, -1, -1, sizeof(::ServerData::PostCreateObject)},
+  { 385, -1, -1, sizeof(::ServerData::PostRemoveObject)},
+  { 393, -1, -1, sizeof(::ServerData::FetchFileByIdReq)},
+  { 400, -1, -1, sizeof(::ServerData::FetchFileByIdProgressResp)},
+  { 409, -1, -1, sizeof(::ServerData::FetchFileByIdCompletedResp)},
+  { 417, -1, -1, sizeof(::ServerData::FetchAllUploadedContentReq)},
+  { 424, -1, -1, sizeof(::ServerData::UploadLocalFileResp)},
+  { 432, -1, -1, sizeof(::ServerData::UploadLocalFileReq)},
+  { 442, -1, -1, sizeof(::ServerData::FetchAllUploadedContentResp)},
+  { 450, -1, -1, sizeof(::ServerData::PropMetadataStatus)},
+  { 459, -1, -1, sizeof(::ServerData::PropertyValueStatus)},
+  { 469, -1, -1, sizeof(::ServerData::LocalPropertyHandledResp)},
+  { 478, -1, -1, sizeof(::ServerData::UserAdded)},
+  { 486, -1, -1, sizeof(::ServerData::UserRemoved)},
+  { 494, -1, -1, sizeof(::ServerData::UserVideoFrame)},
+  { 505, -1, -1, sizeof(::ServerData::SpaceInfo)},
+  { 515, -1, -1, sizeof(::ServerData::ObjectAdded)},
+  { 525, -1, -1, sizeof(::ServerData::ObjectRemoved)},
+  { 533, -1, -1, sizeof(::ServerData::UpdateLocalUserMuted)},
+  { 541, -1, -1, sizeof(::ServerData::UpdateLocalUserCoPresence)},
+  { 549, -1, -1, sizeof(::ServerData::UpdateLocalUserStreamState)},
+  { 557, 565, -1, sizeof(::ServerData::PermissionStatusReq)},
+  { 567, 576, -1, sizeof(::ServerData::PermissionStatus)},
+  { 579, -1, -1, sizeof(::ServerData::AllJoinableSpacesReq)},
+  { 586, -1, -1, sizeof(::ServerData::AllJoinableSpacesResp)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1691,9 +1610,6 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::ServerData::_SetAudioInputDeviceReq_default_instance_._instance,
   &::ServerData::_SetAudioOutputDeviceReq_default_instance_._instance,
   &::ServerData::_SetVideoInputDeviceReq_default_instance_._instance,
-  &::ServerData::_SetAudioInputDeviceResp_default_instance_._instance,
-  &::ServerData::_SetAudioOutputDeviceResp_default_instance_._instance,
-  &::ServerData::_SetVideoInputDeviceResp_default_instance_._instance,
   &::ServerData::_PostCreateObject_default_instance_._instance,
   &::ServerData::_PostRemoveObject_default_instance_._instance,
   &::ServerData::_FetchFileByIdReq_default_instance_._instance,
@@ -1778,7 +1694,7 @@ const char descriptor_table_protodef_relay_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "\n\022UploadLocalFileReq\030p \001(\0132\036.ServerData."
   "UploadLocalFileReqH\000B\005\n\003Msg\"K\n\027RelayRemo"
   "teMessageBatch\0220\n\010Messages\030\001 \003(\0132\036.Serve"
-  "rData.RelayRemoteMessage\"\320\016\n\022RelayRemote"
+  "rData.RelayRemoteMessage\"\366\014\n\022RelayRemote"
   "Message\022,\n\007Message\030\001 \001(\0132\031.ServerData.St"
   "atusMessageH\000\0228\n\020AuthenticateResp\030\002 \001(\0132"
   "\034.ServerData.AuthenticateRespH\000\022B\n\025Authe"
@@ -1794,201 +1710,186 @@ const char descriptor_table_protodef_relay_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "etAudioOutputDevicesResp\030\025 \001(\0132%.ServerD"
   "ata.GetAudioOutputDevicesRespH\000\022H\n\030GetVi"
   "deoInputDevicesResp\030\026 \001(\0132$.ServerData.G"
-  "etVideoInputDevicesRespH\000\022F\n\027SetAudioInp"
-  "utDeviceResp\030\027 \001(\0132#.ServerData.SetAudio"
-  "InputDeviceRespH\000\022H\n\030SetAudioOutputDevic"
-  "eResp\030\030 \001(\0132$.ServerData.SetAudioOutputD"
-  "eviceRespH\000\022F\n\027SetVideoInputDeviceResp\030\031"
-  " \001(\0132#.ServerData.SetVideoInputDeviceRes"
-  "pH\000\022>\n\023PropertyValueStatus\0302 \001(\0132\037.Serve"
-  "rData.PropertyValueStatusH\000\022H\n\030LocalProp"
-  "ertyHandledResp\0303 \001(\0132$.ServerData.Local"
-  "PropertyHandledRespH\000\022<\n\022PropMetadataSta"
-  "tus\0304 \001(\0132\036.ServerData.PropMetadataStatu"
-  "sH\000\022*\n\tUserAdded\030< \001(\0132\025.ServerData.User"
-  "AddedH\000\022.\n\013UserRemoved\030= \001(\0132\027.ServerDat"
-  "a.UserRemovedH\000\0224\n\016UserVideoFrame\030A \001(\0132"
-  "\032.ServerData.UserVideoFrameH\000\022+\n\nSpaceAd"
-  "ded\030F \001(\0132\025.ServerData.SpaceInfoH\000\022-\n\014Sp"
-  "aceUpdated\030G \001(\0132\025.ServerData.SpaceInfoH"
-  "\000\022-\n\014SpaceRemoved\030H \001(\0132\025.ServerData.Spa"
-  "ceInfoH\000\022.\n\013ObjectAdded\030P \001(\0132\027.ServerDa"
-  "ta.ObjectAddedH\000\0222\n\rObjectRemoved\030Q \001(\0132"
-  "\031.ServerData.ObjectRemovedH\000\0228\n\020Permissi"
-  "onStatus\030Z \001(\0132\034.ServerData.PermissionSt"
-  "atusH\000\022B\n\025AllJoinableSpacesResp\030d \001(\0132!."
-  "ServerData.AllJoinableSpacesRespH\000\022J\n\031Fe"
-  "tchFileByIdProgressResp\030n \001(\0132%.ServerDa"
-  "ta.FetchFileByIdProgressRespH\000\022L\n\032FetchF"
-  "ileByIdCompletedResp\030o \001(\0132&.ServerData."
-  "FetchFileByIdCompletedRespH\000\022N\n\033FetchAll"
-  "UploadedContentResp\030p \001(\0132\'.ServerData.F"
-  "etchAllUploadedContentRespH\000\022>\n\023UploadLo"
-  "calFileResp\030q \001(\0132\037.ServerData.UploadLoc"
-  "alFileRespH\000B\005\n\003Msg\"\013\n\tKeepAlive\"\032\n\nUpda"
-  "teTime\022\014\n\004time\030\001 \001(\002\"M\n\rStatusMessage\022\017\n"
-  "\005error\030\001 \001(\tH\000\022\021\n\007warning\030\002 \001(\tH\000\022\r\n\003log"
-  "\030\003 \001(\tH\000B\t\n\007Message\"Q\n\017AuthenticateReq\022\r"
-  "\n\005reqId\030\001 \001(\005\022\016\n\006server\030\n \001(\t\022\r\n\005email\030\013"
-  " \001(\t\022\020\n\010password\030\014 \001(\t\"I\n\024AuthenticateGu"
-  "estReq\022\r\n\005reqId\030\001 \001(\005\022\016\n\006server\030\n \001(\t\022\022\n"
-  "\nscreenName\030\013 \001(\t\"c\n\020AuthenticateResp\022\r\n"
-  "\005reqId\030\001 \001(\005\022\'\n\004auth\030\n \001(\0132\027.ServerData."
-  "CavrnusAuthH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"h"
-  "\n\025AuthenticateGuestResp\022\r\n\005reqId\030\001 \001(\005\022\'"
-  "\n\004auth\030\n \001(\0132\027.ServerData.CavrnusAuthH\000\022"
-  "\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"6\n\027Authenticate"
-  "WithLinkReq\022\r\n\005reqId\030\001 \001(\005\022\014\n\004link\030\n \001(\t"
-  "\"{\n\030AuthenticateWithLinkResp\022\r\n\005reqId\030\001 "
-  "\001(\005\0227\n\010linkAuth\030\n \001(\0132#.ServerData.Cavrn"
-  "usAuthLinkResponseH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n"
-  "\004Resp\"*\n\031ExitAllSpacesAndLogoutReq\022\r\n\005re"
-  "qId\030\001 \001(\005\"s\n\032ExitAllSpacesAndLogoutResp\022"
-  "\r\n\005reqId\030\001 \001(\005\022\027\n\rlogoutSuccess\030\n \001(\010H\000\022"
-  "\017\n\005error\030\013 \001(\tH\000\022\024\n\014spacesExited\030\024 \003(\005B\006"
-  "\n\004Resp\"4\n\022JoinSpaceFromIdReq\022\r\n\005reqId\030\001 "
-  "\001(\005\022\017\n\007spaceId\030\n \001(\t\"v\n\023JoinSpaceFromIdR"
-  "esp\022\r\n\005reqId\030\001 \001(\005\0227\n\tspaceConn\030\n \001(\0132\"."
-  "ServerData.CavrnusSpaceConnectionH\000\022\017\n\005e"
-  "rror\030\013 \001(\tH\000B\006\n\004Resp\"h\n\032ShutdownSpaceCon"
-  "nectionReq\022\r\n\005reqId\030\001 \001(\005\022;\n\017SpaceConnec"
-  "tion\030\n \001(\0132\".ServerData.CavrnusSpaceConn"
-  "ection\"~\n\033ShutdownSpaceConnectionResp\022\r\n"
-  "\005reqId\030\001 \001(\005\0227\n\tspaceConn\030\n \001(\0132\".Server"
-  "Data.CavrnusSpaceConnectionH\000\022\017\n\005error\030\013"
-  " \001(\tH\000B\006\n\004Resp\"\213\002\n\rPropertyValue\022\021\n\007bool"
-  "Val\030\n \001(\010H\000\022\023\n\tstringVal\030\013 \001(\tH\000\022\023\n\tscal"
-  "arVal\030\014 \001(\002H\000\022#\n\tvectorVal\030\r \001(\0132\016.Commo"
-  "n.Float4H\000\022\"\n\010colorVal\030\016 \001(\0132\016.Common.Co"
-  "lor4H\000\022:\n\014transformVal\030\021 \001(\0132\".ServerDat"
-  "a.TransformPropertyValueH\000\022/\n\007linkVal\030\017 "
-  "\001(\0132\034.Property.PropertyIdentifierH\000B\007\n\005V"
-  "alue\"\260\001\n\032DefinePropertyDefaultValue\0225\n\tS"
-  "paceConn\030\001 \001(\0132\".ServerData.CavrnusSpace"
-  "Connection\022\022\n\nPropertyId\030\002 \001(\t\022\025\n\rlocalC"
-  "hangeId\030\003 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031.S"
-  "erverData.PropertyValue\"\250\001\n\022PostProperty"
-  "Update\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.C"
-  "avrnusSpaceConnection\022\022\n\nPropertyId\030\003 \001("
-  "\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rPropertyValu"
-  "e\030\n \001(\0132\031.ServerData.PropertyValue\"\311\001\n\034B"
-  "eginTransientPropertyUpdate\0225\n\tSpaceConn"
-  "\030\001 \001(\0132\".ServerData.CavrnusSpaceConnecti"
-  "on\022\025\n\rLiveUpdaterId\030\002 \001(\t\022\022\n\nPropertyId\030"
-  "\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rProperty"
-  "Value\030\n \001(\0132\031.ServerData.PropertyValue\"\314"
-  "\001\n\037ContinueTransientPropertyUpdate\0225\n\tSp"
-  "aceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceC"
-  "onnection\022\025\n\rLiveUpdaterId\030\002 \001(\t\022\022\n\nProp"
-  "ertyId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rP"
+  "etVideoInputDevicesRespH\000\022>\n\023PropertyVal"
+  "ueStatus\0302 \001(\0132\037.ServerData.PropertyValu"
+  "eStatusH\000\022H\n\030LocalPropertyHandledResp\0303 "
+  "\001(\0132$.ServerData.LocalPropertyHandledRes"
+  "pH\000\022<\n\022PropMetadataStatus\0304 \001(\0132\036.Server"
+  "Data.PropMetadataStatusH\000\022*\n\tUserAdded\030<"
+  " \001(\0132\025.ServerData.UserAddedH\000\022.\n\013UserRem"
+  "oved\030= \001(\0132\027.ServerData.UserRemovedH\000\0224\n"
+  "\016UserVideoFrame\030A \001(\0132\032.ServerData.UserV"
+  "ideoFrameH\000\022+\n\nSpaceAdded\030F \001(\0132\025.Server"
+  "Data.SpaceInfoH\000\022-\n\014SpaceUpdated\030G \001(\0132\025"
+  ".ServerData.SpaceInfoH\000\022-\n\014SpaceRemoved\030"
+  "H \001(\0132\025.ServerData.SpaceInfoH\000\022.\n\013Object"
+  "Added\030P \001(\0132\027.ServerData.ObjectAddedH\000\0222"
+  "\n\rObjectRemoved\030Q \001(\0132\031.ServerData.Objec"
+  "tRemovedH\000\0228\n\020PermissionStatus\030Z \001(\0132\034.S"
+  "erverData.PermissionStatusH\000\022B\n\025AllJoina"
+  "bleSpacesResp\030d \001(\0132!.ServerData.AllJoin"
+  "ableSpacesRespH\000\022J\n\031FetchFileByIdProgres"
+  "sResp\030n \001(\0132%.ServerData.FetchFileByIdPr"
+  "ogressRespH\000\022L\n\032FetchFileByIdCompletedRe"
+  "sp\030o \001(\0132&.ServerData.FetchFileByIdCompl"
+  "etedRespH\000\022N\n\033FetchAllUploadedContentRes"
+  "p\030p \001(\0132\'.ServerData.FetchAllUploadedCon"
+  "tentRespH\000\022>\n\023UploadLocalFileResp\030q \001(\0132"
+  "\037.ServerData.UploadLocalFileRespH\000B\005\n\003Ms"
+  "g\"\013\n\tKeepAlive\"\032\n\nUpdateTime\022\014\n\004time\030\001 \001"
+  "(\001\"M\n\rStatusMessage\022\017\n\005error\030\001 \001(\tH\000\022\021\n\007"
+  "warning\030\002 \001(\tH\000\022\r\n\003log\030\003 \001(\tH\000B\t\n\007Messag"
+  "e\"Q\n\017AuthenticateReq\022\r\n\005reqId\030\001 \001(\005\022\016\n\006s"
+  "erver\030\n \001(\t\022\r\n\005email\030\013 \001(\t\022\020\n\010password\030\014"
+  " \001(\t\"I\n\024AuthenticateGuestReq\022\r\n\005reqId\030\001 "
+  "\001(\005\022\016\n\006server\030\n \001(\t\022\022\n\nscreenName\030\013 \001(\t\""
+  "c\n\020AuthenticateResp\022\r\n\005reqId\030\001 \001(\005\022\'\n\004au"
+  "th\030\n \001(\0132\027.ServerData.CavrnusAuthH\000\022\017\n\005e"
+  "rror\030\013 \001(\tH\000B\006\n\004Resp\"h\n\025AuthenticateGues"
+  "tResp\022\r\n\005reqId\030\001 \001(\005\022\'\n\004auth\030\n \001(\0132\027.Ser"
+  "verData.CavrnusAuthH\000\022\017\n\005error\030\013 \001(\tH\000B\006"
+  "\n\004Resp\"6\n\027AuthenticateWithLinkReq\022\r\n\005req"
+  "Id\030\001 \001(\005\022\014\n\004link\030\n \001(\t\"{\n\030AuthenticateWi"
+  "thLinkResp\022\r\n\005reqId\030\001 \001(\005\0227\n\010linkAuth\030\n "
+  "\001(\0132#.ServerData.CavrnusAuthLinkResponse"
+  "H\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"*\n\031ExitAllSp"
+  "acesAndLogoutReq\022\r\n\005reqId\030\001 \001(\005\"s\n\032ExitA"
+  "llSpacesAndLogoutResp\022\r\n\005reqId\030\001 \001(\005\022\027\n\r"
+  "logoutSuccess\030\n \001(\010H\000\022\017\n\005error\030\013 \001(\tH\000\022\024"
+  "\n\014spacesExited\030\024 \003(\005B\006\n\004Resp\"4\n\022JoinSpac"
+  "eFromIdReq\022\r\n\005reqId\030\001 \001(\005\022\017\n\007spaceId\030\n \001"
+  "(\t\"v\n\023JoinSpaceFromIdResp\022\r\n\005reqId\030\001 \001(\005"
+  "\0227\n\tspaceConn\030\n \001(\0132\".ServerData.Cavrnus"
+  "SpaceConnectionH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Re"
+  "sp\"h\n\032ShutdownSpaceConnectionReq\022\r\n\005reqI"
+  "d\030\001 \001(\005\022;\n\017SpaceConnection\030\n \001(\0132\".Serve"
+  "rData.CavrnusSpaceConnection\"~\n\033Shutdown"
+  "SpaceConnectionResp\022\r\n\005reqId\030\001 \001(\005\0227\n\tsp"
+  "aceConn\030\n \001(\0132\".ServerData.CavrnusSpaceC"
+  "onnectionH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"\213\002\n"
+  "\rPropertyValue\022\021\n\007boolVal\030\n \001(\010H\000\022\023\n\tstr"
+  "ingVal\030\013 \001(\tH\000\022\023\n\tscalarVal\030\014 \001(\002H\000\022#\n\tv"
+  "ectorVal\030\r \001(\0132\016.Common.Float4H\000\022\"\n\010colo"
+  "rVal\030\016 \001(\0132\016.Common.Color4H\000\022:\n\014transfor"
+  "mVal\030\021 \001(\0132\".ServerData.TransformPropert"
+  "yValueH\000\022/\n\007linkVal\030\017 \001(\0132\034.Property.Pro"
+  "pertyIdentifierH\000B\007\n\005Value\"\260\001\n\032DefinePro"
+  "pertyDefaultValue\0225\n\tSpaceConn\030\001 \001(\0132\".S"
+  "erverData.CavrnusSpaceConnection\022\022\n\nProp"
+  "ertyId\030\002 \001(\t\022\025\n\rlocalChangeId\030\003 \001(\005\0220\n\rP"
   "ropertyValue\030\n \001(\0132\031.ServerData.Property"
-  "Value\"\314\001\n\037FinalizeTransientPropertyUpdat"
-  "e\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.Cavrnu"
-  "sSpaceConnection\022\025\n\rLiveUpdaterId\030\002 \001(\t\022"
-  "\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001"
-  "(\005\0220\n\rPropertyValue\030\n \001(\0132\031.ServerData.P"
-  "ropertyValue\"m\n\035CancelTransientPropertyU"
-  "pdate\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.Ca"
-  "vrnusSpaceConnection\022\025\n\rLiveUpdaterId\030\002 "
-  "\001(\t\"o\n\026TransformPropertyValue\022\033\n\003pos\030\001 \001"
-  "(\0132\016.Common.Float3\022\033\n\003rot\030\002 \001(\0132\016.Common"
-  ".Float3\022\033\n\003scl\030\003 \001(\0132\016.Common.Float3\"(\n\027"
-  "GetAudioInputDevicesReq\022\r\n\005reqId\030\001 \001(\005\")"
-  "\n\030GetAudioOutputDevicesReq\022\r\n\005reqId\030\001 \001("
-  "\005\"(\n\027GetVideoInputDevicesReq\022\r\n\005reqId\030\001 "
-  "\001(\005\"z\n\030GetAudioInputDevicesResp\022\r\n\005reqId"
-  "\030\001 \001(\005\0226\n\007Devices\030\n \001(\0132#.ServerData.Rtc"
-  "AudioInputDeviceListH\000\022\017\n\005error\030\013 \001(\tH\000B"
-  "\006\n\004Resp\"|\n\031GetAudioOutputDevicesResp\022\r\n\005"
-  "reqId\030\001 \001(\005\0227\n\007Devices\030\n \001(\0132$.ServerDat"
-  "a.RtcAudioOutputDeviceListH\000\022\017\n\005error\030\013 "
-  "\001(\tH\000B\006\n\004Resp\"z\n\030GetVideoInputDevicesRes"
-  "p\022\r\n\005reqId\030\001 \001(\005\0226\n\007Devices\030\n \001(\0132#.Serv"
-  "erData.RtcVideoInputDeviceListH\000\022\017\n\005erro"
-  "r\030\013 \001(\tH\000B\006\n\004Resp\"X\n\026SetAudioInputDevice"
-  "Req\022\r\n\005reqId\030\001 \001(\005\022/\n\006Device\030\002 \001(\0132\037.Ser"
-  "verData.RtcAudioInputDevice\"Z\n\027SetAudioO"
-  "utputDeviceReq\022\r\n\005reqId\030\001 \001(\005\0220\n\006Device\030"
-  "\002 \001(\0132 .ServerData.RtcAudioOutputDevice\""
-  "X\n\026SetVideoInputDeviceReq\022\r\n\005reqId\030\001 \001(\005"
-  "\022/\n\006Device\030\002 \001(\0132\037.ServerData.RtcVideoIn"
-  "putDevice\"t\n\027SetAudioInputDeviceResp\022\r\n\005"
-  "reqId\030\001 \001(\005\0221\n\006Device\030\n \001(\0132\037.ServerData"
-  ".RtcAudioInputDeviceH\000\022\017\n\005error\030\013 \001(\tH\000B"
-  "\006\n\004Resp\"v\n\030SetAudioOutputDeviceResp\022\r\n\005r"
-  "eqId\030\001 \001(\005\0222\n\006Device\030\n \001(\0132 .ServerData."
-  "RtcAudioOutputDeviceH\000\022\017\n\005error\030\013 \001(\tH\000B"
-  "\006\n\004Resp\"t\n\027SetVideoInputDeviceResp\022\r\n\005re"
-  "qId\030\001 \001(\005\0221\n\006Device\030\n \001(\0132\037.ServerData.R"
-  "tcVideoInputDeviceH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n"
-  "\004Resp\"{\n\020PostCreateObject\0225\n\tspaceConn\030\001"
-  " \001(\0132\".ServerData.CavrnusSpaceConnection"
-  "\022\025\n\rnewInstanceId\030\002 \001(\t\022\031\n\021uniqueObjectI"
-  "dent\030\n \001(\t\"W\n\020PostRemoveObject\0225\n\tspaceC"
-  "onn\030\001 \001(\0132\".ServerData.CavrnusSpaceConne"
-  "ction\022\014\n\004opId\030\002 \001(\t\"%\n\020FetchFileByIdReq\022"
-  "\021\n\tcontentId\030\001 \001(\t\"V\n\031FetchFileByIdProgr"
-  "essResp\022\021\n\tcontentId\030\001 \001(\t\022\020\n\010progress\030\n"
-  " \001(\002\022\024\n\014progressStep\030\013 \001(\t\"A\n\032FetchFileB"
-  "yIdCompletedResp\022\021\n\tcontentId\030\001 \001(\t\022\020\n\010f"
-  "ilePath\030\n \001(\t\"+\n\032FetchAllUploadedContent"
-  "Req\022\r\n\005reqId\030\001 \001(\005\"_\n\023UploadLocalFileRes"
-  "p\022\r\n\005reqId\030\001 \001(\005\0229\n\017uploadedContent\030\n \001("
-  "\0132 .ServerData.CavrnusRemoteContent\"Y\n\022U"
-  "ploadLocalFileReq\022\r\n\005reqId\030\001 \001(\005\022\020\n\010file"
-  "Path\030\n \001(\t\022\017\n\007tagKeys\030\013 \003(\t\022\021\n\ttagValues"
-  "\030\014 \003(\t\"h\n\033FetchAllUploadedContentResp\022\r\n"
-  "\005reqId\030\001 \001(\005\022:\n\020availableContent\030\n \003(\0132 "
-  ".ServerData.CavrnusRemoteContent\"\223\001\n\022Pro"
-  "pMetadataStatus\0225\n\tspaceConn\030\001 \001(\0132\".Ser"
-  "verData.CavrnusSpaceConnection\0222\n\014proper"
-  "tyPath\030\002 \001(\0132\034.Property.PropertyIdentifi"
-  "er\022\022\n\nisReadonly\030\n \001(\010\"\304\001\n\023PropertyValue"
-  "Status\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.C"
-  "avrnusSpaceConnection\0222\n\014propertyPath\030\002 "
-  "\001(\0132\034.Property.PropertyIdentifier\0220\n\rPro"
-  "pertyValue\030\n \001(\0132\031.ServerData.PropertyVa"
-  "lue\022\020\n\010priority\030\013 \001(\005\"\240\001\n\030LocalPropertyH"
-  "andledResp\0225\n\tspaceConn\030\001 \001(\0132\".ServerDa"
-  "ta.CavrnusSpaceConnection\0222\n\014propertyPat"
-  "h\030\002 \001(\0132\034.Property.PropertyIdentifier\022\031\n"
-  "\021localPropChangeId\030\n \001(\005\"i\n\tUserAdded\0225\n"
-  "\tspaceConn\030\001 \001(\0132\".ServerData.CavrnusSpa"
-  "ceConnection\022%\n\004user\030\002 \001(\0132\027.ServerData."
-  "CavrnusUser\"T\n\013UserRemoved\0225\n\tspaceConn\030"
-  "\001 \001(\0132\".ServerData.CavrnusSpaceConnectio"
-  "n\022\016\n\006userId\030\002 \001(\t\"\203\001\n\016UserVideoFrame\0225\n\t"
+  "Value\"\250\001\n\022PostPropertyUpdate\0225\n\tSpaceCon"
+  "n\030\001 \001(\0132\".ServerData.CavrnusSpaceConnect"
+  "ion\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChangeId"
+  "\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031.ServerDa"
+  "ta.PropertyValue\"\311\001\n\034BeginTransientPrope"
+  "rtyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\".ServerDat"
+  "a.CavrnusSpaceConnection\022\025\n\rLiveUpdaterI"
+  "d\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChan"
+  "geId\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031.Serv"
+  "erData.PropertyValue\"\314\001\n\037ContinueTransie"
+  "ntPropertyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\".Se"
+  "rverData.CavrnusSpaceConnection\022\025\n\rLiveU"
+  "pdaterId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlo"
+  "calChangeId\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\013"
+  "2\031.ServerData.PropertyValue\"\314\001\n\037Finalize"
+  "TransientPropertyUpdate\0225\n\tSpaceConn\030\001 \001"
+  "(\0132\".ServerData.CavrnusSpaceConnection\022\025"
+  "\n\rLiveUpdaterId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001("
+  "\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rPropertyValu"
+  "e\030\n \001(\0132\031.ServerData.PropertyValue\"m\n\035Ca"
+  "ncelTransientPropertyUpdate\0225\n\tSpaceConn"
+  "\030\001 \001(\0132\".ServerData.CavrnusSpaceConnecti"
+  "on\022\025\n\rLiveUpdaterId\030\002 \001(\t\"o\n\026TransformPr"
+  "opertyValue\022\033\n\003pos\030\001 \001(\0132\016.Common.Float3"
+  "\022\033\n\003rot\030\002 \001(\0132\016.Common.Float3\022\033\n\003scl\030\003 \001"
+  "(\0132\016.Common.Float3\"(\n\027GetAudioInputDevic"
+  "esReq\022\r\n\005reqId\030\001 \001(\005\")\n\030GetAudioOutputDe"
+  "vicesReq\022\r\n\005reqId\030\001 \001(\005\"(\n\027GetVideoInput"
+  "DevicesReq\022\r\n\005reqId\030\001 \001(\005\"z\n\030GetAudioInp"
+  "utDevicesResp\022\r\n\005reqId\030\001 \001(\005\0226\n\007Devices\030"
+  "\n \001(\0132#.ServerData.RtcAudioInputDeviceLi"
+  "stH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"|\n\031GetAudi"
+  "oOutputDevicesResp\022\r\n\005reqId\030\001 \001(\005\0227\n\007Dev"
+  "ices\030\n \001(\0132$.ServerData.RtcAudioOutputDe"
+  "viceListH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"z\n\030G"
+  "etVideoInputDevicesResp\022\r\n\005reqId\030\001 \001(\005\0226"
+  "\n\007Devices\030\n \001(\0132#.ServerData.RtcVideoInp"
+  "utDeviceListH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\""
+  "X\n\026SetAudioInputDeviceReq\022\r\n\005reqId\030\001 \001(\005"
+  "\022/\n\006Device\030\002 \001(\0132\037.ServerData.RtcAudioIn"
+  "putDevice\"Z\n\027SetAudioOutputDeviceReq\022\r\n\005"
+  "reqId\030\001 \001(\005\0220\n\006Device\030\002 \001(\0132 .ServerData"
+  ".RtcAudioOutputDevice\"X\n\026SetVideoInputDe"
+  "viceReq\022\r\n\005reqId\030\001 \001(\005\022/\n\006Device\030\002 \001(\0132\037"
+  ".ServerData.RtcVideoInputDevice\"{\n\020PostC"
+  "reateObject\0225\n\tspaceConn\030\001 \001(\0132\".ServerD"
+  "ata.CavrnusSpaceConnection\022\025\n\rnewInstanc"
+  "eId\030\002 \001(\t\022\031\n\021uniqueObjectIdent\030\n \001(\t\"W\n\020"
+  "PostRemoveObject\0225\n\tspaceConn\030\001 \001(\0132\".Se"
+  "rverData.CavrnusSpaceConnection\022\014\n\004opId\030"
+  "\002 \001(\t\"%\n\020FetchFileByIdReq\022\021\n\tcontentId\030\001"
+  " \001(\t\"V\n\031FetchFileByIdProgressResp\022\021\n\tcon"
+  "tentId\030\001 \001(\t\022\020\n\010progress\030\n \001(\002\022\024\n\014progre"
+  "ssStep\030\013 \001(\t\"A\n\032FetchFileByIdCompletedRe"
+  "sp\022\021\n\tcontentId\030\001 \001(\t\022\020\n\010filePath\030\n \001(\t\""
+  "+\n\032FetchAllUploadedContentReq\022\r\n\005reqId\030\001"
+  " \001(\005\"_\n\023UploadLocalFileResp\022\r\n\005reqId\030\001 \001"
+  "(\005\0229\n\017uploadedContent\030\n \001(\0132 .ServerData"
+  ".CavrnusRemoteContent\"Y\n\022UploadLocalFile"
+  "Req\022\r\n\005reqId\030\001 \001(\005\022\020\n\010filePath\030\n \001(\t\022\017\n\007"
+  "tagKeys\030\013 \003(\t\022\021\n\ttagValues\030\014 \003(\t\"h\n\033Fetc"
+  "hAllUploadedContentResp\022\r\n\005reqId\030\001 \001(\005\022:"
+  "\n\020availableContent\030\n \003(\0132 .ServerData.Ca"
+  "vrnusRemoteContent\"\223\001\n\022PropMetadataStatu"
+  "s\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavrnu"
+  "sSpaceConnection\0222\n\014propertyPath\030\002 \001(\0132\034"
+  ".Property.PropertyIdentifier\022\022\n\nisReadon"
+  "ly\030\n \001(\010\"\304\001\n\023PropertyValueStatus\0225\n\tspac"
+  "eConn\030\001 \001(\0132\".ServerData.CavrnusSpaceCon"
+  "nection\0222\n\014propertyPath\030\002 \001(\0132\034.Property"
+  ".PropertyIdentifier\0220\n\rPropertyValue\030\n \001"
+  "(\0132\031.ServerData.PropertyValue\022\020\n\010priorit"
+  "y\030\013 \001(\005\"\240\001\n\030LocalPropertyHandledResp\0225\n\t"
   "spaceConn\030\001 \001(\0132\".ServerData.CavrnusSpac"
-  "eConnection\022\016\n\006userId\030\002 \001(\t\022\014\n\004resX\030\n \001("
-  "\005\022\014\n\004resY\030\013 \001(\005\022\016\n\006stream\030\024 \001(\014\"\\\n\tSpace"
-  "Info\022\017\n\007spaceId\030\001 \001(\t\022\021\n\tspaceName\030\002 \001(\t"
-  "\022\031\n\021spaceThumbnailUrl\030\003 \001(\t\022\020\n\010archived\030"
-  "\004 \001(\010\"\216\001\n\013ObjectAdded\0225\n\tspaceConn\030\001 \001(\013"
-  "2\".ServerData.CavrnusSpaceConnection\022\024\n\014"
-  "creationOpId\030\002 \001(\t\022\033\n\023propertiesContaine"
-  "r\030\003 \001(\t\022\025\n\robjectCreated\030\004 \001(\t\"c\n\rObject"
-  "Removed\0225\n\tspaceConn\030\001 \001(\0132\".ServerData."
-  "CavrnusSpaceConnection\022\033\n\023propertiesCont"
-  "ainer\030\003 \001(\t\"\\\n\024UpdateLocalUserMuted\0225\n\ts"
-  "paceConn\030\001 \001(\0132\".ServerData.CavrnusSpace"
-  "Connection\022\r\n\005muted\030\002 \001(\010\"\226\001\n\031UpdateLoca"
-  "lUserCoPresence\0225\n\tspaceConn\030\001 \001(\0132\".Ser"
-  "verData.CavrnusSpaceConnection\022B\n\026localU"
-  "serRootTransform\030\n \001(\0132\".ServerData.Tran"
-  "sformPropertyValue\"f\n\032UpdateLocalUserStr"
-  "eamState\0225\n\tspaceConn\030\001 \001(\0132\".ServerData"
-  ".CavrnusSpaceConnection\022\021\n\tstreaming\030\002 \001"
-  "(\010\"s\n\023PermissionStatusReq\022:\n\tspaceConn\030\001"
-  " \001(\0132\".ServerData.CavrnusSpaceConnection"
-  "H\000\210\001\001\022\022\n\npermission\030\002 \001(\tB\014\n\n_spaceConn\""
-  "\177\n\020PermissionStatus\022:\n\tspaceConn\030\001 \001(\0132\""
-  ".ServerData.CavrnusSpaceConnectionH\000\210\001\001\022"
-  "\022\n\npermission\030\002 \001(\t\022\r\n\005value\030\003 \001(\010B\014\n\n_s"
-  "paceConn\"%\n\024AllJoinableSpacesReq\022\r\n\005reqI"
-  "d\030\001 \001(\005\"V\n\025AllJoinableSpacesResp\022\r\n\005reqI"
-  "d\030\001 \001(\005\022.\n\017availableSpaces\030\n \003(\0132\025.Serve"
-  "rData.SpaceInfoB\024\252\002\021CavrnusRelayTypesb\006p"
-  "roto3"
+  "eConnection\0222\n\014propertyPath\030\002 \001(\0132\034.Prop"
+  "erty.PropertyIdentifier\022\031\n\021localPropChan"
+  "geId\030\n \001(\005\"i\n\tUserAdded\0225\n\tspaceConn\030\001 \001"
+  "(\0132\".ServerData.CavrnusSpaceConnection\022%"
+  "\n\004user\030\002 \001(\0132\027.ServerData.CavrnusUser\"T\n"
+  "\013UserRemoved\0225\n\tspaceConn\030\001 \001(\0132\".Server"
+  "Data.CavrnusSpaceConnection\022\016\n\006userId\030\002 "
+  "\001(\t\"\203\001\n\016UserVideoFrame\0225\n\tspaceConn\030\001 \001("
+  "\0132\".ServerData.CavrnusSpaceConnection\022\016\n"
+  "\006userId\030\002 \001(\t\022\014\n\004resX\030\n \001(\005\022\014\n\004resY\030\013 \001("
+  "\005\022\016\n\006stream\030\024 \001(\014\"\\\n\tSpaceInfo\022\017\n\007spaceI"
+  "d\030\001 \001(\t\022\021\n\tspaceName\030\002 \001(\t\022\031\n\021spaceThumb"
+  "nailUrl\030\003 \001(\t\022\020\n\010archived\030\004 \001(\010\"\216\001\n\013Obje"
+  "ctAdded\0225\n\tspaceConn\030\001 \001(\0132\".ServerData."
+  "CavrnusSpaceConnection\022\024\n\014creationOpId\030\002"
+  " \001(\t\022\033\n\023propertiesContainer\030\003 \001(\t\022\025\n\robj"
+  "ectCreated\030\004 \001(\t\"c\n\rObjectRemoved\0225\n\tspa"
+  "ceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceCo"
+  "nnection\022\033\n\023propertiesContainer\030\003 \001(\t\"\\\n"
+  "\024UpdateLocalUserMuted\0225\n\tspaceConn\030\001 \001(\013"
+  "2\".ServerData.CavrnusSpaceConnection\022\r\n\005"
+  "muted\030\002 \001(\010\"\226\001\n\031UpdateLocalUserCoPresenc"
+  "e\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavrnu"
+  "sSpaceConnection\022B\n\026localUserRootTransfo"
+  "rm\030\n \001(\0132\".ServerData.TransformPropertyV"
+  "alue\"f\n\032UpdateLocalUserStreamState\0225\n\tsp"
+  "aceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceC"
+  "onnection\022\021\n\tstreaming\030\002 \001(\010\"s\n\023Permissi"
+  "onStatusReq\022:\n\tspaceConn\030\001 \001(\0132\".ServerD"
+  "ata.CavrnusSpaceConnectionH\000\210\001\001\022\022\n\npermi"
+  "ssion\030\002 \001(\tB\014\n\n_spaceConn\"\177\n\020PermissionS"
+  "tatus\022:\n\tspaceConn\030\001 \001(\0132\".ServerData.Ca"
+  "vrnusSpaceConnectionH\000\210\001\001\022\022\n\npermission\030"
+  "\002 \001(\t\022\r\n\005value\030\003 \001(\010B\014\n\n_spaceConn\"%\n\024Al"
+  "lJoinableSpacesReq\022\r\n\005reqId\030\001 \001(\005\"V\n\025All"
+  "JoinableSpacesResp\022\r\n\005reqId\030\001 \001(\005\022.\n\017ava"
+  "ilableSpaces\030\n \003(\0132\025.ServerData.SpaceInf"
+  "oB\024\252\002\021CavrnusRelayTypesb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_relay_2eproto_deps[3] = {
   &::descriptor_table_common_2eproto,
@@ -1997,9 +1898,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_relay_2eproto_deps[
 };
 static ::_pbi::once_flag descriptor_table_relay_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_relay_2eproto = {
-    false, false, 10645, descriptor_table_protodef_relay_2eproto,
+    false, false, 10071, descriptor_table_protodef_relay_2eproto,
     "relay.proto",
-    &descriptor_table_relay_2eproto_once, descriptor_table_relay_2eproto_deps, 3, 64,
+    &descriptor_table_relay_2eproto_once, descriptor_table_relay_2eproto_deps, 3, 61,
     schemas, file_default_instances, TableStruct_relay_2eproto::offsets,
     file_level_metadata_relay_2eproto, file_level_enum_descriptors_relay_2eproto,
     file_level_service_descriptors_relay_2eproto,
@@ -4266,9 +4167,6 @@ class RelayRemoteMessage::_Internal {
   static const ::ServerData::GetAudioInputDevicesResp& getaudioinputdevicesresp(const RelayRemoteMessage* msg);
   static const ::ServerData::GetAudioOutputDevicesResp& getaudiooutputdevicesresp(const RelayRemoteMessage* msg);
   static const ::ServerData::GetVideoInputDevicesResp& getvideoinputdevicesresp(const RelayRemoteMessage* msg);
-  static const ::ServerData::SetAudioInputDeviceResp& setaudioinputdeviceresp(const RelayRemoteMessage* msg);
-  static const ::ServerData::SetAudioOutputDeviceResp& setaudiooutputdeviceresp(const RelayRemoteMessage* msg);
-  static const ::ServerData::SetVideoInputDeviceResp& setvideoinputdeviceresp(const RelayRemoteMessage* msg);
   static const ::ServerData::PropertyValueStatus& propertyvaluestatus(const RelayRemoteMessage* msg);
   static const ::ServerData::LocalPropertyHandledResp& localpropertyhandledresp(const RelayRemoteMessage* msg);
   static const ::ServerData::PropMetadataStatus& propmetadatastatus(const RelayRemoteMessage* msg);
@@ -4323,18 +4221,6 @@ RelayRemoteMessage::_Internal::getaudiooutputdevicesresp(const RelayRemoteMessag
 const ::ServerData::GetVideoInputDevicesResp&
 RelayRemoteMessage::_Internal::getvideoinputdevicesresp(const RelayRemoteMessage* msg) {
   return *msg->_impl_.Msg_.getvideoinputdevicesresp_;
-}
-const ::ServerData::SetAudioInputDeviceResp&
-RelayRemoteMessage::_Internal::setaudioinputdeviceresp(const RelayRemoteMessage* msg) {
-  return *msg->_impl_.Msg_.setaudioinputdeviceresp_;
-}
-const ::ServerData::SetAudioOutputDeviceResp&
-RelayRemoteMessage::_Internal::setaudiooutputdeviceresp(const RelayRemoteMessage* msg) {
-  return *msg->_impl_.Msg_.setaudiooutputdeviceresp_;
-}
-const ::ServerData::SetVideoInputDeviceResp&
-RelayRemoteMessage::_Internal::setvideoinputdeviceresp(const RelayRemoteMessage* msg) {
-  return *msg->_impl_.Msg_.setvideoinputdeviceresp_;
 }
 const ::ServerData::PropertyValueStatus&
 RelayRemoteMessage::_Internal::propertyvaluestatus(const RelayRemoteMessage* msg) {
@@ -4538,51 +4424,6 @@ void RelayRemoteMessage::set_allocated_getvideoinputdevicesresp(::ServerData::Ge
     _impl_.Msg_.getvideoinputdevicesresp_ = getvideoinputdevicesresp;
   }
   // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.GetVideoInputDevicesResp)
-}
-void RelayRemoteMessage::set_allocated_setaudioinputdeviceresp(::ServerData::SetAudioInputDeviceResp* setaudioinputdeviceresp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_Msg();
-  if (setaudioinputdeviceresp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(setaudioinputdeviceresp);
-    if (message_arena != submessage_arena) {
-      setaudioinputdeviceresp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, setaudioinputdeviceresp, submessage_arena);
-    }
-    set_has_setaudioinputdeviceresp();
-    _impl_.Msg_.setaudioinputdeviceresp_ = setaudioinputdeviceresp;
-  }
-  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.SetAudioInputDeviceResp)
-}
-void RelayRemoteMessage::set_allocated_setaudiooutputdeviceresp(::ServerData::SetAudioOutputDeviceResp* setaudiooutputdeviceresp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_Msg();
-  if (setaudiooutputdeviceresp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(setaudiooutputdeviceresp);
-    if (message_arena != submessage_arena) {
-      setaudiooutputdeviceresp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, setaudiooutputdeviceresp, submessage_arena);
-    }
-    set_has_setaudiooutputdeviceresp();
-    _impl_.Msg_.setaudiooutputdeviceresp_ = setaudiooutputdeviceresp;
-  }
-  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.SetAudioOutputDeviceResp)
-}
-void RelayRemoteMessage::set_allocated_setvideoinputdeviceresp(::ServerData::SetVideoInputDeviceResp* setvideoinputdeviceresp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_Msg();
-  if (setvideoinputdeviceresp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(setvideoinputdeviceresp);
-    if (message_arena != submessage_arena) {
-      setvideoinputdeviceresp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, setvideoinputdeviceresp, submessage_arena);
-    }
-    set_has_setvideoinputdeviceresp();
-    _impl_.Msg_.setvideoinputdeviceresp_ = setvideoinputdeviceresp;
-  }
-  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.SetVideoInputDeviceResp)
 }
 void RelayRemoteMessage::set_allocated_propertyvaluestatus(::ServerData::PropertyValueStatus* propertyvaluestatus) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -4901,21 +4742,6 @@ RelayRemoteMessage::RelayRemoteMessage(const RelayRemoteMessage& from)
           from._internal_getvideoinputdevicesresp());
       break;
     }
-    case kSetAudioInputDeviceResp: {
-      _this->_internal_mutable_setaudioinputdeviceresp()->::ServerData::SetAudioInputDeviceResp::MergeFrom(
-          from._internal_setaudioinputdeviceresp());
-      break;
-    }
-    case kSetAudioOutputDeviceResp: {
-      _this->_internal_mutable_setaudiooutputdeviceresp()->::ServerData::SetAudioOutputDeviceResp::MergeFrom(
-          from._internal_setaudiooutputdeviceresp());
-      break;
-    }
-    case kSetVideoInputDeviceResp: {
-      _this->_internal_mutable_setvideoinputdeviceresp()->::ServerData::SetVideoInputDeviceResp::MergeFrom(
-          from._internal_setvideoinputdeviceresp());
-      break;
-    }
     case kPropertyValueStatus: {
       _this->_internal_mutable_propertyvaluestatus()->::ServerData::PropertyValueStatus::MergeFrom(
           from._internal_propertyvaluestatus());
@@ -5094,24 +4920,6 @@ void RelayRemoteMessage::clear_Msg() {
     case kGetVideoInputDevicesResp: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.Msg_.getvideoinputdevicesresp_;
-      }
-      break;
-    }
-    case kSetAudioInputDeviceResp: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.Msg_.setaudioinputdeviceresp_;
-      }
-      break;
-    }
-    case kSetAudioOutputDeviceResp: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.Msg_.setaudiooutputdeviceresp_;
-      }
-      break;
-    }
-    case kSetVideoInputDeviceResp: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.Msg_.setvideoinputdeviceresp_;
       }
       break;
     }
@@ -5309,30 +5117,6 @@ const char* RelayRemoteMessage::_InternalParse(const char* ptr, ::_pbi::ParseCon
       case 22:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 178)) {
           ptr = ctx->ParseMessage(_internal_mutable_getvideoinputdevicesresp(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .ServerData.SetAudioInputDeviceResp SetAudioInputDeviceResp = 23;
-      case 23:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 186)) {
-          ptr = ctx->ParseMessage(_internal_mutable_setaudioinputdeviceresp(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .ServerData.SetAudioOutputDeviceResp SetAudioOutputDeviceResp = 24;
-      case 24:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 194)) {
-          ptr = ctx->ParseMessage(_internal_mutable_setaudiooutputdeviceresp(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .ServerData.SetVideoInputDeviceResp SetVideoInputDeviceResp = 25;
-      case 25:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 202)) {
-          ptr = ctx->ParseMessage(_internal_mutable_setvideoinputdeviceresp(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5565,27 +5349,6 @@ uint8_t* RelayRemoteMessage::_InternalSerialize(
         _Internal::getvideoinputdevicesresp(this).GetCachedSize(), target, stream);
   }
 
-  // .ServerData.SetAudioInputDeviceResp SetAudioInputDeviceResp = 23;
-  if (_internal_has_setaudioinputdeviceresp()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(23, _Internal::setaudioinputdeviceresp(this),
-        _Internal::setaudioinputdeviceresp(this).GetCachedSize(), target, stream);
-  }
-
-  // .ServerData.SetAudioOutputDeviceResp SetAudioOutputDeviceResp = 24;
-  if (_internal_has_setaudiooutputdeviceresp()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(24, _Internal::setaudiooutputdeviceresp(this),
-        _Internal::setaudiooutputdeviceresp(this).GetCachedSize(), target, stream);
-  }
-
-  // .ServerData.SetVideoInputDeviceResp SetVideoInputDeviceResp = 25;
-  if (_internal_has_setvideoinputdeviceresp()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(25, _Internal::setvideoinputdeviceresp(this),
-        _Internal::setvideoinputdeviceresp(this).GetCachedSize(), target, stream);
-  }
-
   // .ServerData.PropertyValueStatus PropertyValueStatus = 50;
   if (_internal_has_propertyvaluestatus()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5785,27 +5548,6 @@ size_t RelayRemoteMessage::ByteSizeLong() const {
           *_impl_.Msg_.getvideoinputdevicesresp_);
       break;
     }
-    // .ServerData.SetAudioInputDeviceResp SetAudioInputDeviceResp = 23;
-    case kSetAudioInputDeviceResp: {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.Msg_.setaudioinputdeviceresp_);
-      break;
-    }
-    // .ServerData.SetAudioOutputDeviceResp SetAudioOutputDeviceResp = 24;
-    case kSetAudioOutputDeviceResp: {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.Msg_.setaudiooutputdeviceresp_);
-      break;
-    }
-    // .ServerData.SetVideoInputDeviceResp SetVideoInputDeviceResp = 25;
-    case kSetVideoInputDeviceResp: {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.Msg_.setvideoinputdeviceresp_);
-      break;
-    }
     // .ServerData.PropertyValueStatus PropertyValueStatus = 50;
     case kPropertyValueStatus: {
       total_size += 2 +
@@ -5991,21 +5733,6 @@ void RelayRemoteMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
     case kGetVideoInputDevicesResp: {
       _this->_internal_mutable_getvideoinputdevicesresp()->::ServerData::GetVideoInputDevicesResp::MergeFrom(
           from._internal_getvideoinputdevicesresp());
-      break;
-    }
-    case kSetAudioInputDeviceResp: {
-      _this->_internal_mutable_setaudioinputdeviceresp()->::ServerData::SetAudioInputDeviceResp::MergeFrom(
-          from._internal_setaudioinputdeviceresp());
-      break;
-    }
-    case kSetAudioOutputDeviceResp: {
-      _this->_internal_mutable_setaudiooutputdeviceresp()->::ServerData::SetAudioOutputDeviceResp::MergeFrom(
-          from._internal_setaudiooutputdeviceresp());
-      break;
-    }
-    case kSetVideoInputDeviceResp: {
-      _this->_internal_mutable_setvideoinputdeviceresp()->::ServerData::SetVideoInputDeviceResp::MergeFrom(
-          from._internal_setvideoinputdeviceresp());
       break;
     }
     case kPropertyValueStatus: {
@@ -6231,11 +5958,11 @@ const char* UpdateTime::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // float time = 1;
+      // double time = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 13)) {
-          _impl_.time_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 9)) {
+          _impl_.time_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
@@ -6268,14 +5995,14 @@ uint8_t* UpdateTime::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // float time = 1;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_time = this->_internal_time();
-  uint32_t raw_time;
+  // double time = 1;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_time = this->_internal_time();
+  uint64_t raw_time;
   memcpy(&raw_time, &tmp_time, sizeof(tmp_time));
   if (raw_time != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(1, this->_internal_time(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(1, this->_internal_time(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6294,13 +6021,13 @@ size_t UpdateTime::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // float time = 1;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_time = this->_internal_time();
-  uint32_t raw_time;
+  // double time = 1;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_time = this->_internal_time();
+  uint64_t raw_time;
   memcpy(&raw_time, &tmp_time, sizeof(tmp_time));
   if (raw_time != 0) {
-    total_size += 1 + 4;
+    total_size += 1 + 8;
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -6321,9 +6048,9 @@ void UpdateTime::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PRO
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_time = from._internal_time();
-  uint32_t raw_time;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_time = from._internal_time();
+  uint64_t raw_time;
   memcpy(&raw_time, &tmp_time, sizeof(tmp_time));
   if (raw_time != 0) {
     _this->_internal_set_time(from._internal_time());
@@ -15131,972 +14858,6 @@ void SetVideoInputDeviceReq::InternalSwap(SetVideoInputDeviceReq* other) {
 
 // ===================================================================
 
-class SetAudioInputDeviceResp::_Internal {
- public:
-  static const ::ServerData::RtcAudioInputDevice& device(const SetAudioInputDeviceResp* msg);
-};
-
-const ::ServerData::RtcAudioInputDevice&
-SetAudioInputDeviceResp::_Internal::device(const SetAudioInputDeviceResp* msg) {
-  return *msg->_impl_.Resp_.device_;
-}
-void SetAudioInputDeviceResp::set_allocated_device(::ServerData::RtcAudioInputDevice* device) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_Resp();
-  if (device) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(device));
-    if (message_arena != submessage_arena) {
-      device = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, device, submessage_arena);
-    }
-    set_has_device();
-    _impl_.Resp_.device_ = device;
-  }
-  // @@protoc_insertion_point(field_set_allocated:ServerData.SetAudioInputDeviceResp.Device)
-}
-void SetAudioInputDeviceResp::clear_device() {
-  if (_internal_has_device()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.Resp_.device_;
-    }
-    clear_has_Resp();
-  }
-}
-SetAudioInputDeviceResp::SetAudioInputDeviceResp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ServerData.SetAudioInputDeviceResp)
-}
-SetAudioInputDeviceResp::SetAudioInputDeviceResp(const SetAudioInputDeviceResp& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  SetAudioInputDeviceResp* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.reqid_){}
-    , decltype(_impl_.Resp_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.reqid_ = from._impl_.reqid_;
-  clear_has_Resp();
-  switch (from.Resp_case()) {
-    case kDevice: {
-      _this->_internal_mutable_device()->::ServerData::RtcAudioInputDevice::MergeFrom(
-          from._internal_device());
-      break;
-    }
-    case kError: {
-      _this->_internal_set_error(from._internal_error());
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:ServerData.SetAudioInputDeviceResp)
-}
-
-inline void SetAudioInputDeviceResp::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.reqid_){0}
-    , decltype(_impl_.Resp_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}
-  };
-  clear_has_Resp();
-}
-
-SetAudioInputDeviceResp::~SetAudioInputDeviceResp() {
-  // @@protoc_insertion_point(destructor:ServerData.SetAudioInputDeviceResp)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void SetAudioInputDeviceResp::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (has_Resp()) {
-    clear_Resp();
-  }
-}
-
-void SetAudioInputDeviceResp::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void SetAudioInputDeviceResp::clear_Resp() {
-// @@protoc_insertion_point(one_of_clear_start:ServerData.SetAudioInputDeviceResp)
-  switch (Resp_case()) {
-    case kDevice: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.Resp_.device_;
-      }
-      break;
-    }
-    case kError: {
-      _impl_.Resp_.error_.Destroy();
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  _impl_._oneof_case_[0] = RESP_NOT_SET;
-}
-
-
-void SetAudioInputDeviceResp::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerData.SetAudioInputDeviceResp)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.reqid_ = 0;
-  clear_Resp();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SetAudioInputDeviceResp::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // int32 reqId = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.reqid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .ServerData.RtcAudioInputDevice Device = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
-          ptr = ctx->ParseMessage(_internal_mutable_device(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // string error = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
-          auto str = _internal_mutable_error();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "ServerData.SetAudioInputDeviceResp.error"));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SetAudioInputDeviceResp::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ServerData.SetAudioInputDeviceResp)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 reqId = 1;
-  if (this->_internal_reqid() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_reqid(), target);
-  }
-
-  // .ServerData.RtcAudioInputDevice Device = 10;
-  if (_internal_has_device()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(10, _Internal::device(this),
-        _Internal::device(this).GetCachedSize(), target, stream);
-  }
-
-  // string error = 11;
-  if (_internal_has_error()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_error().data(), static_cast<int>(this->_internal_error().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ServerData.SetAudioInputDeviceResp.error");
-    target = stream->WriteStringMaybeAliased(
-        11, this->_internal_error(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerData.SetAudioInputDeviceResp)
-  return target;
-}
-
-size_t SetAudioInputDeviceResp::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ServerData.SetAudioInputDeviceResp)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // int32 reqId = 1;
-  if (this->_internal_reqid() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_reqid());
-  }
-
-  switch (Resp_case()) {
-    // .ServerData.RtcAudioInputDevice Device = 10;
-    case kDevice: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.Resp_.device_);
-      break;
-    }
-    // string error = 11;
-    case kError: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_error());
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SetAudioInputDeviceResp::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    SetAudioInputDeviceResp::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SetAudioInputDeviceResp::GetClassData() const { return &_class_data_; }
-
-
-void SetAudioInputDeviceResp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<SetAudioInputDeviceResp*>(&to_msg);
-  auto& from = static_cast<const SetAudioInputDeviceResp&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.SetAudioInputDeviceResp)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_reqid() != 0) {
-    _this->_internal_set_reqid(from._internal_reqid());
-  }
-  switch (from.Resp_case()) {
-    case kDevice: {
-      _this->_internal_mutable_device()->::ServerData::RtcAudioInputDevice::MergeFrom(
-          from._internal_device());
-      break;
-    }
-    case kError: {
-      _this->_internal_set_error(from._internal_error());
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SetAudioInputDeviceResp::CopyFrom(const SetAudioInputDeviceResp& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.SetAudioInputDeviceResp)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SetAudioInputDeviceResp::IsInitialized() const {
-  return true;
-}
-
-void SetAudioInputDeviceResp::InternalSwap(SetAudioInputDeviceResp* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.reqid_, other->_impl_.reqid_);
-  swap(_impl_.Resp_, other->_impl_.Resp_);
-  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SetAudioInputDeviceResp::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[36]);
-}
-
-// ===================================================================
-
-class SetAudioOutputDeviceResp::_Internal {
- public:
-  static const ::ServerData::RtcAudioOutputDevice& device(const SetAudioOutputDeviceResp* msg);
-};
-
-const ::ServerData::RtcAudioOutputDevice&
-SetAudioOutputDeviceResp::_Internal::device(const SetAudioOutputDeviceResp* msg) {
-  return *msg->_impl_.Resp_.device_;
-}
-void SetAudioOutputDeviceResp::set_allocated_device(::ServerData::RtcAudioOutputDevice* device) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_Resp();
-  if (device) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(device));
-    if (message_arena != submessage_arena) {
-      device = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, device, submessage_arena);
-    }
-    set_has_device();
-    _impl_.Resp_.device_ = device;
-  }
-  // @@protoc_insertion_point(field_set_allocated:ServerData.SetAudioOutputDeviceResp.Device)
-}
-void SetAudioOutputDeviceResp::clear_device() {
-  if (_internal_has_device()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.Resp_.device_;
-    }
-    clear_has_Resp();
-  }
-}
-SetAudioOutputDeviceResp::SetAudioOutputDeviceResp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ServerData.SetAudioOutputDeviceResp)
-}
-SetAudioOutputDeviceResp::SetAudioOutputDeviceResp(const SetAudioOutputDeviceResp& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  SetAudioOutputDeviceResp* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.reqid_){}
-    , decltype(_impl_.Resp_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.reqid_ = from._impl_.reqid_;
-  clear_has_Resp();
-  switch (from.Resp_case()) {
-    case kDevice: {
-      _this->_internal_mutable_device()->::ServerData::RtcAudioOutputDevice::MergeFrom(
-          from._internal_device());
-      break;
-    }
-    case kError: {
-      _this->_internal_set_error(from._internal_error());
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:ServerData.SetAudioOutputDeviceResp)
-}
-
-inline void SetAudioOutputDeviceResp::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.reqid_){0}
-    , decltype(_impl_.Resp_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}
-  };
-  clear_has_Resp();
-}
-
-SetAudioOutputDeviceResp::~SetAudioOutputDeviceResp() {
-  // @@protoc_insertion_point(destructor:ServerData.SetAudioOutputDeviceResp)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void SetAudioOutputDeviceResp::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (has_Resp()) {
-    clear_Resp();
-  }
-}
-
-void SetAudioOutputDeviceResp::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void SetAudioOutputDeviceResp::clear_Resp() {
-// @@protoc_insertion_point(one_of_clear_start:ServerData.SetAudioOutputDeviceResp)
-  switch (Resp_case()) {
-    case kDevice: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.Resp_.device_;
-      }
-      break;
-    }
-    case kError: {
-      _impl_.Resp_.error_.Destroy();
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  _impl_._oneof_case_[0] = RESP_NOT_SET;
-}
-
-
-void SetAudioOutputDeviceResp::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerData.SetAudioOutputDeviceResp)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.reqid_ = 0;
-  clear_Resp();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SetAudioOutputDeviceResp::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // int32 reqId = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.reqid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .ServerData.RtcAudioOutputDevice Device = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
-          ptr = ctx->ParseMessage(_internal_mutable_device(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // string error = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
-          auto str = _internal_mutable_error();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "ServerData.SetAudioOutputDeviceResp.error"));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SetAudioOutputDeviceResp::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ServerData.SetAudioOutputDeviceResp)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 reqId = 1;
-  if (this->_internal_reqid() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_reqid(), target);
-  }
-
-  // .ServerData.RtcAudioOutputDevice Device = 10;
-  if (_internal_has_device()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(10, _Internal::device(this),
-        _Internal::device(this).GetCachedSize(), target, stream);
-  }
-
-  // string error = 11;
-  if (_internal_has_error()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_error().data(), static_cast<int>(this->_internal_error().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ServerData.SetAudioOutputDeviceResp.error");
-    target = stream->WriteStringMaybeAliased(
-        11, this->_internal_error(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerData.SetAudioOutputDeviceResp)
-  return target;
-}
-
-size_t SetAudioOutputDeviceResp::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ServerData.SetAudioOutputDeviceResp)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // int32 reqId = 1;
-  if (this->_internal_reqid() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_reqid());
-  }
-
-  switch (Resp_case()) {
-    // .ServerData.RtcAudioOutputDevice Device = 10;
-    case kDevice: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.Resp_.device_);
-      break;
-    }
-    // string error = 11;
-    case kError: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_error());
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SetAudioOutputDeviceResp::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    SetAudioOutputDeviceResp::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SetAudioOutputDeviceResp::GetClassData() const { return &_class_data_; }
-
-
-void SetAudioOutputDeviceResp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<SetAudioOutputDeviceResp*>(&to_msg);
-  auto& from = static_cast<const SetAudioOutputDeviceResp&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.SetAudioOutputDeviceResp)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_reqid() != 0) {
-    _this->_internal_set_reqid(from._internal_reqid());
-  }
-  switch (from.Resp_case()) {
-    case kDevice: {
-      _this->_internal_mutable_device()->::ServerData::RtcAudioOutputDevice::MergeFrom(
-          from._internal_device());
-      break;
-    }
-    case kError: {
-      _this->_internal_set_error(from._internal_error());
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SetAudioOutputDeviceResp::CopyFrom(const SetAudioOutputDeviceResp& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.SetAudioOutputDeviceResp)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SetAudioOutputDeviceResp::IsInitialized() const {
-  return true;
-}
-
-void SetAudioOutputDeviceResp::InternalSwap(SetAudioOutputDeviceResp* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.reqid_, other->_impl_.reqid_);
-  swap(_impl_.Resp_, other->_impl_.Resp_);
-  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SetAudioOutputDeviceResp::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[37]);
-}
-
-// ===================================================================
-
-class SetVideoInputDeviceResp::_Internal {
- public:
-  static const ::ServerData::RtcVideoInputDevice& device(const SetVideoInputDeviceResp* msg);
-};
-
-const ::ServerData::RtcVideoInputDevice&
-SetVideoInputDeviceResp::_Internal::device(const SetVideoInputDeviceResp* msg) {
-  return *msg->_impl_.Resp_.device_;
-}
-void SetVideoInputDeviceResp::set_allocated_device(::ServerData::RtcVideoInputDevice* device) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_Resp();
-  if (device) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(device));
-    if (message_arena != submessage_arena) {
-      device = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, device, submessage_arena);
-    }
-    set_has_device();
-    _impl_.Resp_.device_ = device;
-  }
-  // @@protoc_insertion_point(field_set_allocated:ServerData.SetVideoInputDeviceResp.Device)
-}
-void SetVideoInputDeviceResp::clear_device() {
-  if (_internal_has_device()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.Resp_.device_;
-    }
-    clear_has_Resp();
-  }
-}
-SetVideoInputDeviceResp::SetVideoInputDeviceResp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ServerData.SetVideoInputDeviceResp)
-}
-SetVideoInputDeviceResp::SetVideoInputDeviceResp(const SetVideoInputDeviceResp& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  SetVideoInputDeviceResp* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.reqid_){}
-    , decltype(_impl_.Resp_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.reqid_ = from._impl_.reqid_;
-  clear_has_Resp();
-  switch (from.Resp_case()) {
-    case kDevice: {
-      _this->_internal_mutable_device()->::ServerData::RtcVideoInputDevice::MergeFrom(
-          from._internal_device());
-      break;
-    }
-    case kError: {
-      _this->_internal_set_error(from._internal_error());
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:ServerData.SetVideoInputDeviceResp)
-}
-
-inline void SetVideoInputDeviceResp::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.reqid_){0}
-    , decltype(_impl_.Resp_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}
-  };
-  clear_has_Resp();
-}
-
-SetVideoInputDeviceResp::~SetVideoInputDeviceResp() {
-  // @@protoc_insertion_point(destructor:ServerData.SetVideoInputDeviceResp)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void SetVideoInputDeviceResp::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (has_Resp()) {
-    clear_Resp();
-  }
-}
-
-void SetVideoInputDeviceResp::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void SetVideoInputDeviceResp::clear_Resp() {
-// @@protoc_insertion_point(one_of_clear_start:ServerData.SetVideoInputDeviceResp)
-  switch (Resp_case()) {
-    case kDevice: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.Resp_.device_;
-      }
-      break;
-    }
-    case kError: {
-      _impl_.Resp_.error_.Destroy();
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  _impl_._oneof_case_[0] = RESP_NOT_SET;
-}
-
-
-void SetVideoInputDeviceResp::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerData.SetVideoInputDeviceResp)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.reqid_ = 0;
-  clear_Resp();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SetVideoInputDeviceResp::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // int32 reqId = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.reqid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .ServerData.RtcVideoInputDevice Device = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
-          ptr = ctx->ParseMessage(_internal_mutable_device(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // string error = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
-          auto str = _internal_mutable_error();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "ServerData.SetVideoInputDeviceResp.error"));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SetVideoInputDeviceResp::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ServerData.SetVideoInputDeviceResp)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 reqId = 1;
-  if (this->_internal_reqid() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_reqid(), target);
-  }
-
-  // .ServerData.RtcVideoInputDevice Device = 10;
-  if (_internal_has_device()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(10, _Internal::device(this),
-        _Internal::device(this).GetCachedSize(), target, stream);
-  }
-
-  // string error = 11;
-  if (_internal_has_error()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_error().data(), static_cast<int>(this->_internal_error().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ServerData.SetVideoInputDeviceResp.error");
-    target = stream->WriteStringMaybeAliased(
-        11, this->_internal_error(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerData.SetVideoInputDeviceResp)
-  return target;
-}
-
-size_t SetVideoInputDeviceResp::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ServerData.SetVideoInputDeviceResp)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // int32 reqId = 1;
-  if (this->_internal_reqid() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_reqid());
-  }
-
-  switch (Resp_case()) {
-    // .ServerData.RtcVideoInputDevice Device = 10;
-    case kDevice: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.Resp_.device_);
-      break;
-    }
-    // string error = 11;
-    case kError: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_error());
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SetVideoInputDeviceResp::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    SetVideoInputDeviceResp::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SetVideoInputDeviceResp::GetClassData() const { return &_class_data_; }
-
-
-void SetVideoInputDeviceResp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<SetVideoInputDeviceResp*>(&to_msg);
-  auto& from = static_cast<const SetVideoInputDeviceResp&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.SetVideoInputDeviceResp)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_reqid() != 0) {
-    _this->_internal_set_reqid(from._internal_reqid());
-  }
-  switch (from.Resp_case()) {
-    case kDevice: {
-      _this->_internal_mutable_device()->::ServerData::RtcVideoInputDevice::MergeFrom(
-          from._internal_device());
-      break;
-    }
-    case kError: {
-      _this->_internal_set_error(from._internal_error());
-      break;
-    }
-    case RESP_NOT_SET: {
-      break;
-    }
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SetVideoInputDeviceResp::CopyFrom(const SetVideoInputDeviceResp& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.SetVideoInputDeviceResp)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SetVideoInputDeviceResp::IsInitialized() const {
-  return true;
-}
-
-void SetVideoInputDeviceResp::InternalSwap(SetVideoInputDeviceResp* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.reqid_, other->_impl_.reqid_);
-  swap(_impl_.Resp_, other->_impl_.Resp_);
-  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SetVideoInputDeviceResp::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[38]);
-}
-
-// ===================================================================
-
 class PostCreateObject::_Internal {
  public:
   static const ::ServerData::CavrnusSpaceConnection& spaceconn(const PostCreateObject* msg);
@@ -16393,7 +15154,7 @@ void PostCreateObject::InternalSwap(PostCreateObject* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PostCreateObject::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[39]);
+      file_level_metadata_relay_2eproto[36]);
 }
 
 // ===================================================================
@@ -16644,7 +15405,7 @@ void PostRemoveObject::InternalSwap(PostRemoveObject* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PostRemoveObject::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[40]);
+      file_level_metadata_relay_2eproto[37]);
 }
 
 // ===================================================================
@@ -16847,7 +15608,7 @@ void FetchFileByIdReq::InternalSwap(FetchFileByIdReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchFileByIdReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[41]);
+      file_level_metadata_relay_2eproto[38]);
 }
 
 // ===================================================================
@@ -17139,7 +15900,7 @@ void FetchFileByIdProgressResp::InternalSwap(FetchFileByIdProgressResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchFileByIdProgressResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[42]);
+      file_level_metadata_relay_2eproto[39]);
 }
 
 // ===================================================================
@@ -17392,7 +16153,7 @@ void FetchFileByIdCompletedResp::InternalSwap(FetchFileByIdCompletedResp* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchFileByIdCompletedResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[43]);
+      file_level_metadata_relay_2eproto[40]);
 }
 
 // ===================================================================
@@ -17570,7 +16331,7 @@ void FetchAllUploadedContentReq::InternalSwap(FetchAllUploadedContentReq* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchAllUploadedContentReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[44]);
+      file_level_metadata_relay_2eproto[41]);
 }
 
 // ===================================================================
@@ -17800,7 +16561,7 @@ void UploadLocalFileResp::InternalSwap(UploadLocalFileResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UploadLocalFileResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[45]);
+      file_level_metadata_relay_2eproto[42]);
 }
 
 // ===================================================================
@@ -18108,7 +16869,7 @@ void UploadLocalFileReq::InternalSwap(UploadLocalFileReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UploadLocalFileReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[46]);
+      file_level_metadata_relay_2eproto[43]);
 }
 
 // ===================================================================
@@ -18323,7 +17084,7 @@ void FetchAllUploadedContentResp::InternalSwap(FetchAllUploadedContentResp* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchAllUploadedContentResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[47]);
+      file_level_metadata_relay_2eproto[44]);
 }
 
 // ===================================================================
@@ -18600,7 +17361,7 @@ void PropMetadataStatus::InternalSwap(PropMetadataStatus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PropMetadataStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[48]);
+      file_level_metadata_relay_2eproto[45]);
 }
 
 // ===================================================================
@@ -18918,7 +17679,7 @@ void PropertyValueStatus::InternalSwap(PropertyValueStatus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PropertyValueStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[49]);
+      file_level_metadata_relay_2eproto[46]);
 }
 
 // ===================================================================
@@ -19195,7 +17956,7 @@ void LocalPropertyHandledResp::InternalSwap(LocalPropertyHandledResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata LocalPropertyHandledResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[50]);
+      file_level_metadata_relay_2eproto[47]);
 }
 
 // ===================================================================
@@ -19446,7 +18207,7 @@ void UserAdded::InternalSwap(UserAdded* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UserAdded::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[51]);
+      file_level_metadata_relay_2eproto[48]);
 }
 
 // ===================================================================
@@ -19697,7 +18458,7 @@ void UserRemoved::InternalSwap(UserRemoved* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UserRemoved::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[52]);
+      file_level_metadata_relay_2eproto[49]);
 }
 
 // ===================================================================
@@ -20052,7 +18813,7 @@ void UserVideoFrame::InternalSwap(UserVideoFrame* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UserVideoFrame::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[53]);
+      file_level_metadata_relay_2eproto[50]);
 }
 
 // ===================================================================
@@ -20382,7 +19143,7 @@ void SpaceInfo::InternalSwap(SpaceInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SpaceInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[54]);
+      file_level_metadata_relay_2eproto[51]);
 }
 
 // ===================================================================
@@ -20733,7 +19494,7 @@ void ObjectAdded::InternalSwap(ObjectAdded* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ObjectAdded::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[55]);
+      file_level_metadata_relay_2eproto[52]);
 }
 
 // ===================================================================
@@ -20984,7 +19745,7 @@ void ObjectRemoved::InternalSwap(ObjectRemoved* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ObjectRemoved::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[56]);
+      file_level_metadata_relay_2eproto[53]);
 }
 
 // ===================================================================
@@ -21214,7 +19975,7 @@ void UpdateLocalUserMuted::InternalSwap(UpdateLocalUserMuted* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdateLocalUserMuted::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[57]);
+      file_level_metadata_relay_2eproto[54]);
 }
 
 // ===================================================================
@@ -21459,7 +20220,7 @@ void UpdateLocalUserCoPresence::InternalSwap(UpdateLocalUserCoPresence* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdateLocalUserCoPresence::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[58]);
+      file_level_metadata_relay_2eproto[55]);
 }
 
 // ===================================================================
@@ -21689,7 +20450,7 @@ void UpdateLocalUserStreamState::InternalSwap(UpdateLocalUserStreamState* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdateLocalUserStreamState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[59]);
+      file_level_metadata_relay_2eproto[56]);
 }
 
 // ===================================================================
@@ -21950,7 +20711,7 @@ void PermissionStatusReq::InternalSwap(PermissionStatusReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PermissionStatusReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[60]);
+      file_level_metadata_relay_2eproto[57]);
 }
 
 // ===================================================================
@@ -22242,7 +21003,7 @@ void PermissionStatus::InternalSwap(PermissionStatus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PermissionStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[61]);
+      file_level_metadata_relay_2eproto[58]);
 }
 
 // ===================================================================
@@ -22420,7 +21181,7 @@ void AllJoinableSpacesReq::InternalSwap(AllJoinableSpacesReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AllJoinableSpacesReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[62]);
+      file_level_metadata_relay_2eproto[59]);
 }
 
 // ===================================================================
@@ -22632,7 +21393,7 @@ void AllJoinableSpacesResp::InternalSwap(AllJoinableSpacesResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AllJoinableSpacesResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[63]);
+      file_level_metadata_relay_2eproto[60]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -22781,18 +21542,6 @@ Arena::CreateMaybeMessage< ::ServerData::SetAudioOutputDeviceReq >(Arena* arena)
 template<> PROTOBUF_NOINLINE ::ServerData::SetVideoInputDeviceReq*
 Arena::CreateMaybeMessage< ::ServerData::SetVideoInputDeviceReq >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ServerData::SetVideoInputDeviceReq >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ServerData::SetAudioInputDeviceResp*
-Arena::CreateMaybeMessage< ::ServerData::SetAudioInputDeviceResp >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ServerData::SetAudioInputDeviceResp >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ServerData::SetAudioOutputDeviceResp*
-Arena::CreateMaybeMessage< ::ServerData::SetAudioOutputDeviceResp >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ServerData::SetAudioOutputDeviceResp >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ServerData::SetVideoInputDeviceResp*
-Arena::CreateMaybeMessage< ::ServerData::SetVideoInputDeviceResp >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ServerData::SetVideoInputDeviceResp >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ServerData::PostCreateObject*
 Arena::CreateMaybeMessage< ::ServerData::PostCreateObject >(Arena* arena) {

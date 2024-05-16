@@ -3,7 +3,6 @@
 	"Modules": 
 	{
 		"CavrnusConnector": "UnrealEditor-CavrnusConnector.dll",
-		"CavrnusConnectorEditor": "UnrealEditor-CavrnusConnectorEditor.dll",
-		"PDFImporter": "UnrealEditor-PDFImporter.dll"
+		"CavrnusConnectorEditor": "UnrealEditor-CavrnusConnectorEditor.dll"
 	}
 }

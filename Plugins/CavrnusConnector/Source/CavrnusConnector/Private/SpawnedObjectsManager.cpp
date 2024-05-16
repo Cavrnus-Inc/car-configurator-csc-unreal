@@ -3,127 +3,102 @@
 #include "CavrnusSpatialConnector.h"
 #include "CavrnusSpatialConnectorSubSystem.h"
 #include "CavrnusFunctionLibrary.h"
-#include "CavrnusSpawnedObjectFlag.h"
+#include "FlagComponents/CavrnusSpawnedObjectFlag.h"
 #include "CavrnusPropertiesContainer.h"
 #include "CoreMinimal.h"
 #include <Kismet/GameplayStatics.h>
 
-TWeakObjectPtr<USpawnedObjectsManager> USpawnedObjectsManager::Instance = nullptr;
-
 // Sets default values
-USpawnedObjectsManager::USpawnedObjectsManager()
+SpawnedObjectsManager::SpawnedObjectsManager()
 {
 }
 
-USpawnedObjectsManager::~USpawnedObjectsManager()
+SpawnedObjectsManager::~SpawnedObjectsManager()
 {
 }
 
-void USpawnedObjectsManager::RegisterSpawnManager(USpawnedObjectsManager* Manager)
+void SpawnedObjectsManager::RegisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, TSubclassOf<AActor> ActorClass, UWorld* World)
 {
-	Instance = Manager;
-}
+	FTransform SpawnTransform = UCavrnusFunctionLibrary::GetTransformPropertyValue(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName, "Transform");
 
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.OverrideLevel = World->PersistentLevel;
+	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-USpawnedObjectsManager* USpawnedObjectsManager::GetInstance()
-{
-	return Instance.Get();
-}
+	AActor* SpawnedActor = World->SpawnActor(ActorClass, &SpawnTransform, SpawnParams);
+	spawnedActors.Add(SpawnedObject.PropertiesContainerName, SpawnedActor);
 
-FCavrnusSpawnedObject USpawnedObjectsManager::GetSpawnedObject(AActor* Actor)
-{
-	if (UCavrnusSpawnedObjectFlag* CavrnusActorComponent = Actor->FindComponentByClass<UCavrnusSpawnedObjectFlag>())
+	if (SpawnedActor == nullptr)
 	{
-		return CavrnusActorComponent->SpawnedObject;
-	}
-
-	return FCavrnusSpawnedObject();
-}
-
-void USpawnedObjectsManager::RegisterSpawnedObject(FCavrnusSpawnedObject SpawnedObject)
-{
-	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
-	{
-		SubProxy->SpawnCavrnusActor(SpawnedObject);
-	}
-	else
-	{
-		UE_LOG(LogCavrnusConnector, Error, TEXT("Attempting to spawn object but Game Instance not found"));
-	}
-}
-
-void USpawnedObjectsManager::UnregisterSpawnedObject(FCavrnusSpawnedObject SpawnedObject)
-{
-	UGameInstance* GameInstance = Cast<UGameInstance>(GetOuter());
-	if (!GameInstance)
-	{
-		UE_LOG(LogCavrnusConnector, Error, TEXT("Attempting to delete object but Game Instance not found"));
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to successfully spawn actor"));
 		return;
 	}
 
-	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
+	TArray<USceneComponent*> PropertiesContainers;
+	USceneComponent* ActorRoot = SpawnedActor->GetRootComponent();
+
+	if (ActorRoot == nullptr) 
 	{
-		SubProxy->DestroyCavrnusActor(SpawnedObject);
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to successfully spawn actor"));
+		return;
 	}
-}
 
-void USpawnedObjectsManager::SpawnCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject, ACavrnusSpatialConnector* CavrnusSpatialConnector)
-{
-	FTransform SpawnTransform = UCavrnusFunctionLibrary::GetTransformPropertyValue(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName, "Transform");
-	AActor* SpawnedActor = CavrnusSpatialConnector->SpawnActorFromIdentifier(SpawnedObject.UniqueIdentifier, SpawnTransform);
-	if (SpawnedActor)
+	UCavrnusSpawnedObjectFlag* ActorComponent = Cast<UCavrnusSpawnedObjectFlag>(SpawnedActor->AddComponentByClass(
+		UCavrnusSpawnedObjectFlag::StaticClass(),
+		true,
+		FTransform::Identity,
+		false));
+
+	if (ActorComponent)
 	{
-		TArray<USceneComponent*> PropertiesContainers;
-		USceneComponent* ActorRoot = SpawnedActor->GetRootComponent();
-		if (ActorRoot)
+		ActorComponent->SpawnedObject = SpawnedObject;
+		ActorComponent->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
+	}
+
+	TArray<USceneComponent*> RootChildren;
+	ActorRoot->GetChildrenComponents(false, RootChildren);
+	PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
+		return SceneComponent->IsA<UCavrnusPropertiesContainer>();
+	});
+
+	if (PropertiesContainers.IsEmpty())
+	{
+		// Add a properties container to the root if none found
+		UCavrnusPropertiesContainer* RootContainer = Cast<UCavrnusPropertiesContainer>(SpawnedActor->AddComponentByClass(
+			UCavrnusPropertiesContainer::StaticClass(),
+			true,
+			FTransform::Identity,
+			false));
+		if (RootContainer)
 		{
-			UCavrnusSpawnedObjectFlag* ActorComponent = Cast<UCavrnusSpawnedObjectFlag>(SpawnedActor->AddComponentByClass(
-				UCavrnusSpawnedObjectFlag::StaticClass(),
-				true,
-				FTransform::Identity,
-				false));
+			RootContainer->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
+		}
 
-			if (ActorComponent)
-			{
-				ActorComponent->SpawnedObject = SpawnedObject;
-				ActorComponent->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
-			}
+		ActorRoot->GetChildrenComponents(false, RootChildren);
+		PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
+			return SceneComponent->IsA<UCavrnusPropertiesContainer>();
+		});
+	}
 
-			TArray<USceneComponent*> RootChildren;
-			ActorRoot->GetChildrenComponents(false, RootChildren);
-			PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
-				return SceneComponent->IsA<UCavrnusPropertiesContainer>();
-				});
-
-			if (PropertiesContainers.IsEmpty())
-			{
-				// Add a properties container to the root if none found
-				UCavrnusPropertiesContainer* RootContainer = Cast<UCavrnusPropertiesContainer>(SpawnedActor->AddComponentByClass(
-					UCavrnusPropertiesContainer::StaticClass(),
-					true,
-					FTransform::Identity,
-					false));
-				if (RootContainer)
-				{
-					RootContainer->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
-				}
-
-				ActorRoot->GetChildrenComponents(false, RootChildren);
-				PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
-					return SceneComponent->IsA<UCavrnusPropertiesContainer>();
-					});
-			}
-
-			checkf(PropertiesContainers.Num() == 1, TEXT("Expected a single properties container component on the root of the actor"));
-			for (USceneComponent* Component : PropertiesContainers)
-			{
-				if (UCavrnusPropertiesContainer* PropertiesContainer = Cast<UCavrnusPropertiesContainer>(Component))
-				{
-					PropertiesContainer->SetContainerName(SpawnedObject.PropertiesContainerName);
-				}
-			}
-
-			UCavrnusPropertiesContainer::ReplaceClassNameInPropertiesContainers(SpawnedActor, SpawnedObject.PropertiesContainerName);
+	checkf(PropertiesContainers.Num() == 1, TEXT("Expected a single properties container component on the root of the actor"));
+	for (USceneComponent* Component : PropertiesContainers)
+	{
+		if (UCavrnusPropertiesContainer* PropertiesContainer = Cast<UCavrnusPropertiesContainer>(Component))
+		{
+			PropertiesContainer->SetContainerName(SpawnedObject.PropertiesContainerName);
 		}
 	}
+
+	UCavrnusPropertiesContainer::ResetLiveHierarchyRootName(SpawnedActor, SpawnedObject.PropertiesContainerName);
+}
+
+void SpawnedObjectsManager::UnregisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, UWorld* World)
+{
+	if (!spawnedActors.Contains(SpawnedObject.PropertiesContainerName))
+	{
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to destroy actor, could not find spawned object with Container Name %s"), *SpawnedObject.PropertiesContainerName);
+		return;
+	}
+
+	spawnedActors[SpawnedObject.PropertiesContainerName]->Destroy();
 }

@@ -33,7 +33,7 @@ public:
 	FString GetGeneratedContainerName() const;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Cavrnus", meta = (ExposeOnSpawn))
-	FString PropertyName;
+	FString PropertyName = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Cavrnus", meta = (ExposeOnSpawn))
 	bool SendChanges = true;

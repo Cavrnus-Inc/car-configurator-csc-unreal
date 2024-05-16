@@ -2,15 +2,9 @@
 #include <Components/EditableTextBox.h>
 #include <Components/Button.h>
 
-void UCavrnusGuestLoginWidget::InitializeCavrnusWidget()
+void UCavrnusGuestLoginWidget::Setup()
 {
-	if (bCavrnusWidgetInitialized)
-	{
-		return;
-	}
-
 	LoginButton->OnClicked.AddUniqueDynamic(this, &UCavrnusGuestLoginWidget::OnLoginClicked);
-	Super::InitializeCavrnusWidget();
 }
 
 void UCavrnusGuestLoginWidget::OnLoginClicked()

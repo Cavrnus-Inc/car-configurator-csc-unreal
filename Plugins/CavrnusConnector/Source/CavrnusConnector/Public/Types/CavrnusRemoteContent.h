@@ -13,19 +13,19 @@ struct CAVRNUSCONNECTOR_API FCavrnusRemoteContent
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Content")
-	FString Id;
+	FString Id = "";
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Content")
-	FString Name;
+	FString Name = "";
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Content")
-	FString FileName;
+	FString FileName = "";
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Content")
-	FString ThumbnailUrl;
+	FString ThumbnailUrl = "";
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Content")
-	TMap<FString, FString> Tags;
+	TMap<FString, FString> Tags = TMap<FString, FString>();
 
 	FCavrnusRemoteContent() {}
 

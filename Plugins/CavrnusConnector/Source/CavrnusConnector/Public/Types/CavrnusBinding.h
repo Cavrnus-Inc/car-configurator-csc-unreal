@@ -17,5 +17,5 @@ struct CAVRNUSCONNECTOR_API FCavrnusBinding
 
 	FCavrnusBinding(TFunction<void()> unhook) : Unhook(unhook) { }
 
-	FCavrnusBinding() = default;
+	FCavrnusBinding() : Unhook(nullptr) {}
 };

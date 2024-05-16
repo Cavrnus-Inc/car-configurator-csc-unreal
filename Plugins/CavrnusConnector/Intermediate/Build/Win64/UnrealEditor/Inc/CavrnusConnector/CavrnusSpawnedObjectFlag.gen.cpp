@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "CavrnusConnector/Public/CavrnusSpawnedObjectFlag.h"
+#include "CavrnusConnector/Public/FlagComponents/CavrnusSpawnedObjectFlag.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCavrnusSpawnedObjectFlag() {}
 // Cross Module References
@@ -46,19 +46,19 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpawnedObjectFlag() {}
 		{ "BlueprintType", "true" },
 		{ "Comment", "// Class definition\n" },
 		{ "HideCategories", "Trigger PhysicsVolume" },
-		{ "IncludePath", "CavrnusSpawnedObjectFlag.h" },
+		{ "IncludePath", "FlagComponents/CavrnusSpawnedObjectFlag.h" },
 		{ "IsBlueprintBase", "true" },
-		{ "ModuleRelativePath", "Public/CavrnusSpawnedObjectFlag.h" },
+		{ "ModuleRelativePath", "Public/FlagComponents/CavrnusSpawnedObjectFlag.h" },
 		{ "ToolTip", "Class definition" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject_MetaData[] = {
 		{ "Category", "Cavrnus" },
-		{ "ModuleRelativePath", "Public/CavrnusSpawnedObjectFlag.h" },
+		{ "ModuleRelativePath", "Public/FlagComponents/CavrnusSpawnedObjectFlag.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject = { "SpawnedObject", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpawnedObjectFlag, SpawnedObject), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject_MetaData)) }; // 2250269897
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject = { "SpawnedObject", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpawnedObjectFlag, SpawnedObject), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject_MetaData)) }; // 1542944519
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject,
 	};
@@ -93,15 +93,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpawnedObjectFlag() {}
 		return UCavrnusSpawnedObjectFlag::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCavrnusSpawnedObjectFlag);
-	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpawnedObjectFlag_h_Statics
+	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpawnedObjectFlag_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusSpawnedObjectFlag, UCavrnusSpawnedObjectFlag::StaticClass, TEXT("UCavrnusSpawnedObjectFlag"), &Z_Registration_Info_UClass_UCavrnusSpawnedObjectFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpawnedObjectFlag), 38085134U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCavrnusSpawnedObjectFlag, UCavrnusSpawnedObjectFlag::StaticClass, TEXT("UCavrnusSpawnedObjectFlag"), &Z_Registration_Info_UClass_UCavrnusSpawnedObjectFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpawnedObjectFlag), 1292486326U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpawnedObjectFlag_h_2956106840(TEXT("/Script/CavrnusConnector"),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpawnedObjectFlag_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpawnedObjectFlag_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_380215313(TEXT("/Script/CavrnusConnector"),
+		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

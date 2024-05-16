@@ -1,6 +1,8 @@
 ﻿#pragma once
 
+#include <CoreMinimal.h>
 #include <MathUtil.h>
+#include <Math/Color.h>
 
 namespace Cavrnus
 {
@@ -16,19 +18,19 @@ namespace Cavrnus
 				Vector = 4,
 				Transform = 5,
 
-				Invalid = 100,
+				Unset = 100,
 			};
 
-			PropertyType PropType;
-			int Priority;
+			PropertyType PropType = PropertyType::Unset;
+			int Priority = 0;
 
 			//Will have one of the following
-			FString StringValue;
-			bool BoolValue;
-			float FloatValue;
-			FLinearColor ColorValue;
-			FVector4 VectorValue;
-			FTransform TransformValue;
+			FString StringValue = "";
+			bool BoolValue = false;
+			float FloatValue = 0;
+			FLinearColor ColorValue = FLinearColor();
+			FVector4 VectorValue = FVector4();
+			FTransform TransformValue = FTransform();
 
 			bool operator==(const FPropertyValue& other) const
 			{
@@ -57,7 +59,7 @@ namespace Cavrnus
 				return false;
 			}
 
-			FPropertyValue() : PropType(PropertyType::Invalid), Priority(0) {}
+			FPropertyValue() : PropType(PropertyType::Unset), Priority(0) {}
 
 			//IMPORTANT: Can't use constructors because C++ confuses the types (strings read as bools)
 			static FPropertyValue StringPropValue(const FString& StringValue, int Priority = 0) 

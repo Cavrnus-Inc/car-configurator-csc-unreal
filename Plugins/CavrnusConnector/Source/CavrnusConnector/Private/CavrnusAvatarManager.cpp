@@ -5,135 +5,106 @@
 #include "CavrnusPropertiesContainer.h"
 #include "CavrnusSpatialConnector.h"
 #include "CavrnusSpatialConnectorSubSystem.h"
+#include "FlagComponents/CavrnusUserAvatarFlag.h"
 #include <Kismet/KismetSystemLibrary.h>
 #include <MaterialTypes.h>
 
 //===========================================================
-UCavrnusAvatarManager::UCavrnusAvatarManager()
-{
-	// Don't want to start relay client by loading CDO
-	if (!IsTemplate())
-	{
-		OnSpaceConnected.BindUFunction(this, GET_FUNCTION_NAME_CHECKED(UCavrnusAvatarManager, SpaceConnected));
-
-		UserAdded.BindUFunction(this, GET_FUNCTION_NAME_CHECKED(UCavrnusAvatarManager, OnUserJoined));
-		UserRemoved.BindUFunction(this, GET_FUNCTION_NAME_CHECKED(UCavrnusAvatarManager, OnUserLeft));
-
-		UCavrnusFunctionLibrary::AwaitAnySpaceConnection(OnSpaceConnected);
-	}
-}
-
-
-//===========================================================
-UCavrnusAvatarManager::~UCavrnusAvatarManager()
+CavrnusAvatarManager::CavrnusAvatarManager()
 {
 }
 
 //===========================================================
-
-
-void UCavrnusAvatarManager::SpaceConnected(FCavrnusSpaceConnection SpaceConn)
+CavrnusAvatarManager::~CavrnusAvatarManager()
 {
-	LocalUserConnectionId = SpaceConn.LocalUserConnectionId;
-	UCavrnusFunctionLibrary::BindSpaceUsers(SpaceConn, UserAdded, UserRemoved);
 }
 
-void UCavrnusAvatarManager::OnUserJoined(FCavrnusUser User)
+void CavrnusAvatarManager::RegisterUser(const FCavrnusUser& User, TSubclassOf<AActor> ActorClass, UWorld* World, FCavrnusSpaceConnection SpaceConn)
 {
-	//Don't spawn an avatar for the local user
-	if (User.UserConnectionId == LocalUserConnectionId)
+	//Always ignore the local user
+	if (User.IsLocalUser)
 		return;
 
-	FActorSpawnParameters SpawnParams;
-	UWorld* World = GetWorld();
-	if (!World) return;
-
-	TSubclassOf<AActor> RemoteAvatarClass = GetRemoteAvatarClass();
-	if (!RemoteAvatarClass)
-	{
-		UE_LOG(LogCavrnusConnector, Error, TEXT("No RemoteAvatarClasses specified!"));
-		return;
-	}
-
-	SwapAvatars(User, RemoteAvatarClass);
-}
-
-void UCavrnusAvatarManager::OnUserLeft(FCavrnusUser User)
-{
-	AActor** FoundActor = UserMap.Find(User.UserConnectionId);
-	if (FoundActor)
-	{
-		(*FoundActor)->Destroy();
-	}
-
-	UserMap.Remove(User.UserConnectionId);
-}
-
-void UCavrnusAvatarManager::SwapAvatars(FCavrnusUser User, TSubclassOf<class AActor> AvatarClass) {
-	FVector MyVector;
-	FRotator MyRotator;
-
-	//Don't spawn an avatar for the local user
-	if (User.UserConnectionId == LocalUserConnectionId)
-		return;
-
-	AActor** FoundActor = UserMap.Find(User.UserConnectionId);
-
-	if (FoundActor)
-	{
-		MyVector = (*FoundActor)->GetActorLocation();
-		MyRotator = (*FoundActor)->GetActorRotation();
-		(*FoundActor)->Destroy();
-		UserMap.Remove(User.UserConnectionId);
-	}
-
-	UWorld* World = GetWorld();
-	if (!World) return;
-
-	if (AActor* RemoteAvatar = SpawnNewAvatar(AvatarClass, MyVector, MyRotator, User.PropertiesContainerName))
-	{
-		UserMap.Add(User.UserConnectionId, RemoteAvatar);
-	}
-}
-
-AActor* UCavrnusAvatarManager::SpawnNewAvatar(TSubclassOf<class AActor> AvatarClass, FVector Location, FRotator Rotation, FString PropertiesContainerName)
-{
-	UWorld* World = GetWorld();
-	if (!World) return nullptr;
+	FTransform SpawnTransform = UCavrnusFunctionLibrary::GetTransformPropertyValue(SpaceConn, User.PropertiesContainerName, "Transform");
 
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.OverrideLevel = World->PersistentLevel;
-	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-	AActor* RemoteAvatar = World->SpawnActor<AActor>(AvatarClass, Location, Rotation, SpawnParams);
+	AActor* SpawnedActor = World->SpawnActor(ActorClass, &SpawnTransform, SpawnParams);
+	SpawnedAvatars.Add(User.PropertiesContainerName, SpawnedActor);
 
-	if (!RemoteAvatar) return nullptr;
-
-	TArray<UCavrnusValueSyncBase*> ValueSyncComponents;
-	RemoteAvatar->GetComponents(ValueSyncComponents);
-	for (UActorComponent* Component : ValueSyncComponents)
+	if (SpawnedActor == nullptr)
 	{
-		if (UCavrnusValueSyncBase* ValueSync = Cast<UCavrnusValueSyncBase>(Component))
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to successfully spawn actor"));
+		return;
+	}
+
+	TArray<USceneComponent*> PropertiesContainers;
+	USceneComponent* ActorRoot = SpawnedActor->GetRootComponent();
+
+	if (ActorRoot == nullptr)
+	{
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to successfully spawn actor"));
+		return;
+	}
+
+	UCavrnusUserAvatarFlag* ActorComponent = Cast<UCavrnusUserAvatarFlag>(SpawnedActor->AddComponentByClass(
+		UCavrnusUserAvatarFlag::StaticClass(),
+		true,
+		FTransform::Identity,
+		false));
+
+	if (ActorComponent)
+	{
+		ActorComponent->CavrnusUser = User;
+		ActorComponent->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
+	}
+
+	TArray<USceneComponent*> RootChildren;
+	ActorRoot->GetChildrenComponents(false, RootChildren);
+	PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
+		return SceneComponent->IsA<UCavrnusPropertiesContainer>();
+	});
+
+	if (PropertiesContainers.IsEmpty())
+	{
+		// Add a properties container to the root if none found
+		UCavrnusPropertiesContainer* RootContainer = Cast<UCavrnusPropertiesContainer>(SpawnedActor->AddComponentByClass(
+			UCavrnusPropertiesContainer::StaticClass(),
+			true,
+			FTransform::Identity,
+			false));
+		if (RootContainer)
 		{
-			ValueSync->SendChanges = false;
+			RootContainer->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
+		}
+
+		ActorRoot->GetChildrenComponents(false, RootChildren);
+		PropertiesContainers = RootChildren.FilterByPredicate([](USceneComponent* SceneComponent) {
+			return SceneComponent->IsA<UCavrnusPropertiesContainer>();
+		});
+	}
+
+	checkf(PropertiesContainers.Num() == 1, TEXT("Expected a single properties container component on the root of the actor"));
+	for (USceneComponent* Component : PropertiesContainers)
+	{
+		if (UCavrnusPropertiesContainer* PropertiesContainer = Cast<UCavrnusPropertiesContainer>(Component))
+		{
+			PropertiesContainer->SetContainerName(User.PropertiesContainerName);
 		}
 	}
 
-	UCavrnusPropertiesContainer::ReplaceClassNameInPropertiesContainers(RemoteAvatar, PropertiesContainerName, true);
-
-	return RemoteAvatar;
+	UCavrnusPropertiesContainer::ResetLiveHierarchyRootName(SpawnedActor, User.PropertiesContainerName);
 }
 
-TSubclassOf<AActor> UCavrnusAvatarManager::GetRemoteAvatarClass() const
+void CavrnusAvatarManager::UnregisterUser(const FCavrnusUser& SpawnedObject, UWorld* World)
 {
-	TSubclassOf<AActor> RemoteAvatarClass = nullptr;
-	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
+	if (!SpawnedAvatars.Contains(SpawnedObject.PropertiesContainerName))
 	{
-		if (ACavrnusSpatialConnector* CavrnusSpatialConnector = SubProxy->GetCavrnusSpatialConnector())
-		{
-			RemoteAvatarClass = CavrnusSpatialConnector->RemoteAvatarClass;
-		}
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to destroy actor, could not find spawned object with Container Name %s"), *SpawnedObject.PropertiesContainerName);
+		return;
 	}
 
-	return RemoteAvatarClass;
+	SpawnedAvatars[SpawnedObject.PropertiesContainerName]->Destroy();
 }

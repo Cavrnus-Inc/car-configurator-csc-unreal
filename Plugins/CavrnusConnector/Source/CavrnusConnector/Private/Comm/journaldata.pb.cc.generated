@@ -148,6 +148,20 @@ struct ObjectType_CustomContentIdDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObjectType_CustomContentIdDefaultTypeInternal _ObjectType_CustomContentId_default_instance_;
+PROTOBUF_CONSTEXPR ObjectType_CustomUsingCavrnusContentId::ObjectType_CustomUsingCavrnusContentId(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.customusageid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.customcontentid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ObjectType_CustomUsingCavrnusContentIdDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ObjectType_CustomUsingCavrnusContentIdDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ObjectType_CustomUsingCavrnusContentIdDefaultTypeInternal() {}
+  union {
+    ObjectType_CustomUsingCavrnusContentId _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObjectType_CustomUsingCavrnusContentIdDefaultTypeInternal _ObjectType_CustomUsingCavrnusContentId_default_instance_;
 PROTOBUF_CONSTEXPR ObjectType_ChatMessageObjectType::ObjectType_ChatMessageObjectType(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -291,7 +305,7 @@ struct LightingEnvironmentContentTypeDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LightingEnvironmentContentTypeDefaultTypeInternal _LightingEnvironmentContentType_default_instance_;
 }  // namespace JournalData
-static ::_pb::Metadata file_level_metadata_journaldata_2eproto[18];
+static ::_pb::Metadata file_level_metadata_journaldata_2eproto[19];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_journaldata_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_journaldata_2eproto = nullptr;
 
@@ -372,6 +386,14 @@ const uint32_t TableStruct_journaldata_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::JournalData::ObjectType_CustomContentId, _impl_.customsourceid_),
   PROTOBUF_FIELD_OFFSET(::JournalData::ObjectType_CustomContentId, _impl_.customcontentid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::JournalData::ObjectType_CustomUsingCavrnusContentId, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::JournalData::ObjectType_CustomUsingCavrnusContentId, _impl_.customusageid_),
+  PROTOBUF_FIELD_OFFSET(::JournalData::ObjectType_CustomUsingCavrnusContentId, _impl_.customcontentid_),
   PROTOBUF_FIELD_OFFSET(::JournalData::ObjectType_ChatMessageObjectType, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::JournalData::ObjectType_ChatMessageObjectType, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -392,6 +414,7 @@ const uint32_t TableStruct_journaldata_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   PROTOBUF_FIELD_OFFSET(::JournalData::ObjectType, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
@@ -489,15 +512,16 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 53, -1, -1, sizeof(::JournalData::ObjectType_TextBoardObjectType)},
   { 61, -1, -1, sizeof(::JournalData::ObjectType_ArTrackerObjectType)},
   { 68, -1, -1, sizeof(::JournalData::ObjectType_CustomContentId)},
-  { 76, 86, -1, sizeof(::JournalData::ObjectType_ChatMessageObjectType)},
-  { 90, -1, -1, sizeof(::JournalData::ObjectType)},
-  { 111, -1, -1, sizeof(::JournalData::BoardSizeData)},
-  { 119, -1, -1, sizeof(::JournalData::ImageContentType)},
-  { 128, -1, -1, sizeof(::JournalData::Image2dPlacementData)},
-  { 139, -1, -1, sizeof(::JournalData::TagPlacementData)},
-  { 149, -1, -1, sizeof(::JournalData::ObjectPlacementData)},
-  { 158, -1, -1, sizeof(::JournalData::PartHighlightData)},
-  { 173, -1, -1, sizeof(::JournalData::LightingEnvironmentContentType)},
+  { 76, -1, -1, sizeof(::JournalData::ObjectType_CustomUsingCavrnusContentId)},
+  { 84, 94, -1, sizeof(::JournalData::ObjectType_ChatMessageObjectType)},
+  { 98, -1, -1, sizeof(::JournalData::ObjectType)},
+  { 120, -1, -1, sizeof(::JournalData::BoardSizeData)},
+  { 128, -1, -1, sizeof(::JournalData::ImageContentType)},
+  { 137, -1, -1, sizeof(::JournalData::Image2dPlacementData)},
+  { 148, -1, -1, sizeof(::JournalData::TagPlacementData)},
+  { 158, -1, -1, sizeof(::JournalData::ObjectPlacementData)},
+  { 167, -1, -1, sizeof(::JournalData::PartHighlightData)},
+  { 182, -1, -1, sizeof(::JournalData::LightingEnvironmentContentType)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -510,6 +534,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::JournalData::_ObjectType_TextBoardObjectType_default_instance_._instance,
   &::JournalData::_ObjectType_ArTrackerObjectType_default_instance_._instance,
   &::JournalData::_ObjectType_CustomContentId_default_instance_._instance,
+  &::JournalData::_ObjectType_CustomUsingCavrnusContentId_default_instance_._instance,
   &::JournalData::_ObjectType_ChatMessageObjectType_default_instance_._instance,
   &::JournalData::_ObjectType_default_instance_._instance,
   &::JournalData::_BoardSizeData_default_instance_._instance,
@@ -539,7 +564,7 @@ const char descriptor_table_protodef_journaldata_2eproto[] PROTOBUF_SECTION_VARI
   "\t\022\014\n\010Building\020\n\032b\n\002V2\022\021\n\ttaskStack\030\001 \003(\t"
   "\022\032\n\022currentDescription\030\002 \001(\t\022\024\n\014taskProg"
   "ress\030\003 \001(\002\022\027\n\017overallProgress\030\004 \001(\002B\003\n\001V"
-  "\"\371\010\n\nObjectType\022\023\n\tcontentId\030\001 \001(\tH\000\0220\n\n"
+  "\"\237\n\n\nObjectType\022\023\n\tcontentId\030\001 \001(\tH\000\0220\n\n"
   "whiteboard\030\002 \001(\0132\032.JournalData.BoardSize"
   "DataH\000\022I\n\020streamBoardOwner\030\003 \001(\0132-.Journ"
   "alData.ObjectType.StreamBoardObjectTypeH"
@@ -551,50 +576,54 @@ const char descriptor_table_protodef_journaldata_2eproto[] PROTOBUF_SECTION_VARI
   " \001(\0132+.JournalData.ObjectType.ArTrackerO"
   "bjectTypeH\000\022\030\n\016contentIdAsset\030\024 \001(\tH\000\022B\n"
   "\017customContentId\030\025 \001(\0132\'.JournalData.Obj"
-  "ectType.CustomContentIdH\000\022D\n\013chatMessage"
-  "\0302 \001(\0132-.JournalData.ObjectType.ChatMess"
-  "ageObjectTypeH\000\022\027\n\rblankMaterial\030d \001(\010H\000"
-  "\022\034\n\021wellKnownObjectId\030\364\003 \001(\tH\000\022\016\n\003url\030\365\003"
-  " \001(\tH\000\032=\n\025StreamBoardObjectType\022\024\n\014conne"
-  "ctionId\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\032Y\n\023TextBoa"
-  "rdObjectType\022\023\n\013initialText\030\001 \001(\t\022-\n\ttex"
-  "tboard\030\002 \001(\0132\032.JournalData.BoardSizeData"
-  "\032(\n\023ArTrackerObjectType\022\021\n\tcontentId\030\001 \001"
-  "(\t\032B\n\017CustomContentId\022\026\n\016customSourceId\030"
-  "\001 \001(\t\022\027\n\017customContentId\030\002 \001(\t\032\323\001\n\025ChatM"
-  "essageObjectType\022\023\n\013initialText\030\001 \001(\t\022/\n"
-  "\013timeCreated\030\002 \001(\0132\032.google.protobuf.Tim"
-  "estamp\022\026\n\tcreatorId\030\003 \001(\tH\000\210\001\001\022\?\n\nsource"
-  "Type\030\004 \001(\0162&.JournalData.ChatMessageSour"
-  "ceTypeEnumH\001\210\001\001B\014\n\n_creatorIdB\r\n\013_source"
-  "TypeB\004\n\002ObJ\004\010\004\020\005J\004\010\005\020\006J\004\010\t\020\n\"M\n\rBoardSiz"
-  "eData\022#\n\013aspectRatio\030\001 \001(\0132\016.Common.Floa"
-  "t2\022\027\n\017boardSizeScaler\030\002 \001(\002\"]\n\020ImageCont"
-  "entType\022\023\n\tcontentId\030\001 \001(\tH\000\022.\n\rimagePro"
-  "gress\030\002 \001(\0132\025.JournalData.ProgressH\000B\004\n\002"
-  "Im\"\265\001\n\024Image2dPlacementData\022\'\n\010objectId\030"
-  "\001 \001(\0132\025.JournalData.ObjectId\0223\n\022visibleW"
-  "ithinState\030\002 \001(\0132\027.JournalData.BoardStat"
-  "e\022\035\n\005point\030\003 \001(\0132\016.Common.Float2\022\016\n\006heig"
-  "ht\030\004 \001(\002\022\020\n\010rotation\030\005 \001(\002\"\221\001\n\020TagPlacem"
-  "entData\022\'\n\010objectId\030\001 \001(\0132\025.JournalData."
-  "ObjectId\022!\n\tanchorPos\030\002 \001(\0132\016.Common.Flo"
-  "at3\022!\n\ttagOffset\030\003 \001(\0132\016.Common.Float3\022\016"
-  "\n\006height\030\004 \001(\002\"x\n\023ObjectPlacementData\022 \n"
-  "\010position\030\001 \001(\0132\016.Common.Float3\022 \n\010rotat"
-  "ion\030\002 \001(\0132\016.Common.Float3\022\035\n\005scale\030\003 \001(\013"
-  "2\016.Common.Float3\"\330\001\n\021PartHighlightData\022$"
-  "\n\014primaryColor\030\003 \001(\0132\016.Common.Color4\022&\n\016"
-  "secondaryColor\030\004 \001(\0132\016.Common.Color4\022\016\n\006"
-  "spread\030\005 \001(\002\022\r\n\005speed\030\006 \001(\002\022\020\n\010coverage\030"
-  "\007 \001(\002\022\016\n\006edging\030\010 \001(\002\022\020\n\010riseTime\030\t \001(\002\022"
-  "\020\n\010holdTime\030\n \001(\002\022\020\n\010fallTime\030\013 \001(\002\"k\n\036L"
-  "ightingEnvironmentContentType\022\023\n\tcontent"
-  "Id\030\001 \001(\tH\000\022.\n\rimageProgress\030\002 \001(\0132\025.Jour"
-  "nalData.ProgressH\000B\004\n\002Im*8\n\031ChatMessageS"
-  "ourceTypeEnum\022\010\n\004Chat\020\000\022\021\n\rTranscription"
-  "\020\001B\036\252\002\033Collab.Proxy.Comm.LiveTypesb\006prot"
-  "o3"
+  "ectType.CustomContentIdH\000\022U\n\026customCavrn"
+  "usContentId\030\026 \001(\01323.JournalData.ObjectTy"
+  "pe.CustomUsingCavrnusContentIdH\000\022D\n\013chat"
+  "Message\0302 \001(\0132-.JournalData.ObjectType.C"
+  "hatMessageObjectTypeH\000\022\027\n\rblankMaterial\030"
+  "d \001(\010H\000\022\034\n\021wellKnownObjectId\030\364\003 \001(\tH\000\022\016\n"
+  "\003url\030\365\003 \001(\tH\000\032=\n\025StreamBoardObjectType\022\024"
+  "\n\014connectionId\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\032Y\n\023"
+  "TextBoardObjectType\022\023\n\013initialText\030\001 \001(\t"
+  "\022-\n\ttextboard\030\002 \001(\0132\032.JournalData.BoardS"
+  "izeData\032(\n\023ArTrackerObjectType\022\021\n\tconten"
+  "tId\030\001 \001(\t\032B\n\017CustomContentId\022\026\n\016customSo"
+  "urceId\030\001 \001(\t\022\027\n\017customContentId\030\002 \001(\t\032M\n"
+  "\033CustomUsingCavrnusContentId\022\025\n\rcustomUs"
+  "ageId\030\001 \001(\t\022\027\n\017customContentId\030\002 \001(\t\032\323\001\n"
+  "\025ChatMessageObjectType\022\023\n\013initialText\030\001 "
+  "\001(\t\022/\n\013timeCreated\030\002 \001(\0132\032.google.protob"
+  "uf.Timestamp\022\026\n\tcreatorId\030\003 \001(\tH\000\210\001\001\022\?\n\n"
+  "sourceType\030\004 \001(\0162&.JournalData.ChatMessa"
+  "geSourceTypeEnumH\001\210\001\001B\014\n\n_creatorIdB\r\n\013_"
+  "sourceTypeB\004\n\002ObJ\004\010\004\020\005J\004\010\005\020\006J\004\010\t\020\n\"M\n\rBo"
+  "ardSizeData\022#\n\013aspectRatio\030\001 \001(\0132\016.Commo"
+  "n.Float2\022\027\n\017boardSizeScaler\030\002 \001(\002\"]\n\020Ima"
+  "geContentType\022\023\n\tcontentId\030\001 \001(\tH\000\022.\n\rim"
+  "ageProgress\030\002 \001(\0132\025.JournalData.Progress"
+  "H\000B\004\n\002Im\"\265\001\n\024Image2dPlacementData\022\'\n\010obj"
+  "ectId\030\001 \001(\0132\025.JournalData.ObjectId\0223\n\022vi"
+  "sibleWithinState\030\002 \001(\0132\027.JournalData.Boa"
+  "rdState\022\035\n\005point\030\003 \001(\0132\016.Common.Float2\022\016"
+  "\n\006height\030\004 \001(\002\022\020\n\010rotation\030\005 \001(\002\"\221\001\n\020Tag"
+  "PlacementData\022\'\n\010objectId\030\001 \001(\0132\025.Journa"
+  "lData.ObjectId\022!\n\tanchorPos\030\002 \001(\0132\016.Comm"
+  "on.Float3\022!\n\ttagOffset\030\003 \001(\0132\016.Common.Fl"
+  "oat3\022\016\n\006height\030\004 \001(\002\"x\n\023ObjectPlacementD"
+  "ata\022 \n\010position\030\001 \001(\0132\016.Common.Float3\022 \n"
+  "\010rotation\030\002 \001(\0132\016.Common.Float3\022\035\n\005scale"
+  "\030\003 \001(\0132\016.Common.Float3\"\330\001\n\021PartHighlight"
+  "Data\022$\n\014primaryColor\030\003 \001(\0132\016.Common.Colo"
+  "r4\022&\n\016secondaryColor\030\004 \001(\0132\016.Common.Colo"
+  "r4\022\016\n\006spread\030\005 \001(\002\022\r\n\005speed\030\006 \001(\002\022\020\n\010cov"
+  "erage\030\007 \001(\002\022\016\n\006edging\030\010 \001(\002\022\020\n\010riseTime\030"
+  "\t \001(\002\022\020\n\010holdTime\030\n \001(\002\022\020\n\010fallTime\030\013 \001("
+  "\002\"k\n\036LightingEnvironmentContentType\022\023\n\tc"
+  "ontentId\030\001 \001(\tH\000\022.\n\rimageProgress\030\002 \001(\0132"
+  "\025.JournalData.ProgressH\000B\004\n\002Im*8\n\031ChatMe"
+  "ssageSourceTypeEnum\022\010\n\004Chat\020\000\022\021\n\rTranscr"
+  "iption\020\001B\036\252\002\033Collab.Proxy.Comm.LiveTypes"
+  "b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_journaldata_2eproto_deps[2] = {
   &::descriptor_table_common_2eproto,
@@ -602,9 +631,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_journaldata_2eproto
 };
 static ::_pbi::once_flag descriptor_table_journaldata_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_journaldata_2eproto = {
-    false, false, 2882, descriptor_table_protodef_journaldata_2eproto,
+    false, false, 3048, descriptor_table_protodef_journaldata_2eproto,
     "journaldata.proto",
-    &descriptor_table_journaldata_2eproto_once, descriptor_table_journaldata_2eproto_deps, 2, 18,
+    &descriptor_table_journaldata_2eproto_once, descriptor_table_journaldata_2eproto_deps, 2, 19,
     schemas, file_default_instances, TableStruct_journaldata_2eproto::offsets,
     file_level_metadata_journaldata_2eproto, file_level_enum_descriptors_journaldata_2eproto,
     file_level_service_descriptors_journaldata_2eproto,
@@ -3026,6 +3055,259 @@ void ObjectType_CustomContentId::InternalSwap(ObjectType_CustomContentId* other)
 
 // ===================================================================
 
+class ObjectType_CustomUsingCavrnusContentId::_Internal {
+ public:
+};
+
+ObjectType_CustomUsingCavrnusContentId::ObjectType_CustomUsingCavrnusContentId(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:JournalData.ObjectType.CustomUsingCavrnusContentId)
+}
+ObjectType_CustomUsingCavrnusContentId::ObjectType_CustomUsingCavrnusContentId(const ObjectType_CustomUsingCavrnusContentId& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ObjectType_CustomUsingCavrnusContentId* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.customusageid_){}
+    , decltype(_impl_.customcontentid_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.customusageid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.customusageid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_customusageid().empty()) {
+    _this->_impl_.customusageid_.Set(from._internal_customusageid(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.customcontentid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.customcontentid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_customcontentid().empty()) {
+    _this->_impl_.customcontentid_.Set(from._internal_customcontentid(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:JournalData.ObjectType.CustomUsingCavrnusContentId)
+}
+
+inline void ObjectType_CustomUsingCavrnusContentId::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.customusageid_){}
+    , decltype(_impl_.customcontentid_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.customusageid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.customusageid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.customcontentid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.customcontentid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ObjectType_CustomUsingCavrnusContentId::~ObjectType_CustomUsingCavrnusContentId() {
+  // @@protoc_insertion_point(destructor:JournalData.ObjectType.CustomUsingCavrnusContentId)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ObjectType_CustomUsingCavrnusContentId::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.customusageid_.Destroy();
+  _impl_.customcontentid_.Destroy();
+}
+
+void ObjectType_CustomUsingCavrnusContentId::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ObjectType_CustomUsingCavrnusContentId::Clear() {
+// @@protoc_insertion_point(message_clear_start:JournalData.ObjectType.CustomUsingCavrnusContentId)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.customusageid_.ClearToEmpty();
+  _impl_.customcontentid_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ObjectType_CustomUsingCavrnusContentId::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string customUsageId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_customusageid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "JournalData.ObjectType.CustomUsingCavrnusContentId.customUsageId"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string customContentId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_customcontentid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "JournalData.ObjectType.CustomUsingCavrnusContentId.customContentId"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ObjectType_CustomUsingCavrnusContentId::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:JournalData.ObjectType.CustomUsingCavrnusContentId)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string customUsageId = 1;
+  if (!this->_internal_customusageid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_customusageid().data(), static_cast<int>(this->_internal_customusageid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "JournalData.ObjectType.CustomUsingCavrnusContentId.customUsageId");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_customusageid(), target);
+  }
+
+  // string customContentId = 2;
+  if (!this->_internal_customcontentid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_customcontentid().data(), static_cast<int>(this->_internal_customcontentid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "JournalData.ObjectType.CustomUsingCavrnusContentId.customContentId");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_customcontentid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:JournalData.ObjectType.CustomUsingCavrnusContentId)
+  return target;
+}
+
+size_t ObjectType_CustomUsingCavrnusContentId::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:JournalData.ObjectType.CustomUsingCavrnusContentId)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string customUsageId = 1;
+  if (!this->_internal_customusageid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_customusageid());
+  }
+
+  // string customContentId = 2;
+  if (!this->_internal_customcontentid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_customcontentid());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ObjectType_CustomUsingCavrnusContentId::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ObjectType_CustomUsingCavrnusContentId::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ObjectType_CustomUsingCavrnusContentId::GetClassData() const { return &_class_data_; }
+
+
+void ObjectType_CustomUsingCavrnusContentId::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ObjectType_CustomUsingCavrnusContentId*>(&to_msg);
+  auto& from = static_cast<const ObjectType_CustomUsingCavrnusContentId&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:JournalData.ObjectType.CustomUsingCavrnusContentId)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_customusageid().empty()) {
+    _this->_internal_set_customusageid(from._internal_customusageid());
+  }
+  if (!from._internal_customcontentid().empty()) {
+    _this->_internal_set_customcontentid(from._internal_customcontentid());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ObjectType_CustomUsingCavrnusContentId::CopyFrom(const ObjectType_CustomUsingCavrnusContentId& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:JournalData.ObjectType.CustomUsingCavrnusContentId)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ObjectType_CustomUsingCavrnusContentId::IsInitialized() const {
+  return true;
+}
+
+void ObjectType_CustomUsingCavrnusContentId::InternalSwap(ObjectType_CustomUsingCavrnusContentId* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.customusageid_, lhs_arena,
+      &other->_impl_.customusageid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.customcontentid_, lhs_arena,
+      &other->_impl_.customcontentid_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ObjectType_CustomUsingCavrnusContentId::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
+      file_level_metadata_journaldata_2eproto[9]);
+}
+
+// ===================================================================
+
 class ObjectType_ChatMessageObjectType::_Internal {
  public:
   using HasBits = decltype(std::declval<ObjectType_ChatMessageObjectType>()._impl_._has_bits_);
@@ -3373,7 +3655,7 @@ void ObjectType_ChatMessageObjectType::InternalSwap(ObjectType_ChatMessageObject
 ::PROTOBUF_NAMESPACE_ID::Metadata ObjectType_ChatMessageObjectType::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
-      file_level_metadata_journaldata_2eproto[9]);
+      file_level_metadata_journaldata_2eproto[10]);
 }
 
 // ===================================================================
@@ -3387,6 +3669,7 @@ class ObjectType::_Internal {
   static const ::JournalData::ObjectType_TextBoardObjectType& textboard(const ObjectType* msg);
   static const ::JournalData::ObjectType_ArTrackerObjectType& artracker(const ObjectType* msg);
   static const ::JournalData::ObjectType_CustomContentId& customcontentid(const ObjectType* msg);
+  static const ::JournalData::ObjectType_CustomUsingCavrnusContentId& customcavrnuscontentid(const ObjectType* msg);
   static const ::JournalData::ObjectType_ChatMessageObjectType& chatmessage(const ObjectType* msg);
 };
 
@@ -3417,6 +3700,10 @@ ObjectType::_Internal::artracker(const ObjectType* msg) {
 const ::JournalData::ObjectType_CustomContentId&
 ObjectType::_Internal::customcontentid(const ObjectType* msg) {
   return *msg->_impl_.Ob_.customcontentid_;
+}
+const ::JournalData::ObjectType_CustomUsingCavrnusContentId&
+ObjectType::_Internal::customcavrnuscontentid(const ObjectType* msg) {
+  return *msg->_impl_.Ob_.customcavrnuscontentid_;
 }
 const ::JournalData::ObjectType_ChatMessageObjectType&
 ObjectType::_Internal::chatmessage(const ObjectType* msg) {
@@ -3527,6 +3814,21 @@ void ObjectType::set_allocated_customcontentid(::JournalData::ObjectType_CustomC
   }
   // @@protoc_insertion_point(field_set_allocated:JournalData.ObjectType.customContentId)
 }
+void ObjectType::set_allocated_customcavrnuscontentid(::JournalData::ObjectType_CustomUsingCavrnusContentId* customcavrnuscontentid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Ob();
+  if (customcavrnuscontentid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(customcavrnuscontentid);
+    if (message_arena != submessage_arena) {
+      customcavrnuscontentid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, customcavrnuscontentid, submessage_arena);
+    }
+    set_has_customcavrnuscontentid();
+    _impl_.Ob_.customcavrnuscontentid_ = customcavrnuscontentid;
+  }
+  // @@protoc_insertion_point(field_set_allocated:JournalData.ObjectType.customCavrnusContentId)
+}
 void ObjectType::set_allocated_chatmessage(::JournalData::ObjectType_ChatMessageObjectType* chatmessage) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_Ob();
@@ -3604,6 +3906,11 @@ ObjectType::ObjectType(const ObjectType& from)
     case kCustomContentId: {
       _this->_internal_mutable_customcontentid()->::JournalData::ObjectType_CustomContentId::MergeFrom(
           from._internal_customcontentid());
+      break;
+    }
+    case kCustomCavrnusContentId: {
+      _this->_internal_mutable_customcavrnuscontentid()->::JournalData::ObjectType_CustomUsingCavrnusContentId::MergeFrom(
+          from._internal_customcavrnuscontentid());
       break;
     }
     case kChatMessage: {
@@ -3716,6 +4023,12 @@ void ObjectType::clear_Ob() {
     case kCustomContentId: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.Ob_.customcontentid_;
+      }
+      break;
+    }
+    case kCustomCavrnusContentId: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Ob_.customcavrnuscontentid_;
       }
       break;
     }
@@ -3841,6 +4154,14 @@ const char* ObjectType::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
       case 21:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 170)) {
           ptr = ctx->ParseMessage(_internal_mutable_customcontentid(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .JournalData.ObjectType.CustomUsingCavrnusContentId customCavrnusContentId = 22;
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 178)) {
+          ptr = ctx->ParseMessage(_internal_mutable_customcavrnuscontentid(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3985,6 +4306,13 @@ uint8_t* ObjectType::_InternalSerialize(
         _Internal::customcontentid(this).GetCachedSize(), target, stream);
   }
 
+  // .JournalData.ObjectType.CustomUsingCavrnusContentId customCavrnusContentId = 22;
+  if (_internal_has_customcavrnuscontentid()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(22, _Internal::customcavrnuscontentid(this),
+        _Internal::customcavrnuscontentid(this).GetCachedSize(), target, stream);
+  }
+
   // .JournalData.ObjectType.ChatMessageObjectType chatMessage = 50;
   if (_internal_has_chatmessage()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4103,6 +4431,13 @@ size_t ObjectType::ByteSizeLong() const {
           *_impl_.Ob_.customcontentid_);
       break;
     }
+    // .JournalData.ObjectType.CustomUsingCavrnusContentId customCavrnusContentId = 22;
+    case kCustomCavrnusContentId: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Ob_.customcavrnuscontentid_);
+      break;
+    }
     // .JournalData.ObjectType.ChatMessageObjectType chatMessage = 50;
     case kChatMessage: {
       total_size += 2 +
@@ -4199,6 +4534,11 @@ void ObjectType::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PRO
           from._internal_customcontentid());
       break;
     }
+    case kCustomCavrnusContentId: {
+      _this->_internal_mutable_customcavrnuscontentid()->::JournalData::ObjectType_CustomUsingCavrnusContentId::MergeFrom(
+          from._internal_customcavrnuscontentid());
+      break;
+    }
     case kChatMessage: {
       _this->_internal_mutable_chatmessage()->::JournalData::ObjectType_ChatMessageObjectType::MergeFrom(
           from._internal_chatmessage());
@@ -4244,7 +4584,7 @@ void ObjectType::InternalSwap(ObjectType* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ObjectType::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
-      file_level_metadata_journaldata_2eproto[10]);
+      file_level_metadata_journaldata_2eproto[11]);
 }
 
 // ===================================================================
@@ -4486,7 +4826,7 @@ void BoardSizeData::InternalSwap(BoardSizeData* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata BoardSizeData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
-      file_level_metadata_journaldata_2eproto[11]);
+      file_level_metadata_journaldata_2eproto[12]);
 }
 
 // ===================================================================
@@ -4772,7 +5112,7 @@ void ImageContentType::InternalSwap(ImageContentType* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageContentType::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
-      file_level_metadata_journaldata_2eproto[12]);
+      file_level_metadata_journaldata_2eproto[13]);
 }
 
 // ===================================================================
@@ -5136,7 +5476,7 @@ void Image2dPlacementData::InternalSwap(Image2dPlacementData* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Image2dPlacementData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
-      file_level_metadata_journaldata_2eproto[13]);
+      file_level_metadata_journaldata_2eproto[14]);
 }
 
 // ===================================================================
@@ -5466,7 +5806,7 @@ void TagPlacementData::InternalSwap(TagPlacementData* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata TagPlacementData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
-      file_level_metadata_journaldata_2eproto[14]);
+      file_level_metadata_journaldata_2eproto[15]);
 }
 
 // ===================================================================
@@ -5764,7 +6104,7 @@ void ObjectPlacementData::InternalSwap(ObjectPlacementData* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ObjectPlacementData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
-      file_level_metadata_journaldata_2eproto[15]);
+      file_level_metadata_journaldata_2eproto[16]);
 }
 
 // ===================================================================
@@ -6273,7 +6613,7 @@ void PartHighlightData::InternalSwap(PartHighlightData* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PartHighlightData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
-      file_level_metadata_journaldata_2eproto[16]);
+      file_level_metadata_journaldata_2eproto[17]);
 }
 
 // ===================================================================
@@ -6559,7 +6899,7 @@ void LightingEnvironmentContentType::InternalSwap(LightingEnvironmentContentType
 ::PROTOBUF_NAMESPACE_ID::Metadata LightingEnvironmentContentType::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journaldata_2eproto_getter, &descriptor_table_journaldata_2eproto_once,
-      file_level_metadata_journaldata_2eproto[17]);
+      file_level_metadata_journaldata_2eproto[18]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -6600,6 +6940,10 @@ Arena::CreateMaybeMessage< ::JournalData::ObjectType_ArTrackerObjectType >(Arena
 template<> PROTOBUF_NOINLINE ::JournalData::ObjectType_CustomContentId*
 Arena::CreateMaybeMessage< ::JournalData::ObjectType_CustomContentId >(Arena* arena) {
   return Arena::CreateMessageInternal< ::JournalData::ObjectType_CustomContentId >(arena);
+}
+template<> PROTOBUF_NOINLINE ::JournalData::ObjectType_CustomUsingCavrnusContentId*
+Arena::CreateMaybeMessage< ::JournalData::ObjectType_CustomUsingCavrnusContentId >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::JournalData::ObjectType_CustomUsingCavrnusContentId >(arena);
 }
 template<> PROTOBUF_NOINLINE ::JournalData::ObjectType_ChatMessageObjectType*
 Arena::CreateMaybeMessage< ::JournalData::ObjectType_ChatMessageObjectType >(Arena* arena) {

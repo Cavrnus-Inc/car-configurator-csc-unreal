@@ -9,6 +9,10 @@
  *
  */
 
+namespace Cavrnus
+{
+	class CavrnusRelayModel;
+}
 
 UCLASS(BlueprintType)
 class CAVRNUSCONNECTOR_API UCavrnusLiveTransformPropertyUpdate : public UCavrnusLivePropertyUpdate
@@ -20,7 +24,7 @@ public:
 	UCavrnusLiveTransformPropertyUpdate();
 
 	// Destructor
-	~UCavrnusLiveTransformPropertyUpdate();
+	virtual ~UCavrnusLiveTransformPropertyUpdate();
 
 	void Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, FTransform value);
 

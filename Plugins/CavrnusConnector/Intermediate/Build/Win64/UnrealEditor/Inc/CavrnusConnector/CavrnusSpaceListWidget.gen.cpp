@@ -11,11 +11,18 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 // Cross Module References
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusSpaceListWidget_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusSpaceListWidget();
-	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusWidgetBase();
+	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UListView_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UCavrnusSpaceListWidget::execSetup)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Setup();
+		P_NATIVE_END;
+	}
 	static FName NAME_UCavrnusSpaceListWidget_GetSpaceID = FName(TEXT("GetSpaceID"));
 	FString UCavrnusSpaceListWidget::GetSpaceID(UObject* Item)
 	{
@@ -26,6 +33,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 	}
 	void UCavrnusSpaceListWidget::StaticRegisterNativesUCavrnusSpaceListWidget()
 	{
+		UClass* Class = UCavrnusSpaceListWidget::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "Setup", &UCavrnusSpaceListWidget::execSetup },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
 	struct Z_Construct_UFunction_UCavrnusSpaceListWidget_GetSpaceID_Statics
 	{
@@ -59,6 +71,29 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Cavrnus" },
+		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpaceListWidget, nullptr, "Setup", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCavrnusSpaceListWidget);
 	UClass* Z_Construct_UClass_UCavrnusSpaceListWidget_NoRegister()
 	{
@@ -80,11 +115,12 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UCavrnusWidgetBase,
+		(UObject* (*)())Z_Construct_UClass_UUserWidget,
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCavrnusSpaceListWidget_GetSpaceID, "GetSpaceID" }, // 2700829150
+		{ &Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup, "Setup" }, // 3822111549
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::Class_MetaDataParams[] = {
@@ -140,9 +176,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusSpaceListWidget, UCavrnusSpaceListWidget::StaticClass, TEXT("UCavrnusSpaceListWidget"), &Z_Registration_Info_UClass_UCavrnusSpaceListWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpaceListWidget), 2142510761U) },
+		{ Z_Construct_UClass_UCavrnusSpaceListWidget, UCavrnusSpaceListWidget::StaticClass, TEXT("UCavrnusSpaceListWidget"), &Z_Registration_Info_UClass_UCavrnusSpaceListWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpaceListWidget), 3303312508U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_1962440018(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_123320850(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

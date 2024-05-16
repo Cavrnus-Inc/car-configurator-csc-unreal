@@ -2,11 +2,7 @@
 #include "CavrnusConnectorEditorModule.h"
 #include "Interfaces/IMainFrameModule.h"
 #include "Editor/EditorEngine.h"
-#include "CavrnusEditorMode.h"
-#include "CavrnusEditorStyle.h"
-#include "UI/CavrnusWidgetBase.h"
 
-#include <ContentBrowserModule.h>
 #include <Misc/Paths.h>
 #include <LevelEditor.h>
 #include <EngineUtils.h> // for TActorIterator<>
@@ -25,10 +21,6 @@
 #include <Engine/SimpleConstructionScript.h>
 #include <Engine/SCS_Node.h>
 #include <Kismet2/BlueprintEditorUtils.h>
-#include <EditorModeRegistry.h>
-#include <Interfaces/IPluginManager.h>
-#include <Styling/SlateStyle.h>
-#include <Styling/SlateStyleRegistry.h>
 #include <Tools/Modes.h>
 #include <CavrnusSyncMaterial.h>
 
@@ -70,8 +62,6 @@ void FCavrnusConnectorEditorModule::StartupModule()
 
 	LevelEditorModule.GetMenuExtensibilityManager()->AddExtender(MenuExtender);
 	UToolMenus::RegisterStartupCallback(FSimpleMulticastDelegate::FDelegate::CreateRaw(this, &FCavrnusConnectorEditorModule::RegisterToolsMenus));
-
-	RegisterEditorMode();
 }
 
 //===============================================================
@@ -482,24 +472,6 @@ void FCavrnusConnectorEditorModule::AddCavrnusToolsOptions(FToolMenuSection& InS
 	}
 }
 
-void FCavrnusConnectorEditorModule::RegisterEditorMode()
-{
-	// Create editor style.
-	EditorModeTabStyle = MakeShareable(new FCavrnusTabStyle(TEXT("CavrnusTabStyle")));
-
-	FString PluginPath = GetPluginPath();
-	EditorModeTabStyle->Init(PluginPath);
-
-	// Register Editor Mode.
-	FEditorModeRegistry::Get().RegisterMode<FCavrnusEditorMode>
-		(
-			FCavrnusEditorMode::EM_CavrnusEditorModeID,
-			LOCTEXT("CavrnusEdModeName", "Cavrnus"),
-			FSlateIcon(EditorModeTabStyle->StyleName, EditorModeTabStyle->TabIcon, EditorModeTabStyle->TabIconSmall),
-			true
-		);
-}
-
 void FCavrnusConnectorEditorModule::FillTopRibbonMenu(FMenuBuilder& MenuBuilder) {
 	MenuBuilder.AddMenuEntry(
 		FText::FromString(TEXT("Add CavrnusSpatialConnector to current level")),
@@ -539,10 +511,10 @@ void FCavrnusConnectorEditorModule::AddCavrnusSpatialConnectorToLevel()
 					CavrnusSpatialConnector->SpaceJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/SpaceListMenu/WBP_SpaceSelection.WBP_SpaceSelection_C"), UCavrnusSpaceListWidget::StaticClass());
 					CavrnusSpatialConnector->LoadingWidgetClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoadingMenu/WBP_LoadingWidget.WBP_LoadingWidget_C"), UUserWidget::StaticClass());
 					CavrnusSpatialConnector->RemoteAvatarClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/Pawns/Blueprints/BP_CavrnusPawn.BP_CavrnusPawn_C"), AActor::StaticClass());
-
-					TArray<TSubclassOf<UCavrnusWidgetBase>> WidgetsToLoad;
-					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/AudioVideoMenu/WBP_AudioVideoWidget.WBP_AudioVideoWidget_C"), UCavrnusWidgetBase::StaticClass()));
-					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/UsersMenu/WBP_UserListWidget.WBP_UserListWidget_C"), UCavrnusWidgetBase::StaticClass()));
+					
+					TArray<TSubclassOf<UUserWidget>> WidgetsToLoad;
+					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/AudioVideoMenu/WBP_AudioVideoWidget.WBP_AudioVideoWidget_C"), UUserWidget::StaticClass()));
+					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/UsersMenu/WBP_UserListWidget.WBP_UserListWidget_C"), UUserWidget::StaticClass()));
 					CavrnusSpatialConnector->WidgetsToLoad = WidgetsToLoad;
 				}
 			}
@@ -588,6 +560,5 @@ FString FCavrnusConnectorEditorModule::GetPluginPath()
 
 	return PluginPath;
 }
-
 
 #undef LOCTEXT_NAMESPACE

@@ -30,13 +30,13 @@ namespace Cavrnus
 		static FCavrnusSpaceConnection FromPb(ServerData::CavrnusSpaceConnection InSpaceConnection);
 		static ServerData::CavrnusSpaceConnection ToPb(FCavrnusSpaceConnection InSpaceConnection);
 		static FCavrnusSpaceInfo ToSpaceInfo(ServerData::SpaceInfo space);
-		static FCavrnusUser ToCavrnusUser(ServerData::CavrnusUser user);
+		static FCavrnusUser ToCavrnusUser(ServerData::CavrnusUser user, const FCavrnusSpaceConnection& spaceConn);
 #pragma endregion
 
 
 #pragma region Message Builders
 		static const ServerData::RelayClientMessage BuildKeepAliveMsg();
-		static const ServerData::RelayClientMessage BuildUpdateTimeMsg(float currTime);
+		static const ServerData::RelayClientMessage BuildUpdateTimeMsg(double currTime);
 
 		static const ServerData::RelayClientMessage BuildAuthenticateGuest(int callbackId, const FString& server, const FString& screenName);
 		static const ServerData::RelayClientMessage BuildAuthenticateWithPassword(int callbackId, const FString& server, const FString& email, const FString& password);
@@ -74,7 +74,24 @@ namespace Cavrnus
 		static const ServerData::RelayClientMessage BuildUploadContent(int callbackId, const FString& filePath, const TMap<FString, FString>& tags);
 #pragma endregion
 
+		static FString CreateTransientId()
+		{
+			//Copied from: https://stackoverflow.com/questions/440133/how-do-i-create-a-random-alpha-numeric-string-in-c
 
+			size_t length = 8;
+			auto randchar = []() -> char
+			{
+				const char charset[] =
+					"0123456789"
+					"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+					"abcdefghijklmnopqrstuvwxyz";
+				const size_t max_index = (sizeof(charset) - 1);
+				return charset[rand() % max_index];
+			};
+			std::string str(length, 0);
+			std::generate_n(str.begin(), length, randchar);
+			return str.c_str();
+		}
 
 	private:
 

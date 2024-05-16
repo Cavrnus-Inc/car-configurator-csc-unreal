@@ -1,33 +1,70 @@
 #pragma once
 #include "CoreMinimal.h"
+#include <Blueprint/UserWidget.h>
 #include <Engine/GameInstance.h>
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "UObject/Object.h"
 
 #include "Types/CavrnusAuthentication.h"
-#include "Types/CavrnusSpawnedObject.h"
 #include "Types/CavrnusCallbackTypes.h"
+
+#include "CavrnusFunctionLibrary.h"
 
 #include "CavrnusSpatialConnectorSubSystem.generated.h"
 
+class UCavrnusWidgetBase;
 class ACavrnusSpatialConnector;
 class AController;
 class APawn;
-class USpawnedObjectsManager;
-class UCavrnusAvatarManager;
+class SpawnedObjectsManager;
+class CavrnusAvatarManager;
 class UPDFManager;
 
 UCLASS(BlueprintType, Blueprintable)
 class CAVRNUSCONNECTOR_API UCavrnusSpatialConnectorSubSystemProxy : public UObject
 {
 	GENERATED_BODY()
+
+public:
+	class UIManager
+	{
+	public:
+		UIManager();
+
+		void Initialize(ACavrnusSpatialConnector* Connector);
+
+		UUserWidget* SpawnWidget(TSubclassOf<UUserWidget> WidgetClass);
+
+		void RemoveWidget(UUserWidget* Widget);
+
+		void RemoveAllWidgets();
+
+		void ShowGuestLoginWidget(CavrnusAuthRecv SuccessDelegate, CavrnusError FailureDelegate);
+
+		void ShowLoginWidget(CavrnusAuthRecv SuccessDelegate, CavrnusError FailureDelegate);
+
+		void ShowLoadingWidget(bool bShowWidget);
+
+		void ShowSpaceList();
+		ACavrnusSpatialConnector* GetConnector();
+
+		TArray<TWeakObjectPtr<UUserWidget>> CavrnusWidgets;
+
+	private:
+		UWorld* World = nullptr;
+		TWeakObjectPtr<UUserWidget> LoadingWidget;
+		TWeakObjectPtr<ACavrnusSpatialConnector> CurrentCavrnusSpatialConnector;
+	};
+	
+	UIManager* GetUIManager();
+
 public:
 	UCavrnusSpatialConnectorSubSystemProxy();
 	virtual ~UCavrnusSpatialConnectorSubSystemProxy();
 
 	void Initialize();
 	void Deinitialize();
-
+	
 	/**
 	* The objects created within the Core will be belong to given object.
 	* If not set, default is transient package.
@@ -60,23 +97,6 @@ public:
 	UFUNCTION()
 	void OnSpaceConnectionFailure(FString Error);
 
-	void SpawnCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject);
-	FCavrnusSpawnedObject GetSpawnedObject(AActor* Actor);
-
-	void DestroyCavrnusActor(const FCavrnusSpawnedObject& SpawnedObject);
-
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	UCavrnusAvatarManager* GetAvatarManager();
-
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	USpawnedObjectsManager* GetSpawnedObjectsManager();
-
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	UPDFManager* GetPDFManager();
-
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	class UCavrnusUIManager* GetUIManager();
-
 private:
 	UFUNCTION()
 	void OnPawnControllerChanged(APawn* InPawn, AController* InController);
@@ -85,33 +105,25 @@ private:
 	void OnPossessedPawnChanged(APawn* OldPawn, APawn* NewPawn);
 
 	UFUNCTION()
-	void AttachLocalUserComponentToPawn();
+	void SetupLocalUserPawn();
 
 private:
+	UIManager* UIManagerInstance;
 	TWeakObjectPtr<ACavrnusSpatialConnector> CurrentCavrnusSpatialConnector;
 
-	FCavrnusAuthRecv AuthSuccess;
-	FCavrnusError AuthFailure;
-	FCavrnusSpaceConnected SpaceConnectionSuccess;
-	FCavrnusError SpaceConnectionFailure;
-
-	UPROPERTY()
-	class UCavrnusUIManager* UIManager;
+	CavrnusAuthRecv AuthSuccess;
+	CavrnusError AuthFailure;
+	CavrnusSpaceConnected SpaceConnectionSuccess;
+	CavrnusError SpaceConnectionFailure;
 
 	UPROPERTY()
 	FCavrnusAuthentication Authentication;
 
-	UPROPERTY()
-	bool bHasSpaceConnection = false;
+	bool hasSpaceConn;
+	FCavrnusSpaceConnection SpaceConn;
 
-	UPROPERTY()
-	USpawnedObjectsManager* SpawnedObjectsManager;
-
-	UPROPERTY()
-	UCavrnusAvatarManager* AvatarManager;
-
-	UPROPERTY()
-	UPDFManager* PDFManager;
+	SpawnedObjectsManager* SpawnManager;
+	CavrnusAvatarManager* AvatarManager;
 
 	TWeakObjectPtr<UGameInstance> GameInstance;
 	TWeakObjectPtr<UObject> ObjectOwner;

@@ -32,8 +32,7 @@ namespace Cavrnus
 		if (CurrPolicyAllowedValues.Contains(policy))
 			callback(policy, CurrPolicyAllowedValues[policy]);
 
-		using func = const CavrnusPolicyUpdated;
-		TSharedPtr<func> CallbackPtr = MakeShareable(new func(callback));
+		CavrnusPolicyUpdated* CallbackPtr = new CavrnusPolicyUpdated(callback);
 
 		PolicyBindings.FindOrAdd(policy);
 		PolicyBindings[policy].Add(CallbackPtr);

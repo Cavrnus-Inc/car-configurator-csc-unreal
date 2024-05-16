@@ -11,7 +11,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 // Cross Module References
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusGuestLoginWidget_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusGuestLoginWidget();
-	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusWidgetBase();
+	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 	UMG_API UClass* Z_Construct_UClass_UEditableTextBox_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
@@ -23,11 +23,19 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 		P_THIS->OnLoginClicked();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UCavrnusGuestLoginWidget::execSetup)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Setup();
+		P_NATIVE_END;
+	}
 	void UCavrnusGuestLoginWidget::StaticRegisterNativesUCavrnusGuestLoginWidget()
 	{
 		UClass* Class = UCavrnusGuestLoginWidget::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "OnLoginClicked", &UCavrnusGuestLoginWidget::execOnLoginClicked },
+			{ "Setup", &UCavrnusGuestLoginWidget::execSetup },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -50,6 +58,30 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusGuestLoginWidget_OnLoginClicked_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup_Statics::Function_MetaDataParams[] = {
+		{ "BindWidget", "" },
+		{ "Category", "Cavrnus" },
+		{ "ModuleRelativePath", "Public/UI/CavrnusGuestLoginWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusGuestLoginWidget, nullptr, "Setup", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -78,11 +110,12 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UCavrnusWidgetBase,
+		(UObject* (*)())Z_Construct_UClass_UUserWidget,
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCavrnusGuestLoginWidget_OnLoginClicked, "OnLoginClicked" }, // 605781110
+		{ &Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup, "Setup" }, // 548146740
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics::Class_MetaDataParams[] = {
@@ -148,9 +181,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusGuestLoginWidget, UCavrnusGuestLoginWidget::StaticClass, TEXT("UCavrnusGuestLoginWidget"), &Z_Registration_Info_UClass_UCavrnusGuestLoginWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusGuestLoginWidget), 179546545U) },
+		{ Z_Construct_UClass_UCavrnusGuestLoginWidget, UCavrnusGuestLoginWidget::StaticClass, TEXT("UCavrnusGuestLoginWidget"), &Z_Registration_Info_UClass_UCavrnusGuestLoginWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusGuestLoginWidget), 3708193133U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_2559190470(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_2460220584(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

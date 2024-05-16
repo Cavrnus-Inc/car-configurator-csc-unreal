@@ -36,9 +36,7 @@ namespace Cavrnus
 		}
 		else
 		{
-			using spaceFunction = const CavrnusSpaceConnected;
-			TSharedPtr<spaceFunction> CallbackPtr = MakeShareable(new spaceFunction(onConnected));
-
+			CavrnusSpaceConnected* CallbackPtr = new CavrnusSpaceConnected(onConnected);
 			spaceConnectionBindings.Add(CallbackPtr);
 		}
 	}
@@ -48,7 +46,7 @@ namespace Cavrnus
 		CurrJoinableSpaces.Add(space);
 
 		for (int i = 0; i < JoinableSpaceAddedBindings.Num(); i++)
-			JoinableSpaceAddedBindings[i].ExecuteIfBound(space);
+			(*JoinableSpaceAddedBindings[i])(space);
 	}
 
 	void DataState::UpdateJoinableSpace(FCavrnusSpaceInfo space)
@@ -68,7 +66,7 @@ namespace Cavrnus
 		CurrJoinableSpaces.Add(space);
 
 		for (int i = 0; i < JoinableSpaceUpdatedBindings.Num(); i++)
-			JoinableSpaceUpdatedBindings[i].ExecuteIfBound(space);
+			(*JoinableSpaceUpdatedBindings[i])(space);
 	}
 
 	void DataState::RemoveJoinableSpace(FCavrnusSpaceInfo space)
@@ -76,23 +74,27 @@ namespace Cavrnus
 		CurrJoinableSpaces.Remove(space);
 
 		for (int i = 0; i < JoinableSpaceRemovedBindings.Num(); i++)
-			JoinableSpaceRemovedBindings[i].ExecuteIfBound(space);
+			(*JoinableSpaceRemovedBindings[i])(space);
 	}
 
-	FCavrnusBinding DataState::BindJoinableSpaces(FCavrnusSpaceInfoEvent spaceAdded, FCavrnusSpaceInfoEvent spaceUpdated, FCavrnusSpaceInfoEvent spaceRemoved)
+	FCavrnusBinding DataState::BindJoinableSpaces(CavrnusSpaceInfoEvent spaceAdded, CavrnusSpaceInfoEvent spaceUpdated, CavrnusSpaceInfoEvent spaceRemoved)
 	{
-		JoinableSpaceAddedBindings.Add(spaceAdded);
-		JoinableSpaceUpdatedBindings.Add(spaceUpdated);
-		JoinableSpaceRemovedBindings.Add(spaceRemoved);
+		CavrnusSpaceInfoEvent* added = new CavrnusSpaceInfoEvent(spaceAdded);
+		CavrnusSpaceInfoEvent* updated = new CavrnusSpaceInfoEvent(spaceUpdated);
+		CavrnusSpaceInfoEvent* removed = new CavrnusSpaceInfoEvent(spaceRemoved);
+
+		JoinableSpaceAddedBindings.Add(added);
+		JoinableSpaceUpdatedBindings.Add(updated);
+		JoinableSpaceRemovedBindings.Add(removed);
 
 		for (int i = 0; i < CurrJoinableSpaces.Num(); i++)
-			spaceAdded.ExecuteIfBound(CurrJoinableSpaces[i]);
+			spaceAdded(CurrJoinableSpaces[i]);
 
-		return FCavrnusBinding([this, spaceAdded, spaceUpdated, spaceRemoved]()
+		return FCavrnusBinding([this, added, updated, removed]()
 			{
-				JoinableSpaceAddedBindings.Remove(spaceAdded);
-				JoinableSpaceUpdatedBindings.Remove(spaceUpdated);
-				JoinableSpaceRemovedBindings.Remove(spaceRemoved);
+				JoinableSpaceAddedBindings.Remove(added);
+				JoinableSpaceUpdatedBindings.Remove(updated);
+				JoinableSpaceRemovedBindings.Remove(removed);
 			});
 	}
 

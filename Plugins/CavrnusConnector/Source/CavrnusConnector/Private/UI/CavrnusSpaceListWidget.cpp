@@ -5,13 +5,8 @@
 #include "CavrnusSpatialConnectorSubSystem.h"
 #include "CavrnusFunctionLibrary.h"
 
-void UCavrnusSpaceListWidget::InitializeCavrnusWidget()
+void UCavrnusSpaceListWidget::Setup()
 {
-	if (bCavrnusWidgetInitialized)
-	{
-		return;
-	}
-
 	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
 	{
 		if (SubProxy->bInEditorMode)
@@ -27,9 +22,7 @@ void UCavrnusSpaceListWidget::InitializeCavrnusWidget()
 			FString SpaceJoinId = GetSpaceID(Item);
 			UE_LOG(LogCavrnusConnector, Log, TEXT("Space list item selection changed"));
 			OnCavrnusSpaceSelected.Broadcast(SpaceJoinId);
-			RemoveCavrnusWidget();
+			RemoveFromParent();
 		}
 	);
-
-	Super::InitializeCavrnusWidget();
 }

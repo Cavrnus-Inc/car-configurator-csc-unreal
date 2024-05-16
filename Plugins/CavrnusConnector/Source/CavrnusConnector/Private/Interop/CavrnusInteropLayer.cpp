@@ -245,7 +245,7 @@ namespace Cavrnus
 #if UE_BUILD_SHIPPING
 			bool bSilent = true;
 #else
-			bool bSilent = settings->RelayNetSilent;
+			bool bSilent = settings->RelayNetVerboseLogging ? settings->RelayNetSilent : true;
 #endif
 
 			if (RelayNetRunner_.startService(Client_.GetServerPort(), bSilent, TCHAR_TO_UTF8(*exeLocation), TCHAR_TO_UTF8(*settings->GetRelayNetOptionalParameters())))

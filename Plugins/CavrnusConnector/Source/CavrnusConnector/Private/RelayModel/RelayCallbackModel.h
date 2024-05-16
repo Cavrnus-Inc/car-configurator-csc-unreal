@@ -23,21 +23,21 @@ namespace Cavrnus
 
 		void HandleServerCallback(int callbackId, const ServerData::RelayRemoteMessage& msg);
 
-		int RegisterLoginPasswordCallback(FCavrnusAuthRecv onSuccess, FCavrnusError onFailure);
-		int RegisterLoginGuestCallback(FCavrnusAuthRecv onSuccess, FCavrnusError onFailure);
+		int RegisterLoginPasswordCallback(CavrnusAuthRecv onSuccess, CavrnusError onFailure);
+		int RegisterLoginGuestCallback(CavrnusAuthRecv onSuccess, CavrnusError onFailure);
 
-		void RegisterAuthCallback(FCavrnusAuthRecv onAuth);
+		void RegisterAuthCallback(CavrnusAuthRecv onAuth);
 
 		void RegisterBeginLoadingSpaceCallback(CavrnusSpaceBeginLoading onBeginLoading);
 		void HandleSpaceBeginLoading(FString spaceId);
 
 		int RegisterJoinSpaceCallback(CavrnusSpaceConnected onConnected, CavrnusError onFailure);
 
-		int RegisterFetchAvailableSpacesCallback(FCavrnusAllSpacesInfoEvent onAllSpacesArrived);
+		int RegisterFetchAvailableSpacesCallback(CavrnusAllSpacesInfoEvent onAllSpacesArrived);
 
-		int RegisterFetchAudioInputs(FCavrnusAvailableInputDevices onRecvDevices);
-		int RegisterFetchAudioOutputs(FCavrnusAvailableOutputDevices onRecvDevices);
-		int RegisterFetchVideoInputs(FCavrnusAvailableVideoInputDevices onRecvDevices);
+		int RegisterFetchAudioInputs(CavrnusAvailableInputDevices onRecvDevices);
+		int RegisterFetchAudioOutputs(CavrnusAvailableOutputDevices onRecvDevices);
+		int RegisterFetchVideoInputs(CavrnusAvailableVideoInputDevices onRecvDevices);
 
 		int RegisterFetchAllAvailableContent(CavrnusRemoteContentFunction onfetchedContent);
 
@@ -48,39 +48,39 @@ namespace Cavrnus
 
 		int currReqId = 0;
 
-		TArray<FCavrnusAuthRecv> AuthCallbacks;
+		TArray<CavrnusAuthRecv*> AuthCallbacks;
 		void HandleAuthRecv(FCavrnusAuthentication auth);
 
-		TMap<int, FCavrnusAuthRecv> LoginPasswordSuccessCallbacks;
-		TMap<int, FCavrnusError> LoginPasswordErrorCallbacks;
+		TMap<int, CavrnusAuthRecv*> LoginPasswordSuccessCallbacks;
+		TMap<int, CavrnusError*> LoginPasswordErrorCallbacks;
 		void HandleLoginPasswordResponse(int callbackId, ServerData::AuthenticateResp resp);
 
-		TMap<int, FCavrnusAuthRecv> LoginGuestSuccessCallbacks;
-		TMap<int, FCavrnusError> LoginGuestErrorCallbacks;
+		TMap<int, CavrnusAuthRecv*> LoginGuestSuccessCallbacks;
+		TMap<int, CavrnusError*> LoginGuestErrorCallbacks;
 		void HandleLoginGuestResponse(int callbackId, ServerData::AuthenticateGuestResp resp);
 
-		TArray< TSharedPtr<const CavrnusSpaceBeginLoading>> BeginLoadingSpaceCallbacks;
+		TArray<CavrnusSpaceBeginLoading*> BeginLoadingSpaceCallbacks;
 		
-		TMap<int, TSharedPtr<const CavrnusSpaceConnected>> JoinSpaceSuccessCallbacks;
-		TMap<int, TSharedPtr<const CavrnusError>> JoinSpaceErrorCallbacks;
+		TMap<int, CavrnusSpaceConnected*> JoinSpaceSuccessCallbacks;
+		TMap<int, CavrnusError*> JoinSpaceErrorCallbacks;
 		void HandleJoinSpaceResponse(int callbackId, ServerData::JoinSpaceFromIdResp resp);
 
-		TMap<int, FCavrnusAllSpacesInfoEvent> AllSpacesInfoCallbacks;
+		TMap<int, CavrnusAllSpacesInfoEvent*> AllSpacesInfoCallbacks;
 		void HandleJoinableSpacesRecv(int callbackId, ServerData::AllJoinableSpacesResp resp);
 
-		TMap<int, FCavrnusAvailableInputDevices> FetchAudioInputsCallbacks;
+		TMap<int, CavrnusAvailableInputDevices*> FetchAudioInputsCallbacks;
 		void HandleAudioInputsResponse(int callbackId, ServerData::GetAudioInputDevicesResp resp);
 
-		TMap<int, FCavrnusAvailableOutputDevices> FetchAudioOutputsCallbacks;
+		TMap<int, CavrnusAvailableOutputDevices*> FetchAudioOutputsCallbacks;
 		void HandleAudioOutputsResponse(int callbackId, ServerData::GetAudioOutputDevicesResp resp);
 
-		TMap<int, FCavrnusAvailableVideoInputDevices> FetchVideoInputsCallbacks;
+		TMap<int, CavrnusAvailableVideoInputDevices*> FetchVideoInputsCallbacks;
 		void HandleVideoInputsResponse(int callbackId, ServerData::GetVideoInputDevicesResp resp);
 
-		TMap<int, TSharedPtr<const CavrnusRemoteContentFunction>> AllRemoteContentCallbacks;
+		TMap<int, CavrnusRemoteContentFunction*> AllRemoteContentCallbacks;
 		void HandleAllRemoteContentRecv(int callbackId, ServerData::FetchAllUploadedContentResp resp);
 
-		TMap<int, TSharedPtr<const CavrnusUploadCompleteFunction>> AllUploadContentCallbacks;
+		TMap<int, CavrnusUploadCompleteFunction*> AllUploadContentCallbacks;
 		void HandleUploadComplete(int callbackId, ServerData::UploadLocalFileResp resp);
 	};
 

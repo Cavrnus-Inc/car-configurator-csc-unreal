@@ -15,19 +15,15 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpawnedObject
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Users")
-	FCavrnusSpaceConnection SpaceConnection;
+	FCavrnusSpaceConnection SpaceConnection = FCavrnusSpaceConnection();
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Users")
-	FString PropertiesContainerName;
+	FString PropertiesContainerName = "";
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Users")
-	FString CreationOpId;
+	FString CreationOpId = "";
 
-	//TODO: REMOVE THIS BIT
-	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Users")
-	FString UniqueIdentifier;
-
-	FCavrnusSpawnedObject(const FString& PropertiesContainerName, const FString& CreationOpId)
+	FCavrnusSpawnedObject(const FString& PropertiesContainerName, const FString& CreationOpId, AActor* Actor)
 		: PropertiesContainerName(PropertiesContainerName), CreationOpId(CreationOpId)
 	{
 	}

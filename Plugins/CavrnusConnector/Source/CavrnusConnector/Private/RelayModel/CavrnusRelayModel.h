@@ -3,14 +3,12 @@
 #include "../../Public/Types/CavrnusSpaceConnection.h"
 #include "SpacePropertyModel.h"
 
-#include "CavrnusConnectorModule.h"
+#include "../CavrnusConnectorModule.h"
 
 #include <CoreMinimal.h>
 #include <string>
 #include <Tickable.h>
 #include "CavrnusContentModel.h"
-
-class UPDFManager;
 
 namespace ServerData
 {
@@ -51,12 +49,14 @@ namespace Cavrnus
 		SpacePropertyModel* GetSpacePropertyModel(FCavrnusSpaceConnection spaceConn);
 		RelayCallbackModel* GetCallbackModel();
 		DataState* GetDataState();
-		void SetPDFManager(UPDFManager* PDFManager);
 		void SendMessage(const ServerData::RelayClientMessage& msg);
 
 		CavrnusContentModel ContentModel;
 
-		CaseSensitiveMap<FString, TSharedPtr<const CavrnusSpawnedObjectFunction>> ObjectCreationCallbacks;
+		CaseSensitiveMap<FString, const CavrnusSpawnedObjectFunction*> ObjectCreationCallbacks;
+
+		void RegisterObjectCreationCallback(TFunction<void(FCavrnusSpawnedObject, FString)> cb);
+		void RegisterObjectDestructionCallback(TFunction<void(FCavrnusSpawnedObject)> cb);
 
 	private:
 		CavrnusInteropLayer* interopLayer;
@@ -65,8 +65,10 @@ namespace Cavrnus
 		SpacePermissionsModel* globalPermissionsModel;
 		TMap<int, SpacePermissionsModel*> spacePermissionsModelLookup;
 		TMap<int, SpacePropertyModel*> spacePropertyModelLookup;
-		class UPDFManager* PDFManager = nullptr;
 		void HandleServerMsg(const ServerData::RelayRemoteMessage& msg);
+
+		const TFunction<void(FCavrnusSpawnedObject, FString)>* ObjectCreationCallback = nullptr;
+		const TFunction<void(FCavrnusSpawnedObject)>* ObjectDestructionCallback = nullptr;
 
 		void HandleLogging(const ServerData::StatusMessage& message);
 		void HandleSpaceUserAdded(ServerData::CavrnusSpaceConnection spaceConn, ServerData::CavrnusUser userId);

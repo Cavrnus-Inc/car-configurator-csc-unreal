@@ -147,7 +147,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveBoolPropertyUpdate() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusLiveBoolPropertyUpdate_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "/**\n *\n */" },
 		{ "IncludePath", "LivePropertyUpdates/CavrnusLiveBoolPropertyUpdate.h" },
 		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveBoolPropertyUpdate.h" },
 	};
@@ -188,9 +187,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveBoolPropertyUpdate() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLiveBoolPropertyUpdate, UCavrnusLiveBoolPropertyUpdate::StaticClass, TEXT("UCavrnusLiveBoolPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveBoolPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveBoolPropertyUpdate), 2300371724U) },
+		{ Z_Construct_UClass_UCavrnusLiveBoolPropertyUpdate, UCavrnusLiveBoolPropertyUpdate::StaticClass, TEXT("UCavrnusLiveBoolPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveBoolPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveBoolPropertyUpdate), 35158687U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_2890035460(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_2352820310(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

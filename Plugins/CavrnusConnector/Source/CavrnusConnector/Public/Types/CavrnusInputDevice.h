@@ -13,8 +13,15 @@ struct CAVRNUSCONNECTOR_API FCavrnusInputDevice
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Input")
-	FString DeviceName;
+	FString DeviceName = "";
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Input")
-	FString DeviceId;
+	FString DeviceId = "";
+
+	FCavrnusInputDevice() = default;
+
+	FCavrnusInputDevice(const FString& DeviceName, const FString& DeviceId)
+		: DeviceName(DeviceName), DeviceId(DeviceId)
+	{
+	}
 };

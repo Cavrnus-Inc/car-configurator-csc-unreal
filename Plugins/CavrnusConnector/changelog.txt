@@ -1,7 +1,8 @@
-Cavrnus-UE5.0-RelayPlugin-2023.2.603-Dev
-cody.tedrick: ue - master [654328e00368bbc32ef57ce829c26b96cb81ed03]
-Remove debug prints
+Cavrnus-UE5.0-RelayPlugin-2023.2.656-Dev
+josh.criz: ue - master [110ac6cd3e47f3dbf7e1d21bb44b4dfe74b655f2]
+Build Fix
 
-	CavrnusPlugin/Plugins/CavrnusConnector/Content/SampleLevel/Blueprints/BP_SamplePostProcessing.uasset
-	CavrnusPlugin/Plugins/CavrnusConnector/Content/SampleLevel/L_SampleCavrnusConnectedSpaced.umap
+Scope editor headers to WITH_EDITOR
+
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusSpatialConnectorSubSystem.cpp
 

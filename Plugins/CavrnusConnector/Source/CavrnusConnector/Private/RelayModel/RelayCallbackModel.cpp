@@ -56,17 +56,20 @@ namespace Cavrnus
 	{
 		for (int i = 0; i < AuthCallbacks.Num(); i++) 
 		{
-			AuthCallbacks[i].ExecuteIfBound(auth);
+			(*AuthCallbacks[i])(auth);
 		}
 		AuthCallbacks.Empty();
 	}
 
-	int RelayCallbackModel::RegisterLoginPasswordCallback(FCavrnusAuthRecv onSuccess, FCavrnusError onFailure)
+	int RelayCallbackModel::RegisterLoginPasswordCallback(CavrnusAuthRecv onSuccess, CavrnusError onFailure)
 	{
 		int reqId = ++currReqId;
 
-		LoginPasswordSuccessCallbacks.Add(reqId, onSuccess);
-		LoginPasswordErrorCallbacks.Add(reqId, onFailure);
+		CavrnusAuthRecv* callback = new CavrnusAuthRecv(onSuccess);
+		LoginPasswordSuccessCallbacks.Add(reqId, callback);
+
+		CavrnusError* errorCallback = new CavrnusError(onFailure);
+		LoginPasswordErrorCallbacks.Add(reqId, errorCallback);
 
 		return reqId;
 	}
@@ -85,7 +88,7 @@ namespace Cavrnus
 			UE_LOG(LogCavrnusConnector, Log, TEXT("[AUTH SUCCESS]"));
 
 			if (LoginPasswordSuccessCallbacks.Contains(callbackId))
-				LoginPasswordSuccessCallbacks[callbackId].ExecuteIfBound(auth);
+				(*LoginPasswordSuccessCallbacks[callbackId])(auth);
 		}
 		else
 		{
@@ -93,7 +96,7 @@ namespace Cavrnus
 			UE_LOG(LogCavrnusConnector, Log, TEXT("[AUTH FAILURE]: %s"), *error);
 
 			if (LoginPasswordErrorCallbacks.Contains(callbackId))
-				LoginPasswordErrorCallbacks[callbackId].ExecuteIfBound(error);
+				(*LoginPasswordErrorCallbacks[callbackId])(error);
 		}
 
 		LoginPasswordSuccessCallbacks.Remove(callbackId);
@@ -101,19 +104,31 @@ namespace Cavrnus
 
 	}
 
-	int RelayCallbackModel::RegisterLoginGuestCallback(FCavrnusAuthRecv onSuccess, FCavrnusError onFailure)
+	int RelayCallbackModel::RegisterLoginGuestCallback(CavrnusAuthRecv onSuccess, CavrnusError onFailure)
 	{
 		int reqId = ++currReqId;
 
-		LoginGuestSuccessCallbacks.Add(reqId, onSuccess);
-		LoginGuestErrorCallbacks.Add(reqId, onFailure);
+		CavrnusAuthRecv* callback = new CavrnusAuthRecv(onSuccess);
+		LoginGuestSuccessCallbacks.Add(reqId, callback);
+
+		CavrnusError* errorCallback = new CavrnusError(onFailure);
+		LoginGuestErrorCallbacks.Add(reqId, errorCallback);
 
 		return reqId;
 	}
 
-	void RelayCallbackModel::RegisterAuthCallback(FCavrnusAuthRecv onAuth)
+	void RelayCallbackModel::RegisterAuthCallback(CavrnusAuthRecv onAuth)
 	{
-		AuthCallbacks.Add(onAuth);
+		if (relayModel->GetDataState()->CurrentAuthentication != nullptr)
+		{
+			onAuth(*relayModel->GetDataState()->CurrentAuthentication);
+		}
+		else 
+		{
+			CavrnusAuthRecv* callback = new CavrnusAuthRecv(onAuth);
+			AuthCallbacks.Add(callback);
+		}
+		
 	}
 
 	void RelayCallbackModel::HandleLoginGuestResponse(int callbackId, ServerData::AuthenticateGuestResp resp)
@@ -130,7 +145,7 @@ namespace Cavrnus
 			UE_LOG(LogCavrnusConnector, Log, TEXT("[AUTH SUCCESS]"));
 
 			if (LoginGuestSuccessCallbacks.Contains(callbackId))
-				LoginGuestSuccessCallbacks[callbackId].ExecuteIfBound(auth);
+				(*LoginGuestSuccessCallbacks[callbackId])(auth);
 		}
 		else
 		{
@@ -138,7 +153,7 @@ namespace Cavrnus
 			UE_LOG(LogCavrnusConnector, Log, TEXT("[AUTH FAILURE]: %s"), *error);
 
 			if (LoginGuestErrorCallbacks.Contains(callbackId))
-				LoginGuestErrorCallbacks[callbackId].ExecuteIfBound(error);
+				(*LoginGuestErrorCallbacks[callbackId])(error);
 		}
 
 		LoginGuestSuccessCallbacks.Remove(callbackId);
@@ -147,7 +162,7 @@ namespace Cavrnus
 
 	void RelayCallbackModel::RegisterBeginLoadingSpaceCallback(CavrnusSpaceBeginLoading onBeginLoading)
 	{
-		TSharedPtr<const CavrnusSpaceBeginLoading> CallbackPtr = MakeShareable(new const CavrnusSpaceBeginLoading(onBeginLoading));
+		CavrnusSpaceBeginLoading* CallbackPtr = new CavrnusSpaceBeginLoading(onBeginLoading);
 		BeginLoadingSpaceCallbacks.Add(CallbackPtr);
 	}
 
@@ -164,8 +179,8 @@ namespace Cavrnus
 	{
 		int reqId = ++currReqId;
 
-		TSharedPtr<const CavrnusSpaceConnected> CallbackPtr = MakeShareable(new const CavrnusSpaceConnected(onConnected));
-		TSharedPtr<const CavrnusError> ErrorPtr = MakeShareable(new const CavrnusError(onFailure));
+		CavrnusSpaceConnected* CallbackPtr = new CavrnusSpaceConnected(onConnected);
+		CavrnusError* ErrorPtr = new CavrnusError(onFailure);
 
 		JoinSpaceSuccessCallbacks.Add(reqId, CallbackPtr);
 		JoinSpaceErrorCallbacks.Add(reqId, ErrorPtr);
@@ -173,11 +188,12 @@ namespace Cavrnus
 		return reqId;
 	}
 
-	int RelayCallbackModel::RegisterFetchAvailableSpacesCallback(FCavrnusAllSpacesInfoEvent onAllSpacesArrived)
+	int RelayCallbackModel::RegisterFetchAvailableSpacesCallback(CavrnusAllSpacesInfoEvent onAllSpacesArrived)
 	{
 		int reqId = ++currReqId;
 
-		AllSpacesInfoCallbacks.Add(reqId, onAllSpacesArrived);
+		CavrnusAllSpacesInfoEvent* callback = new CavrnusAllSpacesInfoEvent(onAllSpacesArrived);
+		AllSpacesInfoCallbacks.Add(reqId, callback);
 
 		return reqId;
 	}
@@ -192,7 +208,7 @@ namespace Cavrnus
 		}
 
 		if (AllSpacesInfoCallbacks.Contains(callbackId))
-			AllSpacesInfoCallbacks[callbackId].ExecuteIfBound(AvailableSpaces);
+			(*AllSpacesInfoCallbacks[callbackId])(AvailableSpaces);
 
 		AllSpacesInfoCallbacks.Remove(callbackId);
 	}
@@ -221,11 +237,12 @@ namespace Cavrnus
 		JoinSpaceErrorCallbacks.Remove(callbackId);
 	}
 
-	int RelayCallbackModel::RegisterFetchAudioInputs(FCavrnusAvailableInputDevices onRecvDevices)
+	int RelayCallbackModel::RegisterFetchAudioInputs(CavrnusAvailableInputDevices onRecvDevices)
 	{
 		int reqId = ++currReqId;
 
-		FetchAudioInputsCallbacks.Add(reqId, onRecvDevices);
+		CavrnusAvailableInputDevices* callback = new CavrnusAvailableInputDevices(onRecvDevices);
+		FetchAudioInputsCallbacks.Add(reqId, callback);
 
 		return reqId;
 	}
@@ -238,20 +255,21 @@ namespace Cavrnus
 		for (int i = 0; i < devices_field.devices_size(); ++i)
 		{
 			const ServerData::RtcAudioInputDevice& device = devices_field.devices(i);
-			FCavrnusInputDevice item = { device.name().c_str(), device.id().c_str() };
+			FCavrnusInputDevice item = FCavrnusInputDevice(device.name().c_str(), device.id().c_str());
 
 			devices.Add(item);
 		}
 
 		if (FetchAudioInputsCallbacks.Contains(callbackId))
-			FetchAudioInputsCallbacks[callbackId].ExecuteIfBound(devices);
+			(*FetchAudioInputsCallbacks[callbackId])(devices);
 	}
 
-	int RelayCallbackModel::RegisterFetchAudioOutputs(FCavrnusAvailableOutputDevices onRecvDevices)
+	int RelayCallbackModel::RegisterFetchAudioOutputs(CavrnusAvailableOutputDevices onRecvDevices)
 	{
 		int reqId = ++currReqId;
 
-		FetchAudioOutputsCallbacks.Add(reqId, onRecvDevices);
+		CavrnusAvailableOutputDevices* callback = new CavrnusAvailableOutputDevices(onRecvDevices);
+		FetchAudioOutputsCallbacks.Add(reqId, callback);
 
 		return reqId;
 	}
@@ -264,20 +282,21 @@ namespace Cavrnus
 		for (int i = 0; i < devices_field.devices_size(); ++i)
 		{
 			const ServerData::RtcAudioOutputDevice& device = devices_field.devices(i);
-			FCavrnusOutputDevice item = { device.name().c_str(), device.id().c_str() };
+			FCavrnusOutputDevice item = FCavrnusOutputDevice(device.name().c_str(), device.id().c_str());
 
 			devices.Add(item);
 		}
 
 		if (FetchAudioOutputsCallbacks.Contains(callbackId))
-			FetchAudioOutputsCallbacks[callbackId].ExecuteIfBound(devices);
+			(*FetchAudioOutputsCallbacks[callbackId])(devices);
 	}
 
-	int RelayCallbackModel::RegisterFetchVideoInputs(FCavrnusAvailableVideoInputDevices onRecvDevices)
+	int RelayCallbackModel::RegisterFetchVideoInputs(CavrnusAvailableVideoInputDevices onRecvDevices)
 	{
 		int reqId = ++currReqId;
 
-		FetchVideoInputsCallbacks.Add(reqId, onRecvDevices);
+		CavrnusAvailableVideoInputDevices* callback = new CavrnusAvailableVideoInputDevices(onRecvDevices);
+		FetchVideoInputsCallbacks.Add(reqId, callback);
 
 		return reqId;
 	}
@@ -290,21 +309,20 @@ namespace Cavrnus
 		for (int i = 0; i < devices_field.devices_size(); ++i)
 		{
 			const ServerData::RtcVideoInputDevice& device = devices_field.devices(i);
-			FCavrnusVideoInputDevice item = { device.name().c_str(), device.id().c_str() };
+			FCavrnusVideoInputDevice item = FCavrnusVideoInputDevice(device.name().c_str(), device.id().c_str());
 
 			devices.Add(item);
 		}
 
 		if (FetchVideoInputsCallbacks.Contains(callbackId))
-			FetchVideoInputsCallbacks[callbackId].ExecuteIfBound(devices);
+			(*FetchVideoInputsCallbacks[callbackId])(devices);
 	}
 
 	int RelayCallbackModel::RegisterFetchAllAvailableContent(CavrnusRemoteContentFunction onfetchedContent)
 	{
 		int reqId = ++currReqId;
 
-		using contentFunction = const CavrnusRemoteContentFunction;
-		TSharedPtr<contentFunction> CallbackPtr = MakeShareable(new contentFunction(onfetchedContent));
+		CavrnusRemoteContentFunction* CallbackPtr = new CavrnusRemoteContentFunction(onfetchedContent);
 
 		AllRemoteContentCallbacks.Add(reqId, CallbackPtr);
 
@@ -336,8 +354,7 @@ namespace Cavrnus
 	{
 		int reqId = ++currReqId;
 
-		using contentFunction = const CavrnusUploadCompleteFunction;
-		TSharedPtr<contentFunction> CallbackPtr = MakeShareable(new contentFunction(onUploadComplete));
+		CavrnusUploadCompleteFunction* CallbackPtr = new CavrnusUploadCompleteFunction(onUploadComplete);
 
 		AllUploadContentCallbacks.Add(reqId, CallbackPtr);
 

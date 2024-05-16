@@ -13,13 +13,13 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpaceInfo
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Spaces")
-	FString SpaceId;
+	FString SpaceId = "";
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Spaces")
-	FString SpaceName;
+	FString SpaceName = "";
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Spaces")
-	FString SpaceThumbnail;
+	FString SpaceThumbnail = "";
 
 	FCavrnusSpaceInfo(const FString& SpaceId, const FString& SpaceName, const FString& SpaceThumbnail)
 		: SpaceId(SpaceId), SpaceName(SpaceName), SpaceThumbnail(SpaceThumbnail)

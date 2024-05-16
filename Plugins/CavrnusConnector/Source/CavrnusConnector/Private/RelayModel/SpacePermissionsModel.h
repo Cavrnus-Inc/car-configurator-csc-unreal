@@ -19,7 +19,7 @@ namespace Cavrnus
 	private:
 		TMap<FString, bool> CurrPolicyAllowedValues;
 
-		TMap<FString, TArray<TSharedPtr<const CavrnusPolicyUpdated>>> PolicyBindings;
+		TMap<FString, TArray<CavrnusPolicyUpdated*>> PolicyBindings;
 	};
 
 } // namespace CavrnusRelay

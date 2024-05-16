@@ -1,13 +1,13 @@
 ﻿#pragma once
 
 #include <MathUtil.h>
-#include "CavrnusRelayModel.h"
-#include "SpacePropertyModel.h"
 #include "Types/CavrnusPropertyValue.h"
 #include "Types/PropertyId.h"
 
 namespace Cavrnus
 {
+	class CavrnusRelayModel;
+
 	class CavrnusVirtualPropertyUpdate
 	{
 	public:
@@ -33,8 +33,5 @@ namespace Cavrnus
 		FPropertyId PropertyId;
 
 		Cavrnus::CavrnusRelayModel* RelayModel;
-
-		
 	};
-	
 }

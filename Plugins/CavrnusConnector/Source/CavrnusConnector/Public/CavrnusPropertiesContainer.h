@@ -30,9 +30,10 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Cavrnus")
 	FContainerNameUpdated OnContainerNameUpdated;
 
-	static void ReplaceClassNameInPropertiesContainers(AActor* Actor, const FString& ReplacementString, bool bIncludeFromChildActors = false);
+	static void ResetLiveHierarchyRootName(AActor* Actor, const FString& ReplacementString);
+	
+private:
 
 	// Returns true if the container name was modified, false if not
-	static bool ReplacePlaceholderInPropertiesContainers(UCavrnusPropertiesContainer* PropertiesContainer, const FString& Placeholder, const FString& ReplacementString);
-private:
+	static void ReplacePlaceholderInPropertiesContainer(UCavrnusPropertiesContainer* PropertiesContainer, const FString& Placeholder, const FString& ReplacementString);
 };
