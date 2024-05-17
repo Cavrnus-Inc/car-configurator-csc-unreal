@@ -26,16 +26,14 @@ void UCavrnusUserWidget::BindUserVideo()
 	auto UserVideoFrameUpdate = [this](UTexture2D* InTexture) {
 		if (!RtcStreamImage)
 		{
-			StreamImageSizeSet = false;
 			return;
 		}
 
 		if (InTexture)
 		{
-			if (!StreamImageSizeSet)
+			if (TextureSizeChanged(FVector2D(InTexture->GetSizeX(), InTexture->GetSizeY())))
 			{
 				RtcStreamImage->Brush.SetImageSize(FVector2D(InTexture->GetSizeX(), InTexture->GetSizeY()));
-				StreamImageSizeSet = true;
 			}
 			
 			RtcStreamImage->SetBrushFromTexture(InTexture);
@@ -43,6 +41,11 @@ void UCavrnusUserWidget::BindUserVideo()
 	};
 
 	UserVideoFrameBinding = UCavrnusFunctionLibrary::BindUserVideoFrames(SpaceConnection, User, UserVideoFrameUpdate);
+}
+
+bool UCavrnusUserWidget::TextureSizeChanged(const FVector2D NewSize) const
+{
+	return CurrentStreamImageSize != NewSize;
 }
 
 void UCavrnusUserWidget::UnbindUserVideo()

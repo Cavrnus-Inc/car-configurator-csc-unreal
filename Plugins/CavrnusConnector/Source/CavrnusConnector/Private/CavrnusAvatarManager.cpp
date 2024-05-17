@@ -75,6 +75,7 @@ void CavrnusAvatarManager::RegisterUser(const FCavrnusUser& User, TSubclassOf<AA
 			true,
 			FTransform::Identity,
 			false));
+		
 		if (RootContainer)
 		{
 			RootContainer->AttachToComponent(ActorRoot, FAttachmentTransformRules::KeepRelativeTransform);
@@ -95,6 +96,23 @@ void CavrnusAvatarManager::RegisterUser(const FCavrnusUser& User, TSubclassOf<AA
 		}
 	}
 
+	ActorRoot->SetVisibility(false, true);
+	auto OnAvatarVisUpdated = [this, ActorRoot](bool bIsVisble, FString, FString)
+	{
+		ActorRoot->SetVisibility(bIsVisble, true);
+	};
+	AvatarVis = UCavrnusFunctionLibrary::BindBooleanPropertyValue(SpaceConn, User.PropertiesContainerName, "AvatarVis", OnAvatarVisUpdated);
+
+	FTransform InitialTransform = UCavrnusFunctionLibrary::GetTransformPropertyValue(SpaceConn, User.PropertiesContainerName, "Transform");
+	auto OnAvatarTransformPropertyUpdated = [this, InitialTransform, SpaceConn, User](const FTransform& PropValue, FString, FString)
+	{
+		if (InitialTransform.GetLocation() != PropValue.GetLocation() || InitialTransform.GetRotation() != PropValue.GetRotation())
+		{
+			UCavrnusFunctionLibrary::PostBoolPropertyUpdate(SpaceConn, User.PropertiesContainerName, "AvatarVis", true);
+		}
+	};
+	AvatarTransformBinding = UCavrnusFunctionLibrary::BindTransformPropertyValue(SpaceConn, User.PropertiesContainerName, "Transform", OnAvatarTransformPropertyUpdated);
+
 	UCavrnusPropertiesContainer::ResetLiveHierarchyRootName(SpawnedActor, User.PropertiesContainerName);
 }
 
@@ -105,6 +123,9 @@ void CavrnusAvatarManager::UnregisterUser(const FCavrnusUser& SpawnedObject, UWo
 		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to destroy actor, could not find spawned object with Container Name %s"), *SpawnedObject.PropertiesContainerName);
 		return;
 	}
+	
+	UCavrnusFunctionLibrary::Unbind(AvatarVis);
+	UCavrnusFunctionLibrary::Unbind(AvatarTransformBinding);
 
 	SpawnedAvatars[SpawnedObject.PropertiesContainerName]->Destroy();
 }

@@ -10,10 +10,13 @@ class CAVRNUSCONNECTOR_API CavrnusAvatarManager
 public:
 	CavrnusAvatarManager();
 	~CavrnusAvatarManager();
-
+	
 	void RegisterUser(const FCavrnusUser& SpawnedObject, TSubclassOf<AActor> ActorClass, UWorld* World, FCavrnusSpaceConnection SpaceConn);
 	void UnregisterUser(const FCavrnusUser& SpawnedObject, UWorld* World);
 
 private:
 	TMap<FString, AActor*> SpawnedAvatars;
+
+	FCavrnusBinding AvatarVis;
+	FCavrnusBinding AvatarTransformBinding;
 };

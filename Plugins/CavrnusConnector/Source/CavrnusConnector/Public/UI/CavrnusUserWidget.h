@@ -47,5 +47,7 @@ private:
 
 	FCavrnusBinding UserVideoFrameBinding;
 
-	bool StreamImageSizeSet = false;
+	FVector2D CurrentStreamImageSize = FVector2D(0,0);
+
+	bool TextureSizeChanged(FVector2D NewSize) const;
 };

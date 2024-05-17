@@ -1,8 +1,7 @@
-Cavrnus-UE5.0-RelayPlugin-2023.2.656-Dev
-josh.criz: ue - master [110ac6cd3e47f3dbf7e1d21bb44b4dfe74b655f2]
-Build Fix
+Cavrnus-UE5.0-RelayPlugin-2023.2.663-Dev
+cody.tedrick: ue - master [9777d8c34c5398b76895b42b2243bc54e0ad0198]
+Fixes to loading widget and spaceSelection
 
-Scope editor headers to WITH_EDITOR
-
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusSpatialConnectorSubSystem.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Content/UI/Menus/LoadingMenu/WBP_LoadingWidget.uasset
+	CavrnusPlugin/Plugins/CavrnusConnector/Content/UI/Menus/SpaceListMenu/WBP_SpaceSelection.uasset
 
