@@ -178,9 +178,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncFloat() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusValueSyncFloat, UCavrnusValueSyncFloat::StaticClass, TEXT("UCavrnusValueSyncFloat"), &Z_Registration_Info_UClass_UCavrnusValueSyncFloat, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncFloat), 4099867599U) },
+		{ Z_Construct_UClass_UCavrnusValueSyncFloat, UCavrnusValueSyncFloat::StaticClass, TEXT("UCavrnusValueSyncFloat"), &Z_Registration_Info_UClass_UCavrnusValueSyncFloat, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncFloat), 1982718469U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_3438692024(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_1707384846(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

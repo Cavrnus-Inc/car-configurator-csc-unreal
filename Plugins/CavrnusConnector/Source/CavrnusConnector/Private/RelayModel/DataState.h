@@ -24,7 +24,7 @@ namespace Cavrnus
 		void UpdateJoinableSpace(FCavrnusSpaceInfo space);
 		void RemoveJoinableSpace(FCavrnusSpaceInfo space);
 
-		FCavrnusBinding BindJoinableSpaces(CavrnusSpaceInfoEvent spaceAdded, CavrnusSpaceInfoEvent spaceUpdated, CavrnusSpaceInfoEvent spaceRemoved);
+		UCavrnusBinding* BindJoinableSpaces(CavrnusSpaceInfoEvent spaceAdded, CavrnusSpaceInfoEvent spaceUpdated, CavrnusSpaceInfoEvent spaceRemoved);
 
 	private:
 		TArray<FCavrnusSpaceConnection> CurrentSpaceConnections;

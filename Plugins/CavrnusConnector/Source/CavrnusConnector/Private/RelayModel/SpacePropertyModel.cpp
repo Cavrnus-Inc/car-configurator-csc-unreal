@@ -145,7 +145,7 @@ namespace Cavrnus
 		return CurrLocalPropValues.Contains(fullPropertyId) || CurrServerPropValues.Contains(fullPropertyId);
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindProperty(FPropertyId fullPropertyId, CavrnusPropertyFunction callback)
+	UCavrnusBinding* SpacePropertyModel::BindProperty(FPropertyId fullPropertyId, CavrnusPropertyFunction callback)
 	{
 		CavrnusPropertyFunction* cb = new CavrnusPropertyFunction(callback);
 		PropBindings.FindOrAdd(fullPropertyId);
@@ -153,7 +153,9 @@ namespace Cavrnus
 
 		callback(GetCurrentPropValue(fullPropertyId), fullPropertyId.ContainerName, fullPropertyId.PropValueId);
 
-		return FCavrnusBinding([this, fullPropertyId, cb]()
+		UCavrnusBinding* binding;
+		binding = NewObject<UCavrnusBinding>();
+		binding->SetupUnbind([this, fullPropertyId, cb]()
 		{
 			if (!PropBindings.Contains(fullPropertyId))
 				return;
@@ -161,9 +163,11 @@ namespace Cavrnus
 			if (PropBindings[fullPropertyId].IsEmpty())
 				PropBindings.Remove(fullPropertyId);
 		});
+
+		return binding;
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindUserVideoTexture(const FCavrnusUser& User, VideoFrameUpdateFunction Callback)
+	UCavrnusBinding* SpacePropertyModel::BindUserVideoTexture(const FCavrnusUser& User, VideoFrameUpdateFunction Callback)
 	{
 		FString UserConnectionId = User.UserConnectionId;
 
@@ -174,7 +178,10 @@ namespace Cavrnus
 		UserVideoFrameBindings.FindOrAdd(UserConnectionId);
 		UserVideoFrameBindings[UserConnectionId].Add(cb);
 
-		return FCavrnusBinding([this, UserConnectionId, cb]()
+
+		UCavrnusBinding* binding;
+		binding = NewObject<UCavrnusBinding>();
+		binding->SetupUnbind([this, UserConnectionId, cb]()
 		{
 			if (!UserVideoFrameBindings.Contains(UserConnectionId))
 				return;
@@ -182,6 +189,8 @@ namespace Cavrnus
 			if (UserVideoFrameBindings[UserConnectionId].IsEmpty())
 				UserVideoFrameBindings.Remove(UserConnectionId);
 		});
+
+		return binding;
 	}
 	
 	Cavrnus::FPropertyValue SpacePropertyModel::GetPropValue(FPropertyId fullPropertyId)
@@ -267,7 +276,7 @@ namespace Cavrnus
 		}
 	}
 
-	FCavrnusBinding SpacePropertyModel::BindSpaceUsers(CavrnusSpaceUserEvent userAdded, CavrnusSpaceUserEvent userRemoved)
+	UCavrnusBinding* SpacePropertyModel::BindSpaceUsers(CavrnusSpaceUserEvent userAdded, CavrnusSpaceUserEvent userRemoved)
 	{
 		CavrnusSpaceUserEvent* added = new CavrnusSpaceUserEvent(userAdded);
 		UserAddedBindings.Add(added);
@@ -277,11 +286,15 @@ namespace Cavrnus
 		for (auto& UserElem : CurrSpaceUsers)
 			userAdded(UserElem.Value);
 
-		return FCavrnusBinding([this, added, removed]()
-			{
-				UserAddedBindings.Remove(added);
-				UserRemovedBindings.Remove(removed);
-			});
+		UCavrnusBinding* binding;
+		binding = NewObject<UCavrnusBinding>();
+		binding->SetupUnbind([this, added, removed]()
+		{
+			UserAddedBindings.Remove(added);
+			UserRemovedBindings.Remove(removed);
+		});
+
+		return binding;
 	}
 
 }

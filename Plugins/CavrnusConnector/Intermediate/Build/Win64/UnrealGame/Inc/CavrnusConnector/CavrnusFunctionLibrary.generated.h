@@ -20,7 +20,7 @@ struct FCavrnusOutputDevice;
 struct FCavrnusVideoInputDevice;
 struct FCavrnusRemoteContent;
  
-struct FCavrnusBinding;
+class UCavrnusBinding;
 class UCavrnusLiveTransformPropertyUpdate;
 class UCavrnusLiveVectorPropertyUpdate;
 class UCavrnusLiveStringPropertyUpdate;
@@ -34,7 +34,7 @@ class UCavrnusSpatialConnectorSubSystemProxy;
 #endif
 #define CAVRNUSCONNECTOR_CavrnusFunctionLibrary_generated_h
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_71_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_62_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusError_Parms \
 { \
 	FString Error; \
@@ -47,7 +47,7 @@ static inline void FCavrnusError_DelegateWrapper(const FScriptDelegate& CavrnusE
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_83_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_74_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAuthRecv_Parms \
 { \
 	FCavrnusAuthentication Auth; \
@@ -60,12 +60,12 @@ static inline void FCavrnusAuthRecv_DelegateWrapper(const FScriptDelegate& Cavrn
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_110_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_101_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAllSpacesInfoEvent_Parms \
 { \
 	TArray<FCavrnusSpaceInfo> SpacesInfo; \
 }; \
-static inline void FCavrnusAllSpacesInfoEvent_DelegateWrapper(const FScriptDelegate& CavrnusAllSpacesInfoEvent, const TArray<FCavrnusSpaceInfo>& SpacesInfo) \
+static inline void FCavrnusAllSpacesInfoEvent_DelegateWrapper(const FScriptDelegate& CavrnusAllSpacesInfoEvent, TArray<FCavrnusSpaceInfo> const& SpacesInfo) \
 { \
 	CavrnusFunctionLibrary_eventCavrnusAllSpacesInfoEvent_Parms Parms; \
 	Parms.SpacesInfo=SpacesInfo; \
@@ -73,7 +73,7 @@ static inline void FCavrnusAllSpacesInfoEvent_DelegateWrapper(const FScriptDeleg
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_118_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_108_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSpaceInfoEvent_Parms \
 { \
 	FCavrnusSpaceInfo SpaceInfo; \
@@ -86,7 +86,7 @@ static inline void FCavrnusSpaceInfoEvent_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_129_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_119_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSpaceConnected_Parms \
 { \
 	FCavrnusSpaceConnection SpaceConnection; \
@@ -99,7 +99,7 @@ static inline void FCavrnusSpaceConnected_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_136_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_126_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSpaceBeginLoading_Parms \
 { \
 	FString SpaceIdBeingLoaded; \
@@ -112,7 +112,7 @@ static inline void FCavrnusSpaceBeginLoading_DelegateWrapper(const FScriptDelega
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_179_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_169_DELEGATE \
 struct CavrnusFunctionLibrary_eventColorPropertyUpdated_Parms \
 { \
 	FLinearColor Value; \
@@ -129,7 +129,7 @@ static inline void FColorPropertyUpdated_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_204_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_194_DELEGATE \
 struct CavrnusFunctionLibrary_eventBoolPropertyUpdated_Parms \
 { \
 	bool Value; \
@@ -146,7 +146,7 @@ static inline void FBoolPropertyUpdated_DelegateWrapper(const FScriptDelegate& B
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_229_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_219_DELEGATE \
 struct CavrnusFunctionLibrary_eventFloatPropertyUpdated_Parms \
 { \
 	float Value; \
@@ -163,7 +163,7 @@ static inline void FFloatPropertyUpdated_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_254_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_244_DELEGATE \
 struct CavrnusFunctionLibrary_eventStringPropertyUpdated_Parms \
 { \
 	FString Value; \
@@ -180,7 +180,7 @@ static inline void FStringPropertyUpdated_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_279_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_269_DELEGATE \
 struct CavrnusFunctionLibrary_eventVectorPropertyUpdated_Parms \
 { \
 	FVector4 Value; \
@@ -197,7 +197,7 @@ static inline void FVectorPropertyUpdated_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_304_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_294_DELEGATE \
 struct CavrnusFunctionLibrary_eventTransformPropertyUpdated_Parms \
 { \
 	FTransform Value; \
@@ -214,7 +214,7 @@ static inline void FTransformPropertyUpdated_DelegateWrapper(const FScriptDelega
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_325_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_315_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusPolicyUpdated_Parms \
 { \
 	FString Policy; \
@@ -229,7 +229,7 @@ static inline void FCavrnusPolicyUpdated_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_344_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_334_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSpawnedObjectArrived_Parms \
 { \
 	FCavrnusSpawnedObject spawnedObject; \
@@ -242,7 +242,7 @@ static inline void FCavrnusSpawnedObjectArrived_DelegateWrapper(const FScriptDel
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_364_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_354_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSpaceUserEvent_Parms \
 { \
 	FCavrnusUser User; \
@@ -255,7 +255,7 @@ static inline void FCavrnusSpaceUserEvent_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_381_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_371_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusUserVideoFrameEvent_Parms \
 { \
 	UTexture2D* UserVideoFrame; \
@@ -268,7 +268,7 @@ static inline void FCavrnusUserVideoFrameEvent_DelegateWrapper(const FScriptDele
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_403_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_393_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAvailableInputDevices_Parms \
 { \
 	TArray<FCavrnusInputDevice> InputDevices; \
@@ -281,7 +281,7 @@ static inline void FCavrnusAvailableInputDevices_DelegateWrapper(const FScriptDe
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_414_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_404_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAvailableOutputDevices_Parms \
 { \
 	TArray<FCavrnusOutputDevice> OutputDevices; \
@@ -294,7 +294,7 @@ static inline void FCavrnusAvailableOutputDevices_DelegateWrapper(const FScriptD
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_425_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_415_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAvailableVideoInputDevices_Parms \
 { \
 	TArray<FCavrnusVideoInputDevice> VideoInputDevices; \
@@ -307,7 +307,7 @@ static inline void FCavrnusAvailableVideoInputDevices_DelegateWrapper(const FScr
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_440_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_430_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusContentProgressFunction_Parms \
 { \
 	float Progress; \
@@ -322,7 +322,7 @@ static inline void FCavrnusContentProgressFunction_DelegateWrapper(const FScript
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_441_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_431_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusContentFunction_Parms \
 { \
 	TArray<uint8> bytes; \
@@ -335,7 +335,7 @@ static inline void FCavrnusContentFunction_DelegateWrapper(const FScriptDelegate
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_447_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_437_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusContentFileFunction_Parms \
 { \
 	FString fileDest; \
@@ -348,7 +348,7 @@ static inline void FCavrnusContentFileFunction_DelegateWrapper(const FScriptDele
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_453_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_443_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusRemoteContentFunction_Parms \
 { \
 	TArray<FCavrnusRemoteContent> availableContent; \
@@ -361,7 +361,7 @@ static inline void FCavrnusRemoteContentFunction_DelegateWrapper(const FScriptDe
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_459_DELEGATE \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_449_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusUploadCompleteFunction_Parms \
 { \
 	FCavrnusRemoteContent uploadedContent; \
@@ -440,9 +440,7 @@ static inline void FCavrnusUploadCompleteFunction_DelegateWrapper(const FScriptD
 	DECLARE_FUNCTION(execAuthenticateWithPassword); \
 	DECLARE_FUNCTION(execIsLoggedIn); \
 	DECLARE_FUNCTION(execGetCavrnusSpatialConnector); \
-	DECLARE_FUNCTION(execGetCavrnusSpatialConnectorSubSystemProxy); \
-	DECLARE_FUNCTION(execIsBound); \
-	DECLARE_FUNCTION(execUnbind);
+	DECLARE_FUNCTION(execGetCavrnusSpatialConnectorSubSystemProxy);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS_NO_PURE_DECLS \
@@ -510,9 +508,7 @@ static inline void FCavrnusUploadCompleteFunction_DelegateWrapper(const FScriptD
 	DECLARE_FUNCTION(execAuthenticateWithPassword); \
 	DECLARE_FUNCTION(execIsLoggedIn); \
 	DECLARE_FUNCTION(execGetCavrnusSpatialConnector); \
-	DECLARE_FUNCTION(execGetCavrnusSpatialConnectorSubSystemProxy); \
-	DECLARE_FUNCTION(execIsBound); \
-	DECLARE_FUNCTION(execUnbind);
+	DECLARE_FUNCTION(execGetCavrnusSpatialConnectorSubSystemProxy);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_INCLASS_NO_PURE_DECLS \

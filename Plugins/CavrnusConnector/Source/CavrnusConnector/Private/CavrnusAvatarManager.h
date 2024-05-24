@@ -4,19 +4,26 @@
 #include <Components/SceneComponent.h>
 #include <Materials/MaterialInstanceDynamic.h>
 
+#include "CavrnusAvatarManager.generated.h"
+
+class USpawnObjectHelpers;
+
 // Class definition
-class CAVRNUSCONNECTOR_API CavrnusAvatarManager
+UCLASS()
+class CAVRNUSCONNECTOR_API UCavrnusAvatarManager : public UObject
 {
+	GENERATED_BODY()
+
 public:
-	CavrnusAvatarManager();
-	~CavrnusAvatarManager();
+	UCavrnusAvatarManager();
+	~UCavrnusAvatarManager();
 	
-	void RegisterUser(const FCavrnusUser& SpawnedObject, TSubclassOf<AActor> ActorClass, UWorld* World, FCavrnusSpaceConnection SpaceConn);
+	void RegisterUser(const FCavrnusUser& SpawnedObject, TSubclassOf<AActor> ActorClass, UWorld* World, USpawnObjectHelpers* spawnHelpers);
 	void UnregisterUser(const FCavrnusUser& SpawnedObject, UWorld* World);
 
 private:
 	TMap<FString, AActor*> SpawnedAvatars;
 
-	FCavrnusBinding AvatarVis;
-	FCavrnusBinding AvatarTransformBinding;
+	UPROPERTY()
+	UCavrnusBinding* AvatarVis;
 };

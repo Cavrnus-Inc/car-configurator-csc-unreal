@@ -77,7 +77,7 @@ namespace Cavrnus
 			(*JoinableSpaceRemovedBindings[i])(space);
 	}
 
-	FCavrnusBinding DataState::BindJoinableSpaces(CavrnusSpaceInfoEvent spaceAdded, CavrnusSpaceInfoEvent spaceUpdated, CavrnusSpaceInfoEvent spaceRemoved)
+	UCavrnusBinding* DataState::BindJoinableSpaces(CavrnusSpaceInfoEvent spaceAdded, CavrnusSpaceInfoEvent spaceUpdated, CavrnusSpaceInfoEvent spaceRemoved)
 	{
 		CavrnusSpaceInfoEvent* added = new CavrnusSpaceInfoEvent(spaceAdded);
 		CavrnusSpaceInfoEvent* updated = new CavrnusSpaceInfoEvent(spaceUpdated);
@@ -90,12 +90,16 @@ namespace Cavrnus
 		for (int i = 0; i < CurrJoinableSpaces.Num(); i++)
 			spaceAdded(CurrJoinableSpaces[i]);
 
-		return FCavrnusBinding([this, added, updated, removed]()
-			{
-				JoinableSpaceAddedBindings.Remove(added);
-				JoinableSpaceUpdatedBindings.Remove(updated);
-				JoinableSpaceRemovedBindings.Remove(removed);
-			});
+		UCavrnusBinding* binding;
+		binding = NewObject<UCavrnusBinding>();
+		binding->SetupUnbind([this, added, updated, removed]()
+		{
+			JoinableSpaceAddedBindings.Remove(added);
+			JoinableSpaceUpdatedBindings.Remove(updated);
+			JoinableSpaceRemovedBindings.Remove(removed);
+		});
+
+		return binding;
 	}
 
 }

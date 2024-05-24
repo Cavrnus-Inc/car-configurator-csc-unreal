@@ -46,15 +46,6 @@ class CAVRNUSCONNECTOR_API UCavrnusFunctionLibrary : public UBlueprintFunctionLi
 	// Functions
 public:
 
-	//Stop listening for property updated
-	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Bindings",
-		meta = (ToolTip = "Unregisters the Binding so the callback will no longer be hit", ShortToolTip = "Unregisters the binding"))
-	static void Unbind(FCavrnusBinding disposable);
-
-	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Bindings",
-		meta = (ToolTip = "Check to see if Unbind has been called", ShortToolTip = "true until Unbind"))
-	static bool IsBound(FCavrnusBinding Binding);
-
 #pragma region Data Model Access/Shutdown
 
 	static Cavrnus::CavrnusRelayModel* GetDataModel();
@@ -107,8 +98,7 @@ public:
 	// Space Functions
 	// ============================================
 
-	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusAllSpacesInfoEvent, TArray<FCavrnusSpaceInfo>, SpacesInfo);
-
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusAllSpacesInfoEvent, const TArray<FCavrnusSpaceInfo>&, SpacesInfo);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
 		meta = (ToolTip = "Gets a list of all current spaces which can be joined", ShortToolTip = "Gets a list of all current spaces which can be joined"))
 	static void FetchJoinableSpaces(FCavrnusAllSpacesInfoEvent OnRecvCurrentJoinableSpaces);
@@ -118,9 +108,9 @@ public:
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSpaceInfoEvent, FCavrnusSpaceInfo, SpaceInfo);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
 		meta = (ToolTip = "Triggers when spaces become available to you that you can join, or when their metadata changes", ShortToolTip = "Maintains a list of spaces"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindJoinableSpaces(FCavrnusSpaceInfoEvent SpaceAdded, FCavrnusSpaceInfoEvent SpaceUpdated, FCavrnusSpaceInfoEvent SpaceRemoved);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindJoinableSpaces(FCavrnusSpaceInfoEvent SpaceAdded, FCavrnusSpaceInfoEvent SpaceUpdated, FCavrnusSpaceInfoEvent SpaceRemoved);
 
-	static FCavrnusBinding BindJoinableSpaces(CavrnusSpaceInfoEvent SpaceAdded, CavrnusSpaceInfoEvent SpaceUpdated, CavrnusSpaceInfoEvent SpaceRemoved);
+	static UCavrnusBinding* BindJoinableSpaces(CavrnusSpaceInfoEvent SpaceAdded, CavrnusSpaceInfoEvent SpaceUpdated, CavrnusSpaceInfoEvent SpaceRemoved);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
 		meta = (ToolTip = "Checks if there is any active connection to a space", ShortToolTip = "Checks if you are connected to a space"))
@@ -161,7 +151,7 @@ public:
 
 	static Cavrnus::FPropertyValue GetGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName);
 
-	static FCavrnusBinding BindGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusPropertyFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusPropertyFunction& OnPropertyUpdated);
 
 	static void PostGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue);
 
@@ -179,9 +169,9 @@ public:
 	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FColorPropertyUpdated, FLinearColor, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FColorPropertyUpdated OnPropertyUpdated);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FColorPropertyUpdated OnPropertyUpdated);
 
-	static FCavrnusBinding BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusColorFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusColorFunction& OnPropertyUpdated);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
@@ -204,9 +194,9 @@ public:
 	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FBoolPropertyUpdated, bool, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FBoolPropertyUpdated OnPropertyUpdated);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FBoolPropertyUpdated OnPropertyUpdated);
 
-	static FCavrnusBinding BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusBoolFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusBoolFunction& OnPropertyUpdated);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
@@ -229,9 +219,9 @@ public:
 	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FFloatPropertyUpdated, float, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FFloatPropertyUpdated OnPropertyUpdated);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FFloatPropertyUpdated OnPropertyUpdated);
 	
-	static FCavrnusBinding BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusFloatFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusFloatFunction& OnPropertyUpdated);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
@@ -254,9 +244,9 @@ public:
 	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FStringPropertyUpdated, FString, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FStringPropertyUpdated OnPropertyUpdated);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FStringPropertyUpdated OnPropertyUpdated);
 	
-	static FCavrnusBinding BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusStringFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusStringFunction& OnPropertyUpdated);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
@@ -279,9 +269,9 @@ public:
 	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FVectorPropertyUpdated, FVector4, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FVectorPropertyUpdated OnPropertyUpdated);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FVectorPropertyUpdated OnPropertyUpdated);
 	
-	static FCavrnusBinding BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusVectorFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusVectorFunction& OnPropertyUpdated);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
@@ -304,9 +294,9 @@ public:
 	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FTransformPropertyUpdated, FTransform, Value, FString, ContainerName, FString, PropertyName);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransformPropertyUpdated OnPropertyUpdated);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransformPropertyUpdated OnPropertyUpdated);
 	
-	static FCavrnusBinding BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusTransformFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusTransformFunction& OnPropertyUpdated);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
@@ -325,15 +315,15 @@ public:
 	DECLARE_DYNAMIC_DELEGATE_TwoParams(FCavrnusPolicyUpdated, FString, Policy, bool, IsAllowed);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Internal",
 		meta = (ToolTip = "Binds an event to throw when a policy is/isn't allowed for the user (returns false until policies are fetched & resolved)", ShortToolTip = "Throws an event if a policy is allowed"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindGlobalPolicy(const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindGlobalPolicy(const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated);
 
-	static FCavrnusBinding BindGlobalPolicy(FString Policy, CavrnusPolicyUpdated OnPolicyUpdated);
+	static UCavrnusBinding* BindGlobalPolicy(FString Policy, CavrnusPolicyUpdated OnPolicyUpdated);
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Internal",
 		meta = (ToolTip = "Binds an event to throw when a policy is/isn't allowed for the user in a given space (returns false until policies are fetched & resolved)", ShortToolTip = "Throws an event if a policy is allowed"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated);
 
-	static FCavrnusBinding BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, CavrnusPolicyUpdated OnPolicyUpdated);
+	static UCavrnusBinding* BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, CavrnusPolicyUpdated OnPolicyUpdated);
 #pragma endregion
 
 #pragma region Spawned Objects
@@ -374,16 +364,16 @@ public:
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Users",
 		meta = (ToolTip = "Triggers whenever users join or leave a given space", ShortToolTip = "Triggers whenever users join or leave a given space"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindSpaceUsers(FCavrnusSpaceConnection SpaceConnection, FCavrnusSpaceUserEvent UserAdded, FCavrnusSpaceUserEvent UserRemoved);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindSpaceUsers(FCavrnusSpaceConnection SpaceConnection, FCavrnusSpaceUserEvent UserAdded, FCavrnusSpaceUserEvent UserRemoved);
 
-	static FCavrnusBinding BindSpaceUsers(FCavrnusSpaceConnection SpaceConnection, CavrnusSpaceUserEvent UserAdded, CavrnusSpaceUserEvent UserRemoved);
+	static UCavrnusBinding* BindSpaceUsers(FCavrnusSpaceConnection SpaceConnection, CavrnusSpaceUserEvent UserAdded, CavrnusSpaceUserEvent UserRemoved);
 
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusUserVideoFrameEvent, UTexture2D*, UserVideoFrame);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
-	static UPARAM(DisplayName = "Disposable") FCavrnusBinding BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, FCavrnusUserVideoFrameEvent OnVideoFrameUpdate);
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, FCavrnusUserVideoFrameEvent OnVideoFrameUpdate);
 
-	static FCavrnusBinding BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, const VideoFrameUpdateFunction& UpdateFrameCallback);
+	static UCavrnusBinding* BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, const VideoFrameUpdateFunction& UpdateFrameCallback);
 #pragma endregion
 
 #pragma region Voice and Video

@@ -50,6 +50,7 @@ bool UCavrnusUserWidget::TextureSizeChanged(const FVector2D NewSize) const
 
 void UCavrnusUserWidget::UnbindUserVideo()
 {
-	UCavrnusFunctionLibrary::Unbind(UserVideoFrameBinding);
+	if(UserVideoFrameBinding)
+		UserVideoFrameBinding->Unbind();
 }
 

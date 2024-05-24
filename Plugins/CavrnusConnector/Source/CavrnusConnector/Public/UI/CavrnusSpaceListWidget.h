@@ -1,35 +1,56 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include <Blueprint/UserWidget.h>
 
+#include "Components/EditableTextBox.h"
+#include "Pagination/Pagination.h"
+#include "Types/CavrnusSpaceInfo.h"
 #include "CavrnusSpaceListWidget.generated.h"
 
-/**
- *
- * Base class for widget for obtaining a space ID
- *
- */
-
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnCavrnusSpaceSelected, FString);
+typedef TFunction<void(FCavrnusSpaceInfo)> FSpaceSelectedEvent;
 
 UCLASS(Abstract)
 class CAVRNUSCONNECTOR_API UCavrnusSpaceListWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
-public:
-	UFUNCTION(BlueprintImplementableEvent, Category = "Cavrnus")
-	FString GetSpaceID(UObject* Item);
+	class FSpaceListOption : public IListElementInterface
+	{
+	public:
+		FSpaceListOption(const FCavrnusSpaceInfo& SpaceInfo, const FSpaceSelectedEvent& OnSelectSpace);
 
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
+		virtual void EntryBuilt(UUserWidget* Element) override;
+
+		FCavrnusSpaceInfo Content;
+		FSpaceSelectedEvent OnSelect;
+	};
+
+protected:
+	virtual void NativeConstruct() override;
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "SpaceList")
 	void Setup();
 
-public:
-	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UListView* SpaceList;
+	UFUNCTION()
+	void Search(const FText& SearchValue);
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "SpaceList")
+	TSubclassOf<UUserWidget> PaginationItemWidget;
+
+	UPROPERTY(BlueprintReadOnly, Category = "SpaceList", meta = (BindWidget))
+	UPagination* SpacePagination;
+
+	UPROPERTY(EditAnywhere, Category = "SpaceList", meta = (BindWidget))
+	UEditableTextBox* SearchTextBox;
 
 	FOnCavrnusSpaceSelected OnCavrnusSpaceSelected;
+
+private:
+	TArray<FCavrnusSpaceInfo> AllSpaces;
+	TArray<FCavrnusSpaceInfo> CurrentDisplayedSpaces;
+
+	void UpdatePagination(TArray<FCavrnusSpaceInfo>& Spaces);
 };

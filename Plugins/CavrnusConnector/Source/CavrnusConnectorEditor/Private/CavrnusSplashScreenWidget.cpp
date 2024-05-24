@@ -32,12 +32,12 @@ void UCavrnusSplashScreenWidget::OnSetupSpaceClicked()
 
 void UCavrnusSplashScreenWidget::OnWebConsoleClicked()
 {
-	UKismetSystemLibrary::LaunchURL(WebConsoleURL);
+	FPlatformProcess::LaunchURL(*WebConsoleURL, nullptr, nullptr);
 }
 
 void UCavrnusSplashScreenWidget::OnOpenDocsClicked()
 {
-	UKismetSystemLibrary::LaunchURL(DocumentationURL);
+	FPlatformProcess::LaunchURL(*DocumentationURL, nullptr, nullptr);
 }
 
 void UCavrnusSplashScreenWidget::OnShowSplashScreenOnStartupClicked(bool bShowOnStartup)

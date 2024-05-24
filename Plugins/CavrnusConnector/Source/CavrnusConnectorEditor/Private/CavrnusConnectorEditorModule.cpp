@@ -22,7 +22,6 @@
 #include <Engine/SCS_Node.h>
 #include <Kismet2/BlueprintEditorUtils.h>
 #include <Tools/Modes.h>
-#include <CavrnusSyncMaterial.h>
 
 #define LOCTEXT_NAMESPACE "CavrnusConnectorEditor"
 
@@ -127,8 +126,7 @@ void FCavrnusConnectorEditorModule::OnBlueprintChanged(UBlueprint* Blueprint)
 	TArray<USCS_Node*> NodesNeedingContainer;
 	for (USCS_Node* Node : BlueprintNodes)
 	{
-		if (!Node->ComponentTemplate->IsA<UCavrnusValueSyncBase>()
-			&& !Node->ComponentTemplate->IsA<UCavrnusSyncMaterial>())
+		if (!Node->ComponentTemplate->IsA<UCavrnusValueSyncBase>())
 		{
 			continue;
 		}
@@ -179,14 +177,14 @@ void FCavrnusConnectorEditorModule::OnBlueprintChanged(UBlueprint* Blueprint)
 				USceneComponent* ParentComponentTemplate = Node->GetParentComponentTemplate(Blueprint);
 				if (ParentComponentTemplate)
 				{
-					PropertiesContainer->SetContainerName(GenerateContainerName(ParentComponentTemplate, Blueprint));
+					PropertiesContainer->ContainerName = GenerateContainerName(ParentComponentTemplate, Blueprint);
 					NewNode->SetParent(Cast<USceneComponent>(ParentComponentTemplate));
 				}
 			}
 			else
 			{
 				USCS_Node* Parent = Blueprint->SimpleConstructionScript->FindParentNode(Node);
-				PropertiesContainer->SetContainerName(GenerateContainerName(Parent, Blueprint));
+				PropertiesContainer->ContainerName = GenerateContainerName(Parent, Blueprint);
 				if (Parent)
 				{
 					Parent->AddChildNode(NewNode);
@@ -288,26 +286,17 @@ void FCavrnusConnectorEditorModule::RegisterStartupTab()
 		});
 
 	static bool bShowSplashScreen = ShouldShowSplashScreen();
-	ShowSplashScreenDelegateHandle = LevelEditorModule.OnTabManagerChanged().AddLambda([this] {
+	SetShowSplashScreen(bShowSplashScreen);
+	bShowSplashScreen = false;
+
+	ShowSplashScreenDelegateHandle = LevelEditorModule.OnTabManagerChanged().AddLambda([this]
+	{
 		if (bShowSplashScreen)
 		{
-			UEditorUtilitySubsystem* EditorUtilitySubsystem = GEditor->GetEditorSubsystem<UEditorUtilitySubsystem>();
-			FString BlueprintPath = TEXT("/CavrnusConnector/UI/EditorMenus/EUW_SplashScreen.EWU_SplashScreen");
-			UEditorUtilityWidgetBlueprint* LoadedBlueprintClass = LoadObject<UEditorUtilityWidgetBlueprint>(NULL, *BlueprintPath, NULL, LOAD_None, NULL);
-			if (LoadedBlueprintClass)
-			{
-				UEditorUtilityWidget* SpawnedWidget = EditorUtilitySubsystem->SpawnAndRegisterTabAndGetID(LoadedBlueprintClass, SplashScreenTabID);
-				if (UCavrnusSplashScreenWidget* SplashScreen = Cast<UCavrnusSplashScreenWidget>(SpawnedWidget))
-				{
-					SplashScreen->TabID = SplashScreenTabID;
-					DrawAttentionToSplashScreen();
-				}
-			}
-
-			// once shown never show again in the same session
+			SetShowSplashScreen(true);
 			bShowSplashScreen = false;
 		}
-		});
+	});
 }
 
 void FCavrnusConnectorEditorModule::UnregisterStartupTab()
@@ -404,7 +393,7 @@ void FCavrnusConnectorEditorModule::AddTopRibbonMenu(FMenuBarBuilder& MenuBuilde
 	MenuBuilder.AddPullDownMenu(
 		LOCTEXT("MenuLocKey", "Cavrnus"),
 		LOCTEXT("MenuTooltipKey", "Opens menu for CavrnusConnector plugin"),
-		FNewMenuDelegate::CreateRaw(this, &FCavrnusConnectorEditorModule::FillTopRibbonMenu),
+		FNewMenuDelegate::CreateRaw(this, &FCavrnusConnectorEditorModule::AddCavrnusToolbarEntry),
 		FName(TEXT("Cavrnus")),
 		FName(TEXT("Cavrnus Help Menu")));
 }
@@ -472,17 +461,52 @@ void FCavrnusConnectorEditorModule::AddCavrnusToolsOptions(FToolMenuSection& InS
 	}
 }
 
-void FCavrnusConnectorEditorModule::FillTopRibbonMenu(FMenuBuilder& MenuBuilder) {
+void FCavrnusConnectorEditorModule::AddCavrnusToolbarEntry(FMenuBuilder& MenuBuilder)
+{
 	MenuBuilder.AddMenuEntry(
 		FText::FromString(TEXT("Add CavrnusSpatialConnector to current level")),
 		FText::GetEmpty(),
 		FSlateIcon(),
-		FUIAction(FExecuteAction::CreateLambda([this] {
+		FUIAction(FExecuteAction::CreateLambda([this]
+		{
 			AddCavrnusSpatialConnectorToLevel();
-			})),
+		})),
 		NAME_None,
 		EUserInterfaceActionType::Button
 	);
+
+	MenuBuilder.AddMenuEntry(
+		FText::FromString(TEXT("Welcome")),
+		FText::GetEmpty(),
+		FSlateIcon(),
+		FUIAction(FExecuteAction::CreateLambda([this]
+		{
+			SetWelcomeScreenState(true);
+		})),
+		NAME_None,
+		EUserInterfaceActionType::Button
+	);
+}
+
+void FCavrnusConnectorEditorModule::SetWelcomeScreenState(bool bToShow)
+{
+	if (bToShow)
+	{
+		SplashScreenTabID = TEXT("SplashScreenTab");
+		UEditorUtilitySubsystem* EditorUtilitySubsystem = GEditor->GetEditorSubsystem<UEditorUtilitySubsystem>();
+		const FString BlueprintPath = TEXT("/CavrnusConnector/UI/EditorMenus/EUW_SplashScreen");
+		
+		UEditorUtilityWidgetBlueprint* LoadedBlueprintClass = LoadObject<UEditorUtilityWidgetBlueprint>(NULL, *BlueprintPath, NULL, LOAD_None, NULL);
+		if (LoadedBlueprintClass)
+		{
+			UEditorUtilityWidget* SpawnedWidget = EditorUtilitySubsystem->SpawnAndRegisterTabAndGetID(LoadedBlueprintClass, SplashScreenTabID);
+			if (UCavrnusSplashScreenWidget* SplashScreen = Cast<UCavrnusSplashScreenWidget>(SpawnedWidget))
+			{
+				SplashScreen->TabID = SplashScreenTabID;
+				DrawAttentionToSplashScreen();
+			}
+		}
+	}	
 }
 
 void FCavrnusConnectorEditorModule::AddCavrnusSpatialConnectorToLevel()

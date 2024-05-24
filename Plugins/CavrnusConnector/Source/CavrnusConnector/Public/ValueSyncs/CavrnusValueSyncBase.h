@@ -65,7 +65,9 @@ private:
 
 	bool shouldSync = false;
 	FCavrnusSpaceConnection SpaceConn;
-	FCavrnusBinding PropertyBinding;
+
+	UPROPERTY()
+	UCavrnusBinding* PropertyBinding = nullptr;
 
 	FString ReportOwnerName() const;
 

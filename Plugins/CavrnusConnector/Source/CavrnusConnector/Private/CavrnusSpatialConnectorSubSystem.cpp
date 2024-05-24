@@ -8,6 +8,7 @@
 #include "TimerManager.h"
 #include "Engine/World.h" 
 #include "CavrnusPropertiesContainer.h"
+#include "SpawnObjectHelpers.h"
 
 #include <GameFramework/Pawn.h>
 #include <GameFramework/PlayerController.h>
@@ -96,15 +97,33 @@ void UCavrnusSpatialConnectorSubSystemProxy::UIManager::RemoveAllWidgets()
 	}
 }
 
+void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowAuthWidget(bool bShowWidget)
+{
+	if (bShowWidget)
+	{
+		ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
+		if (CavrnusSpatialConnector->AuthenticationWidgetClass)
+		{
+			AuthWidget = SpawnWidget(CavrnusSpatialConnector->AuthenticationWidgetClass);
+		}
+	}
+	else
+	{
+		RemoveWidget(AuthWidget.Get());
+	}
+}
+
 void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowGuestLoginWidget(CavrnusAuthRecv AuthSuccess, CavrnusError AuthFailure)
 {
 	if (UCavrnusGuestLoginWidget* LoginWidget = CreateWidget<UCavrnusGuestLoginWidget>(World, CurrentCavrnusSpatialConnector->GuestJoinMenu))
 	{
+
 		LoginWidget->OnLogin.AddLambda
 		(
 			[this, LoginWidget, AuthSuccess, AuthFailure](FString GuestLoginUsername)
 			{
 				RemoveWidget(LoginWidget);
+				ShowAuthWidget(true);
 				UCavrnusFunctionLibrary::AuthenticateAsGuest(CurrentCavrnusSpatialConnector->MyServer, GuestLoginUsername, AuthSuccess, AuthFailure);
 			}
 		);
@@ -125,6 +144,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowLoginWidget(CavrnusA
 			[this, LoginWidget, CavrnusSpatialConnector, AuthSuccess, AuthFailure](FString LoginEmail, FString LoginPassword)
 			{
 				RemoveWidget(LoginWidget);
+				ShowAuthWidget(true);
 				UCavrnusFunctionLibrary::AuthenticateWithPassword(CavrnusSpatialConnector->MyServer, LoginEmail, LoginPassword, AuthSuccess, AuthFailure);
 			}
 		);
@@ -209,6 +229,8 @@ void UCavrnusSpatialConnectorSubSystemProxy::Initialize()
 		OnSpaceConnectionFailure(failure);
 	};
 
+	SpawnHelpers = NewObject<USpawnObjectHelpers>();
+
 	SpawnManager = new SpawnedObjectsManager();
 
 	TFunction<void(FCavrnusSpawnedObject, FString)> onObjectCreation = [this](const FCavrnusSpawnedObject& ob, FString uniqueId)
@@ -218,7 +240,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::Initialize()
 			UE_LOG(LogCavrnusConnector, Error, TEXT("Could not find spawnable object with Unique ID %s in the Cavrnus Spatial Connector"), *uniqueId);
 			return;
 		}
-		SpawnManager->RegisterSpawnedObject(ob, GetCavrnusSpatialConnector()->SpawnableIdentifiers[uniqueId], GetWorld());
+		SpawnManager->RegisterSpawnedObject(ob, GetCavrnusSpatialConnector()->SpawnableIdentifiers[uniqueId], GetWorld(), SpawnHelpers);
 	};
 	UCavrnusFunctionLibrary::GetDataModel()->RegisterObjectCreationCallback(onObjectCreation);
 
@@ -263,7 +285,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::AuthenticateAndJoin()
 	ACavrnusSpatialConnector* CavrnusSpatialConnector = GetCavrnusSpatialConnector();
 	if (!CavrnusSpatialConnector)
 		return;
-
+	
 	// TO DO: Check if actually a valid token?
 	if (Authentication.Token.IsEmpty())
 	{
@@ -271,6 +293,8 @@ void UCavrnusSpatialConnectorSubSystemProxy::AuthenticateAndJoin()
 		{
 			if (CavrnusSpatialConnector->GuestLoginMethod == ECavrnusGuestLoginMethod::EnterNameBelow)
 			{
+				// AUTH GRAPHIC SHOW
+				UIManagerInstance->ShowAuthWidget(true);
 				UCavrnusFunctionLibrary::AuthenticateAsGuest
 				(
 					CavrnusSpatialConnector->MyServer,
@@ -291,6 +315,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::AuthenticateAndJoin()
 		{
 			if (CavrnusSpatialConnector->MemberLoginMethod == ECavrnusMemberLoginMethod::EnterMemberLoginCredentials)
 			{
+				UIManagerInstance->ShowAuthWidget(true);
 				UCavrnusFunctionLibrary::AuthenticateWithPassword
 				(
 					CavrnusSpatialConnector->MyServer,
@@ -321,6 +346,8 @@ void UCavrnusSpatialConnectorSubSystemProxy::AuthenticateAndJoin()
 
 void UCavrnusSpatialConnectorSubSystemProxy::OnAuthSuccess(FCavrnusAuthentication Auth)
 {
+	UIManagerInstance->ShowAuthWidget(false);
+
 	Authentication = Auth;
 	ACavrnusSpatialConnector* CavrnusSpatialConnector = GetCavrnusSpatialConnector();
 	UE_LOG(LogCavrnusConnector, Log, TEXT("Successfully authenticated"));
@@ -336,6 +363,8 @@ void UCavrnusSpatialConnectorSubSystemProxy::OnAuthSuccess(FCavrnusAuthenticatio
 
 void UCavrnusSpatialConnectorSubSystemProxy::OnAuthFailure(FString ErrorMessage)
 {
+	UIManagerInstance->ShowAuthWidget(false);
+
 	Authentication = FCavrnusAuthentication();
 	ACavrnusSpatialConnector* CavrnusSpatialConnector = GetCavrnusSpatialConnector();
 	UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to authenticate, error: %s"), *ErrorMessage);
@@ -351,9 +380,11 @@ void UCavrnusSpatialConnectorSubSystemProxy::OnAuthFailure(FString ErrorMessage)
 
 void UCavrnusSpatialConnectorSubSystemProxy::OnSpaceConnectionSuccess(FCavrnusSpaceConnection SpaceConnection)
 {
-	AvatarManager = new CavrnusAvatarManager();
+	UIManagerInstance->ShowAuthWidget(false);
+
+	AvatarManager = NewObject<UCavrnusAvatarManager>();
 	CavrnusSpaceUserEvent userAdded = [this, SpaceConnection](const FCavrnusUser& user) {
-		AvatarManager->RegisterUser(user, GetCavrnusSpatialConnector()->RemoteAvatarClass, GetWorld(), SpaceConnection);
+		AvatarManager->RegisterUser(user, GetCavrnusSpatialConnector()->RemoteAvatarClass, GetWorld(), SpawnHelpers);
 	};
 	CavrnusSpaceUserEvent userRemoved = [this](const FCavrnusUser& user) {
 		AvatarManager->UnregisterUser(user, GetWorld());
@@ -437,12 +468,14 @@ void UCavrnusSpatialConnectorSubSystemProxy::SetupLocalUserPawn()
 		LocalUserComponent->RegisterComponent();
 
 		FString PropertyPath = TEXT("users/") + SpaceConn.LocalUserConnectionId;
-		UCavrnusPropertiesContainer::ResetLiveHierarchyRootName(Pawn, PropertyPath);
+		USpawnObjectHelpers::ResetLiveHierarchyRootName(Pawn, PropertyPath);
 
 		CavrnusSpaceUserEvent evt = [LocalUserComponent](const FCavrnusUser& user) {
 			LocalUserComponent->LocalUser = user;
 		};
-
+		
+		UCavrnusFunctionLibrary::BeginTransientBoolPropertyUpdate(SpaceConn, PropertyPath, "AvatarVis", true);
+		
 		UCavrnusFunctionLibrary::AwaitLocalUser(SpaceConn, evt);
 	}
 }
@@ -452,6 +485,18 @@ void UCavrnusSpatialConnectorSubSystemProxy::OnSpaceConnectionFailure(FString Er
 	hasSpaceConn = false;
 
 	UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to join space, error: %s"), *ErrorMessage);
+}
+
+void UCavrnusSpatialConnectorSubSystemProxy::InitializeCavrnusActor(AActor* CavrnusActor)
+{
+	if (SpawnHelpers)
+	{
+		SpawnHelpers->InitializeCavrnusActor(CavrnusActor);
+	}
+	else
+	{
+		UE_LOG(LogCavrnusConnector, Error, TEXT("InitializeCavrnusActor called before USpawnObjectHelpers creation."));
+	}
 }
 
 void UCavrnusSpatialConnectorSubSystemProxy::AttemptToJoinSpace(FString JoinSpaceId)

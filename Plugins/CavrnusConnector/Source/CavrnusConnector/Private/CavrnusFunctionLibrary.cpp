@@ -22,25 +22,6 @@
 #include "Translation\CavrnusProtoTranslation.h"
 #include "CavrnusSpatialConnector.h"
 
-void UCavrnusFunctionLibrary::Unbind(FCavrnusBinding Binding)
-{
-	if (Binding.Unhook)
-	{
-		Binding.Unhook();
-		Binding.Unhook = nullptr;
-	}
-	else
-	{
-		UE_LOG(LogCavrnusConnector, Warning, TEXT("Unbinding FCavrnusBinding with no Unhook function"));
-	}
-}
-
-bool UCavrnusFunctionLibrary::IsBound(FCavrnusBinding Binding)
-{
-	bool returnVal = (Binding.Unhook != nullptr);
-	return returnVal;
-}
-
 #pragma region Data Model Access/Shutdown
 
 // ============================================
@@ -90,17 +71,13 @@ UCavrnusSpatialConnectorSubSystemProxy* UCavrnusFunctionLibrary::GetCavrnusSpati
 
 ACavrnusSpatialConnector* UCavrnusFunctionLibrary::GetCavrnusSpatialConnector()
 {
-	TArray<UObject*> Results;
-	GetObjectsOfClass(ACavrnusSpatialConnector::StaticClass(), Results);
-
-	ACavrnusSpatialConnector* SpatialConnector = nullptr;
-	if (Results.Num() > 0)
+	UCavrnusSpatialConnectorSubSystemProxy* SubProxy = GetCavrnusSpatialConnectorSubSystemProxy();
+	if (SubProxy)
 	{
-		ensure(Results.Num() == 1); // We don't expect more than one spatial core.
-		SpatialConnector = Cast<ACavrnusSpatialConnector>(Results.Top());
+		return SubProxy->GetCavrnusSpatialConnector();
 	}
 
-	return SpatialConnector;
+	return nullptr;
 }
 
 bool UCavrnusFunctionLibrary::IsLoggedIn()
@@ -183,7 +160,7 @@ void UCavrnusFunctionLibrary::FetchJoinableSpaces(CavrnusAllSpacesInfoEvent OnRe
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFetchAvailableSpaces(RequestId));
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindJoinableSpaces(FCavrnusSpaceInfoEvent SpaceAdded, FCavrnusSpaceInfoEvent SpaceUpdated, FCavrnusSpaceInfoEvent SpaceRemoved)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindJoinableSpaces(FCavrnusSpaceInfoEvent SpaceAdded, FCavrnusSpaceInfoEvent SpaceUpdated, FCavrnusSpaceInfoEvent SpaceRemoved)
 {
 	CavrnusSpaceInfoEvent added = [SpaceAdded](const FCavrnusSpaceInfo& val)
 	{
@@ -201,7 +178,7 @@ FCavrnusBinding UCavrnusFunctionLibrary::BindJoinableSpaces(FCavrnusSpaceInfoEve
 	return BindJoinableSpaces(added, updated, removed);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindJoinableSpaces(CavrnusSpaceInfoEvent SpaceAdded, CavrnusSpaceInfoEvent SpaceUpdated, CavrnusSpaceInfoEvent SpaceRemoved)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindJoinableSpaces(CavrnusSpaceInfoEvent SpaceAdded, CavrnusSpaceInfoEvent SpaceUpdated, CavrnusSpaceInfoEvent SpaceRemoved)
 {
 	return GetDataModel()->GetDataState()->BindJoinableSpaces(SpaceAdded, SpaceUpdated, SpaceRemoved);
 }
@@ -294,7 +271,7 @@ Cavrnus::FPropertyValue UCavrnusFunctionLibrary::GetGenericPropertyValue(FCavrnu
 	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->GetPropValue(FPropertyId(ContainerName, PropertyName));
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusPropertyFunction& OnPropertyUpdated)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusPropertyFunction& OnPropertyUpdated)
 {
 	CheckErrors(SpaceConnection);
 
@@ -323,7 +300,7 @@ FLinearColor UCavrnusFunctionLibrary::GetColorPropertyValue(FCavrnusSpaceConnect
 	return GetGenericPropertyValue(SpaceConnection, ContainerName, PropertyName).ColorValue;
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FColorPropertyUpdated PropertyUpdateEvent)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FColorPropertyUpdated PropertyUpdateEvent)
 {
 	CavrnusPropertyFunction propUpdateCallback = [PropertyUpdateEvent](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -335,7 +312,7 @@ FCavrnusBinding UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceCon
 	return BindGenericPropertyValue(SpaceConnection, ContainerName, PropertyName, propUpdateCallback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusColorFunction& OnPropertyUpdated)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusColorFunction& OnPropertyUpdated)
 {
 	CavrnusPropertyFunction propUpdateCallback = [OnPropertyUpdated](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -374,7 +351,7 @@ bool UCavrnusFunctionLibrary::GetBoolPropertyValue(FCavrnusSpaceConnection Space
 	return GetGenericPropertyValue(SpaceConnection, ContainerName, PropertyName).BoolValue;
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FBoolPropertyUpdated PropertyUpdateEvent)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FBoolPropertyUpdated PropertyUpdateEvent)
 {
 	CavrnusPropertyFunction propUpdateCallback = [PropertyUpdateEvent](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -384,7 +361,7 @@ FCavrnusBinding UCavrnusFunctionLibrary::BindBooleanPropertyValue(FCavrnusSpaceC
 	return BindGenericPropertyValue(SpaceConnection, ContainerName, PropertyName, propUpdateCallback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusBoolFunction& OnPropertyUpdated)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusBoolFunction& OnPropertyUpdated)
 {
 	CavrnusPropertyFunction propUpdateCallback = [OnPropertyUpdated](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -423,7 +400,7 @@ float UCavrnusFunctionLibrary::GetFloatPropertyValue(FCavrnusSpaceConnection Spa
 	return GetGenericPropertyValue(SpaceConnection, ContainerName, PropertyName).FloatValue;
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FFloatPropertyUpdated PropertyUpdateEvent)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FFloatPropertyUpdated PropertyUpdateEvent)
 {
 	CavrnusPropertyFunction propUpdateCallback = [PropertyUpdateEvent](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -433,7 +410,7 @@ FCavrnusBinding UCavrnusFunctionLibrary::BindFloatPropertyValue(FCavrnusSpaceCon
 	return BindGenericPropertyValue(SpaceConnection, ContainerName, PropertyName, propUpdateCallback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusFloatFunction& OnPropertyUpdated)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusFloatFunction& OnPropertyUpdated)
 {
 	CavrnusPropertyFunction propUpdateCallback = [OnPropertyUpdated](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -472,7 +449,7 @@ FString UCavrnusFunctionLibrary::GetStringPropertyValue(FCavrnusSpaceConnection 
 	return GetGenericPropertyValue(SpaceConnection, ContainerName, PropertyName).StringValue;
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FStringPropertyUpdated PropertyUpdateEvent)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FStringPropertyUpdated PropertyUpdateEvent)
 {
 	CavrnusPropertyFunction propUpdateCallback = [PropertyUpdateEvent](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -482,7 +459,7 @@ FCavrnusBinding UCavrnusFunctionLibrary::BindStringPropertyValue(FCavrnusSpaceCo
 	return BindGenericPropertyValue(SpaceConnection, ContainerName, PropertyName, propUpdateCallback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusStringFunction& OnPropertyUpdated)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusStringFunction& OnPropertyUpdated)
 {
 	CavrnusPropertyFunction propUpdateCallback = [OnPropertyUpdated](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -521,7 +498,7 @@ FVector4 UCavrnusFunctionLibrary::GetVectorPropertyValue(FCavrnusSpaceConnection
 	return GetGenericPropertyValue(SpaceConnection, ContainerName, PropertyName).VectorValue;
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FVectorPropertyUpdated PropertyUpdateEvent)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FVectorPropertyUpdated PropertyUpdateEvent)
 {
 	CavrnusPropertyFunction propUpdateCallback = [PropertyUpdateEvent](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -531,7 +508,7 @@ FCavrnusBinding UCavrnusFunctionLibrary::BindVectorPropertyValue(FCavrnusSpaceCo
 	return BindGenericPropertyValue(SpaceConnection, ContainerName, PropertyName, propUpdateCallback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusVectorFunction& OnPropertyUpdated)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusVectorFunction& OnPropertyUpdated)
 {
 	CavrnusPropertyFunction propUpdateCallback = [OnPropertyUpdated](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -570,7 +547,7 @@ FTransform UCavrnusFunctionLibrary::GetTransformPropertyValue(FCavrnusSpaceConne
 	return GetGenericPropertyValue(SpaceConnection, ContainerName, PropertyName).TransformValue;
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransformPropertyUpdated PropertyUpdateEvent)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransformPropertyUpdated PropertyUpdateEvent)
 {
 	CavrnusPropertyFunction propUpdateCallback = [PropertyUpdateEvent](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -580,7 +557,7 @@ FCavrnusBinding UCavrnusFunctionLibrary::BindTransformPropertyValue(FCavrnusSpac
 	return BindGenericPropertyValue(SpaceConnection, ContainerName, PropertyName, propUpdateCallback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusTransformFunction& OnPropertyUpdated)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusTransformFunction& OnPropertyUpdated)
 {
 	CavrnusPropertyFunction propUpdateCallback = [OnPropertyUpdated](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
@@ -609,7 +586,7 @@ void UCavrnusFunctionLibrary::PostTransformPropertyUpdate(FCavrnusSpaceConnectio
 
 #pragma region Permissions
 
-UPARAM(DisplayName = "Disposable")FCavrnusBinding UCavrnusFunctionLibrary::BindGlobalPolicy(const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated)
+UPARAM(DisplayName = "Disposable")UCavrnusBinding* UCavrnusFunctionLibrary::BindGlobalPolicy(const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated)
 {
 	CavrnusPolicyUpdated callback = [OnPolicyUpdated](const FString& policy, bool allowed)
 	{
@@ -619,14 +596,14 @@ UPARAM(DisplayName = "Disposable")FCavrnusBinding UCavrnusFunctionLibrary::BindG
 	return BindGlobalPolicy(Policy, callback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindGlobalPolicy(FString Policy, CavrnusPolicyUpdated OnPolicyUpdated)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindGlobalPolicy(FString Policy, CavrnusPolicyUpdated OnPolicyUpdated)
 {
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildRequestGlobalPermission(Policy));
 
 	return GetDataModel()->GetGlobalPermissionsModel()->BindPolicyAllowed(Policy, OnPolicyUpdated);
 }
 
-UPARAM(DisplayName = "Disposable")FCavrnusBinding UCavrnusFunctionLibrary::BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated)
+UPARAM(DisplayName = "Disposable")UCavrnusBinding* UCavrnusFunctionLibrary::BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated)
 {
 	CavrnusPolicyUpdated callback = [OnPolicyUpdated](const FString& policy, bool allowed)
 	{
@@ -636,7 +613,7 @@ UPARAM(DisplayName = "Disposable")FCavrnusBinding UCavrnusFunctionLibrary::BindS
 	return BindSpacePolicy(SpaceConnection, Policy, callback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, CavrnusPolicyUpdated OnPolicyUpdated)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, CavrnusPolicyUpdated OnPolicyUpdated)
 {
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildRequestSpacePermission(SpaceConnection, Policy));
 
@@ -715,7 +692,7 @@ void UCavrnusFunctionLibrary::AwaitLocalUser(FCavrnusSpaceConnection SpaceConnec
 	GetDataModel()->GetSpacePropertyModel(SpaceConnection)->AwaitLocalUser(LocalUserArrived);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindSpaceUsers(FCavrnusSpaceConnection SpaceConnection, FCavrnusSpaceUserEvent UserAdded, FCavrnusSpaceUserEvent UserRemoved)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindSpaceUsers(FCavrnusSpaceConnection SpaceConnection, FCavrnusSpaceUserEvent UserAdded, FCavrnusSpaceUserEvent UserRemoved)
 {
 	CavrnusSpaceUserEvent addedCallback = [UserAdded](const FCavrnusUser& user)
 	{
@@ -728,13 +705,13 @@ FCavrnusBinding UCavrnusFunctionLibrary::BindSpaceUsers(FCavrnusSpaceConnection 
 	return BindSpaceUsers(SpaceConnection, addedCallback, removedCallback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindSpaceUsers(FCavrnusSpaceConnection SpaceConnection, CavrnusSpaceUserEvent UserAdded, CavrnusSpaceUserEvent UserRemoved)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindSpaceUsers(FCavrnusSpaceConnection SpaceConnection, CavrnusSpaceUserEvent UserAdded, CavrnusSpaceUserEvent UserRemoved)
 {
 	CheckErrors(SpaceConnection);
 	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindSpaceUsers(UserAdded, UserRemoved);
 }
 
-UPARAM(DisplayName = "Disposable") FCavrnusBinding UCavrnusFunctionLibrary::BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, FCavrnusUserVideoFrameEvent OnVideoFrameUpdate)
+UPARAM(DisplayName = "Disposable") UCavrnusBinding* UCavrnusFunctionLibrary::BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, FCavrnusUserVideoFrameEvent OnVideoFrameUpdate)
 {
 	VideoFrameUpdateFunction VideoFrameUpdateCallback = [OnVideoFrameUpdate](UTexture2D* VideoTexture)
 	{
@@ -744,7 +721,7 @@ UPARAM(DisplayName = "Disposable") FCavrnusBinding UCavrnusFunctionLibrary::Bind
 	return BindUserVideoFrames(SpaceConnection, User, VideoFrameUpdateCallback);
 }
 
-FCavrnusBinding UCavrnusFunctionLibrary::BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, const VideoFrameUpdateFunction& OnVideoFrameUpdate)
+UCavrnusBinding* UCavrnusFunctionLibrary::BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, const VideoFrameUpdateFunction& OnVideoFrameUpdate)
 {
 	CheckErrors(SpaceConnection);
 	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindUserVideoTexture(User, OnVideoFrameUpdate);

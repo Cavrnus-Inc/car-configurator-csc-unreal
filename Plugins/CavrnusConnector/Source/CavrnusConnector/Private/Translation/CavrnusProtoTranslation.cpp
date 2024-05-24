@@ -1,4 +1,4 @@
-﻿#include "CavrnusProtoTranslation.h"
+#include "CavrnusProtoTranslation.h"
 
 namespace Cavrnus
 {
@@ -354,14 +354,14 @@ namespace Cavrnus
 	ServerData::TransformPropertyValue CavrnusProtoTranslation::ToProtoTransform(const FTransform& transform)
 	{
 		Common::Float3 pos;
-		pos.set_x(transform.GetTranslation().Y / (float)100);
+		pos.set_x(-transform.GetTranslation().Y / (float)100);
 		pos.set_y(transform.GetTranslation().Z / (float)100);
-		pos.set_z(transform.GetTranslation().X / (float)100);
+		pos.set_z(-transform.GetTranslation().X / (float)100);
 
 		Common::Float3 rot;
-		rot.set_x(-transform.GetRotation().Euler().Y);
-		rot.set_y(transform.GetRotation().Euler().Z);
-		rot.set_z(-transform.GetRotation().Euler().X);
+		rot.set_x(transform.GetRotation().Euler().Y);
+		rot.set_y(transform.GetRotation().Euler().Z - 180);
+		rot.set_z(transform.GetRotation().Euler().X);
 
 		Common::Float3 scl;
 		scl.set_x(transform.GetScale3D().Y);
@@ -377,8 +377,8 @@ namespace Cavrnus
 
 	FTransform CavrnusProtoTranslation::ToFTransform(const ServerData::TransformPropertyValue& propVal)
 	{
-		FVector pos = FVector(propVal.pos().z() * (float)100, propVal.pos().x() * (float)100, propVal.pos().y() * (float)100);
-		FVector rot = FVector(-propVal.rot().z(), -propVal.rot().x(), propVal.rot().y());
+		FVector pos = FVector(-propVal.pos().z() * (float)100, -propVal.pos().x() * (float)100, propVal.pos().y() * (float)100);
+		FVector rot = FVector(propVal.rot().z(), propVal.rot().x(), propVal.rot().y() + 180);
 		FVector scl = FVector(propVal.scl().z(), propVal.scl().x(), propVal.scl().y());
 
 		FQuat r = FQuat::MakeFromEuler(rot);

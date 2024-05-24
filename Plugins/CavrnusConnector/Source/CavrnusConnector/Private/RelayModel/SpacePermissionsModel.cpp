@@ -27,7 +27,7 @@ namespace Cavrnus
 		}
 	}
 
-	FCavrnusBinding SpacePermissionsModel::BindPolicyAllowed(FString policy, CavrnusPolicyUpdated callback)
+	UCavrnusBinding* SpacePermissionsModel::BindPolicyAllowed(FString policy, CavrnusPolicyUpdated callback)
 	{
 		if (CurrPolicyAllowedValues.Contains(policy))
 			callback(policy, CurrPolicyAllowedValues[policy]);
@@ -37,10 +37,14 @@ namespace Cavrnus
 		PolicyBindings.FindOrAdd(policy);
 		PolicyBindings[policy].Add(CallbackPtr);
 
-		return FCavrnusBinding([this, policy, CallbackPtr]() {
+		UCavrnusBinding* binding;
+		binding = NewObject<UCavrnusBinding>();
+		binding->SetupUnbind([this, policy, CallbackPtr]() {
 			PolicyBindings[policy].Remove(CallbackPtr);
 			if (PolicyBindings[policy].IsEmpty())
 				PolicyBindings.Remove(policy);
 		});
+
+		return binding;
 	}
 }

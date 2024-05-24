@@ -39,9 +39,9 @@ namespace Cavrnus
 		void InvalidateLocalPropValue(FPropertyId fullPropertyId, int propValidationId);
 		void UpdatePropMetadata(FPropertyId fullPropertyId, bool isReadonly);
 
-		FCavrnusBinding BindProperty(FPropertyId fullPropertyId, CavrnusPropertyFunction callback);
+		UCavrnusBinding* BindProperty(FPropertyId fullPropertyId, CavrnusPropertyFunction callback);
 
-		FCavrnusBinding BindUserVideoTexture(const FCavrnusUser& User, VideoFrameUpdateFunction callback);
+		UCavrnusBinding* BindUserVideoTexture(const FCavrnusUser& User, VideoFrameUpdateFunction callback);
 
 		Cavrnus::FPropertyValue GetPropValue(FPropertyId fullPropertyId);
 
@@ -53,7 +53,7 @@ namespace Cavrnus
 		void UpdateUserVideoTexture(FString userId, int ResX, int ResY, const TArray<uint8>& ByteArray);
 
 		void AwaitLocalUser(CavrnusSpaceUserEvent localUserArrived);
-		FCavrnusBinding BindSpaceUsers(CavrnusSpaceUserEvent userAdded, CavrnusSpaceUserEvent userRemoved);
+		UCavrnusBinding* BindSpaceUsers(CavrnusSpaceUserEvent userAdded, CavrnusSpaceUserEvent userRemoved);
 
 		CaseSensitiveMap<FString, FCavrnusUser> CurrSpaceUsers;
 

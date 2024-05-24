@@ -9,71 +9,124 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCavrnusBinding() {}
 // Cross Module References
-	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusBinding();
+	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusBinding_NoRegister();
+	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusBinding();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 // End Cross Module References
-	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_CavrnusBinding;
-class UScriptStruct* FCavrnusBinding::StaticStruct()
-{
-	if (!Z_Registration_Info_UScriptStruct_CavrnusBinding.OuterSingleton)
+	DEFINE_FUNCTION(UCavrnusBinding::execUnbind)
 	{
-		Z_Registration_Info_UScriptStruct_CavrnusBinding.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FCavrnusBinding, Z_Construct_UPackage__Script_CavrnusConnector(), TEXT("CavrnusBinding"));
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Unbind_Implementation();
+		P_NATIVE_END;
 	}
-	return Z_Registration_Info_UScriptStruct_CavrnusBinding.OuterSingleton;
-}
-template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusBinding>()
-{
-	return FCavrnusBinding::StaticStruct();
-}
-	struct Z_Construct_UScriptStruct_FCavrnusBinding_Statics
+	static FName NAME_UCavrnusBinding_Unbind = FName(TEXT("Unbind"));
+	void UCavrnusBinding::Unbind()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_UCavrnusBinding_Unbind),NULL);
+	}
+	void UCavrnusBinding::StaticRegisterNativesUCavrnusBinding()
+	{
+		UClass* Class = UCavrnusBinding::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "Unbind", &UCavrnusBinding::execUnbind },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics
 	{
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
-		static void* NewStructOps();
-		static const UECodeGen_Private::FStructParams ReturnStructParams;
+		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusBinding_Statics::Struct_MetaDataParams[] = {
-		{ "BlueprintType", "true" },
-		{ "Comment", "/**\n *\n */" },
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Cavrnus" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusBinding.h" },
 	};
 #endif
-	void* Z_Construct_UScriptStruct_FCavrnusBinding_Statics::NewStructOps()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusBinding, nullptr, "Unbind", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusBinding_Unbind()
 	{
-		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FCavrnusBinding>();
-	}
-	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FCavrnusBinding_Statics::ReturnStructParams = {
-		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
-		nullptr,
-		&NewStructOps,
-		"CavrnusBinding",
-		sizeof(FCavrnusBinding),
-		alignof(FCavrnusBinding),
-		nullptr,
-		0,
-		RF_Public|RF_Transient|RF_MarkAsNative,
-		EStructFlags(0x00000201),
-		METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusBinding_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusBinding_Statics::Struct_MetaDataParams))
-	};
-	UScriptStruct* Z_Construct_UScriptStruct_FCavrnusBinding()
-	{
-		if (!Z_Registration_Info_UScriptStruct_CavrnusBinding.InnerSingleton)
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_CavrnusBinding.InnerSingleton, Z_Construct_UScriptStruct_FCavrnusBinding_Statics::ReturnStructParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics::FuncParams);
 		}
-		return Z_Registration_Info_UScriptStruct_CavrnusBinding.InnerSingleton;
+		return ReturnFunction;
 	}
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCavrnusBinding);
+	UClass* Z_Construct_UClass_UCavrnusBinding_NoRegister()
+	{
+		return UCavrnusBinding::StaticClass();
+	}
+	struct Z_Construct_UClass_UCavrnusBinding_Statics
+	{
+		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+#endif
+		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
+		static const UECodeGen_Private::FClassParams ClassParams;
+	};
+	UObject* (*const Z_Construct_UClass_UCavrnusBinding_Statics::DependentSingletons[])() = {
+		(UObject* (*)())Z_Construct_UClass_UObject,
+		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusBinding_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UCavrnusBinding_Unbind, "Unbind" }, // 1544981606
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusBinding_Statics::Class_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "Comment", "/**\n *\n */" },
+		{ "IncludePath", "Types/CavrnusBinding.h" },
+		{ "ModuleRelativePath", "Public/Types/CavrnusBinding.h" },
+	};
+#endif
+	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusBinding_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<UCavrnusBinding>::IsAbstract,
+	};
+	const UECodeGen_Private::FClassParams Z_Construct_UClass_UCavrnusBinding_Statics::ClassParams = {
+		&UCavrnusBinding::StaticClass,
+		nullptr,
+		&StaticCppClassTypeInfo,
+		DependentSingletons,
+		FuncInfo,
+		nullptr,
+		nullptr,
+		UE_ARRAY_COUNT(DependentSingletons),
+		UE_ARRAY_COUNT(FuncInfo),
+		0,
+		0,
+		0x001000A0u,
+		METADATA_PARAMS(Z_Construct_UClass_UCavrnusBinding_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusBinding_Statics::Class_MetaDataParams))
+	};
+	UClass* Z_Construct_UClass_UCavrnusBinding()
+	{
+		if (!Z_Registration_Info_UClass_UCavrnusBinding.OuterSingleton)
+		{
+			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_UCavrnusBinding.OuterSingleton, Z_Construct_UClass_UCavrnusBinding_Statics::ClassParams);
+		}
+		return Z_Registration_Info_UClass_UCavrnusBinding.OuterSingleton;
+	}
+	template<> CAVRNUSCONNECTOR_API UClass* StaticClass<UCavrnusBinding>()
+	{
+		return UCavrnusBinding::StaticClass();
+	}
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UCavrnusBinding);
 	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics
 	{
-		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
+		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics::ScriptStructInfo[] = {
-		{ FCavrnusBinding::StaticStruct, Z_Construct_UScriptStruct_FCavrnusBinding_Statics::NewStructOps, TEXT("CavrnusBinding"), &Z_Registration_Info_UScriptStruct_CavrnusBinding, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusBinding), 2151974793U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCavrnusBinding, UCavrnusBinding::StaticClass, TEXT("UCavrnusBinding"), &Z_Registration_Info_UClass_UCavrnusBinding, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusBinding), 1307956969U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_1597976607(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_2929943558(TEXT("/Script/CavrnusConnector"),
+		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics::ClassInfo),
 		nullptr, 0,
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

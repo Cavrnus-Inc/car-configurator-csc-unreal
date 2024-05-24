@@ -14,7 +14,7 @@ namespace Cavrnus
 
 		void UpdatePolicyAllowed(FString policy, bool allowed);
 
-		FCavrnusBinding BindPolicyAllowed(FString policy, CavrnusPolicyUpdated callback);
+		UCavrnusBinding* BindPolicyAllowed(FString policy, CavrnusPolicyUpdated callback);
 
 	private:
 		TMap<FString, bool> CurrPolicyAllowedValues;

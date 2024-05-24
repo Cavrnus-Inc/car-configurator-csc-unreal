@@ -45,7 +45,8 @@ private:
 	void BindUserVideo();
 	void UnbindUserVideo();
 
-	FCavrnusBinding UserVideoFrameBinding;
+	UPROPERTY()
+	UCavrnusBinding* UserVideoFrameBinding;
 
 	FVector2D CurrentStreamImageSize = FVector2D(0,0);
 

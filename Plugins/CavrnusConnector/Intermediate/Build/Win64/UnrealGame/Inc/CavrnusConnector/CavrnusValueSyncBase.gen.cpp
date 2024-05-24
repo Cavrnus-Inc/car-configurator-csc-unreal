@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBase() {}
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusValueSyncBase();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
+	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusBinding_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UPropertySyncInterface_NoRegister();
 // End Cross Module References
 	void UCavrnusValueSyncBase::StaticRegisterNativesUCavrnusValueSyncBase()
@@ -43,6 +44,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBase() {}
 #endif
 		static void NewProp_InitialSetupComplete_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_InitialSetupComplete;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PropertyBinding_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_PropertyBinding;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -95,10 +100,17 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBase() {}
 		((UCavrnusValueSyncBase*)Obj)->InitialSetupComplete = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_InitialSetupComplete = { "InitialSetupComplete", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UCavrnusValueSyncBase), &Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_InitialSetupComplete_SetBit, METADATA_PARAMS(Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_InitialSetupComplete_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_InitialSetupComplete_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_PropertyBinding_MetaData[] = {
+		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_PropertyBinding = { "PropertyBinding", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusValueSyncBase, PropertyBinding), Z_Construct_UClass_UCavrnusBinding_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_PropertyBinding_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_PropertyBinding_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCavrnusValueSyncBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_PropertyName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_SendChanges,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_InitialSetupComplete,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusValueSyncBase_Statics::NewProp_PropertyBinding,
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_UCavrnusValueSyncBase_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UPropertySyncInterface_NoRegister, (int32)VTABLE_OFFSET(UCavrnusValueSyncBase, IPropertySyncInterface), false },  // 1163929717
@@ -139,9 +151,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusValueSyncBase, UCavrnusValueSyncBase::StaticClass, TEXT("UCavrnusValueSyncBase"), &Z_Registration_Info_UClass_UCavrnusValueSyncBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncBase), 1939181478U) },
+		{ Z_Construct_UClass_UCavrnusValueSyncBase, UCavrnusValueSyncBase::StaticClass, TEXT("UCavrnusValueSyncBase"), &Z_Registration_Info_UClass_UCavrnusValueSyncBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncBase), 2489940985U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBase_h_1551629789(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBase_h_4011674198(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

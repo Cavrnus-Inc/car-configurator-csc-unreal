@@ -17,8 +17,9 @@ class ACavrnusSpatialConnector;
 class AController;
 class APawn;
 class SpawnedObjectsManager;
-class CavrnusAvatarManager;
+class UCavrnusAvatarManager;
 class UPDFManager;
+class USpawnObjectHelpers;
 
 UCLASS(BlueprintType, Blueprintable)
 class CAVRNUSCONNECTOR_API UCavrnusSpatialConnectorSubSystemProxy : public UObject
@@ -39,6 +40,8 @@ public:
 
 		void RemoveAllWidgets();
 
+		void ShowAuthWidget(bool bShowWidget);
+
 		void ShowGuestLoginWidget(CavrnusAuthRecv SuccessDelegate, CavrnusError FailureDelegate);
 
 		void ShowLoginWidget(CavrnusAuthRecv SuccessDelegate, CavrnusError FailureDelegate);
@@ -53,6 +56,7 @@ public:
 	private:
 		UWorld* World = nullptr;
 		TWeakObjectPtr<UUserWidget> LoadingWidget;
+		TWeakObjectPtr<UUserWidget> AuthWidget;
 		TWeakObjectPtr<ACavrnusSpatialConnector> CurrentCavrnusSpatialConnector;
 	};
 	
@@ -97,6 +101,8 @@ public:
 	UFUNCTION()
 	void OnSpaceConnectionFailure(FString Error);
 
+	void InitializeCavrnusActor(AActor* CavrnusActor);
+
 private:
 	UFUNCTION()
 	void OnPawnControllerChanged(APawn* InPawn, AController* InController);
@@ -122,8 +128,13 @@ private:
 	bool hasSpaceConn;
 	FCavrnusSpaceConnection SpaceConn;
 
+	UPROPERTY()
+	USpawnObjectHelpers* SpawnHelpers;
+
 	SpawnedObjectsManager* SpawnManager;
-	CavrnusAvatarManager* AvatarManager;
+
+	UPROPERTY()
+	UCavrnusAvatarManager* AvatarManager;
 
 	TWeakObjectPtr<UGameInstance> GameInstance;
 	TWeakObjectPtr<UObject> ObjectOwner;

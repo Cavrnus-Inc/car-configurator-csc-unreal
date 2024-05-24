@@ -57,7 +57,9 @@ class FCavrnusConnectorEditorModule : public IModuleInterface
 		bool ShouldShowSplashScreen() const;
 
 		void AddTopRibbonMenu(FMenuBarBuilder& MenuBuilder);
-		void FillTopRibbonMenu(FMenuBuilder& MenuBuilder);
+		void AddCavrnusToolbarEntry(FMenuBuilder& MenuBuilder);
+
+		void SetWelcomeScreenState(bool bToShow);
 
 		void RegisterToolsMenus();
 		void AddCavrnusToolsOptions(FToolMenuSection& InSection);

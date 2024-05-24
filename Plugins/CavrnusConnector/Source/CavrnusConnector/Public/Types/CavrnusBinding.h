@@ -8,14 +8,19 @@
 /**
  *
  */
-USTRUCT(BlueprintType)
-struct CAVRNUSCONNECTOR_API FCavrnusBinding
+UCLASS(BlueprintType)
+class CAVRNUSCONNECTOR_API UCavrnusBinding : public UObject
 {
 	GENERATED_BODY()
 
-	TFunction<void()> Unhook = [] {};
+public:
 
-	FCavrnusBinding(TFunction<void()> unhook) : Unhook(unhook) { }
+	void SetupUnbind(TFunction<void()> unhook);
 
-	FCavrnusBinding() : Unhook(nullptr) {}
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Cavrnus")
+	void Unbind();
+
+private:
+
+	TFunction<void()>* Unhook = nullptr;
 };

@@ -97,7 +97,6 @@ public:
 	// Login Manual
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::PromptMemberToLogin", EditConditionHides))
 	TSubclassOf<UCavrnusLoginWidget> MemberLoginMenu;
-
 	// --------------------------------------------------------- Space Joining ------------------------------------------------------------------
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
@@ -119,6 +118,9 @@ public:
 
 	// ------------------------------------------- In Space UI ----------------------------------------------------------------------------------
 
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
+	TSubclassOf<UUserWidget> AuthenticationWidgetClass;
+	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	TSubclassOf<class UUserWidget> LoadingWidgetClass;
 

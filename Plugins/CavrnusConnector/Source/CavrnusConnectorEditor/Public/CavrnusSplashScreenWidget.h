@@ -52,7 +52,7 @@ public:
 
 
 private:
-	void NativePreConstruct() override;
+	virtual void NativePreConstruct() override;
 
 	void Close();
 };

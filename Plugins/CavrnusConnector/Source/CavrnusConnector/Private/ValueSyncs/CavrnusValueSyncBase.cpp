@@ -50,7 +50,8 @@ void UCavrnusValueSyncBase::EndPlay(EEndPlayReason::Type EndPlayReason)
 		liveUpdater->Finalize();
 	liveUpdater = nullptr;
 
-	UCavrnusFunctionLibrary::Unbind(PropertyBinding);
+	if(PropertyBinding)
+		PropertyBinding->Unbind();
 }
 
 void UCavrnusValueSyncBase::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
@@ -62,16 +63,9 @@ void UCavrnusValueSyncBase::TickComponent(float DeltaTime, ELevelTick TickType, 
 	// We need to wait for a valid state to start polling/bindinge :P
 	if (!shouldSync) 
 	{
-		if (!GetContainer())
+		if (!GetContainer() || GetContainerName().IsEmpty())
 		{
-			// This can be valid if Unreal rebuilds the component tree
-			//UE_LOG(LogTemp, Error, TEXT("Component: %s, Owner: %s, PropertyName: %s - Properties Container not found"), *GetName(), *ReportOwnerName(), *PropertyName);
-			return;
-		}
-		if (GetContainerName().IsEmpty())
-		{
-			// This can be valid if Unreal rebuilds the component tree
-			//UE_LOG(LogTemp, Error, TEXT("Component: %s, Owner: %s, PropertyName: %s - Container Name on UCavrnusPropertiesContainer is Empty"), *GetName(), *ReportOwnerName(), *PropertyName);
+			// This can be hit during start or if Unreal rebuilds the component tree
 			return;
 		}
 
@@ -95,14 +89,11 @@ void UCavrnusValueSyncBase::TickComponent(float DeltaTime, ELevelTick TickType, 
 		}
 		else
 		{
-			PropertyBinding = FCavrnusBinding();
+			PropertyBinding = nullptr;
 		}
 
 		InitialSetupComplete = true;
 	}
-
-	//if (GetContainerName() == "TransformCube")
-	//	UE_LOG(LogTemp, Error, TEXT("test"));
 
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
@@ -203,7 +194,7 @@ UCavrnusPropertiesContainer* UCavrnusValueSyncBase::GetContainer() const
 
 FString UCavrnusValueSyncBase::GetContainerName() const
 {
-	return GetContainer()->GetContainerName();
+	return GetContainer()->ContainerName;
 }
 
 FString UCavrnusValueSyncBase::ReportOwnerName() const
@@ -245,7 +236,7 @@ void UCavrnusValueSyncBase::AutoAttachPropertiesContainer()
 			false));
 		if (PropertiesContainer)
 		{
-			PropertiesContainer->SetContainerName(GetGeneratedContainerName());
+			PropertiesContainer->ContainerName = GetGeneratedContainerName();
 			PropertiesContainer->AttachToComponent(GetAttachParent(), FAttachmentTransformRules::KeepRelativeTransform);
 			Owner->AddInstanceComponent(PropertiesContainer);
 		}
