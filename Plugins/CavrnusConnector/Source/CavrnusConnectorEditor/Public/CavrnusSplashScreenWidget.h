@@ -1,7 +1,11 @@
 #pragma once
 #include <EditorUtilityWidget.h>
 
+#include "Components/EditableTextBox.h"
 #include "CavrnusSplashScreenWidget.generated.h"
+
+class UCheckBox;
+class UButton;
 
 UCLASS()
 class UCavrnusSplashScreenWidget : public UEditorUtilityWidget
@@ -11,19 +15,22 @@ class UCavrnusSplashScreenWidget : public UEditorUtilityWidget
 public:
 
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UButton* SetupSpaceButton;
+	UEditableTextBox* ServerInputField;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UButton* OpenWebConsoleButton;
+	UButton* SetupSpaceButton;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UButton* OpenDocumentationButton;
+	UButton* OpenWebConsoleButton;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UCheckBox* ShowOnStartupCheckbox;
+	UButton* OpenDocumentationButton;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UButton* DismissButton;
+	UCheckBox* ShowOnStartupCheckbox;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
+	UButton* DismissButton;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus")
 	FString WebConsoleURL;
@@ -50,8 +57,12 @@ public:
 	UFUNCTION()
 	void OnDismissClicked();
 
+	UFUNCTION()
+	void OnServerInputFieldChanged(const FText& ServerVal);
 
 private:
+	FString CustomerServer;
+	
 	virtual void NativePreConstruct() override;
 
 	void Close();

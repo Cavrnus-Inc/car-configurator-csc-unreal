@@ -91,7 +91,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::EnterMemberLoginCredentials", EditConditionHides))
 	FString MemberLoginEmail;
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::EnterMemberLoginCredentials", EditConditionHides))
+	UPROPERTY(EditAnywhere, Category = "Cavrnus", META = (PasswordField=true, EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::EnterMemberLoginCredentials", EditConditionHides))
 	FString MemberLoginPassword;
 
 	// Login Manual

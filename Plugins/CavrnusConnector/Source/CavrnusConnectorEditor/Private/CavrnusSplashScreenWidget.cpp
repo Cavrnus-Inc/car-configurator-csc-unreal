@@ -3,7 +3,6 @@
 #include "Components/CheckBox.h"
 #include "CavrnusConnectorEditorModule.h"
 #include <EditorUtilitySubsystem.h>
-#include <Kismet/KismetSystemLibrary.h>
 
 void UCavrnusSplashScreenWidget::NativePreConstruct()
 {
@@ -13,6 +12,11 @@ void UCavrnusSplashScreenWidget::NativePreConstruct()
 		FModuleManager::LoadModuleChecked<FCavrnusConnectorEditorModule>
 		(FName(TEXT("CavrnusConnectorEditor")));
 	ShowOnStartupCheckbox->SetIsChecked(CavrnusConnectorEditorModule.ShouldShowSplashScreen());
+
+	FPlatformMisc::GetStoredValue(TEXT("Cavrnus"), TEXT("UE"), TEXT("SavedServerName"), CustomerServer);
+	ServerInputField->SetText(FText::FromString(CustomerServer));
+
+	ServerInputField->OnTextChanged.AddDynamic(this, &UCavrnusSplashScreenWidget::OnServerInputFieldChanged);
 
 	SetupSpaceButton->OnClicked.AddUniqueDynamic(this, &UCavrnusSplashScreenWidget::OnSetupSpaceClicked);
 	OpenWebConsoleButton->OnClicked.AddUniqueDynamic(this, &UCavrnusSplashScreenWidget::OnWebConsoleClicked);
@@ -51,6 +55,18 @@ void UCavrnusSplashScreenWidget::OnShowSplashScreenOnStartupClicked(bool bShowOn
 void UCavrnusSplashScreenWidget::OnDismissClicked()
 {
 	Close();
+}
+
+void UCavrnusSplashScreenWidget::OnServerInputFieldChanged(const FText& ServerVal)
+{
+	const FString ServerValString = ServerVal.ToString();
+	
+	if (ServerValString != CustomerServer && !ServerValString.StartsWith(".") && !ServerValString.EndsWith("."))
+	{
+		FPlatformMisc::SetStoredValue(TEXT("Cavrnus"), TEXT("UE"), TEXT("SavedServerName"), ServerValString);
+	}
+
+	CustomerServer = ServerValString;
 }
 
 void UCavrnusSplashScreenWidget::Close()

@@ -418,7 +418,11 @@ namespace Cavrnus
 
 	FCavrnusSpaceInfo CavrnusProtoTranslation::ToSpaceInfo(ServerData::SpaceInfo space)
 	{
-		return FCavrnusSpaceInfo(space.spaceid().c_str(), space.spacename().c_str(), space.spacethumbnailurl().c_str());
+		FDateTime lastAccess = FDateTime::MinValue();
+		if (space.has_lastaccess())
+			lastAccess = FDateTime::FromUnixTimestamp(space.lastaccess().seconds());
+
+		return FCavrnusSpaceInfo(space.spaceid().c_str(), space.spacename().c_str(), space.spacethumbnailurl().c_str(), lastAccess);
 	}
 	FCavrnusUser CavrnusProtoTranslation::ToCavrnusUser(ServerData::CavrnusUser user, const FCavrnusSpaceConnection& spaceConn)
 	{

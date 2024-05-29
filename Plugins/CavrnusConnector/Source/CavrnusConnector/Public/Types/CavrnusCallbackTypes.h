@@ -45,6 +45,9 @@ typedef TFunction<void(const TArray<FCavrnusInputDevice>&)> CavrnusAvailableInpu
 typedef TFunction<void(const TArray<FCavrnusOutputDevice>&)> CavrnusAvailableOutputDevices;
 typedef TFunction<void(const TArray<FCavrnusVideoInputDevice>&)> CavrnusAvailableVideoInputDevices;
 
+typedef TFunction<void(const FCavrnusInputDevice&)> CavrnusSavedInputDevice;
+typedef TFunction<void(const FCavrnusOutputDevice&)> CavrnusSavedOutputDevice;
+
 typedef TFunction<void(UTexture2D*)> VideoFrameUpdateFunction;
 
 typedef TFunction<void(FString, bool)> CavrnusPolicyUpdated;

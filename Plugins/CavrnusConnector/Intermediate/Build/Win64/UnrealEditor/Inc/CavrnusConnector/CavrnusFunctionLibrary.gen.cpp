@@ -35,10 +35,12 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusUser();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusUserVideoFrameEvent__DelegateSignature();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableInputDevices__DelegateSignature();
+	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusInputDevice();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableOutputDevices__DelegateSignature();
+	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableInputDevices__DelegateSignature();
+	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusOutputDevice();
+	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableOutputDevices__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableVideoInputDevices__DelegateSignature();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusVideoInputDevice();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusContentProgressFunction__DelegateSignature();
@@ -143,13 +145,13 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo_Inner = { "SpacesInfo", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FCavrnusSpaceInfo, METADATA_PARAMS(nullptr, 0) }; // 3347490996
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo_Inner = { "SpacesInfo", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FCavrnusSpaceInfo, METADATA_PARAMS(nullptr, 0) }; // 2133425037
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo_MetaData[] = {
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo = { "SpacesInfo", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventCavrnusAllSpacesInfoEvent_Parms, SpacesInfo), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo_MetaData)) }; // 3347490996
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo = { "SpacesInfo", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventCavrnusAllSpacesInfoEvent_Parms, SpacesInfo), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo_MetaData)) }; // 2133425037
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature_Statics::NewProp_SpacesInfo,
@@ -184,7 +186,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature_Statics::NewProp_SpaceInfo = { "SpaceInfo", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventCavrnusSpaceInfoEvent_Parms, SpaceInfo), Z_Construct_UScriptStruct_FCavrnusSpaceInfo, METADATA_PARAMS(nullptr, 0) }; // 3347490996
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature_Statics::NewProp_SpaceInfo = { "SpaceInfo", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventCavrnusSpaceInfoEvent_Parms, SpaceInfo), Z_Construct_UScriptStruct_FCavrnusSpaceInfo, METADATA_PARAMS(nullptr, 0) }; // 2133425037
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature_Statics::NewProp_SpaceInfo,
 	};
@@ -655,6 +657,46 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics
+	{
+		struct CavrnusFunctionLibrary_eventCavrnusSavedInputDevice_Parms
+		{
+			FCavrnusInputDevice InputDevice;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InputDevice_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_InputDevice;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::NewProp_InputDevice_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::NewProp_InputDevice = { "InputDevice", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventCavrnusSavedInputDevice_Parms, InputDevice), Z_Construct_UScriptStruct_FCavrnusInputDevice, METADATA_PARAMS(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::NewProp_InputDevice_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::NewProp_InputDevice_MetaData)) }; // 3456083344
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::NewProp_InputDevice,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CavrnusFunctionLibrary.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusFunctionLibrary, nullptr, "CavrnusSavedInputDevice__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::CavrnusFunctionLibrary_eventCavrnusSavedInputDevice_Parms), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00520000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableInputDevices__DelegateSignature_Statics
 	{
 		struct CavrnusFunctionLibrary_eventCavrnusAvailableInputDevices_Parms
@@ -695,6 +737,46 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableInputDevices__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics
+	{
+		struct CavrnusFunctionLibrary_eventCavrnusSavedOutputDevice_Parms
+		{
+			FCavrnusOutputDevice OutputDevice;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OutputDevice_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_OutputDevice;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::NewProp_OutputDevice_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::NewProp_OutputDevice = { "OutputDevice", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventCavrnusSavedOutputDevice_Parms, OutputDevice), Z_Construct_UScriptStruct_FCavrnusOutputDevice, METADATA_PARAMS(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::NewProp_OutputDevice_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::NewProp_OutputDevice_MetaData)) }; // 2894616731
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::NewProp_OutputDevice,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CavrnusFunctionLibrary.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusFunctionLibrary, nullptr, "CavrnusSavedOutputDevice__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::CavrnusFunctionLibrary_eventCavrnusSavedOutputDevice_Parms), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00520000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -1058,6 +1140,14 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		UCavrnusFunctionLibrary::FetchAudioOutputs(FCavrnusAvailableOutputDevices(Z_Param_OnReceiveDevices));
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UCavrnusFunctionLibrary::execFetchSavedAudioOutput)
+	{
+		P_GET_PROPERTY(FDelegateProperty,Z_Param_OnReceiveDevice);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UCavrnusFunctionLibrary::FetchSavedAudioOutput(FCavrnusSavedOutputDevice(Z_Param_OnReceiveDevice));
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCavrnusFunctionLibrary::execUpdateAudioInput)
 	{
 		P_GET_STRUCT(FCavrnusInputDevice,Z_Param_Device);
@@ -1072,6 +1162,14 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		UCavrnusFunctionLibrary::FetchAudioInputs(FCavrnusAvailableInputDevices(Z_Param_OnReceiveDevices));
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UCavrnusFunctionLibrary::execFetchSavedAudioInput)
+	{
+		P_GET_PROPERTY(FDelegateProperty,Z_Param_OnReceiveDevice);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UCavrnusFunctionLibrary::FetchSavedAudioInput(FCavrnusSavedInputDevice(Z_Param_OnReceiveDevice));
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UCavrnusFunctionLibrary::execSetLocalUserStreamingState)
@@ -1642,6 +1740,8 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 			{ "FetchFileById", &UCavrnusFunctionLibrary::execFetchFileById },
 			{ "FetchFileByIdToDisk", &UCavrnusFunctionLibrary::execFetchFileByIdToDisk },
 			{ "FetchJoinableSpaces", &UCavrnusFunctionLibrary::execFetchJoinableSpaces },
+			{ "FetchSavedAudioInput", &UCavrnusFunctionLibrary::execFetchSavedAudioInput },
+			{ "FetchSavedAudioOutput", &UCavrnusFunctionLibrary::execFetchSavedAudioOutput },
 			{ "FetchVideoInputs", &UCavrnusFunctionLibrary::execFetchVideoInputs },
 			{ "GetBoolPropertyValue", &UCavrnusFunctionLibrary::execGetBoolPropertyValue },
 			{ "GetCavrnusSpatialConnector", &UCavrnusFunctionLibrary::execGetCavrnusSpatialConnector },
@@ -2683,9 +2783,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_BindJoinableSpaces_Statics::NewProp_SpaceAdded = { "SpaceAdded", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventBindJoinableSpaces_Parms, SpaceAdded), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 3786177914
-	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_BindJoinableSpaces_Statics::NewProp_SpaceUpdated = { "SpaceUpdated", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventBindJoinableSpaces_Parms, SpaceUpdated), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 3786177914
-	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_BindJoinableSpaces_Statics::NewProp_SpaceRemoved = { "SpaceRemoved", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventBindJoinableSpaces_Parms, SpaceRemoved), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 3786177914
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_BindJoinableSpaces_Statics::NewProp_SpaceAdded = { "SpaceAdded", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventBindJoinableSpaces_Parms, SpaceAdded), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 334295378
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_BindJoinableSpaces_Statics::NewProp_SpaceUpdated = { "SpaceUpdated", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventBindJoinableSpaces_Parms, SpaceUpdated), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 334295378
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_BindJoinableSpaces_Statics::NewProp_SpaceRemoved = { "SpaceRemoved", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventBindJoinableSpaces_Parms, SpaceRemoved), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 334295378
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusFunctionLibrary_BindJoinableSpaces_Statics::NewProp_ReturnValue_MetaData[] = {
 		{ "DisplayName", "Disposable" },
@@ -3803,7 +3903,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchJoinableSpaces_Statics::NewProp_OnRecvCurrentJoinableSpaces = { "OnRecvCurrentJoinableSpaces", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventFetchJoinableSpaces_Parms, OnRecvCurrentJoinableSpaces), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 4074667375
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchJoinableSpaces_Statics::NewProp_OnRecvCurrentJoinableSpaces = { "OnRecvCurrentJoinableSpaces", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventFetchJoinableSpaces_Parms, OnRecvCurrentJoinableSpaces), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 3308973663
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchJoinableSpaces_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchJoinableSpaces_Statics::NewProp_OnRecvCurrentJoinableSpaces,
 	};
@@ -3823,6 +3923,78 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchJoinableSpaces_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics
+	{
+		struct CavrnusFunctionLibrary_eventFetchSavedAudioInput_Parms
+		{
+			FScriptDelegate OnReceiveDevice;
+		};
+		static const UECodeGen_Private::FDelegatePropertyParams NewProp_OnReceiveDevice;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::NewProp_OnReceiveDevice = { "OnReceiveDevice", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventFetchSavedAudioInput_Parms, OnReceiveDevice), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 302056969
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::NewProp_OnReceiveDevice,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::Function_MetaDataParams[] = {
+		{ "CallInEditor", "true" },
+		{ "Category", "Cavrnus|Voice and Video" },
+		{ "ModuleRelativePath", "Public/CavrnusFunctionLibrary.h" },
+		{ "ShortToolTip", "Gets the last microphone used" },
+		{ "ToolTip", "Gets the last microphone used, or a default if none is set" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusFunctionLibrary, nullptr, "FetchSavedAudioInput", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::CavrnusFunctionLibrary_eventFetchSavedAudioInput_Parms), Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022601, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics
+	{
+		struct CavrnusFunctionLibrary_eventFetchSavedAudioOutput_Parms
+		{
+			FScriptDelegate OnReceiveDevice;
+		};
+		static const UECodeGen_Private::FDelegatePropertyParams NewProp_OnReceiveDevice;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::NewProp_OnReceiveDevice = { "OnReceiveDevice", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusFunctionLibrary_eventFetchSavedAudioOutput_Parms, OnReceiveDevice), Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 3023911361
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::NewProp_OnReceiveDevice,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::Function_MetaDataParams[] = {
+		{ "CallInEditor", "true" },
+		{ "Category", "Cavrnus|Voice and Video" },
+		{ "ModuleRelativePath", "Public/CavrnusFunctionLibrary.h" },
+		{ "ShortToolTip", "Gets the last speakers used" },
+		{ "ToolTip", "Gets the last speakers used, or a default if none is set" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusFunctionLibrary, nullptr, "FetchSavedAudioOutput", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::CavrnusFunctionLibrary_eventFetchSavedAudioOutput_Parms), Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022601, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -5274,7 +5446,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindColorPropertyValue, "BindColorPropertyValue" }, // 1014834002
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindFloatPropertyValue, "BindFloatPropertyValue" }, // 1744399440
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindGlobalPolicy, "BindGlobalPolicy" }, // 117915992
-		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindJoinableSpaces, "BindJoinableSpaces" }, // 1459674272
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindJoinableSpaces, "BindJoinableSpaces" }, // 3594430375
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindSpacePolicy, "BindSpacePolicy" }, // 341448895
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindSpaceUsers, "BindSpaceUsers" }, // 1605292571
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindStringPropertyValue, "BindStringPropertyValue" }, // 3251327409
@@ -5282,7 +5454,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindUserVideoFrames, "BindUserVideoFrames" }, // 226422168
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_BindVectorPropertyValue, "BindVectorPropertyValue" }, // 3476027244
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_BoolPropertyUpdated__DelegateSignature, "BoolPropertyUpdated__DelegateSignature" }, // 4157928334
-		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature, "CavrnusAllSpacesInfoEvent__DelegateSignature" }, // 4074667375
+		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature, "CavrnusAllSpacesInfoEvent__DelegateSignature" }, // 3308973663
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAuthRecv__DelegateSignature, "CavrnusAuthRecv__DelegateSignature" }, // 101699356
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableInputDevices__DelegateSignature, "CavrnusAvailableInputDevices__DelegateSignature" }, // 2907607424
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableOutputDevices__DelegateSignature, "CavrnusAvailableOutputDevices__DelegateSignature" }, // 3621523677
@@ -5293,9 +5465,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusError__DelegateSignature, "CavrnusError__DelegateSignature" }, // 2373654708
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusPolicyUpdated__DelegateSignature, "CavrnusPolicyUpdated__DelegateSignature" }, // 3882550958
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusRemoteContentFunction__DelegateSignature, "CavrnusRemoteContentFunction__DelegateSignature" }, // 1017906000
+		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedInputDevice__DelegateSignature, "CavrnusSavedInputDevice__DelegateSignature" }, // 302056969
+		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSavedOutputDevice__DelegateSignature, "CavrnusSavedOutputDevice__DelegateSignature" }, // 3023911361
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceBeginLoading__DelegateSignature, "CavrnusSpaceBeginLoading__DelegateSignature" }, // 571150867
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceConnected__DelegateSignature, "CavrnusSpaceConnected__DelegateSignature" }, // 2144917160
-		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature, "CavrnusSpaceInfoEvent__DelegateSignature" }, // 3786177914
+		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature, "CavrnusSpaceInfoEvent__DelegateSignature" }, // 334295378
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceUserEvent__DelegateSignature, "CavrnusSpaceUserEvent__DelegateSignature" }, // 1930217005
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature, "CavrnusSpawnedObjectArrived__DelegateSignature" }, // 23550630
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusUploadCompleteFunction__DelegateSignature, "CavrnusUploadCompleteFunction__DelegateSignature" }, // 2678578502
@@ -5314,7 +5488,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchAudioOutputs, "FetchAudioOutputs" }, // 3033261954
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchFileById, "FetchFileById" }, // 1465372139
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchFileByIdToDisk, "FetchFileByIdToDisk" }, // 3045188871
-		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchJoinableSpaces, "FetchJoinableSpaces" }, // 1257065305
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchJoinableSpaces, "FetchJoinableSpaces" }, // 1238623966
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioInput, "FetchSavedAudioInput" }, // 4027894085
+		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchSavedAudioOutput, "FetchSavedAudioOutput" }, // 2232126979
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_FetchVideoInputs, "FetchVideoInputs" }, // 3917124400
 		{ &Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_FloatPropertyUpdated__DelegateSignature, "FloatPropertyUpdated__DelegateSignature" }, // 182722008
 		{ &Z_Construct_UFunction_UCavrnusFunctionLibrary_GetBoolPropertyValue, "GetBoolPropertyValue" }, // 3711427637
@@ -5391,9 +5567,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusFunctionLibrary() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusFunctionLibrary, UCavrnusFunctionLibrary::StaticClass, TEXT("UCavrnusFunctionLibrary"), &Z_Registration_Info_UClass_UCavrnusFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusFunctionLibrary), 3656498952U) },
+		{ Z_Construct_UClass_UCavrnusFunctionLibrary, UCavrnusFunctionLibrary::StaticClass, TEXT("UCavrnusFunctionLibrary"), &Z_Registration_Info_UClass_UCavrnusFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusFunctionLibrary), 465836802U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1020581617(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_4171016256(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

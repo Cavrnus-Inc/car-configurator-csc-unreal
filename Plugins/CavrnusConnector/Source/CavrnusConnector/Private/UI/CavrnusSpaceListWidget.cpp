@@ -54,7 +54,7 @@ void UCavrnusSpaceListWidget::UpdatePagination(TArray<FCavrnusSpaceInfo>& Spaces
 {
 	Spaces.Sort([](const FCavrnusSpaceInfo& A, const FCavrnusSpaceInfo& B)
 	{
-		return A.SpaceName < B.SpaceName;
+		return A.LastAccess > B.LastAccess;
 	});
 
 	TArray<IListElementInterface*> Options;

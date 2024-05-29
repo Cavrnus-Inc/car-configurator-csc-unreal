@@ -540,6 +540,10 @@ void FCavrnusConnectorEditorModule::AddCavrnusSpatialConnectorToLevel()
 					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/AudioVideoMenu/WBP_AudioVideoWidget.WBP_AudioVideoWidget_C"), UUserWidget::StaticClass()));
 					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/UsersMenu/WBP_UserListWidget.WBP_UserListWidget_C"), UUserWidget::StaticClass()));
 					CavrnusSpatialConnector->WidgetsToLoad = WidgetsToLoad;
+
+					FString SavedServer;
+					FPlatformMisc::GetStoredValue(TEXT("Cavrnus"), TEXT("UE"), TEXT("SavedServerName"), SavedServer);
+					CavrnusSpatialConnector->MyServer = SavedServer;
 				}
 			}
 			else

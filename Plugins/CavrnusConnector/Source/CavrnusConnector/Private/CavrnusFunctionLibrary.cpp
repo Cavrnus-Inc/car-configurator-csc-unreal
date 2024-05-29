@@ -747,6 +747,37 @@ void UCavrnusFunctionLibrary::SetLocalUserStreamingState(FCavrnusSpaceConnection
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildSetLocalUserStreaming(SpaceConnection, bIsStreaming));
 }
 
+void UCavrnusFunctionLibrary::FetchSavedAudioInput(FCavrnusSavedInputDevice OnReceiveDevice)
+{
+	const CavrnusSavedInputDevice callback = [OnReceiveDevice](const FCavrnusInputDevice& device)
+	{
+		OnReceiveDevice.ExecuteIfBound(device);
+	};
+	FetchSavedAudioInput(callback);
+}
+
+void UCavrnusFunctionLibrary::FetchSavedAudioInput(CavrnusSavedInputDevice OnReceiveDevice)
+{
+	const CavrnusAvailableInputDevices callback = [OnReceiveDevice](const TArray<FCavrnusInputDevice>& devices)
+	{
+		FString savedDeviceId;
+		FPlatformMisc::GetStoredValue(TEXT("Cavrnus"), TEXT("UE"), TEXT("AudioInput"), savedDeviceId);
+
+		for (int i = 0; i < devices.Num(); i++) 
+		{
+			if (devices[i].DeviceId.Equals(savedDeviceId))
+			{
+				OnReceiveDevice(devices[i]);
+				return;
+			}
+		}
+
+		if (devices.Num() > 0)
+			OnReceiveDevice(devices[0]);
+	};
+	FetchAudioInputs(callback);
+}
+
 void UCavrnusFunctionLibrary::FetchAudioInputs(FCavrnusAvailableInputDevices OnReceiveDevices)
 {
 	const CavrnusAvailableInputDevices callback = [OnReceiveDevices](const TArray<FCavrnusInputDevice>& devices)
@@ -765,7 +796,38 @@ void UCavrnusFunctionLibrary::FetchAudioInputs(CavrnusAvailableInputDevices OnRe
 
 void UCavrnusFunctionLibrary::UpdateAudioInput(FCavrnusInputDevice Device)
 {
+	FPlatformMisc::SetStoredValue(TEXT("Cavrnus"), TEXT("UE"), TEXT("AudioInput"), Device.DeviceId);
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildSetAudioInput(Device));
+}
+
+void UCavrnusFunctionLibrary::FetchSavedAudioOutput(FCavrnusSavedOutputDevice OnReceiveDevice)
+{
+	const CavrnusSavedOutputDevice callback = [OnReceiveDevice](const FCavrnusOutputDevice& device)
+	{
+		OnReceiveDevice.ExecuteIfBound(device);
+	};
+	FetchSavedAudioOutput(callback);
+}
+
+void UCavrnusFunctionLibrary::FetchSavedAudioOutput(CavrnusSavedOutputDevice OnReceiveDevice)
+{
+	const CavrnusAvailableOutputDevices callback = [OnReceiveDevice](const TArray<FCavrnusOutputDevice>& devices)
+	{
+		FString savedDeviceId;
+		FPlatformMisc::GetStoredValue(TEXT("Cavrnus"), TEXT("UE"), TEXT("AudioOutput"), savedDeviceId);
+
+		for (int i = 0; i < devices.Num(); i++) {
+			if (devices[i].DeviceId.Equals(savedDeviceId))
+			{
+				OnReceiveDevice(devices[i]);
+				return;
+			}
+		}
+
+		if (devices.Num() > 0)
+			OnReceiveDevice(devices[0]);
+	};
+	FetchAudioOutputs(callback);
 }
 
 void UCavrnusFunctionLibrary::FetchAudioOutputs(FCavrnusAvailableOutputDevices OnReceiveDevices)
@@ -786,6 +848,7 @@ void UCavrnusFunctionLibrary::FetchAudioOutputs(CavrnusAvailableOutputDevices On
 
 void UCavrnusFunctionLibrary::UpdateAudioOutput(FCavrnusOutputDevice Device)
 {
+	FPlatformMisc::SetStoredValue(TEXT("Cavrnus"), TEXT("UE"), TEXT("AudioOutput"), Device.DeviceId);
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildSetAudioOutput(Device));
 }
 

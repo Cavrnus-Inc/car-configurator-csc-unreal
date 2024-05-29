@@ -21,8 +21,11 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpaceInfo
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Spaces")
 	FString SpaceThumbnail = "";
 
-	FCavrnusSpaceInfo(const FString& SpaceId, const FString& SpaceName, const FString& SpaceThumbnail)
-		: SpaceId(SpaceId), SpaceName(SpaceName), SpaceThumbnail(SpaceThumbnail)
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Spaces")
+	FDateTime LastAccess;
+
+	FCavrnusSpaceInfo(const FString& SpaceId, const FString& SpaceName, const FString& SpaceThumbnail, const FDateTime& LastAccess)
+		: SpaceId(SpaceId), SpaceName(SpaceName), SpaceThumbnail(SpaceThumbnail), LastAccess(LastAccess)
 	{
 	}
 
@@ -30,6 +33,6 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpaceInfo
 
 	bool operator==(const FCavrnusSpaceInfo& other) const
 	{
-		return SpaceId == other.SpaceId && SpaceName == other.SpaceName && SpaceThumbnail == other.SpaceThumbnail;
+		return SpaceId == other.SpaceId && SpaceName == other.SpaceName && SpaceThumbnail == other.SpaceThumbnail, LastAccess == other.LastAccess;
 	}
 };

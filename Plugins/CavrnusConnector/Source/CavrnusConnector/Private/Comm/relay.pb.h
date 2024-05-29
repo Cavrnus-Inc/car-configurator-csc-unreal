@@ -34,6 +34,7 @@
 #include "relay_types.pb.h"
 #include "properties.pb.h"
 #include "common.pb.h"
+#include <google/protobuf/timestamp.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_relay_2eproto
@@ -11030,6 +11031,7 @@ class SpaceInfo final :
     kSpaceIdFieldNumber = 1,
     kSpaceNameFieldNumber = 2,
     kSpaceThumbnailUrlFieldNumber = 3,
+    kLastAccessFieldNumber = 5,
     kArchivedFieldNumber = 4,
   };
   // string spaceId = 1;
@@ -11074,6 +11076,24 @@ class SpaceInfo final :
   std::string* _internal_mutable_spacethumbnailurl();
   public:
 
+  // .google.protobuf.Timestamp lastAccess = 5;
+  bool has_lastaccess() const;
+  private:
+  bool _internal_has_lastaccess() const;
+  public:
+  void clear_lastaccess();
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& lastaccess() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Timestamp* release_lastaccess();
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* mutable_lastaccess();
+  void set_allocated_lastaccess(::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& _internal_lastaccess() const;
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_lastaccess();
+  public:
+  void unsafe_arena_set_allocated_lastaccess(
+      ::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess);
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_lastaccess();
+
   // bool archived = 4;
   void clear_archived();
   bool archived() const;
@@ -11094,6 +11114,7 @@ class SpaceInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr spaceid_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr spacename_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr spacethumbnailurl_;
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess_;
     bool archived_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -24355,6 +24376,91 @@ inline void SpaceInfo::_internal_set_archived(bool value) {
 inline void SpaceInfo::set_archived(bool value) {
   _internal_set_archived(value);
   // @@protoc_insertion_point(field_set:ServerData.SpaceInfo.archived)
+}
+
+// .google.protobuf.Timestamp lastAccess = 5;
+inline bool SpaceInfo::_internal_has_lastaccess() const {
+  return this != internal_default_instance() && _impl_.lastaccess_ != nullptr;
+}
+inline bool SpaceInfo::has_lastaccess() const {
+  return _internal_has_lastaccess();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& SpaceInfo::_internal_lastaccess() const {
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp* p = _impl_.lastaccess_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      ::PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& SpaceInfo::lastaccess() const {
+  // @@protoc_insertion_point(field_get:ServerData.SpaceInfo.lastAccess)
+  return _internal_lastaccess();
+}
+inline void SpaceInfo::unsafe_arena_set_allocated_lastaccess(
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.lastaccess_);
+  }
+  _impl_.lastaccess_ = lastaccess;
+  if (lastaccess) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ServerData.SpaceInfo.lastAccess)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* SpaceInfo::release_lastaccess() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.lastaccess_;
+  _impl_.lastaccess_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* SpaceInfo::unsafe_arena_release_lastaccess() {
+  // @@protoc_insertion_point(field_release:ServerData.SpaceInfo.lastAccess)
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.lastaccess_;
+  _impl_.lastaccess_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* SpaceInfo::_internal_mutable_lastaccess() {
+  
+  if (_impl_.lastaccess_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaForAllocation());
+    _impl_.lastaccess_ = p;
+  }
+  return _impl_.lastaccess_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* SpaceInfo::mutable_lastaccess() {
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _msg = _internal_mutable_lastaccess();
+  // @@protoc_insertion_point(field_mutable:ServerData.SpaceInfo.lastAccess)
+  return _msg;
+}
+inline void SpaceInfo::set_allocated_lastaccess(::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.lastaccess_);
+  }
+  if (lastaccess) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(lastaccess));
+    if (message_arena != submessage_arena) {
+      lastaccess = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, lastaccess, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.lastaccess_ = lastaccess;
+  // @@protoc_insertion_point(field_set_allocated:ServerData.SpaceInfo.lastAccess)
 }
 
 // -------------------------------------------------------------------

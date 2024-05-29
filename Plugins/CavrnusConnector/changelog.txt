@@ -1,11 +1,9 @@
-Cavrnus-UE5.0-RelayPlugin-2023.2.697-Dev
-cody.tedrick: ue - master [e8b98d750f91f315b0fc2fd4cc6bd223e9b25d64]
-Lots of fixes to welcome modal. Auto opening still doesn't work quite right.
+Cavrnus-UE5.0-RelayPlugin-2023.2.710-Dev
+cody.tedrick: ue - master [ba331ce0e41c319547af805dff8932e4376eccd5]
+Add thumbnails to spacelist
 
-	CavrnusPlugin/Plugins/CavrnusConnector/Content/UI/EditorMenus/EUW_SplashScreen.uasset
-	CavrnusPlugin/Plugins/CavrnusConnector/Content/UI/Icons/T_Welcome_Header.uasset
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnectorEditor/Private/CavrnusConnectorEditorModule.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnectorEditor/Private/CavrnusSplashScreenWidget.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnectorEditor/Public/CavrnusConnectorEditorModule.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnectorEditor/Public/CavrnusSplashScreenWidget.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Content/UI/Menus/SpaceListMenu/WBP_SpaceListOption.uasset
+	CavrnusPlugin/Plugins/CavrnusConnector/Content/UI/Menus/SpaceListMenu/WBP_SpaceSelection.uasset
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/UI/SpaceList/SpaceListOption.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/UI/SpaceList/SpaceListOption.h
 

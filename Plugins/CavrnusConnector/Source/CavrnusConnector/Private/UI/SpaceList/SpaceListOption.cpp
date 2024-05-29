@@ -1,5 +1,9 @@
 #include "UI/SpaceList/SpaceListOption.h"
+
+#include "Blueprint/AsyncTaskDownloadImage.h"
 #include "Components/Button.h"
+
+class IHttpRequest;
 
 void USpaceListOption::Setup(const FCavrnusSpaceInfo& InSpaceInfo, const FSpaceSelectedEvent& InOnSelect)
 {
@@ -14,6 +18,26 @@ void USpaceListOption::Setup(const FCavrnusSpaceInfo& InSpaceInfo, const FSpaceS
 	if (SpaceNameTextBlock)
 	{
 		SpaceNameTextBlock->SetText(FText::FromString(SpaceInfo.SpaceName));
+	}
+
+	Thumbnail->SetVisibility(ESlateVisibility::Hidden);
+	ThumbnailDefault->SetVisibility(ESlateVisibility::Visible);
+
+	if (!SpaceInfo.SpaceThumbnail.IsEmpty())
+	{
+		DownloadTask = NewObject<UAsyncTaskDownloadImage>();
+		DownloadTask->OnSuccess.AddDynamic(this, &USpaceListOption::OnGetThumbnail);
+		DownloadTask->Start(SpaceInfo.SpaceThumbnail);
+	}
+}
+
+void USpaceListOption::OnGetThumbnail(UTexture2DDynamic* Texture)
+{
+	if (Texture)
+	{
+		Thumbnail->SetBrushFromTextureDynamic(Texture, true);
+		Thumbnail->SetVisibility(ESlateVisibility::Visible);
+		ThumbnailDefault->SetVisibility(ESlateVisibility::Hidden);
 	}
 }
 

@@ -390,6 +390,13 @@ public:
 		meta = (ToolTip = "Sets streaming state for local user", ShortToolTip = "Set my streaming state"))
 	static void SetLocalUserStreamingState(FCavrnusSpaceConnection SpaceConnection, bool bIsStreaming);
 
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSavedInputDevice, const FCavrnusInputDevice&, InputDevice);
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Voice and Video",
+		meta = (ToolTip = "Gets the last microphone used, or a default if none is set", ShortToolTip = "Gets the last microphone used"))
+	static void FetchSavedAudioInput(FCavrnusSavedInputDevice OnReceiveDevice);
+
+	static void FetchSavedAudioInput(CavrnusSavedInputDevice OnReceiveDevice);
+
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusAvailableInputDevices, const TArray<FCavrnusInputDevice>&, InputDevices);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Voice and Video",
 		meta = (ToolTip = "Gets available microphones", ShortToolTip = "Gets available microphones"))
@@ -400,6 +407,13 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Voice and Video",
 		meta = (ToolTip = "Sets which microphone to use", ShortToolTip = "Sets which microphone to use"))
 	static void UpdateAudioInput(FCavrnusInputDevice Device);
+
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSavedOutputDevice, const FCavrnusOutputDevice&, OutputDevice);
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Voice and Video",
+		meta = (ToolTip = "Gets the last speakers used, or a default if none is set", ShortToolTip = "Gets the last speakers used"))
+	static void FetchSavedAudioOutput(FCavrnusSavedOutputDevice OnReceiveDevice);
+
+	static void FetchSavedAudioOutput(CavrnusSavedOutputDevice OnReceiveDevice);
 
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusAvailableOutputDevices, const TArray<FCavrnusOutputDevice>&, OutputDevices);
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Voice and Video",
