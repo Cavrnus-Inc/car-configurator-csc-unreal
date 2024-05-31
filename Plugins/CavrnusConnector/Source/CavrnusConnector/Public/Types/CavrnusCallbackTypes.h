@@ -21,25 +21,25 @@
  *
  */
 
-typedef TFunction<void(FString)> CavrnusError;
+typedef TFunction<void(const FString&)> CavrnusError;
 
-typedef TFunction<void(FCavrnusAuthentication)> CavrnusAuthRecv;
+typedef TFunction<void(const FCavrnusAuthentication&)> CavrnusAuthRecv;
 
-typedef TFunction<void(TArray<FCavrnusSpaceInfo>)> CavrnusAllSpacesInfoEvent;
-typedef TFunction<void(FCavrnusSpaceInfo)> CavrnusSpaceInfoEvent;
+typedef TFunction<void(const TArray<FCavrnusSpaceInfo>&)> CavrnusAllSpacesInfoEvent;
+typedef TFunction<void(const FCavrnusSpaceInfo&)> CavrnusSpaceInfoEvent;
 
-typedef TFunction<void(FString)> CavrnusSpaceBeginLoading;
-typedef TFunction<void(FCavrnusSpaceConnection)> CavrnusSpaceConnected;
+typedef TFunction<void(const FString&)> CavrnusSpaceBeginLoading;
+typedef TFunction<void(const FCavrnusSpaceConnection&)> CavrnusSpaceConnected;
 
-typedef TFunction<void(Cavrnus::FPropertyValue, FString, FString)> CavrnusPropertyFunction;
-typedef TFunction<void(FString, FString, FString)> CavrnusStringFunction;
-typedef TFunction<void(bool, FString, FString)> CavrnusBoolFunction;
-typedef TFunction<void(float, FString, FString)> CavrnusFloatFunction;
-typedef TFunction<void(FLinearColor, FString, FString)> CavrnusColorFunction;
-typedef TFunction<void(FVector4, FString, FString)> CavrnusVectorFunction;
-typedef TFunction<void(FTransform, FString, FString)> CavrnusTransformFunction;
+typedef TFunction<void(const Cavrnus::FPropertyValue&, const FString&, const FString&)> CavrnusPropertyFunction;
+typedef TFunction<void(const FString&, const FString&, const FString&)> CavrnusStringFunction;
+typedef TFunction<void(bool, const FString&, const FString&)> CavrnusBoolFunction;
+typedef TFunction<void(float, const FString&, const FString&)> CavrnusFloatFunction;
+typedef TFunction<void(const FLinearColor&, const FString&, const FString&)> CavrnusColorFunction;
+typedef TFunction<void(const FVector4&, const FString&, const FString&)> CavrnusVectorFunction;
+typedef TFunction<void(const FTransform&, const FString&, const FString&)> CavrnusTransformFunction;
 
-typedef TFunction<void(FCavrnusUser user)> CavrnusSpaceUserEvent;
+typedef TFunction<void(const FCavrnusUser&)> CavrnusSpaceUserEvent;
 
 typedef TFunction<void(const TArray<FCavrnusInputDevice>&)> CavrnusAvailableInputDevices;
 typedef TFunction<void(const TArray<FCavrnusOutputDevice>&)> CavrnusAvailableOutputDevices;
@@ -50,14 +50,14 @@ typedef TFunction<void(const FCavrnusOutputDevice&)> CavrnusSavedOutputDevice;
 
 typedef TFunction<void(UTexture2D*)> VideoFrameUpdateFunction;
 
-typedef TFunction<void(FString, bool)> CavrnusPolicyUpdated;
+typedef TFunction<void(const FString&, bool)> CavrnusPolicyUpdated;
 
-typedef TFunction<void(FCavrnusSpawnedObject)> CavrnusSpawnedObjectFunction;
+typedef TFunction<void(const FCavrnusSpawnedObject&)> CavrnusSpawnedObjectFunction;
 
-typedef TFunction<void(float, FString)> CavrnusContentProgressFunction;
-typedef TFunction<void(TArray<uint8>)> CavrnusContentFunction;
-typedef TFunction<void(TArray<FCavrnusRemoteContent>)> CavrnusRemoteContentFunction;
-typedef TFunction<void(FCavrnusRemoteContent)> CavrnusUploadCompleteFunction;
+typedef TFunction<void(float, const FString&)> CavrnusContentProgressFunction;
+typedef TFunction<void(const TArray<uint8>&)> CavrnusContentFunction;
+typedef TFunction<void(const TArray<FCavrnusRemoteContent>&)> CavrnusRemoteContentFunction;
+typedef TFunction<void(const FCavrnusRemoteContent&)> CavrnusUploadCompleteFunction;
 
 UCLASS(Abstract)
 class UCavrnusCallbackTypes : public UBlueprintFunctionLibrary

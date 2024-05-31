@@ -1,9 +1,6 @@
-Cavrnus-UE5.0-RelayPlugin-2023.2.710-Dev
-cody.tedrick: ue - master [ba331ce0e41c319547af805dff8932e4376eccd5]
-Add thumbnails to spacelist
+Cavrnus-UE5.0-RelayPlugin-2023.2.711-Dev
+bhaddad5: ue - master [0ed6ebd47676d12f7a4ad2e0c8bc4265ae8b682f]
+const ref'd all our events
 
-	CavrnusPlugin/Plugins/CavrnusConnector/Content/UI/Menus/SpaceListMenu/WBP_SpaceListOption.uasset
-	CavrnusPlugin/Plugins/CavrnusConnector/Content/UI/Menus/SpaceListMenu/WBP_SpaceSelection.uasset
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/UI/SpaceList/SpaceListOption.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/UI/SpaceList/SpaceListOption.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusCallbackTypes.h
 
