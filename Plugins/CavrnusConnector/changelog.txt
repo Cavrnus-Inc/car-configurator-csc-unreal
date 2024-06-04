@@ -1,6 +1,11 @@
-Cavrnus-UE5.0-RelayPlugin-2023.2.711-Dev
-bhaddad5: ue - master [0ed6ebd47676d12f7a4ad2e0c8bc4265ae8b682f]
-const ref'd all our events
+Cavrnus-UE5.0-RelayPlugin-1.0.0
+josh.criz: ue - prod [fe065b5a90c43bd714362245341624b12b9ca682]
+Moving BP_CavrnusLocalCharacter Bindings
 
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusCallbackTypes.h
+Put local character bindings in new C++ base class, to fix inputs not working when opening the sample level in someone else's project.
+
+	CavrnusPlugin/Config/DefaultInput.ini
+	CavrnusPlugin/Plugins/CavrnusConnector/Content/Pawns/BP_CavrnusLocalCharacter.uasset
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusLocalCharacter.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusLocalCharacter.h
 
