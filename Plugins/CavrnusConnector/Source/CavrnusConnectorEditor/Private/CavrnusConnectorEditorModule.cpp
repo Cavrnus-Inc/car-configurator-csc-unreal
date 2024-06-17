@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 // Includes
 #include "CavrnusConnectorEditorModule.h"
 #include "Interfaces/IMainFrameModule.h"

@@ -44,18 +44,20 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusPropertiesContainer() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusPropertiesContainer_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintSpawnableComponent", "" },
 		{ "BlueprintType", "true" },
-		{ "Comment", "// Class definition\n" },
+		{ "Comment", "/**\n * @brief UCavrnusPropertiesContainer is a component class used for containing properties within the Cavrnus plugin. This component can be attached to actors and used to manage property containers for Cavrnus.\n */" },
 		{ "HideCategories", "Transform Physics LOD Collision Rendering ComponentTick Trigger PhysicsVolume" },
 		{ "IncludePath", "CavrnusPropertiesContainer.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/CavrnusPropertiesContainer.h" },
-		{ "ToolTip", "Class definition" },
+		{ "ToolTip", "@brief UCavrnusPropertiesContainer is a component class used for containing properties within the Cavrnus plugin. This component can be attached to actors and used to manage property containers for Cavrnus." },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusPropertiesContainer_Statics::NewProp_ContainerName_MetaData[] = {
 		{ "Category", "Cavrnus" },
+		{ "Comment", "/**\n\x09 * @brief This property stores the name of the container, which can be used to identify it within the Cavrnus system.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusPropertiesContainer.h" },
+		{ "ToolTip", "@brief This property stores the name of the container, which can be used to identify it within the Cavrnus system." },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UCavrnusPropertiesContainer_Statics::NewProp_ContainerName = { "ContainerName", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusPropertiesContainer, ContainerName), METADATA_PARAMS(Z_Construct_UClass_UCavrnusPropertiesContainer_Statics::NewProp_ContainerName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusPropertiesContainer_Statics::NewProp_ContainerName_MetaData)) };
@@ -98,9 +100,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusPropertiesContainer() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusPropertiesContainer, UCavrnusPropertiesContainer::StaticClass, TEXT("UCavrnusPropertiesContainer"), &Z_Registration_Info_UClass_UCavrnusPropertiesContainer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusPropertiesContainer), 1180017728U) },
+		{ Z_Construct_UClass_UCavrnusPropertiesContainer, UCavrnusPropertiesContainer::StaticClass, TEXT("UCavrnusPropertiesContainer"), &Z_Registration_Info_UClass_UCavrnusPropertiesContainer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusPropertiesContainer), 2973972859U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_4051680413(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_745724958(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

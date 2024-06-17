@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #pragma once
 
 #include "CoreMinimal.h"
@@ -13,7 +14,7 @@ public:
 
 	// Functions
 
-		// Constructor
+	// Constructor
 	UCavrnusConnectorSettings(const FObjectInitializer& obj);
 
 	// Initialization

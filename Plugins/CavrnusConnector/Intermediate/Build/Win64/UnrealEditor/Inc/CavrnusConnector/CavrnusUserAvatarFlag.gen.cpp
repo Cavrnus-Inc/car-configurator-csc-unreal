@@ -58,7 +58,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserAvatarFlag() {}
 		{ "ModuleRelativePath", "Public/FlagComponents/CavrnusUserAvatarFlag.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusUserAvatarFlag_Statics::NewProp_CavrnusUser = { "CavrnusUser", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusUserAvatarFlag, CavrnusUser), Z_Construct_UScriptStruct_FCavrnusUser, METADATA_PARAMS(Z_Construct_UClass_UCavrnusUserAvatarFlag_Statics::NewProp_CavrnusUser_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusUserAvatarFlag_Statics::NewProp_CavrnusUser_MetaData)) }; // 884232857
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusUserAvatarFlag_Statics::NewProp_CavrnusUser = { "CavrnusUser", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusUserAvatarFlag, CavrnusUser), Z_Construct_UScriptStruct_FCavrnusUser, METADATA_PARAMS(Z_Construct_UClass_UCavrnusUserAvatarFlag_Statics::NewProp_CavrnusUser_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusUserAvatarFlag_Statics::NewProp_CavrnusUser_MetaData)) }; // 933787263
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCavrnusUserAvatarFlag_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusUserAvatarFlag_Statics::NewProp_CavrnusUser,
 	};
@@ -98,9 +98,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserAvatarFlag() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusUserAvatarFlag_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusUserAvatarFlag, UCavrnusUserAvatarFlag::StaticClass, TEXT("UCavrnusUserAvatarFlag"), &Z_Registration_Info_UClass_UCavrnusUserAvatarFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusUserAvatarFlag), 1921564476U) },
+		{ Z_Construct_UClass_UCavrnusUserAvatarFlag, UCavrnusUserAvatarFlag::StaticClass, TEXT("UCavrnusUserAvatarFlag"), &Z_Registration_Info_UClass_UCavrnusUserAvatarFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusUserAvatarFlag), 1896171184U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusUserAvatarFlag_h_2993684020(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusUserAvatarFlag_h_543555859(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusUserAvatarFlag_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusUserAvatarFlag_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

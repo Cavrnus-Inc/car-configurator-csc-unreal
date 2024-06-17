@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "ValueSyncs/CavrnusValueSyncFloat.h"
 #include <Kismet/KismetSystemLibrary.h>
 

@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "CavrnusSpatialConnector.h"
 
 #include "CavrnusAvatarManager.h"
@@ -11,11 +12,11 @@
 // Sets default values
 ACavrnusSpatialConnector::ACavrnusSpatialConnector()
 {
-	// Set this actor to call Tick() every frame. You can turn this off to improve performance if you don't need it.
+	// Disabled to improve performance since this actor does not need to update every frame. Set this actor to call Tick() every frame if you need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	AuthMethod = ECavrnusAuthMethod::JoinAsMember;
-	MemberLoginMethod = ECavrnusMemberLoginMethod::EnterMemberLoginCredentials;
+	AuthMethod = ECavrnusAuthMethod::JoinAsMember;	
+	MemberLoginMethod = ECavrnusMemberLoginMethod::EnterMemberLoginCredentials;		
 	GuestLoginMethod = ECavrnusGuestLoginMethod::EnterNameBelow;
 	SpaceJoinMethod = ECavrnusSpaceJoinMethod::SpacesList;
 }

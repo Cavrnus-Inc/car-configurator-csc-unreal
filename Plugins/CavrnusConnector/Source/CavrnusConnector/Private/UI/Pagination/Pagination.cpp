@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "UI/Pagination/Pagination.h"
 #include "Blueprint/WidgetTree.h"
 

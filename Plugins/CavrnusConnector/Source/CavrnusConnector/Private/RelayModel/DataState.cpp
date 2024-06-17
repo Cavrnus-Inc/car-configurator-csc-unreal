@@ -1,4 +1,5 @@
-﻿#include "RelayModel/DataState.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayModel/DataState.h"
 
 namespace Cavrnus
 {

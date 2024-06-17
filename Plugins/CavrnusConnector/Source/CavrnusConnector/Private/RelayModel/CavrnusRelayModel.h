@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#pragma once
 
 #include "../../Public/Types/CavrnusSpaceConnection.h"
 #include "SpacePropertyModel.h"
@@ -34,40 +35,88 @@ namespace Cavrnus
 	class SpacePropertyModel;
 	class SpacePermissionsModel;
 
+	/**
+	 * @class CavrnusRelayModel
+	 * @brief Manages the relay communication between the Cavrnus server and the client.
+	 *
+	 * Handles the reception and processing of messages from the Cavrnus server,
+	 * as well as sending messages to the server. Also responsible for managing 
+	 * data models and invoking callbacks for object creation and destruction.
+	 */
 	class CAVRNUSCONNECTOR_API CavrnusRelayModel : public FTickableGameObject
 	{
 	public:
 		CavrnusRelayModel();
 		virtual ~CavrnusRelayModel();
 
+		/**
+		 * @brief Determines if the object is tickable in the editor.
+		 *
+		 * @return true if tickable in the editor, false otherwise.
+		 */
 		bool IsTickableInEditor() const override;
+
+		/**
+		 * @brief Overrides FTickableGameObject Tick.
+		 *
+		 * @param DeltaTime The time elapsed since last tick.
+		 */
 		void Tick(float DeltaTime) override;
+
+		/**
+		 * @brief Gets the TStatId for profiling.
+		 *
+		 * @return The TStatId for performance metrics.
+		 */
 		TStatId GetStatId() const override;
 
+		/** Accessors for various data models */
 		SpacePermissionsModel* GetGlobalPermissionsModel();
 		SpacePermissionsModel* GetSpacePermissionsModel(FCavrnusSpaceConnection spaceConn);
 		SpacePropertyModel* GetSpacePropertyModel(FCavrnusSpaceConnection spaceConn);
 		RelayCallbackModel* GetCallbackModel();
 		DataState* GetDataState();
+		
+		/**
+		 * @brief Sends a message to the server.
+		 *
+		 * @param msg The message to send.
+		 */
 		void SendMessage(const ServerData::RelayClientMessage& msg);
 
 		CavrnusContentModel ContentModel;
 
+		/** Map for storing object creation callbacks */
 		CaseSensitiveMap<FString, const CavrnusSpawnedObjectFunction*> ObjectCreationCallbacks;
 
-		void RegisterObjectCreationCallback(TFunction<void(FCavrnusSpawnedObject, FString)> cb);
-		void RegisterObjectDestructionCallback(TFunction<void(FCavrnusSpawnedObject)> cb);
+		/**
+		 * @brief Registers a callback for object creation.
+		 *
+		 * @param cb The callback function to register.
+		 */
+		void RegisterObjectCreationCallback(TFunction<AActor* (FCavrnusSpawnedObject, FString)> cb);
+
+		/**
+		 * @brief Registers a callback for object destruction.
+		 *
+		 * @param cb The callback function to register.
+		 */
+		void RegisterObjectDestructionCallback(TFunction<void (FCavrnusSpawnedObject)> cb);
 
 	private:
+		/** Internal data members */
 		CavrnusInteropLayer* interopLayer;
 		RelayCallbackModel* callbackModel;
 		DataState* dataState;
 		SpacePermissionsModel* globalPermissionsModel;
 		TMap<int, SpacePermissionsModel*> spacePermissionsModelLookup;
 		TMap<int, SpacePropertyModel*> spacePropertyModelLookup;
+		
+		/** Handles server messages */
 		void HandleServerMsg(const ServerData::RelayRemoteMessage& msg);
 
-		const TFunction<void(FCavrnusSpawnedObject, FString)>* ObjectCreationCallback = nullptr;
+		/** Callbacks for various server messages */
+		const TFunction<AActor* (FCavrnusSpawnedObject, FString)>* ObjectCreationCallback = nullptr;
 		const TFunction<void(FCavrnusSpawnedObject)>* ObjectDestructionCallback = nullptr;
 
 		void HandleLogging(const ServerData::StatusMessage& message);

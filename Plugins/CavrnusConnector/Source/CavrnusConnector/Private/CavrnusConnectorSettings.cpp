@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "CavrnusConnectorSettings.h"
 #include "Engine/Engine.h"
 

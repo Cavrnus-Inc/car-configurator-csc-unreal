@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "UI/SpaceList/SpaceListOption.h"
 
 #include "Blueprint/AsyncTaskDownloadImage.h"

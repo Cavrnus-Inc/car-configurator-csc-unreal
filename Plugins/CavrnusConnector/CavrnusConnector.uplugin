@@ -4,7 +4,7 @@
 	"VersionName": "1.0",
 	"FriendlyName": "Cavrnus",
 	"Description": "Cavrnus enhances 3D workflows by providing developers a seamless drag-and-drop toolkit for embedding collaborative features directly into Unreal Engine projects.",
-	"Category": "Multiuser Collaboration Plugin",
+	"Category": "Multi-user Collaboration Plugin",
 	"CreatedBy": "Cavrnus, Inc.",
 	"CreatedByURL": "http://www.cavrnus.com/",
 	"DocsURL": "https://cavrnus.atlassian.net/wiki/spaces/CSM/overview",
@@ -12,7 +12,6 @@
 	"SupportURL": "https://cavrnus.atlassian.net/servicedesk/customer/portal/1/group/-1",
 	"EngineVersion": "5.0.0",
 	"CanContainContent": true,
-	"IsBetaVersion": true,
 	"Installed": true,
 	"SupportedTargetPlatforms": [
 		"Win64"

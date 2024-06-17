@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "CavrnusAvatarManager.h"
 #include "SpawnObjectHelpers.h"
 #include "ValueSyncs/CavrnusValueSyncVector.h"

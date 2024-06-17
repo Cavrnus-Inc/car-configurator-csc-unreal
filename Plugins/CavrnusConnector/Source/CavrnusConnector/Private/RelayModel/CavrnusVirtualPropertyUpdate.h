@@ -1,8 +1,10 @@
-﻿#pragma once
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#pragma once
 
 #include <MathUtil.h>
 #include "Types/CavrnusPropertyValue.h"
 #include "Types/PropertyId.h"
+#include "Types/PropertyPostOptions.h"
 
 namespace Cavrnus
 {
@@ -12,7 +14,7 @@ namespace Cavrnus
 	{
 	public:
 		CavrnusVirtualPropertyUpdate();
-		CavrnusVirtualPropertyUpdate(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, const FPropertyValue& propVal);
+		CavrnusVirtualPropertyUpdate(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, const FPropertyValue& propVal, const FPropertyPostOptions& options = FPropertyPostOptions());
 		~CavrnusVirtualPropertyUpdate();
 
 		void UpdateWithNewData(const FPropertyValue& propVal);
@@ -33,5 +35,7 @@ namespace Cavrnus
 		FPropertyId PropertyId;
 
 		Cavrnus::CavrnusRelayModel* RelayModel;
+
+		FPropertyPostOptions Options;
 	};
 }

@@ -52,7 +52,7 @@ public class CavrnusConnector : ModuleRules
         // Add the directory with the generated protos
         string CommDirectory = Path.Combine(PrivateDirectory, "Comm");
         if (Directory.Exists(CommDirectory))
-        {
+        { 
             PrivateIncludePaths.Add(CommDirectory);
         }
 

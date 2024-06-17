@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "ValueSyncs/CavrnusValueSyncBase.h"
 #include "CavrnusPropertiesContainer.h"
 #include "LivePropertyUpdates/CavrnusLivePropertyUpdate.h"

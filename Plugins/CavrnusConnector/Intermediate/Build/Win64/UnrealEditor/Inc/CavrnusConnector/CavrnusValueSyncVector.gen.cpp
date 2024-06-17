@@ -68,7 +68,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncVector_GetVector_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Blueprint-callable getter function for a generic vector property.\n\x09 * @return The current vector.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncVector.h" },
+		{ "ToolTip", "@brief Blueprint-callable getter function for a generic vector property.\n@return The current vector." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncVector_GetVector_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncVector, nullptr, "GetVector", nullptr, nullptr, sizeof(CavrnusValueSyncVector_eventGetVector_Parms), Z_Construct_UFunction_UCavrnusValueSyncVector_GetVector_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncVector_GetVector_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08820C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncVector_GetVector_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncVector_GetVector_Statics::Function_MetaDataParams)) };
@@ -96,7 +98,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Blueprint-callable setter function for the generic vector property.\n\x09 * @param PropertyValue The new vector to set.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncVector.h" },
+		{ "ToolTip", "@brief Blueprint-callable setter function for the generic vector property.\n@param PropertyValue The new vector to set." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncVector, nullptr, "SetVector", nullptr, nullptr, sizeof(CavrnusValueSyncVector_eventSetVector_Parms), Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08820C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector_Statics::Function_MetaDataParams)) };
@@ -129,18 +133,18 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusValueSyncVector_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusValueSyncVector_GetVector, "GetVector" }, // 3653157764
-		{ &Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector, "SetVector" }, // 3714861518
+		{ &Z_Construct_UFunction_UCavrnusValueSyncVector_GetVector, "GetVector" }, // 1980018722
+		{ &Z_Construct_UFunction_UCavrnusValueSyncVector_SetVector, "SetVector" }, // 4224661441
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusValueSyncVector_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "// Class definition\n" },
+		{ "Comment", "/**\n * @brief Class responsible for synchronizing vector properties between Unreal Engine and Cavrnus.\n * This class extends UCavrnusValueSyncBase and implements specific functionality to handle generic vectors.\n * For purpose-specific vectors, such as Color and Transform, see the specific Value-Sync classes for those properties.\n */" },
 		{ "HideCategories", "Transform Physics Collision Rendering Trigger PhysicsVolume" },
 		{ "IncludePath", "ValueSyncs/CavrnusValueSyncVector.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncVector.h" },
-		{ "ToolTip", "Class definition" },
+		{ "ToolTip", "@brief Class responsible for synchronizing vector properties between Unreal Engine and Cavrnus.\nThis class extends UCavrnusValueSyncBase and implements specific functionality to handle generic vectors.\nFor purpose-specific vectors, such as Color and Transform, see the specific Value-Sync classes for those properties." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusValueSyncVector_Statics::StaticCppClassTypeInfo = {
@@ -179,9 +183,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncVector() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncVector_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusValueSyncVector, UCavrnusValueSyncVector::StaticClass, TEXT("UCavrnusValueSyncVector"), &Z_Registration_Info_UClass_UCavrnusValueSyncVector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncVector), 3981089234U) },
+		{ Z_Construct_UClass_UCavrnusValueSyncVector, UCavrnusValueSyncVector::StaticClass, TEXT("UCavrnusValueSyncVector"), &Z_Registration_Info_UClass_UCavrnusValueSyncVector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncVector), 2629563063U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncVector_h_2452889607(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncVector_h_1451759810(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncVector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncVector_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

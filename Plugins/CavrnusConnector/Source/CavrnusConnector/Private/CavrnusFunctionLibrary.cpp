@@ -1,3 +1,5 @@
+// Copyright(c) Cavrnus. All rights reserved.
+
 #include "Public/CavrnusFunctionLibrary.h"
 #include "CavrnusConnectorModule.h"
 #include <GameFramework/PlayerController.h>
@@ -278,11 +280,18 @@ UCavrnusBinding* UCavrnusFunctionLibrary::BindGenericPropertyValue(FCavrnusSpace
 	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindProperty(FPropertyId(ContainerName, PropertyName), OnPropertyUpdated);
 }
 
-void UCavrnusFunctionLibrary::PostGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue)
+void UCavrnusFunctionLibrary::PostGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue, const FPropertyPostOptions& options)
 {
 	CheckErrors(SpaceConnection);
-	int localChangeId = GetDataModel()->GetSpacePropertyModel(SpaceConnection)->SetLocalPropVal(FPropertyId(ContainerName, PropertyName), PropertyValue);
-	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildUpdatePropMsg(SpaceConnection, FPropertyId(ContainerName, PropertyName), PropertyValue, localChangeId));
+	int localChangeId = -1;
+	if(!options.Smoothed)
+		localChangeId = GetDataModel()->GetSpacePropertyModel(SpaceConnection)->SetLocalPropVal(FPropertyId(ContainerName, PropertyName), PropertyValue);
+	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildUpdatePropMsg(SpaceConnection, FPropertyId(ContainerName, PropertyName), PropertyValue, localChangeId, options));
+}
+
+bool UCavrnusFunctionLibrary::PropertyValueExists(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName)
+{
+	return GetDataModel()->GetSpacePropertyModel(SpaceConnection)->PropValueExists(FPropertyId(ContainerName, PropertyName));
 }
 
 #pragma endregion
@@ -567,19 +576,19 @@ UCavrnusBinding* UCavrnusFunctionLibrary::BindTransformPropertyValue(FCavrnusSpa
 	return BindGenericPropertyValue(SpaceConnection, ContainerName, PropertyName, propUpdateCallback);
 }
 
-UCavrnusLiveTransformPropertyUpdate* UCavrnusFunctionLibrary::BeginTransientTransformPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransform PropertyValue)
+UCavrnusLiveTransformPropertyUpdate* UCavrnusFunctionLibrary::BeginTransientTransformPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransform PropertyValue, const FPropertyPostOptions& options)
 {
 	CheckErrors(SpaceConnection);
 
 	UCavrnusLiveTransformPropertyUpdate* res = NewObject<UCavrnusLiveTransformPropertyUpdate>();
-	res->Initialize(GetDataModel(), SpaceConnection, FPropertyId(ContainerName, PropertyName), PropertyValue);
+	res->Initialize(GetDataModel(), SpaceConnection, FPropertyId(ContainerName, PropertyName), PropertyValue, options);
 
 	return res;
 }
 
-void UCavrnusFunctionLibrary::PostTransformPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransform PropertyValue)
+void UCavrnusFunctionLibrary::PostTransformPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransform PropertyValue, const FPropertyPostOptions& options)
 {
-	PostGenericPropertyUpdate(SpaceConnection, ContainerName, PropertyName, Cavrnus::FPropertyValue::TransformPropValue(PropertyValue));
+	PostGenericPropertyUpdate(SpaceConnection, ContainerName, PropertyName, Cavrnus::FPropertyValue::TransformPropValue(PropertyValue), options);
 }
 
 #pragma endregion
@@ -629,9 +638,9 @@ UPARAM(DisplayName = "Container Name")FString UCavrnusFunctionLibrary::SpawnObje
 {
 	CheckErrors(SpaceConnection);
 
-	CavrnusSpawnedObjectFunction propUpdateCallback = [spawnedObjectArrived](const FCavrnusSpawnedObject& SpawnedOb)
+	CavrnusSpawnedObjectFunction propUpdateCallback = [spawnedObjectArrived](const FCavrnusSpawnedObject& SpawnedOb, AActor* ActorInstance)
 	{
-		spawnedObjectArrived.ExecuteIfBound(SpawnedOb);
+		spawnedObjectArrived.ExecuteIfBound(SpawnedOb, ActorInstance);
 	};
 
 	return SpawnObject(SpaceConnection, UniqueIdentifier, propUpdateCallback);

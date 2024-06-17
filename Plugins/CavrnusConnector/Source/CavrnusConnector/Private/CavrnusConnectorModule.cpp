@@ -1,3 +1,5 @@
+// Copyright(c) Cavrnus. All rights reserved.
+
 // Includes
 #include "CavrnusConnectorModule.h"
 #include "CavrnusConnectorSettings.h"
@@ -13,7 +15,6 @@ IMPLEMENT_MODULE(FCavrnusConnectorModule, CavrnusConnector)
 //===============================================================
 FCavrnusConnectorModule::FCavrnusConnectorModule()
 {
-
 }
 
 //===============================================================
@@ -30,7 +31,6 @@ void FCavrnusConnectorModule::StartupModule()
 //===============================================================
 void FCavrnusConnectorModule::ShutdownModule()
 {
-
 }
 
 #if PLATFORM_WINDOWS

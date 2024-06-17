@@ -1,4 +1,5 @@
-﻿#include "RelayModel/SpacePropertyModel.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayModel/SpacePropertyModel.h"
 #include <TextureResource.h>
 
 namespace Cavrnus

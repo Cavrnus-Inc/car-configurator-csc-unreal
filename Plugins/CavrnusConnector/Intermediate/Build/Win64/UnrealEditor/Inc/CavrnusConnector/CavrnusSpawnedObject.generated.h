@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CAVRNUSCONNECTOR_CavrnusSpawnedObject_generated_h
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpawnedObject_h_15_GENERATED_BODY \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpawnedObject_h_27_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FCavrnusSpawnedObject_Statics; \
 	static class UScriptStruct* StaticStruct();
 

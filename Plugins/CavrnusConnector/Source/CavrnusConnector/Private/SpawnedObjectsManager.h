@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #pragma once
 
 #include "CoreMinimal.h"
@@ -11,7 +12,7 @@ public:
 	SpawnedObjectsManager();
 	~SpawnedObjectsManager();
 
-	void RegisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, TSubclassOf<AActor> ActorClass, UWorld* world, USpawnObjectHelpers* spawnHelpers);
+	AActor* RegisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, TSubclassOf<AActor> ActorClass, UWorld* world, USpawnObjectHelpers* spawnHelpers);
 	void UnregisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, UWorld* World);
 
 private:

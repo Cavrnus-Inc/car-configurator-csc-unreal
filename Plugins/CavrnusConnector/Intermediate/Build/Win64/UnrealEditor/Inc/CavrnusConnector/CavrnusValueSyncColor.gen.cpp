@@ -68,7 +68,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncColor() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncColor_GetColor_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Blueprint-callable getter function for the color property value.\n\x09 * @param PropertyValue The new color value to set.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncColor.h" },
+		{ "ToolTip", "@brief Blueprint-callable getter function for the color property value.\n@param PropertyValue The new color value to set." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncColor_GetColor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncColor, nullptr, "GetColor", nullptr, nullptr, sizeof(CavrnusValueSyncColor_eventGetColor_Parms), Z_Construct_UFunction_UCavrnusValueSyncColor_GetColor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncColor_GetColor_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08820C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncColor_GetColor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncColor_GetColor_Statics::Function_MetaDataParams)) };
@@ -96,7 +98,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncColor() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncColor_SetColor_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Blueprint-callable setter function for the color property value.\n\x09 * @param PropertyValue The new color value to set.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncColor.h" },
+		{ "ToolTip", "@brief Blueprint-callable setter function for the color property value.\n@param PropertyValue The new color value to set." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncColor_SetColor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncColor, nullptr, "SetColor", nullptr, nullptr, sizeof(CavrnusValueSyncColor_eventSetColor_Parms), Z_Construct_UFunction_UCavrnusValueSyncColor_SetColor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncColor_SetColor_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08820C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncColor_SetColor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncColor_SetColor_Statics::Function_MetaDataParams)) };
@@ -129,18 +133,18 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncColor() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusValueSyncColor_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusValueSyncColor_GetColor, "GetColor" }, // 2167400866
-		{ &Z_Construct_UFunction_UCavrnusValueSyncColor_SetColor, "SetColor" }, // 3730496181
+		{ &Z_Construct_UFunction_UCavrnusValueSyncColor_GetColor, "GetColor" }, // 2928089633
+		{ &Z_Construct_UFunction_UCavrnusValueSyncColor_SetColor, "SetColor" }, // 1229794196
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusValueSyncColor_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "// Class definition\n" },
+		{ "Comment", "/**\n * @brief Class responsible for synchronizing color properties between Unreal Engine and Cavrnus.\n * This class extends UCavrnusValueSyncBase and implements specific functionality to handle color values.\n */" },
 		{ "HideCategories", "Transform Physics Collision Rendering Trigger PhysicsVolume" },
 		{ "IncludePath", "ValueSyncs/CavrnusValueSyncColor.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncColor.h" },
-		{ "ToolTip", "Class definition" },
+		{ "ToolTip", "@brief Class responsible for synchronizing color properties between Unreal Engine and Cavrnus.\nThis class extends UCavrnusValueSyncBase and implements specific functionality to handle color values." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusValueSyncColor_Statics::StaticCppClassTypeInfo = {
@@ -179,9 +183,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncColor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncColor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusValueSyncColor, UCavrnusValueSyncColor::StaticClass, TEXT("UCavrnusValueSyncColor"), &Z_Registration_Info_UClass_UCavrnusValueSyncColor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncColor), 3431430304U) },
+		{ Z_Construct_UClass_UCavrnusValueSyncColor, UCavrnusValueSyncColor::StaticClass, TEXT("UCavrnusValueSyncColor"), &Z_Registration_Info_UClass_UCavrnusValueSyncColor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncColor), 2673605301U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncColor_h_3182017279(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncColor_h_3040653815(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncColor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncColor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

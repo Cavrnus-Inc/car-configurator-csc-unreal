@@ -54,8 +54,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusSpaceInfo>()
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "/**\n *\n */" },
+		{ "Comment", "/**\n * @brief Structure to hold information about a Cavrnus space.\n *\n * The FCavrnusSpaceInfo structure contains the current name of the space, its unique ID, and a link to its thumbnail.\n * This information is used for building space selection UIs.\n */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusSpaceInfo.h" },
+		{ "ToolTip", "@brief Structure to hold information about a Cavrnus space.\n\nThe FCavrnusSpaceInfo structure contains the current name of the space, its unique ID, and a link to its thumbnail.\nThis information is used for building space selection UIs." },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewStructOps()
@@ -65,28 +66,36 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusSpaceInfo>()
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceId_MetaData[] = {
 		{ "Category", "Cavrnus|Spaces" },
+		{ "Comment", "/** @brief The unique ID of the space. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusSpaceInfo.h" },
+		{ "ToolTip", "@brief The unique ID of the space." },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceId = { "SpaceId", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusSpaceInfo, SpaceId), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceId_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceId_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceName_MetaData[] = {
 		{ "Category", "Cavrnus|Spaces" },
+		{ "Comment", "/** @brief The current name of the space. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusSpaceInfo.h" },
+		{ "ToolTip", "@brief The current name of the space." },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceName = { "SpaceName", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusSpaceInfo, SpaceName), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceName_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceThumbnail_MetaData[] = {
 		{ "Category", "Cavrnus|Spaces" },
+		{ "Comment", "/** @brief The URL of the space's thumbnail image. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusSpaceInfo.h" },
+		{ "ToolTip", "@brief The URL of the space's thumbnail image." },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceThumbnail = { "SpaceThumbnail", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusSpaceInfo, SpaceThumbnail), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceThumbnail_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_SpaceThumbnail_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_LastAccess_MetaData[] = {
 		{ "Category", "Cavrnus|Spaces" },
+		{ "Comment", "/** @brief The last access time of the space. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusSpaceInfo.h" },
+		{ "ToolTip", "@brief The last access time of the space." },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_LastAccess = { "LastAccess", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusSpaceInfo, LastAccess), Z_Construct_UScriptStruct_FDateTime, METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_LastAccess_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewProp_LastAccess_MetaData)) };
@@ -122,9 +131,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusSpaceInfo>()
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceInfo_h_Statics::ScriptStructInfo[] = {
-		{ FCavrnusSpaceInfo::StaticStruct, Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewStructOps, TEXT("CavrnusSpaceInfo"), &Z_Registration_Info_UScriptStruct_CavrnusSpaceInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusSpaceInfo), 2133425037U) },
+		{ FCavrnusSpaceInfo::StaticStruct, Z_Construct_UScriptStruct_FCavrnusSpaceInfo_Statics::NewStructOps, TEXT("CavrnusSpaceInfo"), &Z_Registration_Info_UScriptStruct_CavrnusSpaceInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusSpaceInfo), 25966878U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceInfo_h_2623636399(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceInfo_h_2189511379(TEXT("/Script/CavrnusConnector"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceInfo_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceInfo_h_Statics::ScriptStructInfo),
 		nullptr, 0);

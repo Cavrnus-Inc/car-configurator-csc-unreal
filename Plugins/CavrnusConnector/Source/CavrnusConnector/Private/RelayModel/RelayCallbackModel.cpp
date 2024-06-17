@@ -1,4 +1,5 @@
-﻿#include "RelayModel/RelayCallbackModel.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayModel/RelayCallbackModel.h"
 #include "CoreMinimal.h"
 #include "RelayModel/CavrnusRelayModel.h"
 #include "CavrnusConnectorModule.h"

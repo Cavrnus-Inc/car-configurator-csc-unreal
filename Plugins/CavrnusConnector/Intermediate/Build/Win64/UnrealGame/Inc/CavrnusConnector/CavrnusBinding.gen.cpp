@@ -44,7 +44,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusBinding() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Cavrnus" },
+		{ "Comment", "/**\n\x09 * @brief Unbinds the binding, releasing any resources tied to it.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusBinding.h" },
+		{ "ToolTip", "@brief Unbinds the binding, releasing any resources tied to it." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusBinding, nullptr, "Unbind", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusBinding_Unbind_Statics::Function_MetaDataParams)) };
@@ -77,14 +79,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusBinding() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusBinding_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusBinding_Unbind, "Unbind" }, // 1544981606
+		{ &Z_Construct_UFunction_UCavrnusBinding_Unbind, "Unbind" }, // 2942357513
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusBinding_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "/**\n *\n */" },
+		{ "Comment", "/**\n * @brief UCavrnusBinding class for managing bindings in Cavrnus.\n *\n * The UCavrnusBinding class provides functionality to set up and unbind bindings within the Cavrnus system. It ensures that resources tied to bindings are properly released when no longer needed.\n */" },
 		{ "IncludePath", "Types/CavrnusBinding.h" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusBinding.h" },
+		{ "ToolTip", "@brief UCavrnusBinding class for managing bindings in Cavrnus.\n\nThe UCavrnusBinding class provides functionality to set up and unbind bindings within the Cavrnus system. It ensures that resources tied to bindings are properly released when no longer needed." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusBinding_Statics::StaticCppClassTypeInfo = {
@@ -123,9 +126,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusBinding() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusBinding, UCavrnusBinding::StaticClass, TEXT("UCavrnusBinding"), &Z_Registration_Info_UClass_UCavrnusBinding, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusBinding), 1307956969U) },
+		{ Z_Construct_UClass_UCavrnusBinding, UCavrnusBinding::StaticClass, TEXT("UCavrnusBinding"), &Z_Registration_Info_UClass_UCavrnusBinding, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusBinding), 4077401096U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_2929943558(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_3964644395(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusBinding_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

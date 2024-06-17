@@ -89,6 +89,7 @@
 		"IPropertySyncInterface.gen.cpp.obj",
 		"Pagination.gen.cpp.obj",
 		"PropertyId.gen.cpp.obj",
+		"PropertyPostOptions.gen.cpp.obj",
 		"SpaceListEntry.gen.cpp.obj",
 		"SpaceListOption.gen.cpp.obj",
 		"SpawnObjectHelpers.gen.cpp.obj",

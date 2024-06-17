@@ -327,6 +327,7 @@ PROTOBUF_CONSTEXPR PostPropertyUpdate::PostPropertyUpdate(
   , /*decltype(_impl_.spaceconn_)*/nullptr
   , /*decltype(_impl_.propertyvalue_)*/nullptr
   , /*decltype(_impl_.localchangeid_)*/0
+  , /*decltype(_impl_.smooth_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct PostPropertyUpdateDefaultTypeInternal {
   PROTOBUF_CONSTEXPR PostPropertyUpdateDefaultTypeInternal()
@@ -344,6 +345,7 @@ PROTOBUF_CONSTEXPR BeginTransientPropertyUpdate::BeginTransientPropertyUpdate(
   , /*decltype(_impl_.spaceconn_)*/nullptr
   , /*decltype(_impl_.propertyvalue_)*/nullptr
   , /*decltype(_impl_.localchangeid_)*/0
+  , /*decltype(_impl_.smooth_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct BeginTransientPropertyUpdateDefaultTypeInternal {
   PROTOBUF_CONSTEXPR BeginTransientPropertyUpdateDefaultTypeInternal()
@@ -361,6 +363,7 @@ PROTOBUF_CONSTEXPR ContinueTransientPropertyUpdate::ContinueTransientPropertyUpd
   , /*decltype(_impl_.spaceconn_)*/nullptr
   , /*decltype(_impl_.propertyvalue_)*/nullptr
   , /*decltype(_impl_.localchangeid_)*/0
+  , /*decltype(_impl_.smooth_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ContinueTransientPropertyUpdateDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ContinueTransientPropertyUpdateDefaultTypeInternal()
@@ -378,6 +381,7 @@ PROTOBUF_CONSTEXPR FinalizeTransientPropertyUpdate::FinalizeTransientPropertyUpd
   , /*decltype(_impl_.spaceconn_)*/nullptr
   , /*decltype(_impl_.propertyvalue_)*/nullptr
   , /*decltype(_impl_.localchangeid_)*/0
+  , /*decltype(_impl_.smooth_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct FinalizeTransientPropertyUpdateDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FinalizeTransientPropertyUpdateDefaultTypeInternal()
@@ -1166,6 +1170,7 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::PostPropertyUpdate, _impl_.propertyid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::PostPropertyUpdate, _impl_.localchangeid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::PostPropertyUpdate, _impl_.propertyvalue_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::PostPropertyUpdate, _impl_.smooth_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::BeginTransientPropertyUpdate, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1177,6 +1182,7 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::BeginTransientPropertyUpdate, _impl_.propertyid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::BeginTransientPropertyUpdate, _impl_.localchangeid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::BeginTransientPropertyUpdate, _impl_.propertyvalue_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::BeginTransientPropertyUpdate, _impl_.smooth_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::ContinueTransientPropertyUpdate, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1188,6 +1194,7 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::ContinueTransientPropertyUpdate, _impl_.propertyid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::ContinueTransientPropertyUpdate, _impl_.localchangeid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::ContinueTransientPropertyUpdate, _impl_.propertyvalue_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ContinueTransientPropertyUpdate, _impl_.smooth_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::FinalizeTransientPropertyUpdate, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1199,6 +1206,7 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::FinalizeTransientPropertyUpdate, _impl_.propertyid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::FinalizeTransientPropertyUpdate, _impl_.localchangeid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::FinalizeTransientPropertyUpdate, _impl_.propertyvalue_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::FinalizeTransientPropertyUpdate, _impl_.smooth_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::CancelTransientPropertyUpdate, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1534,45 +1542,45 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 217, -1, -1, sizeof(::ServerData::PropertyValue)},
   { 231, -1, -1, sizeof(::ServerData::DefinePropertyDefaultValue)},
   { 241, -1, -1, sizeof(::ServerData::PostPropertyUpdate)},
-  { 251, -1, -1, sizeof(::ServerData::BeginTransientPropertyUpdate)},
-  { 262, -1, -1, sizeof(::ServerData::ContinueTransientPropertyUpdate)},
-  { 273, -1, -1, sizeof(::ServerData::FinalizeTransientPropertyUpdate)},
-  { 284, -1, -1, sizeof(::ServerData::CancelTransientPropertyUpdate)},
-  { 292, -1, -1, sizeof(::ServerData::TransformPropertyValue)},
-  { 301, -1, -1, sizeof(::ServerData::GetAudioInputDevicesReq)},
-  { 308, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesReq)},
-  { 315, -1, -1, sizeof(::ServerData::GetVideoInputDevicesReq)},
-  { 322, -1, -1, sizeof(::ServerData::GetAudioInputDevicesResp)},
-  { 332, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesResp)},
-  { 342, -1, -1, sizeof(::ServerData::GetVideoInputDevicesResp)},
-  { 352, -1, -1, sizeof(::ServerData::SetAudioInputDeviceReq)},
-  { 360, -1, -1, sizeof(::ServerData::SetAudioOutputDeviceReq)},
-  { 368, -1, -1, sizeof(::ServerData::SetVideoInputDeviceReq)},
-  { 376, -1, -1, sizeof(::ServerData::PostCreateObject)},
-  { 385, -1, -1, sizeof(::ServerData::PostRemoveObject)},
-  { 393, -1, -1, sizeof(::ServerData::FetchFileByIdReq)},
-  { 400, -1, -1, sizeof(::ServerData::FetchFileByIdProgressResp)},
-  { 409, -1, -1, sizeof(::ServerData::FetchFileByIdCompletedResp)},
-  { 417, -1, -1, sizeof(::ServerData::FetchAllUploadedContentReq)},
-  { 424, -1, -1, sizeof(::ServerData::UploadLocalFileResp)},
-  { 432, -1, -1, sizeof(::ServerData::UploadLocalFileReq)},
-  { 442, -1, -1, sizeof(::ServerData::FetchAllUploadedContentResp)},
-  { 450, -1, -1, sizeof(::ServerData::PropMetadataStatus)},
-  { 459, -1, -1, sizeof(::ServerData::PropertyValueStatus)},
-  { 469, -1, -1, sizeof(::ServerData::LocalPropertyHandledResp)},
-  { 478, -1, -1, sizeof(::ServerData::UserAdded)},
-  { 486, -1, -1, sizeof(::ServerData::UserRemoved)},
-  { 494, -1, -1, sizeof(::ServerData::UserVideoFrame)},
-  { 505, -1, -1, sizeof(::ServerData::SpaceInfo)},
-  { 516, -1, -1, sizeof(::ServerData::ObjectAdded)},
-  { 526, -1, -1, sizeof(::ServerData::ObjectRemoved)},
-  { 534, -1, -1, sizeof(::ServerData::UpdateLocalUserMuted)},
-  { 542, -1, -1, sizeof(::ServerData::UpdateLocalUserCoPresence)},
-  { 550, -1, -1, sizeof(::ServerData::UpdateLocalUserStreamState)},
-  { 558, 566, -1, sizeof(::ServerData::PermissionStatusReq)},
-  { 568, 577, -1, sizeof(::ServerData::PermissionStatus)},
-  { 580, -1, -1, sizeof(::ServerData::AllJoinableSpacesReq)},
-  { 587, -1, -1, sizeof(::ServerData::AllJoinableSpacesResp)},
+  { 252, -1, -1, sizeof(::ServerData::BeginTransientPropertyUpdate)},
+  { 264, -1, -1, sizeof(::ServerData::ContinueTransientPropertyUpdate)},
+  { 276, -1, -1, sizeof(::ServerData::FinalizeTransientPropertyUpdate)},
+  { 288, -1, -1, sizeof(::ServerData::CancelTransientPropertyUpdate)},
+  { 296, -1, -1, sizeof(::ServerData::TransformPropertyValue)},
+  { 305, -1, -1, sizeof(::ServerData::GetAudioInputDevicesReq)},
+  { 312, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesReq)},
+  { 319, -1, -1, sizeof(::ServerData::GetVideoInputDevicesReq)},
+  { 326, -1, -1, sizeof(::ServerData::GetAudioInputDevicesResp)},
+  { 336, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesResp)},
+  { 346, -1, -1, sizeof(::ServerData::GetVideoInputDevicesResp)},
+  { 356, -1, -1, sizeof(::ServerData::SetAudioInputDeviceReq)},
+  { 364, -1, -1, sizeof(::ServerData::SetAudioOutputDeviceReq)},
+  { 372, -1, -1, sizeof(::ServerData::SetVideoInputDeviceReq)},
+  { 380, -1, -1, sizeof(::ServerData::PostCreateObject)},
+  { 389, -1, -1, sizeof(::ServerData::PostRemoveObject)},
+  { 397, -1, -1, sizeof(::ServerData::FetchFileByIdReq)},
+  { 404, -1, -1, sizeof(::ServerData::FetchFileByIdProgressResp)},
+  { 413, -1, -1, sizeof(::ServerData::FetchFileByIdCompletedResp)},
+  { 421, -1, -1, sizeof(::ServerData::FetchAllUploadedContentReq)},
+  { 428, -1, -1, sizeof(::ServerData::UploadLocalFileResp)},
+  { 436, -1, -1, sizeof(::ServerData::UploadLocalFileReq)},
+  { 446, -1, -1, sizeof(::ServerData::FetchAllUploadedContentResp)},
+  { 454, -1, -1, sizeof(::ServerData::PropMetadataStatus)},
+  { 463, -1, -1, sizeof(::ServerData::PropertyValueStatus)},
+  { 473, -1, -1, sizeof(::ServerData::LocalPropertyHandledResp)},
+  { 482, -1, -1, sizeof(::ServerData::UserAdded)},
+  { 490, -1, -1, sizeof(::ServerData::UserRemoved)},
+  { 498, -1, -1, sizeof(::ServerData::UserVideoFrame)},
+  { 509, -1, -1, sizeof(::ServerData::SpaceInfo)},
+  { 520, -1, -1, sizeof(::ServerData::ObjectAdded)},
+  { 530, -1, -1, sizeof(::ServerData::ObjectRemoved)},
+  { 538, -1, -1, sizeof(::ServerData::UpdateLocalUserMuted)},
+  { 546, -1, -1, sizeof(::ServerData::UpdateLocalUserCoPresence)},
+  { 554, -1, -1, sizeof(::ServerData::UpdateLocalUserStreamState)},
+  { 562, 570, -1, sizeof(::ServerData::PermissionStatusReq)},
+  { 572, 581, -1, sizeof(::ServerData::PermissionStatus)},
+  { 584, -1, -1, sizeof(::ServerData::AllJoinableSpacesReq)},
+  { 591, -1, -1, sizeof(::ServerData::AllJoinableSpacesResp)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1780,120 +1788,122 @@ const char descriptor_table_protodef_relay_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "faultValue\0225\n\tSpaceConn\030\001 \001(\0132\".ServerDa"
   "ta.CavrnusSpaceConnection\022\022\n\nPropertyId\030"
   "\002 \001(\t\022\025\n\rlocalChangeId\030\003 \001(\005\0220\n\rProperty"
-  "Value\030\n \001(\0132\031.ServerData.PropertyValue\"\250"
+  "Value\030\n \001(\0132\031.ServerData.PropertyValue\"\270"
   "\001\n\022PostPropertyUpdate\0225\n\tSpaceConn\030\001 \001(\013"
   "2\".ServerData.CavrnusSpaceConnection\022\022\n\n"
   "PropertyId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001(\005\022"
   "0\n\rPropertyValue\030\n \001(\0132\031.ServerData.Prop"
-  "ertyValue\"\311\001\n\034BeginTransientPropertyUpda"
-  "te\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.Cavrn"
-  "usSpaceConnection\022\025\n\rLiveUpdaterId\030\002 \001(\t"
-  "\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 "
-  "\001(\005\0220\n\rPropertyValue\030\n \001(\0132\031.ServerData."
-  "PropertyValue\"\314\001\n\037ContinueTransientPrope"
-  "rtyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\".ServerDat"
-  "a.CavrnusSpaceConnection\022\025\n\rLiveUpdaterI"
-  "d\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChan"
-  "geId\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031.Serv"
-  "erData.PropertyValue\"\314\001\n\037FinalizeTransie"
-  "ntPropertyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\".Se"
-  "rverData.CavrnusSpaceConnection\022\025\n\rLiveU"
-  "pdaterId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlo"
-  "calChangeId\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\013"
-  "2\031.ServerData.PropertyValue\"m\n\035CancelTra"
-  "nsientPropertyUpdate\0225\n\tSpaceConn\030\001 \001(\0132"
-  "\".ServerData.CavrnusSpaceConnection\022\025\n\rL"
-  "iveUpdaterId\030\002 \001(\t\"o\n\026TransformPropertyV"
-  "alue\022\033\n\003pos\030\001 \001(\0132\016.Common.Float3\022\033\n\003rot"
-  "\030\002 \001(\0132\016.Common.Float3\022\033\n\003scl\030\003 \001(\0132\016.Co"
-  "mmon.Float3\"(\n\027GetAudioInputDevicesReq\022\r"
-  "\n\005reqId\030\001 \001(\005\")\n\030GetAudioOutputDevicesRe"
-  "q\022\r\n\005reqId\030\001 \001(\005\"(\n\027GetVideoInputDevices"
-  "Req\022\r\n\005reqId\030\001 \001(\005\"z\n\030GetAudioInputDevic"
-  "esResp\022\r\n\005reqId\030\001 \001(\005\0226\n\007Devices\030\n \001(\0132#"
-  ".ServerData.RtcAudioInputDeviceListH\000\022\017\n"
-  "\005error\030\013 \001(\tH\000B\006\n\004Resp\"|\n\031GetAudioOutput"
-  "DevicesResp\022\r\n\005reqId\030\001 \001(\005\0227\n\007Devices\030\n "
-  "\001(\0132$.ServerData.RtcAudioOutputDeviceLis"
-  "tH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"z\n\030GetVideo"
-  "InputDevicesResp\022\r\n\005reqId\030\001 \001(\005\0226\n\007Devic"
-  "es\030\n \001(\0132#.ServerData.RtcVideoInputDevic"
-  "eListH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"X\n\026SetA"
-  "udioInputDeviceReq\022\r\n\005reqId\030\001 \001(\005\022/\n\006Dev"
-  "ice\030\002 \001(\0132\037.ServerData.RtcAudioInputDevi"
-  "ce\"Z\n\027SetAudioOutputDeviceReq\022\r\n\005reqId\030\001"
-  " \001(\005\0220\n\006Device\030\002 \001(\0132 .ServerData.RtcAud"
-  "ioOutputDevice\"X\n\026SetVideoInputDeviceReq"
-  "\022\r\n\005reqId\030\001 \001(\005\022/\n\006Device\030\002 \001(\0132\037.Server"
-  "Data.RtcVideoInputDevice\"{\n\020PostCreateOb"
-  "ject\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cav"
-  "rnusSpaceConnection\022\025\n\rnewInstanceId\030\002 \001"
-  "(\t\022\031\n\021uniqueObjectIdent\030\n \001(\t\"W\n\020PostRem"
-  "oveObject\0225\n\tspaceConn\030\001 \001(\0132\".ServerDat"
-  "a.CavrnusSpaceConnection\022\014\n\004opId\030\002 \001(\t\"%"
-  "\n\020FetchFileByIdReq\022\021\n\tcontentId\030\001 \001(\t\"V\n"
-  "\031FetchFileByIdProgressResp\022\021\n\tcontentId\030"
-  "\001 \001(\t\022\020\n\010progress\030\n \001(\002\022\024\n\014progressStep\030"
-  "\013 \001(\t\"A\n\032FetchFileByIdCompletedResp\022\021\n\tc"
-  "ontentId\030\001 \001(\t\022\020\n\010filePath\030\n \001(\t\"+\n\032Fetc"
-  "hAllUploadedContentReq\022\r\n\005reqId\030\001 \001(\005\"_\n"
-  "\023UploadLocalFileResp\022\r\n\005reqId\030\001 \001(\005\0229\n\017u"
-  "ploadedContent\030\n \001(\0132 .ServerData.Cavrnu"
-  "sRemoteContent\"Y\n\022UploadLocalFileReq\022\r\n\005"
-  "reqId\030\001 \001(\005\022\020\n\010filePath\030\n \001(\t\022\017\n\007tagKeys"
-  "\030\013 \003(\t\022\021\n\ttagValues\030\014 \003(\t\"h\n\033FetchAllUpl"
-  "oadedContentResp\022\r\n\005reqId\030\001 \001(\005\022:\n\020avail"
-  "ableContent\030\n \003(\0132 .ServerData.CavrnusRe"
-  "moteContent\"\223\001\n\022PropMetadataStatus\0225\n\tsp"
-  "aceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceC"
-  "onnection\0222\n\014propertyPath\030\002 \001(\0132\034.Proper"
-  "ty.PropertyIdentifier\022\022\n\nisReadonly\030\n \001("
-  "\010\"\304\001\n\023PropertyValueStatus\0225\n\tspaceConn\030\001"
-  " \001(\0132\".ServerData.CavrnusSpaceConnection"
-  "\0222\n\014propertyPath\030\002 \001(\0132\034.Property.Proper"
-  "tyIdentifier\0220\n\rPropertyValue\030\n \001(\0132\031.Se"
-  "rverData.PropertyValue\022\020\n\010priority\030\013 \001(\005"
-  "\"\240\001\n\030LocalPropertyHandledResp\0225\n\tspaceCo"
+  "ertyValue\022\016\n\006smooth\030\024 \001(\010\"\331\001\n\034BeginTrans"
+  "ientPropertyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\"."
+  "ServerData.CavrnusSpaceConnection\022\025\n\rLiv"
+  "eUpdaterId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\r"
+  "localChangeId\030\004 \001(\005\0220\n\rPropertyValue\030\n \001"
+  "(\0132\031.ServerData.PropertyValue\022\016\n\006smooth\030"
+  "\024 \001(\010\"\334\001\n\037ContinueTransientPropertyUpdat"
+  "e\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.Cavrnu"
+  "sSpaceConnection\022\025\n\rLiveUpdaterId\030\002 \001(\t\022"
+  "\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001"
+  "(\005\0220\n\rPropertyValue\030\n \001(\0132\031.ServerData.P"
+  "ropertyValue\022\016\n\006smooth\030\024 \001(\010\"\334\001\n\037Finaliz"
+  "eTransientPropertyUpdate\0225\n\tSpaceConn\030\001 "
+  "\001(\0132\".ServerData.CavrnusSpaceConnection\022"
+  "\025\n\rLiveUpdaterId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001"
+  "(\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rPropertyVal"
+  "ue\030\n \001(\0132\031.ServerData.PropertyValue\022\016\n\006s"
+  "mooth\030\024 \001(\010\"m\n\035CancelTransientPropertyUp"
+  "date\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.Cav"
+  "rnusSpaceConnection\022\025\n\rLiveUpdaterId\030\002 \001"
+  "(\t\"o\n\026TransformPropertyValue\022\033\n\003pos\030\001 \001("
+  "\0132\016.Common.Float3\022\033\n\003rot\030\002 \001(\0132\016.Common."
+  "Float3\022\033\n\003scl\030\003 \001(\0132\016.Common.Float3\"(\n\027G"
+  "etAudioInputDevicesReq\022\r\n\005reqId\030\001 \001(\005\")\n"
+  "\030GetAudioOutputDevicesReq\022\r\n\005reqId\030\001 \001(\005"
+  "\"(\n\027GetVideoInputDevicesReq\022\r\n\005reqId\030\001 \001"
+  "(\005\"z\n\030GetAudioInputDevicesResp\022\r\n\005reqId\030"
+  "\001 \001(\005\0226\n\007Devices\030\n \001(\0132#.ServerData.RtcA"
+  "udioInputDeviceListH\000\022\017\n\005error\030\013 \001(\tH\000B\006"
+  "\n\004Resp\"|\n\031GetAudioOutputDevicesResp\022\r\n\005r"
+  "eqId\030\001 \001(\005\0227\n\007Devices\030\n \001(\0132$.ServerData"
+  ".RtcAudioOutputDeviceListH\000\022\017\n\005error\030\013 \001"
+  "(\tH\000B\006\n\004Resp\"z\n\030GetVideoInputDevicesResp"
+  "\022\r\n\005reqId\030\001 \001(\005\0226\n\007Devices\030\n \001(\0132#.Serve"
+  "rData.RtcVideoInputDeviceListH\000\022\017\n\005error"
+  "\030\013 \001(\tH\000B\006\n\004Resp\"X\n\026SetAudioInputDeviceR"
+  "eq\022\r\n\005reqId\030\001 \001(\005\022/\n\006Device\030\002 \001(\0132\037.Serv"
+  "erData.RtcAudioInputDevice\"Z\n\027SetAudioOu"
+  "tputDeviceReq\022\r\n\005reqId\030\001 \001(\005\0220\n\006Device\030\002"
+  " \001(\0132 .ServerData.RtcAudioOutputDevice\"X"
+  "\n\026SetVideoInputDeviceReq\022\r\n\005reqId\030\001 \001(\005\022"
+  "/\n\006Device\030\002 \001(\0132\037.ServerData.RtcVideoInp"
+  "utDevice\"{\n\020PostCreateObject\0225\n\tspaceCon"
+  "n\030\001 \001(\0132\".ServerData.CavrnusSpaceConnect"
+  "ion\022\025\n\rnewInstanceId\030\002 \001(\t\022\031\n\021uniqueObje"
+  "ctIdent\030\n \001(\t\"W\n\020PostRemoveObject\0225\n\tspa"
+  "ceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceCo"
+  "nnection\022\014\n\004opId\030\002 \001(\t\"%\n\020FetchFileByIdR"
+  "eq\022\021\n\tcontentId\030\001 \001(\t\"V\n\031FetchFileByIdPr"
+  "ogressResp\022\021\n\tcontentId\030\001 \001(\t\022\020\n\010progres"
+  "s\030\n \001(\002\022\024\n\014progressStep\030\013 \001(\t\"A\n\032FetchFi"
+  "leByIdCompletedResp\022\021\n\tcontentId\030\001 \001(\t\022\020"
+  "\n\010filePath\030\n \001(\t\"+\n\032FetchAllUploadedCont"
+  "entReq\022\r\n\005reqId\030\001 \001(\005\"_\n\023UploadLocalFile"
+  "Resp\022\r\n\005reqId\030\001 \001(\005\0229\n\017uploadedContent\030\n"
+  " \001(\0132 .ServerData.CavrnusRemoteContent\"Y"
+  "\n\022UploadLocalFileReq\022\r\n\005reqId\030\001 \001(\005\022\020\n\010f"
+  "ilePath\030\n \001(\t\022\017\n\007tagKeys\030\013 \003(\t\022\021\n\ttagVal"
+  "ues\030\014 \003(\t\"h\n\033FetchAllUploadedContentResp"
+  "\022\r\n\005reqId\030\001 \001(\005\022:\n\020availableContent\030\n \003("
+  "\0132 .ServerData.CavrnusRemoteContent\"\223\001\n\022"
+  "PropMetadataStatus\0225\n\tspaceConn\030\001 \001(\0132\"."
+  "ServerData.CavrnusSpaceConnection\0222\n\014pro"
+  "pertyPath\030\002 \001(\0132\034.Property.PropertyIdent"
+  "ifier\022\022\n\nisReadonly\030\n \001(\010\"\304\001\n\023PropertyVa"
+  "lueStatus\0225\n\tspaceConn\030\001 \001(\0132\".ServerDat"
+  "a.CavrnusSpaceConnection\0222\n\014propertyPath"
+  "\030\002 \001(\0132\034.Property.PropertyIdentifier\0220\n\r"
+  "PropertyValue\030\n \001(\0132\031.ServerData.Propert"
+  "yValue\022\020\n\010priority\030\013 \001(\005\"\240\001\n\030LocalProper"
+  "tyHandledResp\0225\n\tspaceConn\030\001 \001(\0132\".Serve"
+  "rData.CavrnusSpaceConnection\0222\n\014property"
+  "Path\030\002 \001(\0132\034.Property.PropertyIdentifier"
+  "\022\031\n\021localPropChangeId\030\n \001(\005\"i\n\tUserAdded"
+  "\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavrnus"
+  "SpaceConnection\022%\n\004user\030\002 \001(\0132\027.ServerDa"
+  "ta.CavrnusUser\"T\n\013UserRemoved\0225\n\tspaceCo"
   "nn\030\001 \001(\0132\".ServerData.CavrnusSpaceConnec"
-  "tion\0222\n\014propertyPath\030\002 \001(\0132\034.Property.Pr"
-  "opertyIdentifier\022\031\n\021localPropChangeId\030\n "
-  "\001(\005\"i\n\tUserAdded\0225\n\tspaceConn\030\001 \001(\0132\".Se"
-  "rverData.CavrnusSpaceConnection\022%\n\004user\030"
-  "\002 \001(\0132\027.ServerData.CavrnusUser\"T\n\013UserRe"
-  "moved\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Ca"
-  "vrnusSpaceConnection\022\016\n\006userId\030\002 \001(\t\"\203\001\n"
-  "\016UserVideoFrame\0225\n\tspaceConn\030\001 \001(\0132\".Ser"
-  "verData.CavrnusSpaceConnection\022\016\n\006userId"
-  "\030\002 \001(\t\022\014\n\004resX\030\n \001(\005\022\014\n\004resY\030\013 \001(\005\022\016\n\006st"
-  "ream\030\024 \001(\014\"\214\001\n\tSpaceInfo\022\017\n\007spaceId\030\001 \001("
-  "\t\022\021\n\tspaceName\030\002 \001(\t\022\031\n\021spaceThumbnailUr"
-  "l\030\003 \001(\t\022\020\n\010archived\030\004 \001(\010\022.\n\nlastAccess\030"
-  "\005 \001(\0132\032.google.protobuf.Timestamp\"\216\001\n\013Ob"
-  "jectAdded\0225\n\tspaceConn\030\001 \001(\0132\".ServerDat"
-  "a.CavrnusSpaceConnection\022\024\n\014creationOpId"
-  "\030\002 \001(\t\022\033\n\023propertiesContainer\030\003 \001(\t\022\025\n\ro"
-  "bjectCreated\030\004 \001(\t\"c\n\rObjectRemoved\0225\n\ts"
-  "paceConn\030\001 \001(\0132\".ServerData.CavrnusSpace"
-  "Connection\022\033\n\023propertiesContainer\030\003 \001(\t\""
-  "\\\n\024UpdateLocalUserMuted\0225\n\tspaceConn\030\001 \001"
-  "(\0132\".ServerData.CavrnusSpaceConnection\022\r"
-  "\n\005muted\030\002 \001(\010\"\226\001\n\031UpdateLocalUserCoPrese"
-  "nce\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavr"
-  "nusSpaceConnection\022B\n\026localUserRootTrans"
-  "form\030\n \001(\0132\".ServerData.TransformPropert"
-  "yValue\"f\n\032UpdateLocalUserStreamState\0225\n\t"
-  "spaceConn\030\001 \001(\0132\".ServerData.CavrnusSpac"
-  "eConnection\022\021\n\tstreaming\030\002 \001(\010\"s\n\023Permis"
-  "sionStatusReq\022:\n\tspaceConn\030\001 \001(\0132\".Serve"
-  "rData.CavrnusSpaceConnectionH\000\210\001\001\022\022\n\nper"
-  "mission\030\002 \001(\tB\014\n\n_spaceConn\"\177\n\020Permissio"
-  "nStatus\022:\n\tspaceConn\030\001 \001(\0132\".ServerData."
-  "CavrnusSpaceConnectionH\000\210\001\001\022\022\n\npermissio"
-  "n\030\002 \001(\t\022\r\n\005value\030\003 \001(\010B\014\n\n_spaceConn\"%\n\024"
-  "AllJoinableSpacesReq\022\r\n\005reqId\030\001 \001(\005\"V\n\025A"
-  "llJoinableSpacesResp\022\r\n\005reqId\030\001 \001(\005\022.\n\017a"
-  "vailableSpaces\030\n \003(\0132\025.ServerData.SpaceI"
-  "nfoB\024\252\002\021CavrnusRelayTypesb\006proto3"
+  "tion\022\016\n\006userId\030\002 \001(\t\"\203\001\n\016UserVideoFrame\022"
+  "5\n\tspaceConn\030\001 \001(\0132\".ServerData.CavrnusS"
+  "paceConnection\022\016\n\006userId\030\002 \001(\t\022\014\n\004resX\030\n"
+  " \001(\005\022\014\n\004resY\030\013 \001(\005\022\016\n\006stream\030\024 \001(\014\"\214\001\n\tS"
+  "paceInfo\022\017\n\007spaceId\030\001 \001(\t\022\021\n\tspaceName\030\002"
+  " \001(\t\022\031\n\021spaceThumbnailUrl\030\003 \001(\t\022\020\n\010archi"
+  "ved\030\004 \001(\010\022.\n\nlastAccess\030\005 \001(\0132\032.google.p"
+  "rotobuf.Timestamp\"\216\001\n\013ObjectAdded\0225\n\tspa"
+  "ceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceCo"
+  "nnection\022\024\n\014creationOpId\030\002 \001(\t\022\033\n\023proper"
+  "tiesContainer\030\003 \001(\t\022\025\n\robjectCreated\030\004 \001"
+  "(\t\"c\n\rObjectRemoved\0225\n\tspaceConn\030\001 \001(\0132\""
+  ".ServerData.CavrnusSpaceConnection\022\033\n\023pr"
+  "opertiesContainer\030\003 \001(\t\"\\\n\024UpdateLocalUs"
+  "erMuted\0225\n\tspaceConn\030\001 \001(\0132\".ServerData."
+  "CavrnusSpaceConnection\022\r\n\005muted\030\002 \001(\010\"\226\001"
+  "\n\031UpdateLocalUserCoPresence\0225\n\tspaceConn"
+  "\030\001 \001(\0132\".ServerData.CavrnusSpaceConnecti"
+  "on\022B\n\026localUserRootTransform\030\n \001(\0132\".Ser"
+  "verData.TransformPropertyValue\"f\n\032Update"
+  "LocalUserStreamState\0225\n\tspaceConn\030\001 \001(\0132"
+  "\".ServerData.CavrnusSpaceConnection\022\021\n\ts"
+  "treaming\030\002 \001(\010\"s\n\023PermissionStatusReq\022:\n"
+  "\tspaceConn\030\001 \001(\0132\".ServerData.CavrnusSpa"
+  "ceConnectionH\000\210\001\001\022\022\n\npermission\030\002 \001(\tB\014\n"
+  "\n_spaceConn\"\177\n\020PermissionStatus\022:\n\tspace"
+  "Conn\030\001 \001(\0132\".ServerData.CavrnusSpaceConn"
+  "ectionH\000\210\001\001\022\022\n\npermission\030\002 \001(\t\022\r\n\005value"
+  "\030\003 \001(\010B\014\n\n_spaceConn\"%\n\024AllJoinableSpace"
+  "sReq\022\r\n\005reqId\030\001 \001(\005\"V\n\025AllJoinableSpaces"
+  "Resp\022\r\n\005reqId\030\001 \001(\005\022.\n\017availableSpaces\030\n"
+  " \003(\0132\025.ServerData.SpaceInfoB\024\252\002\021CavrnusR"
+  "elayTypesb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_relay_2eproto_deps[4] = {
   &::descriptor_table_common_2eproto,
@@ -1903,7 +1913,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_relay_2eproto_deps[
 };
 static ::_pbi::once_flag descriptor_table_relay_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_relay_2eproto = {
-    false, false, 10153, descriptor_table_protodef_relay_2eproto,
+    false, false, 10217, descriptor_table_protodef_relay_2eproto,
     "relay.proto",
     &descriptor_table_relay_2eproto_once, descriptor_table_relay_2eproto_deps, 4, 61,
     schemas, file_default_instances, TableStruct_relay_2eproto::offsets,
@@ -10716,6 +10726,7 @@ PostPropertyUpdate::PostPropertyUpdate(const PostPropertyUpdate& from)
     , decltype(_impl_.spaceconn_){nullptr}
     , decltype(_impl_.propertyvalue_){nullptr}
     , decltype(_impl_.localchangeid_){}
+    , decltype(_impl_.smooth_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -10733,7 +10744,9 @@ PostPropertyUpdate::PostPropertyUpdate(const PostPropertyUpdate& from)
   if (from._internal_has_propertyvalue()) {
     _this->_impl_.propertyvalue_ = new ::ServerData::PropertyValue(*from._impl_.propertyvalue_);
   }
-  _this->_impl_.localchangeid_ = from._impl_.localchangeid_;
+  ::memcpy(&_impl_.localchangeid_, &from._impl_.localchangeid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.smooth_) -
+    reinterpret_cast<char*>(&_impl_.localchangeid_)) + sizeof(_impl_.smooth_));
   // @@protoc_insertion_point(copy_constructor:ServerData.PostPropertyUpdate)
 }
 
@@ -10746,6 +10759,7 @@ inline void PostPropertyUpdate::SharedCtor(
     , decltype(_impl_.spaceconn_){nullptr}
     , decltype(_impl_.propertyvalue_){nullptr}
     , decltype(_impl_.localchangeid_){0}
+    , decltype(_impl_.smooth_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.propertyid_.InitDefault();
@@ -10789,7 +10803,9 @@ void PostPropertyUpdate::Clear() {
     delete _impl_.propertyvalue_;
   }
   _impl_.propertyvalue_ = nullptr;
-  _impl_.localchangeid_ = 0;
+  ::memset(&_impl_.localchangeid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.smooth_) -
+      reinterpret_cast<char*>(&_impl_.localchangeid_)) + sizeof(_impl_.smooth_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -10829,6 +10845,14 @@ const char* PostPropertyUpdate::_InternalParse(const char* ptr, ::_pbi::ParseCon
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_propertyvalue(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool smooth = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 160)) {
+          _impl_.smooth_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -10892,6 +10916,12 @@ uint8_t* PostPropertyUpdate::_InternalSerialize(
         _Internal::propertyvalue(this).GetCachedSize(), target, stream);
   }
 
+  // bool smooth = 20;
+  if (this->_internal_smooth() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(20, this->_internal_smooth(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10934,6 +10964,11 @@ size_t PostPropertyUpdate::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_localchangeid());
   }
 
+  // bool smooth = 20;
+  if (this->_internal_smooth() != 0) {
+    total_size += 2 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -10966,6 +11001,9 @@ void PostPropertyUpdate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
   if (from._internal_localchangeid() != 0) {
     _this->_internal_set_localchangeid(from._internal_localchangeid());
   }
+  if (from._internal_smooth() != 0) {
+    _this->_internal_set_smooth(from._internal_smooth());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -10990,8 +11028,8 @@ void PostPropertyUpdate::InternalSwap(PostPropertyUpdate* other) {
       &other->_impl_.propertyid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PostPropertyUpdate, _impl_.localchangeid_)
-      + sizeof(PostPropertyUpdate::_impl_.localchangeid_)
+      PROTOBUF_FIELD_OFFSET(PostPropertyUpdate, _impl_.smooth_)
+      + sizeof(PostPropertyUpdate::_impl_.smooth_)
       - PROTOBUF_FIELD_OFFSET(PostPropertyUpdate, _impl_.spaceconn_)>(
           reinterpret_cast<char*>(&_impl_.spaceconn_),
           reinterpret_cast<char*>(&other->_impl_.spaceconn_));
@@ -11040,6 +11078,7 @@ BeginTransientPropertyUpdate::BeginTransientPropertyUpdate(const BeginTransientP
     , decltype(_impl_.spaceconn_){nullptr}
     , decltype(_impl_.propertyvalue_){nullptr}
     , decltype(_impl_.localchangeid_){}
+    , decltype(_impl_.smooth_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -11065,7 +11104,9 @@ BeginTransientPropertyUpdate::BeginTransientPropertyUpdate(const BeginTransientP
   if (from._internal_has_propertyvalue()) {
     _this->_impl_.propertyvalue_ = new ::ServerData::PropertyValue(*from._impl_.propertyvalue_);
   }
-  _this->_impl_.localchangeid_ = from._impl_.localchangeid_;
+  ::memcpy(&_impl_.localchangeid_, &from._impl_.localchangeid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.smooth_) -
+    reinterpret_cast<char*>(&_impl_.localchangeid_)) + sizeof(_impl_.smooth_));
   // @@protoc_insertion_point(copy_constructor:ServerData.BeginTransientPropertyUpdate)
 }
 
@@ -11079,6 +11120,7 @@ inline void BeginTransientPropertyUpdate::SharedCtor(
     , decltype(_impl_.spaceconn_){nullptr}
     , decltype(_impl_.propertyvalue_){nullptr}
     , decltype(_impl_.localchangeid_){0}
+    , decltype(_impl_.smooth_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.liveupdaterid_.InitDefault();
@@ -11128,7 +11170,9 @@ void BeginTransientPropertyUpdate::Clear() {
     delete _impl_.propertyvalue_;
   }
   _impl_.propertyvalue_ = nullptr;
-  _impl_.localchangeid_ = 0;
+  ::memset(&_impl_.localchangeid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.smooth_) -
+      reinterpret_cast<char*>(&_impl_.localchangeid_)) + sizeof(_impl_.smooth_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -11178,6 +11222,14 @@ const char* BeginTransientPropertyUpdate::_InternalParse(const char* ptr, ::_pbi
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_propertyvalue(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool smooth = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 160)) {
+          _impl_.smooth_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -11251,6 +11303,12 @@ uint8_t* BeginTransientPropertyUpdate::_InternalSerialize(
         _Internal::propertyvalue(this).GetCachedSize(), target, stream);
   }
 
+  // bool smooth = 20;
+  if (this->_internal_smooth() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(20, this->_internal_smooth(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -11300,6 +11358,11 @@ size_t BeginTransientPropertyUpdate::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_localchangeid());
   }
 
+  // bool smooth = 20;
+  if (this->_internal_smooth() != 0) {
+    total_size += 2 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -11335,6 +11398,9 @@ void BeginTransientPropertyUpdate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
   if (from._internal_localchangeid() != 0) {
     _this->_internal_set_localchangeid(from._internal_localchangeid());
   }
+  if (from._internal_smooth() != 0) {
+    _this->_internal_set_smooth(from._internal_smooth());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -11363,8 +11429,8 @@ void BeginTransientPropertyUpdate::InternalSwap(BeginTransientPropertyUpdate* ot
       &other->_impl_.propertyid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(BeginTransientPropertyUpdate, _impl_.localchangeid_)
-      + sizeof(BeginTransientPropertyUpdate::_impl_.localchangeid_)
+      PROTOBUF_FIELD_OFFSET(BeginTransientPropertyUpdate, _impl_.smooth_)
+      + sizeof(BeginTransientPropertyUpdate::_impl_.smooth_)
       - PROTOBUF_FIELD_OFFSET(BeginTransientPropertyUpdate, _impl_.spaceconn_)>(
           reinterpret_cast<char*>(&_impl_.spaceconn_),
           reinterpret_cast<char*>(&other->_impl_.spaceconn_));
@@ -11413,6 +11479,7 @@ ContinueTransientPropertyUpdate::ContinueTransientPropertyUpdate(const ContinueT
     , decltype(_impl_.spaceconn_){nullptr}
     , decltype(_impl_.propertyvalue_){nullptr}
     , decltype(_impl_.localchangeid_){}
+    , decltype(_impl_.smooth_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -11438,7 +11505,9 @@ ContinueTransientPropertyUpdate::ContinueTransientPropertyUpdate(const ContinueT
   if (from._internal_has_propertyvalue()) {
     _this->_impl_.propertyvalue_ = new ::ServerData::PropertyValue(*from._impl_.propertyvalue_);
   }
-  _this->_impl_.localchangeid_ = from._impl_.localchangeid_;
+  ::memcpy(&_impl_.localchangeid_, &from._impl_.localchangeid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.smooth_) -
+    reinterpret_cast<char*>(&_impl_.localchangeid_)) + sizeof(_impl_.smooth_));
   // @@protoc_insertion_point(copy_constructor:ServerData.ContinueTransientPropertyUpdate)
 }
 
@@ -11452,6 +11521,7 @@ inline void ContinueTransientPropertyUpdate::SharedCtor(
     , decltype(_impl_.spaceconn_){nullptr}
     , decltype(_impl_.propertyvalue_){nullptr}
     , decltype(_impl_.localchangeid_){0}
+    , decltype(_impl_.smooth_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.liveupdaterid_.InitDefault();
@@ -11501,7 +11571,9 @@ void ContinueTransientPropertyUpdate::Clear() {
     delete _impl_.propertyvalue_;
   }
   _impl_.propertyvalue_ = nullptr;
-  _impl_.localchangeid_ = 0;
+  ::memset(&_impl_.localchangeid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.smooth_) -
+      reinterpret_cast<char*>(&_impl_.localchangeid_)) + sizeof(_impl_.smooth_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -11551,6 +11623,14 @@ const char* ContinueTransientPropertyUpdate::_InternalParse(const char* ptr, ::_
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_propertyvalue(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool smooth = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 160)) {
+          _impl_.smooth_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -11624,6 +11704,12 @@ uint8_t* ContinueTransientPropertyUpdate::_InternalSerialize(
         _Internal::propertyvalue(this).GetCachedSize(), target, stream);
   }
 
+  // bool smooth = 20;
+  if (this->_internal_smooth() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(20, this->_internal_smooth(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -11673,6 +11759,11 @@ size_t ContinueTransientPropertyUpdate::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_localchangeid());
   }
 
+  // bool smooth = 20;
+  if (this->_internal_smooth() != 0) {
+    total_size += 2 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -11708,6 +11799,9 @@ void ContinueTransientPropertyUpdate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
   if (from._internal_localchangeid() != 0) {
     _this->_internal_set_localchangeid(from._internal_localchangeid());
   }
+  if (from._internal_smooth() != 0) {
+    _this->_internal_set_smooth(from._internal_smooth());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -11736,8 +11830,8 @@ void ContinueTransientPropertyUpdate::InternalSwap(ContinueTransientPropertyUpda
       &other->_impl_.propertyid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ContinueTransientPropertyUpdate, _impl_.localchangeid_)
-      + sizeof(ContinueTransientPropertyUpdate::_impl_.localchangeid_)
+      PROTOBUF_FIELD_OFFSET(ContinueTransientPropertyUpdate, _impl_.smooth_)
+      + sizeof(ContinueTransientPropertyUpdate::_impl_.smooth_)
       - PROTOBUF_FIELD_OFFSET(ContinueTransientPropertyUpdate, _impl_.spaceconn_)>(
           reinterpret_cast<char*>(&_impl_.spaceconn_),
           reinterpret_cast<char*>(&other->_impl_.spaceconn_));
@@ -11786,6 +11880,7 @@ FinalizeTransientPropertyUpdate::FinalizeTransientPropertyUpdate(const FinalizeT
     , decltype(_impl_.spaceconn_){nullptr}
     , decltype(_impl_.propertyvalue_){nullptr}
     , decltype(_impl_.localchangeid_){}
+    , decltype(_impl_.smooth_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -11811,7 +11906,9 @@ FinalizeTransientPropertyUpdate::FinalizeTransientPropertyUpdate(const FinalizeT
   if (from._internal_has_propertyvalue()) {
     _this->_impl_.propertyvalue_ = new ::ServerData::PropertyValue(*from._impl_.propertyvalue_);
   }
-  _this->_impl_.localchangeid_ = from._impl_.localchangeid_;
+  ::memcpy(&_impl_.localchangeid_, &from._impl_.localchangeid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.smooth_) -
+    reinterpret_cast<char*>(&_impl_.localchangeid_)) + sizeof(_impl_.smooth_));
   // @@protoc_insertion_point(copy_constructor:ServerData.FinalizeTransientPropertyUpdate)
 }
 
@@ -11825,6 +11922,7 @@ inline void FinalizeTransientPropertyUpdate::SharedCtor(
     , decltype(_impl_.spaceconn_){nullptr}
     , decltype(_impl_.propertyvalue_){nullptr}
     , decltype(_impl_.localchangeid_){0}
+    , decltype(_impl_.smooth_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.liveupdaterid_.InitDefault();
@@ -11874,7 +11972,9 @@ void FinalizeTransientPropertyUpdate::Clear() {
     delete _impl_.propertyvalue_;
   }
   _impl_.propertyvalue_ = nullptr;
-  _impl_.localchangeid_ = 0;
+  ::memset(&_impl_.localchangeid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.smooth_) -
+      reinterpret_cast<char*>(&_impl_.localchangeid_)) + sizeof(_impl_.smooth_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -11924,6 +12024,14 @@ const char* FinalizeTransientPropertyUpdate::_InternalParse(const char* ptr, ::_
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_propertyvalue(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool smooth = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 160)) {
+          _impl_.smooth_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -11997,6 +12105,12 @@ uint8_t* FinalizeTransientPropertyUpdate::_InternalSerialize(
         _Internal::propertyvalue(this).GetCachedSize(), target, stream);
   }
 
+  // bool smooth = 20;
+  if (this->_internal_smooth() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(20, this->_internal_smooth(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -12046,6 +12160,11 @@ size_t FinalizeTransientPropertyUpdate::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_localchangeid());
   }
 
+  // bool smooth = 20;
+  if (this->_internal_smooth() != 0) {
+    total_size += 2 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -12081,6 +12200,9 @@ void FinalizeTransientPropertyUpdate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
   if (from._internal_localchangeid() != 0) {
     _this->_internal_set_localchangeid(from._internal_localchangeid());
   }
+  if (from._internal_smooth() != 0) {
+    _this->_internal_set_smooth(from._internal_smooth());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -12109,8 +12231,8 @@ void FinalizeTransientPropertyUpdate::InternalSwap(FinalizeTransientPropertyUpda
       &other->_impl_.propertyid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(FinalizeTransientPropertyUpdate, _impl_.localchangeid_)
-      + sizeof(FinalizeTransientPropertyUpdate::_impl_.localchangeid_)
+      PROTOBUF_FIELD_OFFSET(FinalizeTransientPropertyUpdate, _impl_.smooth_)
+      + sizeof(FinalizeTransientPropertyUpdate::_impl_.smooth_)
       - PROTOBUF_FIELD_OFFSET(FinalizeTransientPropertyUpdate, _impl_.spaceconn_)>(
           reinterpret_cast<char*>(&_impl_.spaceconn_),
           reinterpret_cast<char*>(&other->_impl_.spaceconn_));

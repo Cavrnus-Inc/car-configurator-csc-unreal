@@ -1,4 +1,5 @@
-﻿#include "RelayModel/CavrnusRelayModel.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayModel/CavrnusRelayModel.h"
 #include "CavrnusConnectorSettings.h"
 #include "RelayModel/SpacePropertyModel.h"
 #include "RelayModel/SpacePermissionsModel.h"
@@ -118,9 +119,9 @@ namespace Cavrnus
 		interopLayer->SendMessage(msg);
 	}
 
-	void CavrnusRelayModel::RegisterObjectCreationCallback(TFunction<void(FCavrnusSpawnedObject, FString)> cb)
+	void CavrnusRelayModel::RegisterObjectCreationCallback(TFunction<AActor* (FCavrnusSpawnedObject, FString)> cb)
 	{
-		ObjectCreationCallback = new TFunction<void(FCavrnusSpawnedObject, FString)>(cb);
+		ObjectCreationCallback = new TFunction<AActor* (FCavrnusSpawnedObject, FString)>(cb);
 	}
 
 	void CavrnusRelayModel::RegisterObjectDestructionCallback(TFunction<void(FCavrnusSpawnedObject)> cb)
@@ -280,10 +281,12 @@ namespace Cavrnus
 		SpawnedObject.CreationOpId = (FString(UTF8_TO_TCHAR(ObjectAdded.creationopid().c_str())));
 		SpawnedObject.PropertiesContainerName = (FString(UTF8_TO_TCHAR(ObjectAdded.propertiescontainer().c_str())));
 
-		(*ObjectCreationCallback)(SpawnedObject, ObjectAdded.objectcreated().c_str());
+		AActor* spawnedInstance = (*ObjectCreationCallback)(SpawnedObject, ObjectAdded.objectcreated().c_str());
+
+		SpawnedObject.SpawnedActorInstance = spawnedInstance;
 
 		if (ObjectCreationCallbacks.Contains(SpawnedObject.PropertiesContainerName)) {
-			(*ObjectCreationCallbacks[SpawnedObject.PropertiesContainerName])(SpawnedObject);
+			(*ObjectCreationCallbacks[SpawnedObject.PropertiesContainerName])(SpawnedObject, spawnedInstance);
 			ObjectCreationCallbacks.Remove(SpawnedObject.PropertiesContainerName);
 		}
 	}

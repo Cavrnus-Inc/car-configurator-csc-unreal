@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "UI/CavrnusGuestLoginWidget.h"
 #include <Components/EditableTextBox.h>
 #include <Components/Button.h>

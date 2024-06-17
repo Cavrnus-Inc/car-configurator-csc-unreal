@@ -59,8 +59,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusRemoteConten
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "/**\n *\n */" },
+		{ "Comment", "/**\n* @brief Structure to hold information about remote content in Cavrnus.\n*\n* The FCavrnusRemoteContent structure contains fields representing metadata about content stored on the Cavrnus server.\n* This includes the content ID, name, file name, thumbnail URL, and a map of associated tags.\n*/" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusRemoteContent.h" },
+		{ "ToolTip", "@brief Structure to hold information about remote content in Cavrnus.\n\nThe FCavrnusRemoteContent structure contains fields representing metadata about content stored on the Cavrnus server.\nThis includes the content ID, name, file name, thumbnail URL, and a map of associated tags." },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewStructOps()
@@ -70,28 +71,36 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusRemoteConten
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Id_MetaData[] = {
 		{ "Category", "Cavrnus|Content" },
+		{ "Comment", "/** The unique identifier for the remote content. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusRemoteContent.h" },
+		{ "ToolTip", "The unique identifier for the remote content." },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Id = { "Id", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusRemoteContent, Id), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Id_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Id_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Name_MetaData[] = {
 		{ "Category", "Cavrnus|Content" },
+		{ "Comment", "/** The name of the remote content. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusRemoteContent.h" },
+		{ "ToolTip", "The name of the remote content." },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Name = { "Name", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusRemoteContent, Name), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Name_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Name_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_FileName_MetaData[] = {
 		{ "Category", "Cavrnus|Content" },
+		{ "Comment", "/** The file name of the remote content. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusRemoteContent.h" },
+		{ "ToolTip", "The file name of the remote content." },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_FileName = { "FileName", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusRemoteContent, FileName), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_FileName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_FileName_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_ThumbnailUrl_MetaData[] = {
 		{ "Category", "Cavrnus|Content" },
+		{ "Comment", "/** The URL for the thumbnail image of the remote content. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusRemoteContent.h" },
+		{ "ToolTip", "The URL for the thumbnail image of the remote content." },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_ThumbnailUrl = { "ThumbnailUrl", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusRemoteContent, ThumbnailUrl), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_ThumbnailUrl_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_ThumbnailUrl_MetaData)) };
@@ -100,7 +109,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusRemoteConten
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Tags_MetaData[] = {
 		{ "Category", "Cavrnus|Content" },
+		{ "Comment", "/** A map of tags associated with the remote content. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusRemoteContent.h" },
+		{ "ToolTip", "A map of tags associated with the remote content." },
 	};
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Tags = { "Tags", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusRemoteContent, Tags), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Tags_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewProp_Tags_MetaData)) };
@@ -139,9 +150,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusRemoteConten
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusRemoteContent_h_Statics::ScriptStructInfo[] = {
-		{ FCavrnusRemoteContent::StaticStruct, Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewStructOps, TEXT("CavrnusRemoteContent"), &Z_Registration_Info_UScriptStruct_CavrnusRemoteContent, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusRemoteContent), 3393470447U) },
+		{ FCavrnusRemoteContent::StaticStruct, Z_Construct_UScriptStruct_FCavrnusRemoteContent_Statics::NewStructOps, TEXT("CavrnusRemoteContent"), &Z_Registration_Info_UScriptStruct_CavrnusRemoteContent, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusRemoteContent), 3773410542U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusRemoteContent_h_1888036693(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusRemoteContent_h_2744296837(TEXT("/Script/CavrnusConnector"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusRemoteContent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusRemoteContent_h_Statics::ScriptStructInfo),
 		nullptr, 0);

@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#pragma once
 
 #include <Containers/Map.h>
 #include "Types/CavrnusBinding.h"
@@ -43,6 +44,8 @@ namespace Cavrnus
 
 		UCavrnusBinding* BindUserVideoTexture(const FCavrnusUser& User, VideoFrameUpdateFunction callback);
 
+		bool PropValueExists(FPropertyId fullPropertyId);
+
 		Cavrnus::FPropertyValue GetPropValue(FPropertyId fullPropertyId);
 
 		void SetIsDefined(FPropertyId fullPropertyId);
@@ -80,7 +83,6 @@ namespace Cavrnus
 
 		FPropertyValue GetCurrentPropValue(FPropertyId fullPropertyId);
 		void TryExecPropBindings(FPropertyId fullPropertyId);
-		bool PropValueExists(FPropertyId fullPropertyId);
 
 		FString GetContainerName(FString fullPropId)
 		{

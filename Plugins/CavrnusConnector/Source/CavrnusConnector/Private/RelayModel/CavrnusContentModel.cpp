@@ -1,4 +1,5 @@
-﻿#include "RelayModel/CavrnusContentModel.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayModel/CavrnusContentModel.h"
 #include <Misc/FileHelper.h>
 
 namespace Cavrnus

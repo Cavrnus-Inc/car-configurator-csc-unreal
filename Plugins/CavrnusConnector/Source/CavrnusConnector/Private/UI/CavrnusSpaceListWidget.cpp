@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "UI/CavrnusSpaceListWidget.h"
 #include "CavrnusConnectorModule.h"
 
