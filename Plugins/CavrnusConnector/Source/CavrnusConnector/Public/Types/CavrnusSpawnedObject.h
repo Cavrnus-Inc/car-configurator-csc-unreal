@@ -40,7 +40,7 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpawnedObject
 
 	/** The Actor instance corresponding to this creation. */
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Objects")
-	AActor* SpawnedActorInstance;
+	AActor* SpawnedActorInstance = nullptr;
 
 	/** Default constructor for FCavrnusSpawnedObject. */
 	FCavrnusSpawnedObject(const FString& PropertiesContainerName, const FString& CreationOpId, AActor* Actor)

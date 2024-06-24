@@ -285,9 +285,11 @@ namespace Cavrnus
 
 		SpawnedObject.SpawnedActorInstance = spawnedInstance;
 
-		if (ObjectCreationCallbacks.Contains(SpawnedObject.PropertiesContainerName)) {
-			(*ObjectCreationCallbacks[SpawnedObject.PropertiesContainerName])(SpawnedObject, spawnedInstance);
-			ObjectCreationCallbacks.Remove(SpawnedObject.PropertiesContainerName);
+		auto propId = FPropertyId(SpawnedObject.PropertiesContainerName);
+
+		if (ObjectCreationCallbacks.Contains(propId)) {
+			(*ObjectCreationCallbacks[propId])(SpawnedObject, spawnedInstance);
+			ObjectCreationCallbacks.Remove(propId);
 		}
 	}
 

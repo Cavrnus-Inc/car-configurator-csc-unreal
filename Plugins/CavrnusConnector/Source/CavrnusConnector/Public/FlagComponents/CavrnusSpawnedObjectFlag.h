@@ -18,6 +18,7 @@ public:
 	// Destructor
 	~UCavrnusSpawnedObjectFlag(){}
 
+	/** The spawned object referenced by the component. */
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus")
 	FCavrnusSpawnedObject SpawnedObject;
 };

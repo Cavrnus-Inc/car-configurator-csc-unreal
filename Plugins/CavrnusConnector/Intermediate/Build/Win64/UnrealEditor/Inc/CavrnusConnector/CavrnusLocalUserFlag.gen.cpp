@@ -55,7 +55,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLocalUserFlag() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusLocalUserFlag_Statics::NewProp_LocalUser_MetaData[] = {
 		{ "Category", "Cavrnus" },
+		{ "Comment", "/** Reference to the local user. */" },
 		{ "ModuleRelativePath", "Public/FlagComponents/CavrnusLocalUserFlag.h" },
+		{ "ToolTip", "Reference to the local user." },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusLocalUserFlag_Statics::NewProp_LocalUser = { "LocalUser", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusLocalUserFlag, LocalUser), Z_Construct_UScriptStruct_FCavrnusUser, METADATA_PARAMS(Z_Construct_UClass_UCavrnusLocalUserFlag_Statics::NewProp_LocalUser_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusLocalUserFlag_Statics::NewProp_LocalUser_MetaData)) }; // 933787263
@@ -98,9 +100,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLocalUserFlag() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusLocalUserFlag_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLocalUserFlag, UCavrnusLocalUserFlag::StaticClass, TEXT("UCavrnusLocalUserFlag"), &Z_Registration_Info_UClass_UCavrnusLocalUserFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLocalUserFlag), 2025081961U) },
+		{ Z_Construct_UClass_UCavrnusLocalUserFlag, UCavrnusLocalUserFlag::StaticClass, TEXT("UCavrnusLocalUserFlag"), &Z_Registration_Info_UClass_UCavrnusLocalUserFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLocalUserFlag), 912349026U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusLocalUserFlag_h_499240638(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusLocalUserFlag_h_3300508816(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusLocalUserFlag_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusLocalUserFlag_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

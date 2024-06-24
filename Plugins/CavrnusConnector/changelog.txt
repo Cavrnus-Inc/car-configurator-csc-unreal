@@ -1,83 +1,8 @@
-Cavrnus-Spatial-Connector-UE5.0-2023.2.721-Dev
-kyle.simmons: ue - master [43ce26b69e9021505ef2e2df7f64efbfa1304068]
-Added In-line documentation for ValueSyncs headers
+Cavrnus-Spatial-Connector-UE5.0-2023.2.728-Dev
+bhaddad5: ue - master [4d41877d7e44d097d592a0bf91cef24509389792]
+Fixed object creation callbacks to use FPropertyId for lookup
 
-Documentation updates (header files only) for Value Syncs classes.  These updates are compatible with most auto-documentation systems (Doxygen, etc).
-
-	CavrnusPlugin/Plugins/CavrnusConnector/CavrnusConnector.uplugin
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/CavrnusConnector.Build.cs
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusConnectorModule.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusConnectorModule.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusSpatialConnector.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusConnectorSettings.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusPropertiesContainer.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusSpatialConnector.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusSpatialConnectorSubSystem.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusCallbackTypes.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/ValueSyncs/CavrnusValueSyncBase.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/ValueSyncs/CavrnusValueSyncBoolean.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/ValueSyncs/CavrnusValueSyncColor.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/ValueSyncs/CavrnusValueSyncFloat.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/ValueSyncs/CavrnusValueSyncString.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/ValueSyncs/CavrnusValueSyncTransform.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/ValueSyncs/CavrnusValueSyncVector.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/ValueSyncs/IPropertySyncInterface.h
-
-ventare: common - master [8cff7db1b4bdcbbeda6a6c710a1622f34775daa7]
-Merge remote-tracking branch 'origin/master' into ng/journallygoodness
-
-ventare: common - master [9b03efdd3c37bb4eea57bc5e26d5c9925116103e]
-Add removed-cached-entries to journal read protocol.
-
-	protos/socketcomm_client.proto
-	protos/socketcomm_server.proto
-
-ventare: common - master [ad3d18927ee5e04807e9955591792c18960bd839]
-Necessary proto updates while fixing journal updates.
-
-	protos/serverdata.proto
-	protos/socketcomm_client.proto
-	protos/socketcomm_common.proto
-	protos/socketcomm_server.proto
-
-ventare: common - master [fd15c9c31d0e4386a0e4a88410cc12688495578f]
-Merge remote-tracking branch 'origin/master' into ng/journallygoodness
-
-ventare: common - master [c2a96048ea44ecca523cf6fef0caec82213e1453]
-Add V3 create ops; these have a fully qualified context path instead of an older newObjectId.
-
-	protos/journal_operations_client.proto
-	protos/journal_operations_server.proto
-
-ventare: common - master [0db8f6861fce18d64843ed6a9874b93ddd07b2ce]
-Merge branch 'master' into ng/journallygoodness
-
-# Conflicts:
-#	protos/serverdata.proto
-#	protos/socketcomm_common.proto
-
-	protos/serverdata.proto
-	protos/socketcomm_common.proto
-
-ventare: common - master [305272b3714e91547e639e539193c933f46cd66d]
-Update notify journal calls to new filters. Add batching to notify.
-
-	protos/notify_events.proto
-	protos/socketnotify_client.proto
-	protos/socketnotify_common.proto
-	protos/socketnotify_server.proto
-
-ventare: common - master [664fd3c797d78a130e0726abfb4de1c09c4f7e03]
-Journal processing, protocol, and storage overhaul: Split socketcomm into client/server, to allow for directly using Operation, which differs between client and server. Quite a few related proto changes.
-
-	protos/BuildClientProtoBufs.bat
-	protos/BuildLibProtoBufs.bat
-	protos/BuildServerProtoBufs.bat
-	protos/BuildWebProtoBufs.bat
-	protos/journal_common.proto
-	protos/serverdata.proto
-	protos/socketcomm.proto
-	protos/socketcomm_client.proto
-	protos/socketcomm_common.proto
-	protos/socketcomm_server.proto
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusFunctionLibrary.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.h
 

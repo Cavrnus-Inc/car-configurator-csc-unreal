@@ -24,6 +24,7 @@ void UCavrnusSplashScreenWidget::NativePreConstruct()
 	OpenDocumentationButton->OnClicked.AddUniqueDynamic(this, &UCavrnusSplashScreenWidget::OnOpenDocsClicked);
 	ShowOnStartupCheckbox->OnCheckStateChanged.AddUniqueDynamic(this, &UCavrnusSplashScreenWidget::OnShowSplashScreenOnStartupClicked);
 	DismissButton->OnClicked.AddUniqueDynamic(this, &UCavrnusSplashScreenWidget::OnDismissClicked);
+	ButtonJoinDiscord->OnClicked.AddUniqueDynamic(this, &UCavrnusSplashScreenWidget::OnJoinDiscordClicked);
 }
 
 void UCavrnusSplashScreenWidget::OnSetupSpaceClicked()
@@ -43,6 +44,11 @@ void UCavrnusSplashScreenWidget::OnWebConsoleClicked()
 void UCavrnusSplashScreenWidget::OnOpenDocsClicked()
 {
 	FPlatformProcess::LaunchURL(*DocumentationURL, nullptr, nullptr);
+}
+
+void UCavrnusSplashScreenWidget::OnJoinDiscordClicked()
+{
+	FPlatformProcess::LaunchURL(*DiscordURL, nullptr, nullptr);
 }
 
 void UCavrnusSplashScreenWidget::OnShowSplashScreenOnStartupClicked(bool bShowOnStartup)

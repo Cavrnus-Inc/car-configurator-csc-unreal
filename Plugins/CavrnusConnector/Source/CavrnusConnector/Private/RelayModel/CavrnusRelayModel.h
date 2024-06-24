@@ -10,6 +10,7 @@
 #include <string>
 #include <Tickable.h>
 #include "CavrnusContentModel.h"
+#include "../../Public/Types/PropertyId.h"
 
 namespace ServerData
 {
@@ -87,7 +88,7 @@ namespace Cavrnus
 		CavrnusContentModel ContentModel;
 
 		/** Map for storing object creation callbacks */
-		CaseSensitiveMap<FString, const CavrnusSpawnedObjectFunction*> ObjectCreationCallbacks;
+		TMap<FPropertyId, const CavrnusSpawnedObjectFunction*> ObjectCreationCallbacks;
 
 		/**
 		 * @brief Registers a callback for object creation.

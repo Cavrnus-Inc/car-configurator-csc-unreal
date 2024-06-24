@@ -19,6 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execOnServerInputFieldChanged); \
 	DECLARE_FUNCTION(execOnDismissClicked); \
 	DECLARE_FUNCTION(execOnShowSplashScreenOnStartupClicked); \
+	DECLARE_FUNCTION(execOnJoinDiscordClicked); \
 	DECLARE_FUNCTION(execOnOpenDocsClicked); \
 	DECLARE_FUNCTION(execOnWebConsoleClicked); \
 	DECLARE_FUNCTION(execOnSetupSpaceClicked);
@@ -29,6 +30,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execOnServerInputFieldChanged); \
 	DECLARE_FUNCTION(execOnDismissClicked); \
 	DECLARE_FUNCTION(execOnShowSplashScreenOnStartupClicked); \
+	DECLARE_FUNCTION(execOnJoinDiscordClicked); \
 	DECLARE_FUNCTION(execOnOpenDocsClicked); \
 	DECLARE_FUNCTION(execOnWebConsoleClicked); \
 	DECLARE_FUNCTION(execOnSetupSpaceClicked);

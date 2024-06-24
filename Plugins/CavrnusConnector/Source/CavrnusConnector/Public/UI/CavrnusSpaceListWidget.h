@@ -9,49 +9,94 @@
 #include "Types/CavrnusSpaceInfo.h"
 #include "CavrnusSpaceListWidget.generated.h"
 
+/**
+ * @brief Delegate for handling the selection of a Cavrnus space.
+ * @param FString The ID of the selected space.
+ */
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnCavrnusSpaceSelected, FString);
+/**
+ * @brief Type definition for a function that handles space selection events.
+ * @param FCavrnusSpaceInfo Information about the selected space.
+ */
 typedef TFunction<void(FCavrnusSpaceInfo)> FSpaceSelectedEvent;
 
+/**
+ * @brief Widget class for displaying and managing a list of Cavrnus spaces.
+ * This widget allows users to search, paginate, and select spaces from a list.
+ */
 UCLASS(Abstract)
 class CAVRNUSCONNECTOR_API UCavrnusSpaceListWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
+	/**
+	 * @brief Helper class representing a space list option.
+	 * Implements IListElementInterface to handle the UI representation of a space.
+	 */
 	class FSpaceListOption : public IListElementInterface
 	{
 	public:
+		/**
+		 * @brief Constructor for FSpaceListOption.
+		 * @param SpaceInfo Information about the space.
+		 * @param OnSelectSpace Function to call when the space is selected.
+		 */
 		FSpaceListOption(const FCavrnusSpaceInfo& SpaceInfo, const FSpaceSelectedEvent& OnSelectSpace);
 
+		/**
+		 * @brief Called when an entry is built in the list.
+		 * @param Element The widget element representing the entry.
+		 */
 		virtual void EntryBuilt(UUserWidget* Element) override;
 
+		/** Structure to hold information about a Cavrnus space. */
 		FCavrnusSpaceInfo Content;
+		/** Function to call when the space is selected. */
 		FSpaceSelectedEvent OnSelect;
 	};
 
 protected:
+	/** Construct the widget by calling chain of parent setup calls */
 	virtual void NativeConstruct() override;
 
 public:
+	/**
+	* @brief Sets up the space list widget.
+	*/
 	UFUNCTION(BlueprintCallable, Category = "SpaceList")
 	void Setup();
 
+	/**
+	 * @brief Searches the space list based on the input search value.
+	 * @param SearchValue The text to search for.
+	 */
 	UFUNCTION()
 	void Search(const FText& SearchValue);
 
+	/** The widget class for pagination items. */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "SpaceList")
 	TSubclassOf<UUserWidget> PaginationItemWidget;
 
+	/** The pagination widget for navigating through spaces. */
 	UPROPERTY(BlueprintReadOnly, Category = "SpaceList", meta = (BindWidget))
 	UPagination* SpacePagination;
 
+	/** The text box for entering search terms. */
 	UPROPERTY(EditAnywhere, Category = "SpaceList", meta = (BindWidget))
 	UEditableTextBox* SearchTextBox;
 
+	/** Delegate for handling the selection of a Cavrnus space. */
 	FOnCavrnusSpaceSelected OnCavrnusSpaceSelected;
 
 private:
+	/** List of all spaces available. */
 	TArray<FCavrnusSpaceInfo> AllSpaces;
+	/** List of currently displayed spaces based on search and pagination. */
 	TArray<FCavrnusSpaceInfo> CurrentDisplayedSpaces;
-
+	
+	/**
+	 * @brief Updates the pagination with the provided list of spaces.
+	 * @param Spaces The list of spaces to display.
+	 */
 	void UpdatePagination(TArray<FCavrnusSpaceInfo>& Spaces);
 };

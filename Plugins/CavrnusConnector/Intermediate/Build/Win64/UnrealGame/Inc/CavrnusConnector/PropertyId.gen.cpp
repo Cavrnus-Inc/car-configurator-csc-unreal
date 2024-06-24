@@ -35,7 +35,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FPropertyId>()
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPropertyId_Statics::Struct_MetaDataParams[] = {
+		{ "Comment", "/**\n * @brief Structure representing the ID of a property within the Cavrnus system.\n *\n * The FPropertyId structure is used to uniquely identify properties within a Cavrnus container.\n */" },
 		{ "ModuleRelativePath", "Public/Types/PropertyId.h" },
+		{ "ToolTip", "@brief Structure representing the ID of a property within the Cavrnus system.\n\nThe FPropertyId structure is used to uniquely identify properties within a Cavrnus container." },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FPropertyId_Statics::NewStructOps()
@@ -68,9 +70,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FPropertyId>()
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_PropertyId_h_Statics::ScriptStructInfo[] = {
-		{ FPropertyId::StaticStruct, Z_Construct_UScriptStruct_FPropertyId_Statics::NewStructOps, TEXT("PropertyId"), &Z_Registration_Info_UScriptStruct_PropertyId, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPropertyId), 3663508560U) },
+		{ FPropertyId::StaticStruct, Z_Construct_UScriptStruct_FPropertyId_Statics::NewStructOps, TEXT("PropertyId"), &Z_Registration_Info_UScriptStruct_PropertyId, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPropertyId), 1365216048U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_PropertyId_h_1932180031(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_PropertyId_h_1319575854(TEXT("/Script/CavrnusConnector"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_PropertyId_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_PropertyId_h_Statics::ScriptStructInfo),
 		nullptr, 0);

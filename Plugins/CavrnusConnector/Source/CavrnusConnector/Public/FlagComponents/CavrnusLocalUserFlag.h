@@ -19,6 +19,7 @@ public:
 	// Destructor
 	~UCavrnusLocalUserFlag(){}
 
+	/** Reference to the local user. */
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus")
 	FCavrnusUser LocalUser = FCavrnusUser();
 };

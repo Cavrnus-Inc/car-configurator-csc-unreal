@@ -7,20 +7,37 @@
 
 #include "PropertyId.generated.h"
 
+/**
+ * @brief Structure representing the ID of a property within the Cavrnus system.
+ *
+ * The FPropertyId structure is used to uniquely identify properties within a Cavrnus container.
+ */
 USTRUCT()
 struct CAVRNUSCONNECTOR_API FPropertyId
 {
 	GENERATED_BODY()
 
 public:
+	/** The name of the container that holds the property. */
 	FString ContainerName = "";
+	/** The ID of the property value. */
 	FString PropValueId = "";
 
+	/**
+	 * @brief Default constructor for FPropertyId.
+	 *
+	 * Initializes the ContainerName and PropValueId to empty strings.
+	 */
 	FPropertyId()
 	{
 		PropValueId = "";
 		ContainerName = "";
 	}
+	/**
+	 * @brief Constructor to initialize FPropertyId from a full name string.
+	 *
+	 * @param fullName The full name string containing both container and property IDs.
+	 */
 	FPropertyId(FString fullName)
 	{
 		if (fullName.StartsWith("/"))
@@ -43,6 +60,12 @@ public:
 		ContainerName.RemoveFromEnd("/" + PropValueId);
 	}
 
+	/**
+	 * @brief Constructor to initialize FPropertyId with container name and property ID.
+	 *
+	 * @param containerName The name of the container.
+	 * @param propId The ID of the property value.
+	 */
 	FPropertyId(FString containerName, FString propId)
 	{
 		PropValueId = propId;
@@ -55,22 +78,39 @@ public:
 			ContainerName.RemoveFromEnd("/");
 	}
 
+	/** Default Destructor for FPropertyId. */
 	~FPropertyId(){}
 
+	/**
+	 * @brief Combines the container name and property ID into a single string.
+	 *
+	 * @param pId The property ID structure.
+	 * @return The combined name string.
+	 */
 	static const FString GetCombinedName(FPropertyId pId)
 	{
 		return pId.ContainerName + "/" + pId.PropValueId;
 	}
 
+	/**
+	 * @brief Gets the hash value of the property ID.
+	 *
+	 * @param propertyId The property ID structure.
+	 * @return The hash value.
+	 */
 	friend uint32 GetTypeHash(const FPropertyId& propertyId)
 	{
 		return HashCombine(GetTypeHash(propertyId.ContainerName), GetTypeHash(propertyId.PropValueId));
 	}
 
+	/**
+	 * @brief Equality operator for FPropertyId.
+	 *
+	 * @param other The other property ID to compare with.
+	 * @return True if the property IDs are equal, false otherwise.
+	 */
 	bool operator==(const FPropertyId& other) const
 	{
 		return ContainerName.Equals(other.ContainerName, ESearchCase::CaseSensitive) && PropValueId.Equals(other.PropValueId, ESearchCase::CaseSensitive);
 	}
-
-
 };

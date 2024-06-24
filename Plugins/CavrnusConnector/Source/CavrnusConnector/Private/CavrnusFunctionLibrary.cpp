@@ -655,7 +655,7 @@ FString UCavrnusFunctionLibrary::SpawnObject(FCavrnusSpaceConnection SpaceConnec
 	GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildCreateOp(SpaceConnection, UniqueIdentifier, InstanceId));
 
 	CavrnusSpawnedObjectFunction* CallbackPtr = new CavrnusSpawnedObjectFunction(spawnedObjectArrived);
-	RelayModel->ObjectCreationCallbacks.Add(InstanceId, CallbackPtr);
+	RelayModel->ObjectCreationCallbacks.Add(FPropertyId(InstanceId), CallbackPtr);
 
 	return InstanceId;
 }

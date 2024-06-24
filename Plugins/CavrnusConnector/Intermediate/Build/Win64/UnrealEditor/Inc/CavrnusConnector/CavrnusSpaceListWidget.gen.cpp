@@ -69,7 +69,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpaceListWidget_Search_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Searches the space list based on the input search value.\n\x09 * @param SearchValue The text to search for.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
+		{ "ToolTip", "@brief Searches the space list based on the input search value.\n@param SearchValue The text to search for." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpaceListWidget_Search_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpaceListWidget, nullptr, "Search", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpaceListWidget_Search_Statics::CavrnusSpaceListWidget_eventSearch_Parms), Z_Construct_UFunction_UCavrnusSpaceListWidget_Search_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpaceListWidget_Search_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpaceListWidget_Search_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpaceListWidget_Search_Statics::Function_MetaDataParams)) };
@@ -92,7 +94,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::Function_MetaDataParams[] = {
 		{ "Category", "SpaceList" },
+		{ "Comment", "/**\n\x09* @brief Sets up the space list widget.\n\x09*/" },
 		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
+		{ "ToolTip", "@brief Sets up the space list widget." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpaceListWidget, nullptr, "Setup", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::Function_MetaDataParams)) };
@@ -138,19 +142,23 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusSpaceListWidget_Search, "Search" }, // 2360705699
-		{ &Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup, "Setup" }, // 2784200711
+		{ &Z_Construct_UFunction_UCavrnusSpaceListWidget_Search, "Search" }, // 2897231799
+		{ &Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup, "Setup" }, // 3524594304
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/**\n * @brief Widget class for displaying and managing a list of Cavrnus spaces.\n * This widget allows users to search, paginate, and select spaces from a list.\n */" },
 		{ "IncludePath", "UI/CavrnusSpaceListWidget.h" },
 		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
+		{ "ToolTip", "@brief Widget class for displaying and managing a list of Cavrnus spaces.\nThis widget allows users to search, paginate, and select spaces from a list." },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_PaginationItemWidget_MetaData[] = {
 		{ "Category", "SpaceList" },
+		{ "Comment", "/** The widget class for pagination items. */" },
 		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
+		{ "ToolTip", "The widget class for pagination items." },
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_PaginationItemWidget = { "PaginationItemWidget", nullptr, (EPropertyFlags)0x0014000000000015, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpaceListWidget, PaginationItemWidget), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_PaginationItemWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_PaginationItemWidget_MetaData)) };
@@ -158,8 +166,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SpacePagination_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "SpaceList" },
+		{ "Comment", "/** The pagination widget for navigating through spaces. */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
+		{ "ToolTip", "The pagination widget for navigating through spaces." },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SpacePagination = { "SpacePagination", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpaceListWidget, SpacePagination), Z_Construct_UClass_UPagination_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SpacePagination_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SpacePagination_MetaData)) };
@@ -167,8 +177,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SearchTextBox_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "SpaceList" },
+		{ "Comment", "/** The text box for entering search terms. */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
+		{ "ToolTip", "The text box for entering search terms." },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SearchTextBox = { "SearchTextBox", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpaceListWidget, SearchTextBox), Z_Construct_UClass_UEditableTextBox_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SearchTextBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SearchTextBox_MetaData)) };
@@ -213,9 +225,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusSpaceListWidget, UCavrnusSpaceListWidget::StaticClass, TEXT("UCavrnusSpaceListWidget"), &Z_Registration_Info_UClass_UCavrnusSpaceListWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpaceListWidget), 2609844870U) },
+		{ Z_Construct_UClass_UCavrnusSpaceListWidget, UCavrnusSpaceListWidget::StaticClass, TEXT("UCavrnusSpaceListWidget"), &Z_Registration_Info_UClass_UCavrnusSpaceListWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpaceListWidget), 3702986542U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_1542590012(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_4099772789(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -55,7 +55,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpawnedObjectFlag() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject_MetaData[] = {
 		{ "Category", "Cavrnus" },
+		{ "Comment", "/** The spawned object referenced by the component. */" },
 		{ "ModuleRelativePath", "Public/FlagComponents/CavrnusSpawnedObjectFlag.h" },
+		{ "ToolTip", "The spawned object referenced by the component." },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject = { "SpawnedObject", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpawnedObjectFlag, SpawnedObject), Z_Construct_UScriptStruct_FCavrnusSpawnedObject, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpawnedObjectFlag_Statics::NewProp_SpawnedObject_MetaData)) }; // 2128721561
@@ -98,9 +100,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpawnedObjectFlag() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusSpawnedObjectFlag, UCavrnusSpawnedObjectFlag::StaticClass, TEXT("UCavrnusSpawnedObjectFlag"), &Z_Registration_Info_UClass_UCavrnusSpawnedObjectFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpawnedObjectFlag), 1730841091U) },
+		{ Z_Construct_UClass_UCavrnusSpawnedObjectFlag, UCavrnusSpawnedObjectFlag::StaticClass, TEXT("UCavrnusSpawnedObjectFlag"), &Z_Registration_Info_UClass_UCavrnusSpawnedObjectFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpawnedObjectFlag), 4040828671U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_3884695849(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_1619386650(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_FlagComponents_CavrnusSpawnedObjectFlag_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
