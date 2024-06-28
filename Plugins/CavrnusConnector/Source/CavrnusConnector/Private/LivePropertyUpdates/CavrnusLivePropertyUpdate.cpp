@@ -3,7 +3,7 @@
 #include "RelayModel/CavrnusVirtualPropertyUpdate.h"
 #include "Translation/CavrnusProtoTranslation.h"
 #include "Types/CavrnusPropertyValue.h"
-#include "Types/PropertyId.h"
+#include "Types/AbsolutePropertyId.h"
 
 UCavrnusLivePropertyUpdate::UCavrnusLivePropertyUpdate() : livePropertyUpdate(nullptr)
 {

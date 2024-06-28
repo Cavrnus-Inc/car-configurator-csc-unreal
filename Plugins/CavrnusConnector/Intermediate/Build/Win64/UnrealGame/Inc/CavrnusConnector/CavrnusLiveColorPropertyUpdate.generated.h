@@ -17,12 +17,14 @@ struct FLinearColor;
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveColorPropertyUpdate_h_29_SPARSE_DATA
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveColorPropertyUpdate_h_29_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execFinalizeCurrentValue); \
 	DECLARE_FUNCTION(execFinalize); \
 	DECLARE_FUNCTION(execUpdateWithNewData);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveColorPropertyUpdate_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execFinalizeCurrentValue); \
 	DECLARE_FUNCTION(execFinalize); \
 	DECLARE_FUNCTION(execUpdateWithNewData);
 

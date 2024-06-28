@@ -4,7 +4,7 @@
 #include <Containers/Map.h>
 #include "Types/CavrnusBinding.h"
 #include "Types/CavrnusCallbackTypes.h"
-#include "Types/PropertyId.h"
+#include "Types/AbsolutePropertyId.h"
 #include "Types/CavrnusPropertyValue.h"
 #include "Types/CavrnusSpaceConnection.h"
 
@@ -35,21 +35,21 @@ namespace Cavrnus
 		SpacePropertyModel();
 		virtual ~SpacePropertyModel();
 
-		void UpdateServerPropVal(FPropertyId fullPropertyId, FPropertyValue value);
-		int SetLocalPropVal(FPropertyId fullPropertyId, FPropertyValue value);
-		void InvalidateLocalPropValue(FPropertyId fullPropertyId, int propValidationId);
-		void UpdatePropMetadata(FPropertyId fullPropertyId, bool isReadonly);
+		void UpdateServerPropVal(FAbsolutePropertyId fullPropertyId, FPropertyValue value);
+		int SetLocalPropVal(FAbsolutePropertyId fullPropertyId, FPropertyValue value);
+		void InvalidateLocalPropValue(FAbsolutePropertyId fullPropertyId, int propValidationId);
+		void UpdatePropMetadata(FAbsolutePropertyId fullPropertyId, bool isReadonly);
 
-		UCavrnusBinding* BindProperty(FPropertyId fullPropertyId, CavrnusPropertyFunction callback);
+		UCavrnusBinding* BindProperty(FAbsolutePropertyId fullPropertyId, CavrnusPropertyFunction callback);
 
 		UCavrnusBinding* BindUserVideoTexture(const FCavrnusUser& User, VideoFrameUpdateFunction callback);
 
-		bool PropValueExists(FPropertyId fullPropertyId);
+		bool PropValueExists(FAbsolutePropertyId fullPropertyId);
 
-		Cavrnus::FPropertyValue GetPropValue(FPropertyId fullPropertyId);
+		Cavrnus::FPropertyValue GetPropValue(FAbsolutePropertyId fullPropertyId);
 
-		void SetIsDefined(FPropertyId fullPropertyId);
-		TArray<FPropertyId> CurrDefinedProps;
+		void SetIsDefined(FAbsolutePropertyId fullPropertyId);
+		TArray<FAbsolutePropertyId> CurrDefinedProps;
 
 		void AddSpaceUser(FCavrnusUser user);
 		void RemoveSpaceUser(FString userId);
@@ -64,15 +64,15 @@ namespace Cavrnus
 		bool hasLocalUser = false;
 
 	private:
-		TMap<FPropertyId, FPropertyValue> CurrServerPropValues;
-		TMap<FPropertyId, FPropertyValue> CurrLocalPropValues;
+		TMap<FAbsolutePropertyId, FPropertyValue> CurrServerPropValues;
+		TMap<FAbsolutePropertyId, FPropertyValue> CurrLocalPropValues;
 
-		TMap<FPropertyId, bool> CurrPropReadonlyMetadata;
+		TMap<FAbsolutePropertyId, bool> CurrPropReadonlyMetadata;
 
 		int validationIdIncrementer = 0;
-		TMap<FPropertyId, int> LocalPropValidationIds;
+		TMap<FAbsolutePropertyId, int> LocalPropValidationIds;
 				
-		TMap<FPropertyId, TArray<CavrnusPropertyFunction*>> PropBindings;
+		TMap<FAbsolutePropertyId, TArray<CavrnusPropertyFunction*>> PropBindings;
 
 		TArray<CavrnusSpaceUserEvent*> LocalUserArrivedCallbacks;
 
@@ -81,8 +81,8 @@ namespace Cavrnus
 
 		TMap<FString, TArray<VideoFrameUpdateFunction*>> UserVideoFrameBindings;
 
-		FPropertyValue GetCurrentPropValue(FPropertyId fullPropertyId);
-		void TryExecPropBindings(FPropertyId fullPropertyId);
+		FPropertyValue GetCurrentPropValue(FAbsolutePropertyId fullPropertyId);
+		void TryExecPropBindings(FAbsolutePropertyId fullPropertyId);
 
 		FString GetContainerName(FString fullPropId)
 		{

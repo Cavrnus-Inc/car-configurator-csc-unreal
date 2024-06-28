@@ -93,11 +93,11 @@ namespace Cavrnus
 		return msg;
 	}
 
-	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildDefinePropMsg(const FCavrnusSpaceConnection& spaceConn, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId)
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildDefinePropMsg(const FCavrnusSpaceConnection& spaceConn, const FAbsolutePropertyId& propertyId, const FPropertyValue& value, const int localChangeId)
 	{
 		ServerData::DefinePropertyDefaultValue req;
 		req.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
-		req.set_propertyid(TCHAR_TO_UTF8(*(FPropertyId::GetCombinedName(propertyId))));
+		req.set_propertyid(TCHAR_TO_UTF8(*(FAbsolutePropertyId::GetCombinedName(propertyId))));
 		req.mutable_propertyvalue()->CopyFrom(GeneratePropVal(value));
 		req.set_localchangeid(localChangeId);
 
@@ -107,11 +107,11 @@ namespace Cavrnus
 		return msg;
 	}
 
-	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildUpdatePropMsg(const FCavrnusSpaceConnection& spaceConn, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId, const FPropertyPostOptions& options)
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildUpdatePropMsg(const FCavrnusSpaceConnection& spaceConn, const FAbsolutePropertyId& propertyId, const FPropertyValue& value, const int localChangeId, const FPropertyPostOptions& options)
 	{
 		ServerData::PostPropertyUpdate req;
 		req.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
-		req.set_propertyid(TCHAR_TO_UTF8(*(FPropertyId::GetCombinedName(propertyId))));
+		req.set_propertyid(TCHAR_TO_UTF8(*(FAbsolutePropertyId::GetCombinedName(propertyId))));
 		req.mutable_propertyvalue()->CopyFrom(GeneratePropVal(value));
 		req.set_localchangeid(localChangeId);
 		req.set_smooth(options.Smoothed);
@@ -122,12 +122,12 @@ namespace Cavrnus
 		return msg;
 	}
 
-	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildBeginLivePropertyUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId, const FPropertyPostOptions& options)
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildBeginLivePropertyUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const FAbsolutePropertyId& propertyId, const FPropertyValue& value, const int localChangeId, const FPropertyPostOptions& options)
 	{
 		ServerData::BeginTransientPropertyUpdate transMsg;
 		transMsg.set_liveupdaterid(TCHAR_TO_UTF8(*liveUpdaterId));
 		transMsg.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
-		transMsg.set_propertyid(TCHAR_TO_UTF8(*(FPropertyId::GetCombinedName(propertyId))));
+		transMsg.set_propertyid(TCHAR_TO_UTF8(*(FAbsolutePropertyId::GetCombinedName(propertyId))));
 		transMsg.mutable_propertyvalue()->CopyFrom(GeneratePropVal(value));
 		transMsg.set_localchangeid(localChangeId);
 		transMsg.set_smooth(options.Smoothed);
@@ -137,12 +137,12 @@ namespace Cavrnus
 		return msg;
 	}
 
-	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildContinueLivePropertyUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId, const FPropertyPostOptions& options)
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildContinueLivePropertyUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const FAbsolutePropertyId& propertyId, const FPropertyValue& value, const int localChangeId, const FPropertyPostOptions& options)
 	{
 		ServerData::ContinueTransientPropertyUpdate transMsg;
 		transMsg.set_liveupdaterid(TCHAR_TO_UTF8(*liveUpdaterId));
 		transMsg.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
-		transMsg.set_propertyid(TCHAR_TO_UTF8(*(FPropertyId::GetCombinedName(propertyId))));
+		transMsg.set_propertyid(TCHAR_TO_UTF8(*(FAbsolutePropertyId::GetCombinedName(propertyId))));
 		transMsg.mutable_propertyvalue()->CopyFrom(GeneratePropVal(value));
 		transMsg.set_localchangeid(localChangeId);
 		transMsg.set_smooth(options.Smoothed);
@@ -152,12 +152,12 @@ namespace Cavrnus
 		return msg;
 	}
 
-	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildFinalizeLivePropertyUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const FPropertyId& propertyId, const FPropertyValue& value, const int localChangeId, const FPropertyPostOptions& options)
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildFinalizeLivePropertyUpdateMsg(const FCavrnusSpaceConnection& spaceConn, const FString& liveUpdaterId, const FAbsolutePropertyId& propertyId, const FPropertyValue& value, const int localChangeId, const FPropertyPostOptions& options)
 	{
 		ServerData::FinalizeTransientPropertyUpdate transMsg;
 		transMsg.set_liveupdaterid(TCHAR_TO_UTF8(*liveUpdaterId));
 		transMsg.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
-		transMsg.set_propertyid(TCHAR_TO_UTF8(*(FPropertyId::GetCombinedName(propertyId))));
+		transMsg.set_propertyid(TCHAR_TO_UTF8(*(FAbsolutePropertyId::GetCombinedName(propertyId))));
 		transMsg.mutable_propertyvalue()->CopyFrom(GeneratePropVal(value));
 		transMsg.set_localchangeid(localChangeId);
 		transMsg.set_smooth(options.Smoothed);

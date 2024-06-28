@@ -18,11 +18,12 @@ namespace Cavrnus
 		void RegisterContentCallbacks(FString contentId, const CavrnusContentProgressFunction& prog, const CavrnusContentFunction& complete);
 
 		void HandleProgressCallback(FString contentId, float progress, FString step);
-		void HandleCompletionCallback(FString contentId, FString filePath);
+		void HandleCompletionCallback(FString contentId, FString filePath, FString fileNameWithExt);
 
 	private:
 
 		CaseSensitiveMap<FString, FString> CompletedContentPaths;
+		CaseSensitiveMap<FString, FString> CompletedContentFileNames;
 
 		CaseSensitiveMap<FString, TArray<const CavrnusContentProgressFunction*>> ProgressBindings;
 		CaseSensitiveMap<FString, TArray<const CavrnusContentFunction*>> CompletionBindings;

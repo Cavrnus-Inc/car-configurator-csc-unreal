@@ -14,6 +14,13 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveBoolPropertyUpdate() {}
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusLivePropertyUpdate();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 // End Cross Module References
+	DEFINE_FUNCTION(UCavrnusLiveBoolPropertyUpdate::execFinalizeCurrentValue)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->FinalizeCurrentValue();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCavrnusLiveBoolPropertyUpdate::execFinalize)
 	{
 		P_GET_UBOOL(Z_Param_PropertyValue);
@@ -35,6 +42,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveBoolPropertyUpdate() {}
 		UClass* Class = UCavrnusLiveBoolPropertyUpdate::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Finalize", &UCavrnusLiveBoolPropertyUpdate::execFinalize },
+			{ "FinalizeCurrentValue", &UCavrnusLiveBoolPropertyUpdate::execFinalizeCurrentValue },
 			{ "UpdateWithNewData", &UCavrnusLiveBoolPropertyUpdate::execUpdateWithNewData },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -77,6 +85,32 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveBoolPropertyUpdate() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_Finalize_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_FinalizeCurrentValue_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_FinalizeCurrentValue_Statics::Function_MetaDataParams[] = {
+		{ "CallInEditor", "true" },
+		{ "Category", "Cavrnus|Properties" },
+		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveBoolPropertyUpdate.h" },
+		{ "ShortToolTip", "Posts and finalizes the most recent data to the server" },
+		{ "ToolTip", "Posts and finalizes the most recent data to the server.  This object will no longer be valid to use afterwards." },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_FinalizeCurrentValue_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusLiveBoolPropertyUpdate, nullptr, "FinalizeCurrentValue", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020601, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_FinalizeCurrentValue_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_FinalizeCurrentValue_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_FinalizeCurrentValue()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_FinalizeCurrentValue_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -142,6 +176,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveBoolPropertyUpdate() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusLiveBoolPropertyUpdate_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_Finalize, "Finalize" }, // 617676307
+		{ &Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_FinalizeCurrentValue, "FinalizeCurrentValue" }, // 540715909
 		{ &Z_Construct_UFunction_UCavrnusLiveBoolPropertyUpdate_UpdateWithNewData, "UpdateWithNewData" }, // 688610463
 	};
 #if WITH_METADATA
@@ -189,9 +224,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveBoolPropertyUpdate() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLiveBoolPropertyUpdate, UCavrnusLiveBoolPropertyUpdate::StaticClass, TEXT("UCavrnusLiveBoolPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveBoolPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveBoolPropertyUpdate), 3613104463U) },
+		{ Z_Construct_UClass_UCavrnusLiveBoolPropertyUpdate, UCavrnusLiveBoolPropertyUpdate::StaticClass, TEXT("UCavrnusLiveBoolPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveBoolPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveBoolPropertyUpdate), 3695640611U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_1120121762(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_2985577734(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveBoolPropertyUpdate_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

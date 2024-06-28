@@ -9060,6 +9060,7 @@ class FetchFileByIdCompletedResp final :
   enum : int {
     kContentIdFieldNumber = 1,
     kFilePathFieldNumber = 10,
+    kFinalFileNameWithExtensionFieldNumber = 11,
   };
   // string contentId = 1;
   void clear_contentid();
@@ -9089,6 +9090,20 @@ class FetchFileByIdCompletedResp final :
   std::string* _internal_mutable_filepath();
   public:
 
+  // string finalFileNameWithExtension = 11;
+  void clear_finalfilenamewithextension();
+  const std::string& finalfilenamewithextension() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_finalfilenamewithextension(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_finalfilenamewithextension();
+  PROTOBUF_NODISCARD std::string* release_finalfilenamewithextension();
+  void set_allocated_finalfilenamewithextension(std::string* finalfilenamewithextension);
+  private:
+  const std::string& _internal_finalfilenamewithextension() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_finalfilenamewithextension(const std::string& value);
+  std::string* _internal_mutable_finalfilenamewithextension();
+  public:
+
   // @@protoc_insertion_point(class_scope:ServerData.FetchFileByIdCompletedResp)
  private:
   class _Internal;
@@ -9099,6 +9114,7 @@ class FetchFileByIdCompletedResp final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr contentid_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filepath_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr finalfilenamewithextension_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -22694,6 +22710,56 @@ inline void FetchFileByIdCompletedResp::set_allocated_filepath(std::string* file
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:ServerData.FetchFileByIdCompletedResp.filePath)
+}
+
+// string finalFileNameWithExtension = 11;
+inline void FetchFileByIdCompletedResp::clear_finalfilenamewithextension() {
+  _impl_.finalfilenamewithextension_.ClearToEmpty();
+}
+inline const std::string& FetchFileByIdCompletedResp::finalfilenamewithextension() const {
+  // @@protoc_insertion_point(field_get:ServerData.FetchFileByIdCompletedResp.finalFileNameWithExtension)
+  return _internal_finalfilenamewithextension();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FetchFileByIdCompletedResp::set_finalfilenamewithextension(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.finalfilenamewithextension_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ServerData.FetchFileByIdCompletedResp.finalFileNameWithExtension)
+}
+inline std::string* FetchFileByIdCompletedResp::mutable_finalfilenamewithextension() {
+  std::string* _s = _internal_mutable_finalfilenamewithextension();
+  // @@protoc_insertion_point(field_mutable:ServerData.FetchFileByIdCompletedResp.finalFileNameWithExtension)
+  return _s;
+}
+inline const std::string& FetchFileByIdCompletedResp::_internal_finalfilenamewithextension() const {
+  return _impl_.finalfilenamewithextension_.Get();
+}
+inline void FetchFileByIdCompletedResp::_internal_set_finalfilenamewithextension(const std::string& value) {
+  
+  _impl_.finalfilenamewithextension_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FetchFileByIdCompletedResp::_internal_mutable_finalfilenamewithextension() {
+  
+  return _impl_.finalfilenamewithextension_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FetchFileByIdCompletedResp::release_finalfilenamewithextension() {
+  // @@protoc_insertion_point(field_release:ServerData.FetchFileByIdCompletedResp.finalFileNameWithExtension)
+  return _impl_.finalfilenamewithextension_.Release();
+}
+inline void FetchFileByIdCompletedResp::set_allocated_finalfilenamewithextension(std::string* finalfilenamewithextension) {
+  if (finalfilenamewithextension != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.finalfilenamewithextension_.SetAllocated(finalfilenamewithextension, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.finalfilenamewithextension_.IsDefault()) {
+    _impl_.finalfilenamewithextension_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ServerData.FetchFileByIdCompletedResp.finalFileNameWithExtension)
 }
 
 // -------------------------------------------------------------------

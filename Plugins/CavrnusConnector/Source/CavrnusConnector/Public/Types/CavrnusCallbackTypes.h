@@ -210,7 +210,7 @@ typedef TFunction<void(float, const FString&)> CavrnusContentProgressFunction;
  *
  * @param TArray<uint8> The content data.
  */
-typedef TFunction<void(const TArray<uint8>&)> CavrnusContentFunction;
+typedef TFunction<void(const TArray<uint8>&, const FString&)> CavrnusContentFunction;
 
 /**
  * @brief Callback type for handling remote content functions.

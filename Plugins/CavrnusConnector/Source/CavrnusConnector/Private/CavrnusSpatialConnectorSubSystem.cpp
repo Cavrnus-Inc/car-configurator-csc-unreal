@@ -10,6 +10,7 @@
 #include "Engine/World.h" 
 #include "CavrnusPropertiesContainer.h"
 #include "SpawnObjectHelpers.h"
+#include "RelayModel\CavrnusRelayModel.h"
 
 #include <GameFramework/Pawn.h>
 #include <GameFramework/PlayerController.h>
@@ -245,13 +246,13 @@ void UCavrnusSpatialConnectorSubSystemProxy::Initialize()
 		}
 		return SpawnManager->RegisterSpawnedObject(ob, GetCavrnusSpatialConnector()->SpawnableIdentifiers[uniqueId], GetWorld(), SpawnHelpers);
 	};
-	UCavrnusFunctionLibrary::GetDataModel()->RegisterObjectCreationCallback(onObjectCreation);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->RegisterObjectCreationCallback(onObjectCreation);
 
 	TFunction<void(FCavrnusSpawnedObject)> onObjectDestruction = [this](const FCavrnusSpawnedObject& ob)
 	{
 		SpawnManager->UnregisterSpawnedObject(ob, GetWorld());
 	};
-	UCavrnusFunctionLibrary::GetDataModel()->RegisterObjectDestructionCallback(onObjectDestruction);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->RegisterObjectDestructionCallback(onObjectDestruction);
 }
 
 void UCavrnusSpatialConnectorSubSystemProxy::Deinitialize()
@@ -259,7 +260,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::Deinitialize()
 	AvatarManager = nullptr;
 	SpawnManager = nullptr;
 	hasSpaceConn = false;
-	UCavrnusFunctionLibrary::KillDataModel();
+	Cavrnus::CavrnusRelayModel::KillDataModel();
 }
 
 void UCavrnusSpatialConnectorSubSystemProxy::SetObjectOwner(UObject* Owner)

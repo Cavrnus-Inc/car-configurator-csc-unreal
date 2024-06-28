@@ -2,7 +2,7 @@
 #include "RelayModel/CavrnusVirtualPropertyUpdate.h"
 #include "RelayModel/CavrnusRelayModel.h"
 #include "Types/CavrnusPropertyValue.h"
-#include "Types/PropertyId.h"
+#include "Types/AbsolutePropertyId.h"
 #include "Translation/CavrnusProtoTranslation.h"
 
 namespace Cavrnus
@@ -11,7 +11,7 @@ namespace Cavrnus
 	{
 	}
 
-	CavrnusVirtualPropertyUpdate::CavrnusVirtualPropertyUpdate(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, const FPropertyValue& propVal, const FPropertyPostOptions& options)
+	CavrnusVirtualPropertyUpdate::CavrnusVirtualPropertyUpdate(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FAbsolutePropertyId& propertyId, const FPropertyValue& propVal, const FPropertyPostOptions& options)
 	{
 		RelayModel = relayModel;
 		SpaceConn = spaceConn;

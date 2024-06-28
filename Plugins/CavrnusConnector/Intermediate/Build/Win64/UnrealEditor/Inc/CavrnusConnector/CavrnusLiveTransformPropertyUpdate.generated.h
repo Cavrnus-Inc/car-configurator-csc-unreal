@@ -16,12 +16,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_32_SPARSE_DATA
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_32_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execFinalizeCurrentValue); \
 	DECLARE_FUNCTION(execFinalize); \
 	DECLARE_FUNCTION(execUpdateWithNewData);
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_32_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execFinalizeCurrentValue); \
 	DECLARE_FUNCTION(execFinalize); \
 	DECLARE_FUNCTION(execUpdateWithNewData);
 

@@ -12,6 +12,8 @@
 
 namespace Cavrnus
 {
+	CavrnusRelayModel* CavrnusRelayModel::Instance = nullptr;
+
 	CavrnusRelayModel::CavrnusRelayModel()
 	{
 		// Get settings class
@@ -48,6 +50,22 @@ namespace Cavrnus
 			delete kvp.Value;
 		}
 		spacePropertyModelLookup.Empty();
+	}
+
+	CavrnusRelayModel* CavrnusRelayModel::GetDataModel()
+	{
+		if (Instance == nullptr)
+			Instance = new Cavrnus::CavrnusRelayModel();
+		return Instance;
+	}
+
+	void CavrnusRelayModel::KillDataModel()
+	{
+		if (Instance != nullptr)
+		{
+			delete Instance;
+			Instance = nullptr;
+		}
 	}
 
 	bool CavrnusRelayModel::IsTickableInEditor() const
@@ -217,7 +235,7 @@ namespace Cavrnus
 			ContentModel.HandleProgressCallback(msg.fetchfilebyidprogressresp().contentid().c_str(), msg.fetchfilebyidprogressresp().progress(), msg.fetchfilebyidprogressresp().progressstep().c_str());
 			break;
 		case ServerData::RelayRemoteMessage::kFetchFileByIdCompletedResp:
-			ContentModel.HandleCompletionCallback(msg.fetchfilebyidcompletedresp().contentid().c_str(), msg.fetchfilebyidcompletedresp().filepath().c_str());
+			ContentModel.HandleCompletionCallback(msg.fetchfilebyidcompletedresp().contentid().c_str(), msg.fetchfilebyidcompletedresp().filepath().c_str(), msg.fetchfilebyidcompletedresp().finalfilenamewithextension().c_str());
 			break;
 		case ServerData::RelayRemoteMessage::kFetchAllUploadedContentResp:
 			callbackModel->HandleServerCallback(msg.fetchalluploadedcontentresp().reqid(), msg);
@@ -285,7 +303,7 @@ namespace Cavrnus
 
 		SpawnedObject.SpawnedActorInstance = spawnedInstance;
 
-		auto propId = FPropertyId(SpawnedObject.PropertiesContainerName);
+		auto propId = FAbsolutePropertyId(SpawnedObject.PropertiesContainerName);
 
 		if (ObjectCreationCallbacks.Contains(propId)) {
 			(*ObjectCreationCallbacks[propId])(SpawnedObject, spawnedInstance);
@@ -325,7 +343,7 @@ namespace Cavrnus
 		if (!spacePropertyModelLookup.Contains(spaceConnId))
 			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
 
-		spacePropertyModelLookup[spaceConnId]->InvalidateLocalPropValue(FPropertyId(localPropHandled.propertypath().id().c_str()), localPropHandled.localpropchangeid());
+		spacePropertyModelLookup[spaceConnId]->InvalidateLocalPropValue(FAbsolutePropertyId(localPropHandled.propertypath().id().c_str()), localPropHandled.localpropchangeid());
 	}
 
 	void CavrnusRelayModel::HandlePropMetadataStatus(const ServerData::PropMetadataStatus& metadataStatus)

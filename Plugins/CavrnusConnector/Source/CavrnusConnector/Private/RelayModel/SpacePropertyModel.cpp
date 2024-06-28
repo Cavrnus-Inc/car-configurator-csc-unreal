@@ -29,7 +29,7 @@ namespace Cavrnus
 		UserRemovedBindings.Empty();
 	}
 
-	void SpacePropertyModel::UpdateServerPropVal(FPropertyId fullPropertyId, FPropertyValue value)
+	void SpacePropertyModel::UpdateServerPropVal(FAbsolutePropertyId fullPropertyId, FPropertyValue value)
 	{
 		if (!CurrServerPropValues.Contains(fullPropertyId))
 		{
@@ -40,7 +40,7 @@ namespace Cavrnus
 		TryExecPropBindings(fullPropertyId);
 	}
 
-	int SpacePropertyModel::SetLocalPropVal(FPropertyId fullPropertyId, FPropertyValue value)
+	int SpacePropertyModel::SetLocalPropVal(FAbsolutePropertyId fullPropertyId, FPropertyValue value)
 	{
 		//We treat this like a has, but use a dict cuz stupid string comparison stuff
 		if (CurrPropReadonlyMetadata.Contains(fullPropertyId)) 
@@ -62,7 +62,7 @@ namespace Cavrnus
 		return validationIdIncrementer;
 	}
 
-	FPropertyValue SpacePropertyModel::GetCurrentPropValue(FPropertyId fullPropertyId)
+	FPropertyValue SpacePropertyModel::GetCurrentPropValue(FAbsolutePropertyId fullPropertyId)
 	{
 		//Returns an invalid value
 		if (!PropValueExists(fullPropertyId))
@@ -80,7 +80,7 @@ namespace Cavrnus
 		return CurrLocalPropValues[fullPropertyId];
 	}
 
-	void SpacePropertyModel::InvalidateLocalPropValue(FPropertyId fullPropertyId, int propValidationId)
+	void SpacePropertyModel::InvalidateLocalPropValue(FAbsolutePropertyId fullPropertyId, int propValidationId)
 	{
 		if (LocalPropValidationIds.Contains(fullPropertyId) && LocalPropValidationIds[fullPropertyId] == propValidationId)
 		{
@@ -98,7 +98,7 @@ namespace Cavrnus
 		}
 	}
 
-	void SpacePropertyModel::UpdatePropMetadata(FPropertyId fullPropertyId, bool isReadonly)
+	void SpacePropertyModel::UpdatePropMetadata(FAbsolutePropertyId fullPropertyId, bool isReadonly)
 	{
 		if (!isReadonly && CurrPropReadonlyMetadata.Contains(fullPropertyId)) 
 		{
@@ -125,7 +125,7 @@ namespace Cavrnus
 		}
 	}
 
-	void SpacePropertyModel::TryExecPropBindings(FPropertyId fullPropertyId)
+	void SpacePropertyModel::TryExecPropBindings(FAbsolutePropertyId fullPropertyId)
 	{
 		const FPropertyValue& activePropVal = GetCurrentPropValue(fullPropertyId);
 
@@ -141,12 +141,12 @@ namespace Cavrnus
 		}
 	}
 
-	bool SpacePropertyModel::PropValueExists(FPropertyId fullPropertyId)
+	bool SpacePropertyModel::PropValueExists(FAbsolutePropertyId fullPropertyId)
 	{
 		return CurrLocalPropValues.Contains(fullPropertyId) || CurrServerPropValues.Contains(fullPropertyId);
 	}
 
-	UCavrnusBinding* SpacePropertyModel::BindProperty(FPropertyId fullPropertyId, CavrnusPropertyFunction callback)
+	UCavrnusBinding* SpacePropertyModel::BindProperty(FAbsolutePropertyId fullPropertyId, CavrnusPropertyFunction callback)
 	{
 		CavrnusPropertyFunction* cb = new CavrnusPropertyFunction(callback);
 		PropBindings.FindOrAdd(fullPropertyId);
@@ -194,14 +194,14 @@ namespace Cavrnus
 		return binding;
 	}
 	
-	Cavrnus::FPropertyValue SpacePropertyModel::GetPropValue(FPropertyId fullPropertyId)
+	Cavrnus::FPropertyValue SpacePropertyModel::GetPropValue(FAbsolutePropertyId fullPropertyId)
 	{
 		if (PropValueExists(fullPropertyId))
 			return GetCurrentPropValue(fullPropertyId);
 		return Cavrnus::FPropertyValue();
 	}
 
-	void SpacePropertyModel::SetIsDefined(FPropertyId fullPropertyId)
+	void SpacePropertyModel::SetIsDefined(FAbsolutePropertyId fullPropertyId)
 	{
 		CurrDefinedProps.Add(fullPropertyId);
 	}

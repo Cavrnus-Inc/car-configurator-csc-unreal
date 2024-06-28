@@ -1,5 +1,6 @@
 // Copyright(c) Cavrnus. All rights reserved.
 #include "SpawnObjectHelpers.h"
+#include "CavrnusConnectorModule.h"
 #include "CavrnusFunctionLibrary.h"
 #include "FlagComponents\CavrnusUserAvatarFlag.h"
 #include "FlagComponents\CavrnusSpawnedObjectFlag.h"

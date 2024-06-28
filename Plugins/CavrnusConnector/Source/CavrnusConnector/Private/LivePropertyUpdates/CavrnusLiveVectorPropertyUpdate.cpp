@@ -11,7 +11,7 @@ UCavrnusLiveVectorPropertyUpdate::~UCavrnusLiveVectorPropertyUpdate()
 {
 }
 
-void UCavrnusLiveVectorPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, FVector value)
+void UCavrnusLiveVectorPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FAbsolutePropertyId& propertyId, FVector value)
 {
 	livePropertyUpdate = new Cavrnus::CavrnusVirtualPropertyUpdate(relayModel, spaceConn, propertyId, Cavrnus::FPropertyValue::VectorPropValue(value));
 }
@@ -26,4 +26,10 @@ void UCavrnusLiveVectorPropertyUpdate::Finalize(FVector value)
 {
 	if (livePropertyUpdate)
 		livePropertyUpdate->Finalize(Cavrnus::FPropertyValue::VectorPropValue(value));
+}
+
+void UCavrnusLiveVectorPropertyUpdate::FinalizeCurrentValue()
+{
+	if (livePropertyUpdate)
+		livePropertyUpdate->Finalize();
 }

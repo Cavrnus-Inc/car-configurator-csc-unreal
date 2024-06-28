@@ -1,5 +1,6 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
 #include "CavrnusInteropLayer.h"
+#include "CavrnusConnectorModule.h"
 #include "CavrnusConnectorSettings.h"
 #include "CavrnusFunctionLibrary.h"
 #include <HAL/FileManager.h>

@@ -10,7 +10,7 @@
 #include <string>
 #include <Tickable.h>
 #include "CavrnusContentModel.h"
-#include "../../Public/Types/PropertyId.h"
+#include "Types/AbsolutePropertyId.h"
 
 namespace ServerData
 {
@@ -51,6 +51,17 @@ namespace Cavrnus
 		virtual ~CavrnusRelayModel();
 
 		/**
+		 * @brief Gets the data model instance.
+		 * @return A pointer to the CavrnusRelayModel instance.
+		 */
+		static CavrnusRelayModel* GetDataModel();
+
+		/**
+		 * @brief Shuts down the data model instance.
+		 */
+		static void KillDataModel();
+
+		/**
 		 * @brief Determines if the object is tickable in the editor.
 		 *
 		 * @return true if tickable in the editor, false otherwise.
@@ -88,7 +99,7 @@ namespace Cavrnus
 		CavrnusContentModel ContentModel;
 
 		/** Map for storing object creation callbacks */
-		TMap<FPropertyId, const CavrnusSpawnedObjectFunction*> ObjectCreationCallbacks;
+		TMap<FAbsolutePropertyId, const CavrnusSpawnedObjectFunction*> ObjectCreationCallbacks;
 
 		/**
 		 * @brief Registers a callback for object creation.
@@ -105,6 +116,8 @@ namespace Cavrnus
 		void RegisterObjectDestructionCallback(TFunction<void (FCavrnusSpawnedObject)> cb);
 
 	private:
+		static CavrnusRelayModel* Instance;
+
 		/** Internal data members */
 		CavrnusInteropLayer* interopLayer;
 		RelayCallbackModel* callbackModel;

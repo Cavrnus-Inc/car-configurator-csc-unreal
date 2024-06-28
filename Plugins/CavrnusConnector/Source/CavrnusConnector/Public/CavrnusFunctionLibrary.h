@@ -25,10 +25,9 @@
 #include "Types/CavrnusUser.h"
 #include "Types/CavrnusSpawnedObject.h"
 #include "Types/CavrnusBinding.h"
-#include "../Private/RelayModel/CavrnusRelayModel.h"
-#include "Types/PropertyId.h"
 #include "Types/CavrnusCallbackTypes.h"
 #include "Types/PropertyPostOptions.h"
+#include "Types/PropertiesContainer.h"
 
 #include <algorithm>
 
@@ -57,21 +56,6 @@ class CAVRNUSCONNECTOR_API UCavrnusFunctionLibrary : public UBlueprintFunctionLi
 
 	// Functions
 public:
-
-#pragma region Data Model Access/Shutdown
-
-	/**
-	 * @brief Gets the data model instance.
-	 * @return A pointer to the CavrnusRelayModel instance.
-	 */
-	static Cavrnus::CavrnusRelayModel* GetDataModel();
-
-	/**
-	 * @brief Shuts down the data model instance.
-	 */
-	static void KillDataModel();
-
-#pragma endregion
 
 #pragma region Authentication
 
@@ -254,7 +238,8 @@ public:
 	 * @param PropertyValue The default value to assign to the property.
 	 * @param overrideExistingDefault Whether to override an existing default value, defaults to true.
 	 */
-	static void DefineGenericPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue, bool overrideExistingDefault = true);
+	static void DefineGenericPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue, bool overrideExistingDefault = true);
+
 
 	/**
 	 * @brief Retrieves the current value of a generic property within a specified container.
@@ -263,7 +248,7 @@ public:
 	 * @param PropertyName The name of the property to retrieve the value from.
 	 * @return The current value of the property.
 	 */
-	static Cavrnus::FPropertyValue GetGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName);
+	static Cavrnus::FPropertyValue GetGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName);
 
 	/**
 	 * @brief Binds a callback to updates of a generic property in the Journal.
@@ -273,7 +258,7 @@ public:
 	 * @param OnPropertyUpdated Callback to trigger when the property's value is updated.
 	 * @return A disposable binding instance.
 	 */
-	static UCavrnusBinding* BindGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusPropertyFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindGenericPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, const CavrnusPropertyFunction& OnPropertyUpdated);
 
 	/**
 	 * @brief Posts an update to a generic property in the Journal.
@@ -282,7 +267,7 @@ public:
 	 * @param PropertyName The name of the property to update.
 	 * @param PropertyValue The new value to assign to the property.
 	 */
-	static void PostGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue, const FPropertyPostOptions& options = FPropertyPostOptions());
+	static void PostGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue, const FPropertyPostOptions& options = FPropertyPostOptions());
 
 	/**
 	 * @brief Test whether a property exists in the journal for the space.
@@ -290,7 +275,7 @@ public:
 	 * @param ContainerName The name of the container holding the property.
 	 * @param PropertyName The name of the property to query.
 	 */
-	static bool PropertyValueExists(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName);
+	static bool PropertyValueExists(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName);
 
 #pragma endregion
 
@@ -307,6 +292,9 @@ public:
 		meta = (ToolTip = "Defines what the application will show if a new prop value has not been assigned", ShortToolTip = "Defines the Propertie's initial value"))
 	static void DefineColorPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FLinearColor PropertyValue);
 
+	static void DefineColorPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FLinearColor PropertyValue);
+
+
 	/**
 	 * @brief Retrieves the current value of a color property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -317,6 +305,8 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static FLinearColor GetColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName);
+
+	static FLinearColor GetColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName);
 
 	/**
 	 * @brief Delegate triggered when a color property is updated.
@@ -337,15 +327,7 @@ public:
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FColorPropertyUpdated OnPropertyUpdated);
 
-	/**
-	 * @brief Binds a callback to updates of a color property's value.
-	 * @param SpaceConnection The space connection containing the property.
-	 * @param ContainerName The name of the container holding the property.
-	 * @param PropertyName The name of the property to bind the update callback to.
-	 * @param OnPropertyUpdated Callback to trigger when the property's value is updated.
-	 * @return A disposable binding instance.
-	 */
-	static UCavrnusBinding* BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusColorFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindColorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, const CavrnusColorFunction& OnPropertyUpdated);
 
 	/**
 	 * @brief Begins a temporary update to a color property's value. The update will show for everyone in the space but will not be saved unless finalized with PostColorPropertyUpdate.
@@ -359,6 +341,8 @@ public:
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
 	static UCavrnusLiveColorPropertyUpdate* BeginTransientColorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FLinearColor PropertyValue);
 
+	static UCavrnusLiveColorPropertyUpdate* BeginTransientColorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FLinearColor PropertyValue);
+
 	/**
 	 * @brief Updates the color property value at the given path and synchronizes the data to the server.
 	 * @param SpaceConnection The space connection containing the property.
@@ -369,6 +353,9 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Updates the property value at the given path and synchronizes the data to the server", ShortToolTip = "Updates the property value at the given path"))
 	static void PostColorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FLinearColor PropertyValue);
+
+	static void PostColorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FLinearColor PropertyValue);
+
 #pragma endregion
 
 #pragma region Bool Prop Functions
@@ -383,6 +370,9 @@ public:
 		meta = (ToolTip = "Defines what the application will show if a new prop value has not been assigned", ShortToolTip = "Defines the Propertie's initial value"))
 	static void DefineBoolPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, bool PropertyValue);
 
+	static void DefineBoolPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, bool PropertyValue);
+
+
 	/**
 	 * @brief Retrieves the current value of a boolean property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -393,6 +383,9 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static bool GetBoolPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName);
+
+	static bool GetBoolPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName);
+
 
 	/**
 	 * @brief Delegate triggered when a boolean property is updated.
@@ -414,15 +407,7 @@ public:
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FBoolPropertyUpdated OnPropertyUpdated);
 
-	/**
-	 * @brief Binds a callback to updates of a boolean property's value.
-	 * @param SpaceConnection The space connection containing the property.
-	 * @param ContainerName The name of the container holding the property.
-	 * @param PropertyName The name of the property to bind the update callback to.
-	 * @param OnPropertyUpdated Callback to trigger when the property's value is updated.
-	 * @return A disposable binding instance.
-	 */
-	static UCavrnusBinding* BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusBoolFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindBooleanPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, const CavrnusBoolFunction& OnPropertyUpdated);
 
 	/**
 	 * @brief Begins a temporary update to a boolean property's value. The update will show for everyone in the space but will not be saved unless finalized with PostBoolPropertyUpdate.
@@ -436,6 +421,8 @@ public:
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
 	static UCavrnusLiveBoolPropertyUpdate* BeginTransientBoolPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, bool PropertyValue);
 
+	static UCavrnusLiveBoolPropertyUpdate* BeginTransientBoolPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, bool PropertyValue);
+
 	/**
 	 * @brief Posts an update to a boolean property's value, synchronizing the data to the server.
 	 * @param SpaceConnection The space connection containing the property.
@@ -446,6 +433,9 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Updates the property value at the given path and synchronizes the data to the server", ShortToolTip = "Updates the property value at the given path"))
 	static void PostBoolPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, bool PropertyValue);
+
+	static void PostBoolPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, bool PropertyValue);
+
 #pragma endregion
 
 #pragma region Float Prop Functions
@@ -460,6 +450,8 @@ public:
 		meta = (ToolTip = "Defines what the application will show if a new prop value has not been assigned", ShortToolTip = "Defines the Propertie's initial value"))
 	static void DefineFloatPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, float PropertyValue);
 
+	static void DefineFloatPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, float PropertyValue);
+
 	/**
 	 * @brief Retrieves the current value of a float property within a specified container, either set or default.
 	 * @param SpaceConnection The space connection containing the property.
@@ -470,6 +462,8 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static float GetFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName);
+
+	static float GetFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName);
 
 	/**
 	 * @brief Delegate triggered when a float property is updated.
@@ -491,16 +485,7 @@ public:
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FFloatPropertyUpdated OnPropertyUpdated);
 	
-
-	/**
-	 * @brief Binds a callback to updates of a float property's value.
-	 * @param SpaceConnection The space connection containing the property.
-	 * @param ContainerName The name of the container holding the property.
-	 * @param PropertyName The name of the property to bind the update callback to.
-	 * @param OnPropertyUpdated Callback to trigger when the property's value is updated.
-	 * @return A disposable binding instance.
-	 */
-	static UCavrnusBinding* BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusFloatFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindFloatPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, const CavrnusFloatFunction& OnPropertyUpdated);
 
 	/**
 	 * @brief Begins a temporary update to a float property's value.
@@ -515,6 +500,8 @@ public:
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
 	static UCavrnusLiveFloatPropertyUpdate* BeginTransientFloatPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, float PropertyValue);
 
+	static UCavrnusLiveFloatPropertyUpdate* BeginTransientFloatPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, float PropertyValue);
+
 	/**
 	 * @brief Posts an update to a float property's value, synchronizing the data to the server.
 	 * @param SpaceConnection The space connection containing the property.
@@ -525,6 +512,9 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Updates the property value at the given path and synchronizes the data to the server", ShortToolTip = "Updates the property value at the given path"))
 	static void PostFloatPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, float PropertyValue);
+
+	static void PostFloatPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, float PropertyValue);
+
 #pragma endregion
 
 #pragma region String Prop Functions
@@ -539,6 +529,8 @@ public:
 		meta = (ToolTip = "Defines what the application will show if a new prop value has not been assigned", ShortToolTip = "Defines the Propertie's initial value"))
 	static void DefineStringPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FString PropertyValue);
 
+	static void DefineStringPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FString PropertyValue);
+
 	/**
 	 * @brief Retrieves the current value of a string property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -549,6 +541,8 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static FString GetStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName);
+
+	static FString GetStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName);
 
 	/**
 	 * @brief Delegate triggered when a string property is updated.
@@ -570,15 +564,7 @@ public:
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FStringPropertyUpdated OnPropertyUpdated);
 	
-	/**
-	 * @brief Binds a callback to updates of a string property's value.
-	 * @param SpaceConnection The space connection containing the property.
-	 * @param ContainerName The name of the container holding the property.
-	 * @param PropertyName The name of the property to bind the update callback to.
-	 * @param OnPropertyUpdated Callback to trigger when the property's value is updated.
-	 * @return A disposable binding instance.
-	 */
-	static UCavrnusBinding* BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusStringFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindStringPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, const CavrnusStringFunction& OnPropertyUpdated);
 
 	/**
 	 * @brief Begins a temporary update to a string property's value.
@@ -593,6 +579,8 @@ public:
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
 	static UCavrnusLiveStringPropertyUpdate* BeginTransientStringPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FString PropertyValue);
 
+	static UCavrnusLiveStringPropertyUpdate* BeginTransientStringPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FString PropertyValue);
+
 	/**
 	 * @brief Posts an update to a string property's value, synchronizing the data to the server.
 	 * @param SpaceConnection The space connection containing the property.
@@ -603,6 +591,9 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Updates the property value at the given path and synchronizes the data to the server", ShortToolTip = "Updates the property value at the given path"))
 	static void PostStringPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FString PropertyValue);
+	
+	static void PostStringPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FString PropertyValue);
+
 #pragma endregion
 
 #pragma region Vector Prop Functions
@@ -617,6 +608,8 @@ public:
 		meta = (ToolTip = "Defines what the application will show if a new prop value has not been assigned", ShortToolTip = "Defines the Propertie's initial value"))
 	static void DefineVectorPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FVector4 PropertyValue);
 
+	static void DefineVectorPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FVector4 PropertyValue);
+
 	/**
 	 * @brief Retrieves the current value of a vector property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -627,6 +620,8 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static FVector4 GetVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName);
+
+	static FVector4 GetVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName);
 
 	/**
 	 * @brief Delegate triggered when a vector property is updated.
@@ -647,15 +642,7 @@ public:
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FVectorPropertyUpdated OnPropertyUpdated);
 	
-	/**
-	 * @brief Binds a callback to updates of a vector property's value.
-	 * @param SpaceConnection The space connection containing the property.
-	 * @param ContainerName The name of the container holding the property.
-	 * @param PropertyName The name of the property to bind the update callback to.
-	 * @param OnPropertyUpdated Callback to trigger when the property's value is updated.
-	 * @return A disposable binding instance.
-	 */
-	static UCavrnusBinding* BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusVectorFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindVectorPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, const CavrnusVectorFunction& OnPropertyUpdated);
 
 	/**
 	 * @brief Begins a temporary update to a vector property's value.
@@ -670,6 +657,8 @@ public:
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server"))
 	static UCavrnusLiveVectorPropertyUpdate* BeginTransientVectorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FVector4 PropertyValue);
 
+	static UCavrnusLiveVectorPropertyUpdate* BeginTransientVectorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FVector4 PropertyValue);
+
 	/**
 	 * @brief Posts an update to a vector property's value, synchronizing the data to the server.
 	 * @param SpaceConnection The space connection containing the property.
@@ -680,6 +669,9 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Updates the property value at the given path and synchronizes the data to the server", ShortToolTip = "Updates the property value at the given path"))
 	static void PostVectorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FVector4 PropertyValue);
+
+	static void PostVectorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FVector4 PropertyValue);
+
 #pragma endregion
 
 #pragma region Transform Prop Functions
@@ -694,6 +686,9 @@ public:
 		meta = (ToolTip = "Defines what the application will show if a new prop value has not been assigned", ShortToolTip = "Defines the Propertie's initial value"))
 	static void DefineTransformPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransform PropertyValue);
 
+	static void DefineTransformPropertyDefaultValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FTransform PropertyValue);
+
+
 	/**
 	 * @brief Retrieves the current value of a transform property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -704,6 +699,8 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Internal",
 		meta = (ToolTip = "Gets the current property value, whether the default or the one currently set", ShortToolTip = "Gets the current value"))
 	static FTransform GetTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName);
+
+	static FTransform GetTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName);
 
 	/**
 	 * @brief Delegate triggered when a transform property is updated.
@@ -724,15 +721,7 @@ public:
 		meta = (ToolTip = "Triggers an Event when the property changes, plus an inital event when first bound", ShortToolTip = "Triggers an Event when the property changes"))
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransformPropertyUpdated OnPropertyUpdated);
 	
-	/**
-	 * @brief Binds a callback to updates of a transform property's value.
-	 * @param SpaceConnection The space connection containing the property.
-	 * @param ContainerName The name of the container holding the property.
-	 * @param PropertyName The name of the property to bind the update callback to.
-	 * @param OnPropertyUpdated Callback to trigger when the property's value is updated.
-	 * @return A disposable binding instance.
-	 */
-	static UCavrnusBinding* BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, const CavrnusTransformFunction& OnPropertyUpdated);
+	static UCavrnusBinding* BindTransformPropertyValue(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, const CavrnusTransformFunction& OnPropertyUpdated);
 
 	/**
 	 * @brief Begins a temporary update to a transform property's value.
@@ -747,6 +736,8 @@ public:
 		meta = (ToolTip = "Begins a temporary property update.  This will show for everyone in the space, but will not be saved unless finalized with a PostPropertyUpdate.", ShortToolTip = "Sends a temporary property update to the server", AutoCreateRefTerm = "options"))
 	static UCavrnusLiveTransformPropertyUpdate* BeginTransientTransformPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransform PropertyValue, const FPropertyPostOptions& options);
 
+	static UCavrnusLiveTransformPropertyUpdate* BeginTransientTransformPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FTransform PropertyValue, const FPropertyPostOptions& options);
+
 	/**
 	 * @brief Posts an update to a transform property's value, synchronizing the data to the server.
 	 * @param SpaceConnection The space connection containing the property.
@@ -757,6 +748,9 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Updates the property value at the given path and synchronizes the data to the server", ShortToolTip = "Updates the property value at the given path", AutoCreateRefTerm = "options"))
 	static void PostTransformPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FString& ContainerName, const FString& PropertyName, FTransform PropertyValue, const FPropertyPostOptions& options);
+
+	static void PostTransformPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FTransform PropertyValue, const FPropertyPostOptions& options);
+
 #pragma endregion
 
 #pragma region Permissions
@@ -835,17 +829,7 @@ public:
 		meta = (AutoCreateRefTerm = "spawnedObjectArrived",	ToolTip = "Instantiates the given object with no set properties (note you will need to pull the Container ID out of the Spawned Object and assign property values to it)", ShortToolTip = "Instantiates the given object"))
 	static UPARAM(DisplayName = "Container Name") FString SpawnObject(FCavrnusSpaceConnection SpaceConnection, const FString& UniqueIdentifier, const FCavrnusSpawnedObjectArrived& spawnedObjectArrived);
 
-	/**
-	 * @brief Instantiates the given object with no set properties.
-	 *
-	 * Note: You will need to pull the Container ID out of the Spawned Object and assign property values to it.
-	 *
-	 * @param SpaceConnection The space connection in which to spawn the object.
-	 * @param UniqueIdentifier A unique identifier for the object.
-	 * @param spawnedObjectArrived Callback triggered when the object is successfully spawned.
-	 * @return The container name of the spawned object.
-	 */
-	static FString SpawnObject(FCavrnusSpaceConnection SpaceConnection, const FString& UniqueIdentifier, CavrnusSpawnedObjectFunction spawnedObjectArrived);
+	static FPropertiesContainer SpawnObject(FCavrnusSpaceConnection SpaceConnection, const FString& UniqueIdentifier, CavrnusSpawnedObjectFunction spawnedObjectArrived);
 
 	/**
 	 * @brief Destroys the given object.
@@ -1185,7 +1169,7 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
 		meta = (ToolTip = "Downloads the given content to your disk and returns the filepath", ShortToolTip = "Downloads the given content"))
-	static void FetchFileByIdToDisk(FString ContentId, FString FileDestination, FCavrnusContentProgressFunction OnProgress, FCavrnusContentFileFunction OnContentLoaded);
+	static void FetchFileByIdToDisk(FString ContentId, FString FolderDestination, FCavrnusContentProgressFunction OnProgress, FCavrnusContentFileFunction OnContentLoaded);
 	
 	/**
 	 * @brief Downloads the given content by its ID to a specified disk location and returns the file path.
@@ -1195,7 +1179,7 @@ public:
 	 * @param OnProgress The delegate to call with progress updates.
 	 * @param OnContentLoaded The function to call when the content is loaded.
 	 */
-	static void FetchFileByIdToDisk(FString ContentId, FString FileDestination, const CavrnusContentProgressFunction& OnProgress, const TFunction<void(FString)>& OnContentLoaded);
+	static void FetchFileByIdToDisk(FString ContentId, FString FolderDestination, const CavrnusContentProgressFunction& OnProgress, const TFunction<void(FString)>& OnContentLoaded);
 
 	/**
 	 * @brief Delegate for handling the available remote content.
@@ -1270,27 +1254,10 @@ public:
 private:
 
 	/**
-	 * Pointer to the CavrnusRelayModel, which handles relay communication within the Cavrnus platform.
-	 * This is a static member shared across instances to maintain consistent relay operations.
-	 */
-	static Cavrnus::CavrnusRelayModel* RelayModel;
-
-	/**
 	 * Checks for errors in the provided space connection.
 	 *
 	 * @param SpaceConnection The space connection to check.
 	 * @return Returns true if the space connection is valid; otherwise, logs an error and returns false.
 	 */
-	static bool CheckErrors(FCavrnusSpaceConnection SpaceConnection)
-	{
-		// If the SpaceConnectionId is -1, it indicates an invalid or uninitialized connection.
-		if (SpaceConnection.SpaceConnectionId == -1)
-		{
-			// Log an error message indicating that no valid CavrnusSpaceConnection was provided.
-			UE_LOG(LogCavrnusConnector, Error, TEXT("No CavrnusSpaceConnection provided, function will not execute!"));
-			return false;			// Return false to indicatet that the SpaceConnectionId is invalid.
-		}
-		return true;				// If the SpaceConnectionId is valid, return true.
-
-	}
+	static bool CheckErrors(FCavrnusSpaceConnection SpaceConnection);
 };

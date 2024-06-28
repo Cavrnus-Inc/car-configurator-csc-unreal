@@ -46,7 +46,7 @@ public:
 	 * @param propertyId Identifier for the property to be updated.
 	 * @param value Initial transform value for the property.
 	 */
-	void Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, FTransform value, const FPropertyPostOptions& options = FPropertyPostOptions());
+	void Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FAbsolutePropertyId& propertyId, FTransform value, const FPropertyPostOptions& options = FPropertyPostOptions());
 
 	/**
 	 * @brief Updates the temporary transform value sent to the server.
@@ -67,4 +67,13 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Posts and finalizes the data to the server.  This object will no longer be valid to use afterwards.", ShortToolTip = "Posts and finalizes the data to the server"))
 	void Finalize(FTransform PropertyValue);
+
+	/**
+	 * @brief Posts and finalizes the most recent data to the server.
+	 *
+	 * This method posts the most recent sent transform value to the server and finalizes the update. The object will no longer be valid to use afterwards.
+	 */
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
+		meta = (ToolTip = "Posts and finalizes the most recent data to the server.  This object will no longer be valid to use afterwards.", ShortToolTip = "Posts and finalizes the most recent data to the server"))
+	void FinalizeCurrentValue();
 };

@@ -11,7 +11,7 @@ UCavrnusLiveColorPropertyUpdate::~UCavrnusLiveColorPropertyUpdate()
 {
 }
 
-void UCavrnusLiveColorPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, FLinearColor value)
+void UCavrnusLiveColorPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FAbsolutePropertyId& propertyId, FLinearColor value)
 {
 	livePropertyUpdate = new Cavrnus::CavrnusVirtualPropertyUpdate(relayModel, spaceConn, propertyId, Cavrnus::FPropertyValue::ColorPropValue(value));
 }
@@ -26,4 +26,10 @@ void UCavrnusLiveColorPropertyUpdate::Finalize(FLinearColor value)
 {
 	if (livePropertyUpdate)
 		livePropertyUpdate->Finalize(Cavrnus::FPropertyValue::ColorPropValue(value));
+}
+
+void UCavrnusLiveColorPropertyUpdate::FinalizeCurrentValue()
+{
+	if (livePropertyUpdate)
+		livePropertyUpdate->Finalize();
 }

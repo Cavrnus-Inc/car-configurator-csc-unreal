@@ -7,6 +7,7 @@
 #include <Kismet/KismetSystemLibrary.h>
 #include <TimerManager.h>
 #include <CavrnusFunctionLibrary.h>
+#include "RelayModel/CavrnusRelayModel.h"
 
 const float UCavrnusValueSyncBase::PollingTimeSeconds = 0.1f;
 const double UCavrnusValueSyncBase::SecondsToWaitBeforePosting = 0.2f;
@@ -145,7 +146,7 @@ void UCavrnusValueSyncBase::TrySendPropertyChanges()
 
 		if (liveUpdater == nullptr)
 		{
-			liveUpdater = new Cavrnus::CavrnusVirtualPropertyUpdate(UCavrnusFunctionLibrary::GetDataModel(), SpaceConn, FPropertyId(GetContainerName(), PropertyName), lastSentPropValue);
+			liveUpdater = new Cavrnus::CavrnusVirtualPropertyUpdate(Cavrnus::CavrnusRelayModel::GetDataModel(), SpaceConn, FAbsolutePropertyId(GetContainerName(), PropertyName), lastSentPropValue);
 		}
 		else
 		{

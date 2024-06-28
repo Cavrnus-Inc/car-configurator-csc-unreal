@@ -46,7 +46,7 @@ public:
 	* @param propertyId The ID of the property being updated.
 	* @param value The initial value of the property.
 	*/
-	void Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FPropertyId& propertyId, float value);
+	void Initialize(Cavrnus::CavrnusRelayModel* relayModel, FCavrnusSpaceConnection spaceConn, const FAbsolutePropertyId& propertyId, float value);
 
 	/**
 	 * @brief Updates the temporary value sent to the server.
@@ -69,4 +69,13 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
 		meta = (ToolTip = "Posts and finalizes the data to the server.  This object will no longer be valid to use afterwards.", ShortToolTip = "Posts and finalizes the data to the server"))
 	void Finalize(float PropertyValue);
+
+	/**
+	 * @brief Posts and finalizes the most recent data to the server.
+	 *
+	 * This method posts the most recent sent float value to the server and finalizes the update. The object will no longer be valid to use afterwards.
+	 */
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
+		meta = (ToolTip = "Posts and finalizes the most recent data to the server.  This object will no longer be valid to use afterwards.", ShortToolTip = "Posts and finalizes the most recent data to the server"))
+	void FinalizeCurrentValue();
 };

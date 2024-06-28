@@ -10,11 +10,10 @@
 
 #include "CoreMinimal.h"
 #include "Types/CavrnusSpaceConnection.h"
-#include "Types/PropertyId.h"
 
 #include "CavrnusLivePropertyUpdate.generated.h"		// Always last
 
-struct FPropertyId;
+struct FAbsolutePropertyId;
 
 namespace Cavrnus
 {
