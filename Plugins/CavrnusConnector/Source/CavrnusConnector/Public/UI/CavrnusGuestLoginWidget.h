@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include <Blueprint/UserWidget.h>
 
+#include "CavrnusBaseUserWidget.h"
 #include "CavrnusGuestLoginWidget.generated.h"
 
 /**
@@ -21,7 +21,7 @@ DECLARE_MULTICAST_DELEGATE_OneParam(FOnGuestLoginClicked, FString);
  * This abstract class extends UUserWidget to provide functionality for guest login.
  */
 UCLASS(Abstract)
-class CAVRNUSCONNECTOR_API UCavrnusGuestLoginWidget : public UUserWidget
+class CAVRNUSCONNECTOR_API UCavrnusGuestLoginWidget : public UCavrnusBaseUserWidget
 {
 	GENERATED_BODY()
 public:

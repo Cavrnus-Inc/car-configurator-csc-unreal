@@ -26,6 +26,9 @@ namespace ServerData
 	class PermissionStatus;
 	class LocalPropertyHandledResp;
 	class PropMetadataStatus;
+	class ChatAdded;
+	class ChatUpdated;
+	class ChatRemoved;
 }
 
 namespace Cavrnus
@@ -143,6 +146,10 @@ namespace Cavrnus
 		void HandlePermissionStatus(const ServerData::PermissionStatus& PermissionStatus);
 		void HandleLocalPropHandledResp(const ServerData::LocalPropertyHandledResp& localPropHandled);
 		void HandlePropMetadataStatus(const ServerData::PropMetadataStatus& metadataStatus);
+
+		void HandleChatAdded(const ServerData::ChatAdded& chatAdded);
+		void HandleChatUpdated(const ServerData::ChatUpdated& chatUpdated);
+		void HandleChatRemoved(const ServerData::ChatRemoved& chatRemoved);
 	};
 
 } // namespace CavrnusRelay

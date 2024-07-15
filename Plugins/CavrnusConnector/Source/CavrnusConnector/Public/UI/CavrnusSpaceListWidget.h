@@ -4,6 +4,7 @@
 #include "CoreMinimal.h"
 #include <Blueprint/UserWidget.h>
 
+#include "CavrnusBaseUserWidget.h"
 #include "Components/EditableTextBox.h"
 #include "Pagination/Pagination.h"
 #include "Types/CavrnusSpaceInfo.h"
@@ -13,19 +14,20 @@
  * @brief Delegate for handling the selection of a Cavrnus space.
  * @param FString The ID of the selected space.
  */
-DECLARE_MULTICAST_DELEGATE_OneParam(FOnCavrnusSpaceSelected, FString);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCavrnusSpaceSelected, FString, SpaceId);
+
 /**
  * @brief Type definition for a function that handles space selection events.
  * @param FCavrnusSpaceInfo Information about the selected space.
  */
-typedef TFunction<void(FCavrnusSpaceInfo)> FSpaceSelectedEvent;
+typedef TFunction<void(const FCavrnusSpaceInfo&)> FSpaceSelectedEvent;
 
 /**
  * @brief Widget class for displaying and managing a list of Cavrnus spaces.
  * This widget allows users to search, paginate, and select spaces from a list.
  */
 UCLASS(Abstract)
-class CAVRNUSCONNECTOR_API UCavrnusSpaceListWidget : public UUserWidget
+class CAVRNUSCONNECTOR_API UCavrnusSpaceListWidget : public UCavrnusBaseUserWidget
 {
 	GENERATED_BODY()
 
@@ -66,6 +68,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "SpaceList")
 	void Setup();
 
+	
+	FSpaceSelectedEvent SpaceSelected;
+
 	/**
 	 * @brief Searches the space list based on the input search value.
 	 * @param SearchValue The text to search for.
@@ -86,6 +91,8 @@ public:
 	UEditableTextBox* SearchTextBox;
 
 	/** Delegate for handling the selection of a Cavrnus space. */
+
+	UPROPERTY(BlueprintAssignable)
 	FOnCavrnusSpaceSelected OnCavrnusSpaceSelected;
 
 private:

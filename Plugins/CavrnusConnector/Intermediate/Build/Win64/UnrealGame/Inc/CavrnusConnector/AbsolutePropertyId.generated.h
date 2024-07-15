@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CAVRNUSCONNECTOR_AbsolutePropertyId_generated_h
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_AbsolutePropertyId_h_19_GENERATED_BODY \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_AbsolutePropertyId_h_18_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FAbsolutePropertyId_Statics; \
 	static class UScriptStruct* StaticStruct();
 

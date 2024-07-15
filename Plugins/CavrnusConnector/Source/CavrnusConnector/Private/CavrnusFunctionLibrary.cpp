@@ -1099,6 +1099,35 @@ void UCavrnusFunctionLibrary::UploadContentWithTags(FString FilePath, TMap<FStri
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildUploadContent(RequestId, FilePath, Tags));
 }
 
+UPARAM(DisplayName = "Disposable")UCavrnusBinding* UCavrnusFunctionLibrary::BindChatMessages(const FCavrnusSpaceConnection& spaceConn, const FCavrnusChatFunction& ChatAdded, const FCavrnusChatFunction& ChatUpdated, const FCavrnusChatRemovedFunction& ChatRemoved)
+{
+	CavrnusChatFunction addedCallback = [ChatAdded](const FChatEntry& v)
+	{
+		ChatAdded.ExecuteIfBound(v);
+	};
+	CavrnusChatFunction updatedCallback = [ChatUpdated](const FChatEntry& v)
+	{
+		ChatUpdated.ExecuteIfBound(v);
+	};
+	CavrnusChatRemovedFunction removedCallback = [ChatRemoved](const FString& v)
+	{
+		ChatRemoved.ExecuteIfBound(v);
+	};
+
+	return BindChatMessages(spaceConn, addedCallback, updatedCallback, removedCallback);
+}
+
+UCavrnusBinding* UCavrnusFunctionLibrary::BindChatMessages(const FCavrnusSpaceConnection& spaceConn, const CavrnusChatFunction& ChatAdded, const CavrnusChatFunction& ChatUpdated, const CavrnusChatRemovedFunction& ChatRemoved)
+{
+	return Cavrnus::CavrnusRelayModel::GetDataModel()->GetSpacePropertyModel(spaceConn)->ChatModel->BindChatEvents(ChatAdded, ChatUpdated, ChatRemoved);
+}
+
+void UCavrnusFunctionLibrary::PostChatMessage(const FCavrnusSpaceConnection& spaceConn, const FString& Chat)
+{
+	CheckErrors(spaceConn);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildPostChatEntry(spaceConn, Chat));
+}
+
 #pragma endregion
 
 bool UCavrnusFunctionLibrary::CheckErrors(FCavrnusSpaceConnection SpaceConnection)

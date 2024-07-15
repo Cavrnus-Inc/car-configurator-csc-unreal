@@ -7,12 +7,15 @@
 #include "UObject/GeneratedCppIncludes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCavrnusConnector_init() {}
+	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_BoolPropertyUpdated__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAuthRecv__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableInputDevices__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableOutputDevices__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableVideoInputDevices__DelegateSignature();
+	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusChatFunction__DelegateSignature();
+	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusChatRemovedFunction__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusContentFileFunction__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusContentFunction__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusContentProgressFunction__DelegateSignature();
@@ -39,12 +42,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusConnector_init() {}
 		if (!Z_Registration_Info_UPackage__Script_CavrnusConnector.OuterSingleton)
 		{
 			static UObject* (*const SingletonFuncArray[])() = {
+				(UObject* (*)())Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_BoolPropertyUpdated__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAllSpacesInfoEvent__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAuthRecv__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableInputDevices__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableOutputDevices__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusAvailableVideoInputDevices__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusChatFunction__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusChatRemovedFunction__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusContentFileFunction__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusContentFunction__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusContentProgressFunction__DelegateSignature,
@@ -71,13 +77,13 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusConnector_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xDD53FD9C,
-				0x383AF1CE,
+				0x8588DCA0,
+				0x35F8C019,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_CavrnusConnector.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_CavrnusConnector.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_CavrnusConnector(Z_Construct_UPackage__Script_CavrnusConnector, TEXT("/Script/CavrnusConnector"), Z_Registration_Info_UPackage__Script_CavrnusConnector, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xDD53FD9C, 0x383AF1CE));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_CavrnusConnector(Z_Construct_UPackage__Script_CavrnusConnector, TEXT("/Script/CavrnusConnector"), Z_Registration_Info_UPackage__Script_CavrnusConnector, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x8588DCA0, 0x35F8C019));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

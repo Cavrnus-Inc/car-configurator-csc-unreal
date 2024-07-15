@@ -1,17 +1,12 @@
-Cavrnus-Spatial-Connector-UE5.0-2023.2.737-Dev
-bhaddad5: ue - master [117c50849ee120e89255d8e0d21de8ff49d9b9e4]
-Fixed file download destination assuming user knows/includes file name
+Cavrnus-Spatial-Connector-UE5.0-2023.2.760-Dev
+78107955+markvrepo: ue - master [248569c01d0501f8a65f5303729af60cee49a2fd]
+Convenience Functions to FPropertiesContainer
 
-	CavrnusPlugin/Content/InternalTesting/Blueprints/BP_DownloaderCube.uasset
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/CavrnusRelayNet/net6.0-windows/CavrnusRelayNet.exe
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/CavrnusFunctionLibrary.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/journal_operations_client.pb.cc.generated
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/journal_operations_client.pb.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay.pb.cc.generated
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/Comm/relay.pb.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusContentModel.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusContentModel.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/CavrnusRelayModel.cpp
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/CavrnusFunctionLibrary.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/CavrnusCallbackTypes.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/AbsolutePropertyId.h
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/PropertiesContainer.h
+
+bhaddad5: common - master [43230c748e6570f452e3f5e9e1576b344897eece]
+Added wasTranslated flag to chats
+
+	protos/relay.proto
 

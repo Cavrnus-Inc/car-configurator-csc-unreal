@@ -23,6 +23,7 @@
 #include "Types/CavrnusBinding.h"
 #include "Types/CavrnusSpawnedObject.h"
 #include "Types/CavrnusPropertyValue.h"
+#include "Types/ChatEntry.h"
 #include "CavrnusRemoteContent.h"
 
 #include "CavrnusCallbackTypes.generated.h"		// Always last
@@ -225,6 +226,9 @@ typedef TFunction<void(const TArray<FCavrnusRemoteContent>&)> CavrnusRemoteConte
  * @param FCavrnusRemoteContent The uploaded content data.
  */
 typedef TFunction<void(const FCavrnusRemoteContent&)> CavrnusUploadCompleteFunction;
+
+typedef TFunction<void(const FChatEntry&)> CavrnusChatFunction;
+typedef TFunction<void(const FString&)> CavrnusChatRemovedFunction;
 
 /**
  * @brief Abstract class providing blueprint function library for Cavrnus callback types.

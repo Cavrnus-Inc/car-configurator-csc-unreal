@@ -435,6 +435,37 @@ namespace Cavrnus
 
 		return FCavrnusUser(user.islocaluser(), ("users/" + UserConnectionId), UserConnectionId, spaceConn);
 	}
+
+	FChatEntry CavrnusProtoTranslation::ToFChatEntry(FString id, ServerData::ChatBase chat)
+	{
+		FChatEntry entry = FChatEntry();
+		entry.ChatId = id;
+		entry.ChatDisplayText = chat.text().c_str();
+		entry.ChatCreatorIsLocalUser = chat.creatorislocal();
+		entry.ChatCreatorName = chat.creatorname().c_str();
+		entry.ChatCreatorPictureUrl = chat.creatorpicurl().c_str();
+		entry.Complete = chat.complete();
+		entry.WasTranslated = chat.wastranslated();
+
+		FDateTime createdTime = FDateTime::MinValue();
+		if (chat.has_createdtime())
+			createdTime = FDateTime::FromUnixTimestamp(chat.createdtime().seconds());
+		entry.CreatedTime = createdTime;
+
+		return entry;
+	}
+
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildPostChatEntry(const FCavrnusSpaceConnection& spaceConn, const FString& chat)
+	{
+		ServerData::PostChat req;
+		req.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
+		req.set_chattext(TCHAR_TO_UTF8(*(chat)));
+
+		ServerData::RelayClientMessage msg;
+		msg.mutable_postchat()->CopyFrom(req);
+
+		return msg;
+	}
 #pragma endregion
 
 

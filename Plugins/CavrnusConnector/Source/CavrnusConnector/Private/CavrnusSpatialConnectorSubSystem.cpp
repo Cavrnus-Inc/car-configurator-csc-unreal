@@ -174,17 +174,14 @@ void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowSpaceList()
 	ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
 	if (UCavrnusSpaceListWidget* SpaceListWidget = Cast<UCavrnusSpaceListWidget>(SpawnWidget(CavrnusSpatialConnector->SpaceJoinMenu)))
 	{
-		SpaceListWidget->OnCavrnusSpaceSelected.AddLambda
-		(
-			[this, SpaceListWidget](FString SpaceJoinId)
+		SpaceListWidget->SpaceSelected = [this, SpaceListWidget](const FCavrnusSpaceInfo& SpaceInfo)
+		{
+			RemoveWidget(SpaceListWidget);
+			if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy =UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
 			{
-				RemoveWidget(SpaceListWidget);
-				if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
-				{
-					SubProxy->AttemptToJoinSpace(SpaceJoinId);
-				}
+				SubProxy->AttemptToJoinSpace(SpaceInfo.SpaceId);
 			}
-		);
+		};
 	}
 }
 

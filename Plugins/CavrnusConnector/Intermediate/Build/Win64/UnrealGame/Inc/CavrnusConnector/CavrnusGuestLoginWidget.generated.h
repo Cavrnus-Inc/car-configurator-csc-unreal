@@ -31,7 +31,7 @@ private: \
 	static void StaticRegisterNativesUCavrnusGuestLoginWidget(); \
 	friend struct Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics; \
 public: \
-	DECLARE_CLASS(UCavrnusGuestLoginWidget, UUserWidget, COMPILED_IN_FLAGS(CLASS_Abstract), CASTCLASS_None, TEXT("/Script/CavrnusConnector"), NO_API) \
+	DECLARE_CLASS(UCavrnusGuestLoginWidget, UCavrnusBaseUserWidget, COMPILED_IN_FLAGS(CLASS_Abstract), CASTCLASS_None, TEXT("/Script/CavrnusConnector"), NO_API) \
 	DECLARE_SERIALIZER(UCavrnusGuestLoginWidget)
 
 
@@ -40,7 +40,7 @@ private: \
 	static void StaticRegisterNativesUCavrnusGuestLoginWidget(); \
 	friend struct Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics; \
 public: \
-	DECLARE_CLASS(UCavrnusGuestLoginWidget, UUserWidget, COMPILED_IN_FLAGS(CLASS_Abstract), CASTCLASS_None, TEXT("/Script/CavrnusConnector"), NO_API) \
+	DECLARE_CLASS(UCavrnusGuestLoginWidget, UCavrnusBaseUserWidget, COMPILED_IN_FLAGS(CLASS_Abstract), CASTCLASS_None, TEXT("/Script/CavrnusConnector"), NO_API) \
 	DECLARE_SERIALIZER(UCavrnusGuestLoginWidget)
 
 

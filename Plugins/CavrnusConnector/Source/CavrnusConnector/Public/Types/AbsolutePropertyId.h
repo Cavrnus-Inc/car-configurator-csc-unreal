@@ -1,9 +1,8 @@
-﻿// Copyright(c) Cavrnus. All rights reserved.
+// Copyright(c) Cavrnus. All rights reserved.
 #pragma once
 
 #include <Containers/Map.h>
 #include "Types/CavrnusBinding.h"
-#include "Types/CavrnusCallbackTypes.h"
 #include "Types/PropertiesContainer.h"
 
 #include "AbsolutePropertyId.generated.h"
@@ -131,5 +130,15 @@ public:
 	bool operator==(const FAbsolutePropertyId& other) const
 	{
 		return ContainerName.Equals(other.ContainerName, ESearchCase::CaseSensitive) && PropValueId.Equals(other.PropValueId, ESearchCase::CaseSensitive);
+	}
+
+	/**
+	 * @brief Convenience function to return FString type without calling static function GetCombinedName
+	 *
+	 * @return The Absolute Property Id as an FString
+	 */
+	FString ToString() const
+	{
+		return(FAbsolutePropertyId::GetCombinedName(*this));
 	}
 };

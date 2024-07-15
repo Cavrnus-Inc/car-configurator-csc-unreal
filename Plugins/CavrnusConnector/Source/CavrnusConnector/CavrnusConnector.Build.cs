@@ -105,6 +105,14 @@ public class CavrnusConnector : ModuleRules
         }
         );
 
+        if (Target.Type == TargetType.Editor)
+        {
+            PrivateDependencyModuleNames.AddRange(
+                new string[] {
+                    "DesktopPlatform"
+                }
+            );
+        }
 
         //Add include path
         string Platform = string.Empty;

@@ -1,6 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
 #include "UI/CavrnusSpaceListWidget.h"
-#include "CavrnusConnectorModule.h"
 
 #include "CavrnusSpatialConnectorSubSystem.h"
 #include "CavrnusFunctionLibrary.h"
@@ -64,6 +63,9 @@ void UCavrnusSpaceListWidget::UpdatePagination(TArray<FCavrnusSpaceInfo>& Spaces
 	{
 		const FSpaceSelectedEvent Callback = [this](const FCavrnusSpaceInfo& space)
 		{
+			if (SpaceSelected)
+				SpaceSelected(space);
+			
 			OnCavrnusSpaceSelected.Broadcast(space.SpaceId);
 		};
 

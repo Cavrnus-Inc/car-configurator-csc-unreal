@@ -3,7 +3,6 @@
 
 #include <Containers/Map.h>
 #include "Types/CavrnusBinding.h"
-#include "Types/CavrnusCallbackTypes.h"
 
 #include "PropertiesContainer.generated.h"
 
@@ -72,8 +71,47 @@ public:
 		return ContainerName.Equals(other.ContainerName, ESearchCase::CaseSensitive);
 	}
 
+	/**
+	 * @brief Convenience function to return FString type without accessing member variable
+	 *
+	 * @return The container as an FString
+	 */
 	FString ToString() const
 	{
 		return ContainerName;
+	}
+
+	/**
+	 * @brief Add subcontainer to existing container
+	 *
+	 * @param Subcontainer FString to be added under the existing container.
+	 * @return New Container as FString
+	 */
+	FString Push(FString Subcontainer)
+	{
+		if (!ContainerName.EndsWith("/"))
+			ContainerName = ContainerName + "/";
+		if (Subcontainer.StartsWith("/"))
+			ContainerName = ContainerName + Subcontainer.RightChop(1);
+		else
+			ContainerName = ContainerName + Subcontainer;
+		if (!ContainerName.EndsWith("/"))
+			ContainerName = ContainerName + "/";
+		return ContainerName;
+	}
+
+	/**
+	 * @brief Remove lowest subcontainer level from Container
+	 *
+	 * @return The subcontainer that was removed as an FString
+	 */
+	FString Pop()
+	{
+		if (ContainerName.Len() <= 1)
+			return FString("");
+		int32 Position = ContainerName.Find(TEXT("/"), ESearchCase::CaseSensitive, ESearchDir::FromEnd, ContainerName.Len() - 1);
+		FString popVal = ContainerName.RightChop(Position);
+		ContainerName = ContainerName.LeftChop(ContainerName.Len()-Position);
+		return popVal;
 	}
 };

@@ -790,6 +790,7 @@ PROTOBUF_CONSTEXPR ObjectAdded::ObjectAdded(
   , /*decltype(_impl_.propertiescontainer_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.objectcreated_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.spaceconn_)*/nullptr
+  , /*decltype(_impl_.createdtime_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ObjectAddedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ObjectAddedDefaultTypeInternal()
@@ -914,9 +915,87 @@ struct AllJoinableSpacesRespDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AllJoinableSpacesRespDefaultTypeInternal _AllJoinableSpacesResp_default_instance_;
+PROTOBUF_CONSTEXPR ChatAdded::ChatAdded(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.chatpropertyid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.spaceconn_)*/nullptr
+  , /*decltype(_impl_.chatdata_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ChatAddedDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ChatAddedDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ChatAddedDefaultTypeInternal() {}
+  union {
+    ChatAdded _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ChatAddedDefaultTypeInternal _ChatAdded_default_instance_;
+PROTOBUF_CONSTEXPR ChatUpdated::ChatUpdated(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.chatpropertyid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.spaceconn_)*/nullptr
+  , /*decltype(_impl_.chatdata_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ChatUpdatedDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ChatUpdatedDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ChatUpdatedDefaultTypeInternal() {}
+  union {
+    ChatUpdated _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ChatUpdatedDefaultTypeInternal _ChatUpdated_default_instance_;
+PROTOBUF_CONSTEXPR ChatRemoved::ChatRemoved(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.chatpropertyid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.spaceconn_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ChatRemovedDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ChatRemovedDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ChatRemovedDefaultTypeInternal() {}
+  union {
+    ChatRemoved _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ChatRemovedDefaultTypeInternal _ChatRemoved_default_instance_;
+PROTOBUF_CONSTEXPR PostChat::PostChat(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.chattext_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.spaceconn_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct PostChatDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PostChatDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PostChatDefaultTypeInternal() {}
+  union {
+    PostChat _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PostChatDefaultTypeInternal _PostChat_default_instance_;
+PROTOBUF_CONSTEXPR ChatBase::ChatBase(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.text_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.creatorname_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.creatorpicurl_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.createdtime_)*/nullptr
+  , /*decltype(_impl_.chattype_)*/0
+  , /*decltype(_impl_.complete_)*/false
+  , /*decltype(_impl_.wastranslated_)*/false
+  , /*decltype(_impl_.creatorislocal_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ChatBaseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ChatBaseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ChatBaseDefaultTypeInternal() {}
+  union {
+    ChatBase _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ChatBaseDefaultTypeInternal _ChatBase_default_instance_;
 }  // namespace ServerData
-static ::_pb::Metadata file_level_metadata_relay_2eproto[61];
-static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_relay_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_relay_2eproto[66];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_relay_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_relay_2eproto = nullptr;
 
 const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -962,6 +1041,7 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ServerData::RelayClientMessage, _impl_.Msg_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::RelayRemoteMessageBatch, _internal_metadata_),
@@ -976,6 +1056,9 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::RelayRemoteMessage, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
@@ -1451,6 +1534,7 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::ObjectAdded, _impl_.creationopid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::ObjectAdded, _impl_.propertiescontainer_),
   PROTOBUF_FIELD_OFFSET(::ServerData::ObjectAdded, _impl_.objectcreated_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ObjectAdded, _impl_.createdtime_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::ObjectRemoved, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1520,69 +1604,122 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::ServerData::AllJoinableSpacesResp, _impl_.reqid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::AllJoinableSpacesResp, _impl_.availablespaces_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatAdded, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatAdded, _impl_.spaceconn_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatAdded, _impl_.chatpropertyid_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatAdded, _impl_.chatdata_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatUpdated, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatUpdated, _impl_.spaceconn_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatUpdated, _impl_.chatpropertyid_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatUpdated, _impl_.chatdata_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatRemoved, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatRemoved, _impl_.spaceconn_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatRemoved, _impl_.chatpropertyid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::PostChat, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ServerData::PostChat, _impl_.spaceconn_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::PostChat, _impl_.chattext_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatBase, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatBase, _impl_.chattype_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatBase, _impl_.text_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatBase, _impl_.createdtime_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatBase, _impl_.complete_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatBase, _impl_.wastranslated_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatBase, _impl_.creatorislocal_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatBase, _impl_.creatorname_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ChatBase, _impl_.creatorpicurl_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::ServerData::RelayClientMessageBatch)},
   { 7, -1, -1, sizeof(::ServerData::RelayClientMessage)},
-  { 43, -1, -1, sizeof(::ServerData::RelayRemoteMessageBatch)},
-  { 50, -1, -1, sizeof(::ServerData::RelayRemoteMessage)},
-  { 83, -1, -1, sizeof(::ServerData::KeepAlive)},
-  { 89, -1, -1, sizeof(::ServerData::UpdateTime)},
-  { 96, -1, -1, sizeof(::ServerData::StatusMessage)},
-  { 106, -1, -1, sizeof(::ServerData::AuthenticateReq)},
-  { 116, -1, -1, sizeof(::ServerData::AuthenticateGuestReq)},
-  { 125, -1, -1, sizeof(::ServerData::AuthenticateResp)},
-  { 135, -1, -1, sizeof(::ServerData::AuthenticateGuestResp)},
-  { 145, -1, -1, sizeof(::ServerData::AuthenticateWithLinkReq)},
-  { 153, -1, -1, sizeof(::ServerData::AuthenticateWithLinkResp)},
-  { 163, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutReq)},
-  { 170, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutResp)},
-  { 181, -1, -1, sizeof(::ServerData::JoinSpaceFromIdReq)},
-  { 189, -1, -1, sizeof(::ServerData::JoinSpaceFromIdResp)},
-  { 199, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionReq)},
-  { 207, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionResp)},
-  { 217, -1, -1, sizeof(::ServerData::PropertyValue)},
-  { 231, -1, -1, sizeof(::ServerData::DefinePropertyDefaultValue)},
-  { 241, -1, -1, sizeof(::ServerData::PostPropertyUpdate)},
-  { 252, -1, -1, sizeof(::ServerData::BeginTransientPropertyUpdate)},
-  { 264, -1, -1, sizeof(::ServerData::ContinueTransientPropertyUpdate)},
-  { 276, -1, -1, sizeof(::ServerData::FinalizeTransientPropertyUpdate)},
-  { 288, -1, -1, sizeof(::ServerData::CancelTransientPropertyUpdate)},
-  { 296, -1, -1, sizeof(::ServerData::TransformPropertyValue)},
-  { 305, -1, -1, sizeof(::ServerData::GetAudioInputDevicesReq)},
-  { 312, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesReq)},
-  { 319, -1, -1, sizeof(::ServerData::GetVideoInputDevicesReq)},
-  { 326, -1, -1, sizeof(::ServerData::GetAudioInputDevicesResp)},
-  { 336, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesResp)},
-  { 346, -1, -1, sizeof(::ServerData::GetVideoInputDevicesResp)},
-  { 356, -1, -1, sizeof(::ServerData::SetAudioInputDeviceReq)},
-  { 364, -1, -1, sizeof(::ServerData::SetAudioOutputDeviceReq)},
-  { 372, -1, -1, sizeof(::ServerData::SetVideoInputDeviceReq)},
-  { 380, -1, -1, sizeof(::ServerData::PostCreateObject)},
-  { 389, -1, -1, sizeof(::ServerData::PostRemoveObject)},
-  { 397, -1, -1, sizeof(::ServerData::FetchFileByIdReq)},
-  { 404, -1, -1, sizeof(::ServerData::FetchFileByIdProgressResp)},
-  { 413, -1, -1, sizeof(::ServerData::FetchFileByIdCompletedResp)},
-  { 422, -1, -1, sizeof(::ServerData::FetchAllUploadedContentReq)},
-  { 429, -1, -1, sizeof(::ServerData::UploadLocalFileResp)},
-  { 437, -1, -1, sizeof(::ServerData::UploadLocalFileReq)},
-  { 447, -1, -1, sizeof(::ServerData::FetchAllUploadedContentResp)},
-  { 455, -1, -1, sizeof(::ServerData::PropMetadataStatus)},
-  { 464, -1, -1, sizeof(::ServerData::PropertyValueStatus)},
-  { 474, -1, -1, sizeof(::ServerData::LocalPropertyHandledResp)},
-  { 483, -1, -1, sizeof(::ServerData::UserAdded)},
-  { 491, -1, -1, sizeof(::ServerData::UserRemoved)},
-  { 499, -1, -1, sizeof(::ServerData::UserVideoFrame)},
-  { 510, -1, -1, sizeof(::ServerData::SpaceInfo)},
-  { 521, -1, -1, sizeof(::ServerData::ObjectAdded)},
-  { 531, -1, -1, sizeof(::ServerData::ObjectRemoved)},
-  { 539, -1, -1, sizeof(::ServerData::UpdateLocalUserMuted)},
-  { 547, -1, -1, sizeof(::ServerData::UpdateLocalUserCoPresence)},
-  { 555, -1, -1, sizeof(::ServerData::UpdateLocalUserStreamState)},
-  { 563, 571, -1, sizeof(::ServerData::PermissionStatusReq)},
-  { 573, 582, -1, sizeof(::ServerData::PermissionStatus)},
-  { 585, -1, -1, sizeof(::ServerData::AllJoinableSpacesReq)},
-  { 592, -1, -1, sizeof(::ServerData::AllJoinableSpacesResp)},
+  { 44, -1, -1, sizeof(::ServerData::RelayRemoteMessageBatch)},
+  { 51, -1, -1, sizeof(::ServerData::RelayRemoteMessage)},
+  { 87, -1, -1, sizeof(::ServerData::KeepAlive)},
+  { 93, -1, -1, sizeof(::ServerData::UpdateTime)},
+  { 100, -1, -1, sizeof(::ServerData::StatusMessage)},
+  { 110, -1, -1, sizeof(::ServerData::AuthenticateReq)},
+  { 120, -1, -1, sizeof(::ServerData::AuthenticateGuestReq)},
+  { 129, -1, -1, sizeof(::ServerData::AuthenticateResp)},
+  { 139, -1, -1, sizeof(::ServerData::AuthenticateGuestResp)},
+  { 149, -1, -1, sizeof(::ServerData::AuthenticateWithLinkReq)},
+  { 157, -1, -1, sizeof(::ServerData::AuthenticateWithLinkResp)},
+  { 167, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutReq)},
+  { 174, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutResp)},
+  { 185, -1, -1, sizeof(::ServerData::JoinSpaceFromIdReq)},
+  { 193, -1, -1, sizeof(::ServerData::JoinSpaceFromIdResp)},
+  { 203, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionReq)},
+  { 211, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionResp)},
+  { 221, -1, -1, sizeof(::ServerData::PropertyValue)},
+  { 235, -1, -1, sizeof(::ServerData::DefinePropertyDefaultValue)},
+  { 245, -1, -1, sizeof(::ServerData::PostPropertyUpdate)},
+  { 256, -1, -1, sizeof(::ServerData::BeginTransientPropertyUpdate)},
+  { 268, -1, -1, sizeof(::ServerData::ContinueTransientPropertyUpdate)},
+  { 280, -1, -1, sizeof(::ServerData::FinalizeTransientPropertyUpdate)},
+  { 292, -1, -1, sizeof(::ServerData::CancelTransientPropertyUpdate)},
+  { 300, -1, -1, sizeof(::ServerData::TransformPropertyValue)},
+  { 309, -1, -1, sizeof(::ServerData::GetAudioInputDevicesReq)},
+  { 316, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesReq)},
+  { 323, -1, -1, sizeof(::ServerData::GetVideoInputDevicesReq)},
+  { 330, -1, -1, sizeof(::ServerData::GetAudioInputDevicesResp)},
+  { 340, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesResp)},
+  { 350, -1, -1, sizeof(::ServerData::GetVideoInputDevicesResp)},
+  { 360, -1, -1, sizeof(::ServerData::SetAudioInputDeviceReq)},
+  { 368, -1, -1, sizeof(::ServerData::SetAudioOutputDeviceReq)},
+  { 376, -1, -1, sizeof(::ServerData::SetVideoInputDeviceReq)},
+  { 384, -1, -1, sizeof(::ServerData::PostCreateObject)},
+  { 393, -1, -1, sizeof(::ServerData::PostRemoveObject)},
+  { 401, -1, -1, sizeof(::ServerData::FetchFileByIdReq)},
+  { 408, -1, -1, sizeof(::ServerData::FetchFileByIdProgressResp)},
+  { 417, -1, -1, sizeof(::ServerData::FetchFileByIdCompletedResp)},
+  { 426, -1, -1, sizeof(::ServerData::FetchAllUploadedContentReq)},
+  { 433, -1, -1, sizeof(::ServerData::UploadLocalFileResp)},
+  { 441, -1, -1, sizeof(::ServerData::UploadLocalFileReq)},
+  { 451, -1, -1, sizeof(::ServerData::FetchAllUploadedContentResp)},
+  { 459, -1, -1, sizeof(::ServerData::PropMetadataStatus)},
+  { 468, -1, -1, sizeof(::ServerData::PropertyValueStatus)},
+  { 478, -1, -1, sizeof(::ServerData::LocalPropertyHandledResp)},
+  { 487, -1, -1, sizeof(::ServerData::UserAdded)},
+  { 495, -1, -1, sizeof(::ServerData::UserRemoved)},
+  { 503, -1, -1, sizeof(::ServerData::UserVideoFrame)},
+  { 514, -1, -1, sizeof(::ServerData::SpaceInfo)},
+  { 525, -1, -1, sizeof(::ServerData::ObjectAdded)},
+  { 536, -1, -1, sizeof(::ServerData::ObjectRemoved)},
+  { 544, -1, -1, sizeof(::ServerData::UpdateLocalUserMuted)},
+  { 552, -1, -1, sizeof(::ServerData::UpdateLocalUserCoPresence)},
+  { 560, -1, -1, sizeof(::ServerData::UpdateLocalUserStreamState)},
+  { 568, 576, -1, sizeof(::ServerData::PermissionStatusReq)},
+  { 578, 587, -1, sizeof(::ServerData::PermissionStatus)},
+  { 590, -1, -1, sizeof(::ServerData::AllJoinableSpacesReq)},
+  { 597, -1, -1, sizeof(::ServerData::AllJoinableSpacesResp)},
+  { 605, -1, -1, sizeof(::ServerData::ChatAdded)},
+  { 614, -1, -1, sizeof(::ServerData::ChatUpdated)},
+  { 623, -1, -1, sizeof(::ServerData::ChatRemoved)},
+  { 631, -1, -1, sizeof(::ServerData::PostChat)},
+  { 639, -1, -1, sizeof(::ServerData::ChatBase)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1647,6 +1784,11 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::ServerData::_PermissionStatus_default_instance_._instance,
   &::ServerData::_AllJoinableSpacesReq_default_instance_._instance,
   &::ServerData::_AllJoinableSpacesResp_default_instance_._instance,
+  &::ServerData::_ChatAdded_default_instance_._instance,
+  &::ServerData::_ChatUpdated_default_instance_._instance,
+  &::ServerData::_ChatRemoved_default_instance_._instance,
+  &::ServerData::_PostChat_default_instance_._instance,
+  &::ServerData::_ChatBase_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_relay_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1654,7 +1796,7 @@ const char descriptor_table_protodef_relay_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "roto\032\020properties.proto\032\014common.proto\032\037go"
   "ogle/protobuf/timestamp.proto\"K\n\027RelayCl"
   "ientMessageBatch\0220\n\010Messages\030\001 \003(\0132\036.Ser"
-  "verData.RelayClientMessage\"\357\017\n\022RelayClie"
+  "verData.RelayClientMessage\"\231\020\n\022RelayClie"
   "ntMessage\022*\n\tKeepAlive\030\001 \001(\0132\025.ServerDat"
   "a.KeepAliveH\000\022,\n\nUpdateTime\030\002 \001(\0132\026.Serv"
   "erData.UpdateTimeH\000\0226\n\017AuthenticateReq\030\n"
@@ -1705,208 +1847,232 @@ const char descriptor_table_protodef_relay_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "chAllUploadedContentReq\030o \001(\0132&.ServerDa"
   "ta.FetchAllUploadedContentReqH\000\022<\n\022Uploa"
   "dLocalFileReq\030p \001(\0132\036.ServerData.UploadL"
-  "ocalFileReqH\000B\005\n\003Msg\"K\n\027RelayRemoteMessa"
-  "geBatch\0220\n\010Messages\030\001 \003(\0132\036.ServerData.R"
-  "elayRemoteMessage\"\366\014\n\022RelayRemoteMessage"
-  "\022,\n\007Message\030\001 \001(\0132\031.ServerData.StatusMes"
-  "sageH\000\0228\n\020AuthenticateResp\030\002 \001(\0132\034.Serve"
-  "rData.AuthenticateRespH\000\022B\n\025Authenticate"
-  "GuestResp\030\003 \001(\0132!.ServerData.Authenticat"
-  "eGuestRespH\000\022L\n\032ExitAllSpacesAndLogoutRe"
-  "sp\030\004 \001(\0132&.ServerData.ExitAllSpacesAndLo"
-  "goutRespH\000\022>\n\023JoinSpaceFromIdResp\030\n \001(\0132"
-  "\037.ServerData.JoinSpaceFromIdRespH\000\022N\n\033Sh"
-  "utdownSpaceConnectionResp\030\013 \001(\0132\'.Server"
-  "Data.ShutdownSpaceConnectionRespH\000\022H\n\030Ge"
-  "tAudioInputDevicesResp\030\024 \001(\0132$.ServerDat"
-  "a.GetAudioInputDevicesRespH\000\022J\n\031GetAudio"
-  "OutputDevicesResp\030\025 \001(\0132%.ServerData.Get"
-  "AudioOutputDevicesRespH\000\022H\n\030GetVideoInpu"
-  "tDevicesResp\030\026 \001(\0132$.ServerData.GetVideo"
-  "InputDevicesRespH\000\022>\n\023PropertyValueStatu"
-  "s\0302 \001(\0132\037.ServerData.PropertyValueStatus"
-  "H\000\022H\n\030LocalPropertyHandledResp\0303 \001(\0132$.S"
-  "erverData.LocalPropertyHandledRespH\000\022<\n\022"
-  "PropMetadataStatus\0304 \001(\0132\036.ServerData.Pr"
-  "opMetadataStatusH\000\022*\n\tUserAdded\030< \001(\0132\025."
-  "ServerData.UserAddedH\000\022.\n\013UserRemoved\030= "
-  "\001(\0132\027.ServerData.UserRemovedH\000\0224\n\016UserVi"
-  "deoFrame\030A \001(\0132\032.ServerData.UserVideoFra"
-  "meH\000\022+\n\nSpaceAdded\030F \001(\0132\025.ServerData.Sp"
-  "aceInfoH\000\022-\n\014SpaceUpdated\030G \001(\0132\025.Server"
-  "Data.SpaceInfoH\000\022-\n\014SpaceRemoved\030H \001(\0132\025"
-  ".ServerData.SpaceInfoH\000\022.\n\013ObjectAdded\030P"
-  " \001(\0132\027.ServerData.ObjectAddedH\000\0222\n\rObjec"
-  "tRemoved\030Q \001(\0132\031.ServerData.ObjectRemove"
-  "dH\000\0228\n\020PermissionStatus\030Z \001(\0132\034.ServerDa"
-  "ta.PermissionStatusH\000\022B\n\025AllJoinableSpac"
-  "esResp\030d \001(\0132!.ServerData.AllJoinableSpa"
-  "cesRespH\000\022J\n\031FetchFileByIdProgressResp\030n"
-  " \001(\0132%.ServerData.FetchFileByIdProgressR"
-  "espH\000\022L\n\032FetchFileByIdCompletedResp\030o \001("
-  "\0132&.ServerData.FetchFileByIdCompletedRes"
-  "pH\000\022N\n\033FetchAllUploadedContentResp\030p \001(\013"
-  "2\'.ServerData.FetchAllUploadedContentRes"
-  "pH\000\022>\n\023UploadLocalFileResp\030q \001(\0132\037.Serve"
-  "rData.UploadLocalFileRespH\000B\005\n\003Msg\"\013\n\tKe"
-  "epAlive\"\032\n\nUpdateTime\022\014\n\004time\030\001 \001(\001\"M\n\rS"
-  "tatusMessage\022\017\n\005error\030\001 \001(\tH\000\022\021\n\007warning"
-  "\030\002 \001(\tH\000\022\r\n\003log\030\003 \001(\tH\000B\t\n\007Message\"Q\n\017Au"
-  "thenticateReq\022\r\n\005reqId\030\001 \001(\005\022\016\n\006server\030\n"
-  " \001(\t\022\r\n\005email\030\013 \001(\t\022\020\n\010password\030\014 \001(\t\"I\n"
-  "\024AuthenticateGuestReq\022\r\n\005reqId\030\001 \001(\005\022\016\n\006"
-  "server\030\n \001(\t\022\022\n\nscreenName\030\013 \001(\t\"c\n\020Auth"
-  "enticateResp\022\r\n\005reqId\030\001 \001(\005\022\'\n\004auth\030\n \001("
-  "\0132\027.ServerData.CavrnusAuthH\000\022\017\n\005error\030\013 "
-  "\001(\tH\000B\006\n\004Resp\"h\n\025AuthenticateGuestResp\022\r"
-  "\n\005reqId\030\001 \001(\005\022\'\n\004auth\030\n \001(\0132\027.ServerData"
-  ".CavrnusAuthH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\""
-  "6\n\027AuthenticateWithLinkReq\022\r\n\005reqId\030\001 \001("
-  "\005\022\014\n\004link\030\n \001(\t\"{\n\030AuthenticateWithLinkR"
-  "esp\022\r\n\005reqId\030\001 \001(\005\0227\n\010linkAuth\030\n \001(\0132#.S"
-  "erverData.CavrnusAuthLinkResponseH\000\022\017\n\005e"
-  "rror\030\013 \001(\tH\000B\006\n\004Resp\"*\n\031ExitAllSpacesAnd"
-  "LogoutReq\022\r\n\005reqId\030\001 \001(\005\"s\n\032ExitAllSpace"
-  "sAndLogoutResp\022\r\n\005reqId\030\001 \001(\005\022\027\n\rlogoutS"
-  "uccess\030\n \001(\010H\000\022\017\n\005error\030\013 \001(\tH\000\022\024\n\014space"
-  "sExited\030\024 \003(\005B\006\n\004Resp\"4\n\022JoinSpaceFromId"
-  "Req\022\r\n\005reqId\030\001 \001(\005\022\017\n\007spaceId\030\n \001(\t\"v\n\023J"
-  "oinSpaceFromIdResp\022\r\n\005reqId\030\001 \001(\005\0227\n\tspa"
-  "ceConn\030\n \001(\0132\".ServerData.CavrnusSpaceCo"
-  "nnectionH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"h\n\032S"
-  "hutdownSpaceConnectionReq\022\r\n\005reqId\030\001 \001(\005"
-  "\022;\n\017SpaceConnection\030\n \001(\0132\".ServerData.C"
-  "avrnusSpaceConnection\"~\n\033ShutdownSpaceCo"
-  "nnectionResp\022\r\n\005reqId\030\001 \001(\005\0227\n\tspaceConn"
-  "\030\n \001(\0132\".ServerData.CavrnusSpaceConnecti"
-  "onH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"\213\002\n\rProper"
-  "tyValue\022\021\n\007boolVal\030\n \001(\010H\000\022\023\n\tstringVal\030"
-  "\013 \001(\tH\000\022\023\n\tscalarVal\030\014 \001(\002H\000\022#\n\tvectorVa"
-  "l\030\r \001(\0132\016.Common.Float4H\000\022\"\n\010colorVal\030\016 "
-  "\001(\0132\016.Common.Color4H\000\022:\n\014transformVal\030\021 "
-  "\001(\0132\".ServerData.TransformPropertyValueH"
-  "\000\022/\n\007linkVal\030\017 \001(\0132\034.Property.PropertyId"
-  "entifierH\000B\007\n\005Value\"\260\001\n\032DefinePropertyDe"
-  "faultValue\0225\n\tSpaceConn\030\001 \001(\0132\".ServerDa"
-  "ta.CavrnusSpaceConnection\022\022\n\nPropertyId\030"
-  "\002 \001(\t\022\025\n\rlocalChangeId\030\003 \001(\005\0220\n\rProperty"
-  "Value\030\n \001(\0132\031.ServerData.PropertyValue\"\270"
-  "\001\n\022PostPropertyUpdate\0225\n\tSpaceConn\030\001 \001(\013"
-  "2\".ServerData.CavrnusSpaceConnection\022\022\n\n"
-  "PropertyId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001(\005\022"
-  "0\n\rPropertyValue\030\n \001(\0132\031.ServerData.Prop"
-  "ertyValue\022\016\n\006smooth\030\024 \001(\010\"\331\001\n\034BeginTrans"
-  "ientPropertyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\"."
-  "ServerData.CavrnusSpaceConnection\022\025\n\rLiv"
-  "eUpdaterId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\r"
-  "localChangeId\030\004 \001(\005\0220\n\rPropertyValue\030\n \001"
-  "(\0132\031.ServerData.PropertyValue\022\016\n\006smooth\030"
-  "\024 \001(\010\"\334\001\n\037ContinueTransientPropertyUpdat"
-  "e\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.Cavrnu"
-  "sSpaceConnection\022\025\n\rLiveUpdaterId\030\002 \001(\t\022"
-  "\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001"
-  "(\005\0220\n\rPropertyValue\030\n \001(\0132\031.ServerData.P"
-  "ropertyValue\022\016\n\006smooth\030\024 \001(\010\"\334\001\n\037Finaliz"
-  "eTransientPropertyUpdate\0225\n\tSpaceConn\030\001 "
-  "\001(\0132\".ServerData.CavrnusSpaceConnection\022"
-  "\025\n\rLiveUpdaterId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001"
-  "(\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rPropertyVal"
-  "ue\030\n \001(\0132\031.ServerData.PropertyValue\022\016\n\006s"
-  "mooth\030\024 \001(\010\"m\n\035CancelTransientPropertyUp"
-  "date\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.Cav"
-  "rnusSpaceConnection\022\025\n\rLiveUpdaterId\030\002 \001"
-  "(\t\"o\n\026TransformPropertyValue\022\033\n\003pos\030\001 \001("
-  "\0132\016.Common.Float3\022\033\n\003rot\030\002 \001(\0132\016.Common."
-  "Float3\022\033\n\003scl\030\003 \001(\0132\016.Common.Float3\"(\n\027G"
-  "etAudioInputDevicesReq\022\r\n\005reqId\030\001 \001(\005\")\n"
-  "\030GetAudioOutputDevicesReq\022\r\n\005reqId\030\001 \001(\005"
-  "\"(\n\027GetVideoInputDevicesReq\022\r\n\005reqId\030\001 \001"
-  "(\005\"z\n\030GetAudioInputDevicesResp\022\r\n\005reqId\030"
-  "\001 \001(\005\0226\n\007Devices\030\n \001(\0132#.ServerData.RtcA"
-  "udioInputDeviceListH\000\022\017\n\005error\030\013 \001(\tH\000B\006"
-  "\n\004Resp\"|\n\031GetAudioOutputDevicesResp\022\r\n\005r"
-  "eqId\030\001 \001(\005\0227\n\007Devices\030\n \001(\0132$.ServerData"
-  ".RtcAudioOutputDeviceListH\000\022\017\n\005error\030\013 \001"
-  "(\tH\000B\006\n\004Resp\"z\n\030GetVideoInputDevicesResp"
-  "\022\r\n\005reqId\030\001 \001(\005\0226\n\007Devices\030\n \001(\0132#.Serve"
-  "rData.RtcVideoInputDeviceListH\000\022\017\n\005error"
-  "\030\013 \001(\tH\000B\006\n\004Resp\"X\n\026SetAudioInputDeviceR"
-  "eq\022\r\n\005reqId\030\001 \001(\005\022/\n\006Device\030\002 \001(\0132\037.Serv"
-  "erData.RtcAudioInputDevice\"Z\n\027SetAudioOu"
-  "tputDeviceReq\022\r\n\005reqId\030\001 \001(\005\0220\n\006Device\030\002"
-  " \001(\0132 .ServerData.RtcAudioOutputDevice\"X"
-  "\n\026SetVideoInputDeviceReq\022\r\n\005reqId\030\001 \001(\005\022"
-  "/\n\006Device\030\002 \001(\0132\037.ServerData.RtcVideoInp"
-  "utDevice\"{\n\020PostCreateObject\0225\n\tspaceCon"
-  "n\030\001 \001(\0132\".ServerData.CavrnusSpaceConnect"
-  "ion\022\025\n\rnewInstanceId\030\002 \001(\t\022\031\n\021uniqueObje"
-  "ctIdent\030\n \001(\t\"W\n\020PostRemoveObject\0225\n\tspa"
-  "ceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceCo"
-  "nnection\022\014\n\004opId\030\002 \001(\t\"%\n\020FetchFileByIdR"
-  "eq\022\021\n\tcontentId\030\001 \001(\t\"V\n\031FetchFileByIdPr"
-  "ogressResp\022\021\n\tcontentId\030\001 \001(\t\022\020\n\010progres"
-  "s\030\n \001(\002\022\024\n\014progressStep\030\013 \001(\t\"e\n\032FetchFi"
-  "leByIdCompletedResp\022\021\n\tcontentId\030\001 \001(\t\022\020"
-  "\n\010filePath\030\n \001(\t\022\"\n\032finalFileNameWithExt"
-  "ension\030\013 \001(\t\"+\n\032FetchAllUploadedContentR"
-  "eq\022\r\n\005reqId\030\001 \001(\005\"_\n\023UploadLocalFileResp"
-  "\022\r\n\005reqId\030\001 \001(\005\0229\n\017uploadedContent\030\n \001(\013"
-  "2 .ServerData.CavrnusRemoteContent\"Y\n\022Up"
-  "loadLocalFileReq\022\r\n\005reqId\030\001 \001(\005\022\020\n\010fileP"
-  "ath\030\n \001(\t\022\017\n\007tagKeys\030\013 \003(\t\022\021\n\ttagValues\030"
-  "\014 \003(\t\"h\n\033FetchAllUploadedContentResp\022\r\n\005"
-  "reqId\030\001 \001(\005\022:\n\020availableContent\030\n \003(\0132 ."
-  "ServerData.CavrnusRemoteContent\"\223\001\n\022Prop"
-  "MetadataStatus\0225\n\tspaceConn\030\001 \001(\0132\".Serv"
-  "erData.CavrnusSpaceConnection\0222\n\014propert"
-  "yPath\030\002 \001(\0132\034.Property.PropertyIdentifie"
-  "r\022\022\n\nisReadonly\030\n \001(\010\"\304\001\n\023PropertyValueS"
-  "tatus\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Ca"
-  "vrnusSpaceConnection\0222\n\014propertyPath\030\002 \001"
-  "(\0132\034.Property.PropertyIdentifier\0220\n\rProp"
-  "ertyValue\030\n \001(\0132\031.ServerData.PropertyVal"
-  "ue\022\020\n\010priority\030\013 \001(\005\"\240\001\n\030LocalPropertyHa"
-  "ndledResp\0225\n\tspaceConn\030\001 \001(\0132\".ServerDat"
-  "a.CavrnusSpaceConnection\0222\n\014propertyPath"
-  "\030\002 \001(\0132\034.Property.PropertyIdentifier\022\031\n\021"
-  "localPropChangeId\030\n \001(\005\"i\n\tUserAdded\0225\n\t"
+  "ocalFileReqH\000\022(\n\010PostChat\030x \001(\0132\024.Server"
+  "Data.PostChatH\000B\005\n\003Msg\"K\n\027RelayRemoteMes"
+  "sageBatch\0220\n\010Messages\030\001 \003(\0132\036.ServerData"
+  ".RelayRemoteMessage\"\202\016\n\022RelayRemoteMessa"
+  "ge\022,\n\007Message\030\001 \001(\0132\031.ServerData.StatusM"
+  "essageH\000\0228\n\020AuthenticateResp\030\002 \001(\0132\034.Ser"
+  "verData.AuthenticateRespH\000\022B\n\025Authentica"
+  "teGuestResp\030\003 \001(\0132!.ServerData.Authentic"
+  "ateGuestRespH\000\022L\n\032ExitAllSpacesAndLogout"
+  "Resp\030\004 \001(\0132&.ServerData.ExitAllSpacesAnd"
+  "LogoutRespH\000\022>\n\023JoinSpaceFromIdResp\030\n \001("
+  "\0132\037.ServerData.JoinSpaceFromIdRespH\000\022N\n\033"
+  "ShutdownSpaceConnectionResp\030\013 \001(\0132\'.Serv"
+  "erData.ShutdownSpaceConnectionRespH\000\022H\n\030"
+  "GetAudioInputDevicesResp\030\024 \001(\0132$.ServerD"
+  "ata.GetAudioInputDevicesRespH\000\022J\n\031GetAud"
+  "ioOutputDevicesResp\030\025 \001(\0132%.ServerData.G"
+  "etAudioOutputDevicesRespH\000\022H\n\030GetVideoIn"
+  "putDevicesResp\030\026 \001(\0132$.ServerData.GetVid"
+  "eoInputDevicesRespH\000\022>\n\023PropertyValueSta"
+  "tus\0302 \001(\0132\037.ServerData.PropertyValueStat"
+  "usH\000\022H\n\030LocalPropertyHandledResp\0303 \001(\0132$"
+  ".ServerData.LocalPropertyHandledRespH\000\022<"
+  "\n\022PropMetadataStatus\0304 \001(\0132\036.ServerData."
+  "PropMetadataStatusH\000\022*\n\tUserAdded\030< \001(\0132"
+  "\025.ServerData.UserAddedH\000\022.\n\013UserRemoved\030"
+  "= \001(\0132\027.ServerData.UserRemovedH\000\0224\n\016User"
+  "VideoFrame\030A \001(\0132\032.ServerData.UserVideoF"
+  "rameH\000\022+\n\nSpaceAdded\030F \001(\0132\025.ServerData."
+  "SpaceInfoH\000\022-\n\014SpaceUpdated\030G \001(\0132\025.Serv"
+  "erData.SpaceInfoH\000\022-\n\014SpaceRemoved\030H \001(\013"
+  "2\025.ServerData.SpaceInfoH\000\022.\n\013ObjectAdded"
+  "\030P \001(\0132\027.ServerData.ObjectAddedH\000\0222\n\rObj"
+  "ectRemoved\030Q \001(\0132\031.ServerData.ObjectRemo"
+  "vedH\000\0228\n\020PermissionStatus\030Z \001(\0132\034.Server"
+  "Data.PermissionStatusH\000\022B\n\025AllJoinableSp"
+  "acesResp\030d \001(\0132!.ServerData.AllJoinableS"
+  "pacesRespH\000\022J\n\031FetchFileByIdProgressResp"
+  "\030n \001(\0132%.ServerData.FetchFileByIdProgres"
+  "sRespH\000\022L\n\032FetchFileByIdCompletedResp\030o "
+  "\001(\0132&.ServerData.FetchFileByIdCompletedR"
+  "espH\000\022N\n\033FetchAllUploadedContentResp\030p \001"
+  "(\0132\'.ServerData.FetchAllUploadedContentR"
+  "espH\000\022>\n\023UploadLocalFileResp\030q \001(\0132\037.Ser"
+  "verData.UploadLocalFileRespH\000\022*\n\tChatAdd"
+  "ed\030x \001(\0132\025.ServerData.ChatAddedH\000\022.\n\013Cha"
+  "tUpdated\030y \001(\0132\027.ServerData.ChatUpdatedH"
+  "\000\022.\n\013ChatRemoved\030z \001(\0132\027.ServerData.Chat"
+  "RemovedH\000B\005\n\003Msg\"\013\n\tKeepAlive\"\032\n\nUpdateT"
+  "ime\022\014\n\004time\030\001 \001(\001\"M\n\rStatusMessage\022\017\n\005er"
+  "ror\030\001 \001(\tH\000\022\021\n\007warning\030\002 \001(\tH\000\022\r\n\003log\030\003 "
+  "\001(\tH\000B\t\n\007Message\"Q\n\017AuthenticateReq\022\r\n\005r"
+  "eqId\030\001 \001(\005\022\016\n\006server\030\n \001(\t\022\r\n\005email\030\013 \001("
+  "\t\022\020\n\010password\030\014 \001(\t\"I\n\024AuthenticateGuest"
+  "Req\022\r\n\005reqId\030\001 \001(\005\022\016\n\006server\030\n \001(\t\022\022\n\nsc"
+  "reenName\030\013 \001(\t\"c\n\020AuthenticateResp\022\r\n\005re"
+  "qId\030\001 \001(\005\022\'\n\004auth\030\n \001(\0132\027.ServerData.Cav"
+  "rnusAuthH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"h\n\025A"
+  "uthenticateGuestResp\022\r\n\005reqId\030\001 \001(\005\022\'\n\004a"
+  "uth\030\n \001(\0132\027.ServerData.CavrnusAuthH\000\022\017\n\005"
+  "error\030\013 \001(\tH\000B\006\n\004Resp\"6\n\027AuthenticateWit"
+  "hLinkReq\022\r\n\005reqId\030\001 \001(\005\022\014\n\004link\030\n \001(\t\"{\n"
+  "\030AuthenticateWithLinkResp\022\r\n\005reqId\030\001 \001(\005"
+  "\0227\n\010linkAuth\030\n \001(\0132#.ServerData.CavrnusA"
+  "uthLinkResponseH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Re"
+  "sp\"*\n\031ExitAllSpacesAndLogoutReq\022\r\n\005reqId"
+  "\030\001 \001(\005\"s\n\032ExitAllSpacesAndLogoutResp\022\r\n\005"
+  "reqId\030\001 \001(\005\022\027\n\rlogoutSuccess\030\n \001(\010H\000\022\017\n\005"
+  "error\030\013 \001(\tH\000\022\024\n\014spacesExited\030\024 \003(\005B\006\n\004R"
+  "esp\"4\n\022JoinSpaceFromIdReq\022\r\n\005reqId\030\001 \001(\005"
+  "\022\017\n\007spaceId\030\n \001(\t\"v\n\023JoinSpaceFromIdResp"
+  "\022\r\n\005reqId\030\001 \001(\005\0227\n\tspaceConn\030\n \001(\0132\".Ser"
+  "verData.CavrnusSpaceConnectionH\000\022\017\n\005erro"
+  "r\030\013 \001(\tH\000B\006\n\004Resp\"h\n\032ShutdownSpaceConnec"
+  "tionReq\022\r\n\005reqId\030\001 \001(\005\022;\n\017SpaceConnectio"
+  "n\030\n \001(\0132\".ServerData.CavrnusSpaceConnect"
+  "ion\"~\n\033ShutdownSpaceConnectionResp\022\r\n\005re"
+  "qId\030\001 \001(\005\0227\n\tspaceConn\030\n \001(\0132\".ServerDat"
+  "a.CavrnusSpaceConnectionH\000\022\017\n\005error\030\013 \001("
+  "\tH\000B\006\n\004Resp\"\213\002\n\rPropertyValue\022\021\n\007boolVal"
+  "\030\n \001(\010H\000\022\023\n\tstringVal\030\013 \001(\tH\000\022\023\n\tscalarV"
+  "al\030\014 \001(\002H\000\022#\n\tvectorVal\030\r \001(\0132\016.Common.F"
+  "loat4H\000\022\"\n\010colorVal\030\016 \001(\0132\016.Common.Color"
+  "4H\000\022:\n\014transformVal\030\021 \001(\0132\".ServerData.T"
+  "ransformPropertyValueH\000\022/\n\007linkVal\030\017 \001(\013"
+  "2\034.Property.PropertyIdentifierH\000B\007\n\005Valu"
+  "e\"\260\001\n\032DefinePropertyDefaultValue\0225\n\tSpac"
+  "eConn\030\001 \001(\0132\".ServerData.CavrnusSpaceCon"
+  "nection\022\022\n\nPropertyId\030\002 \001(\t\022\025\n\rlocalChan"
+  "geId\030\003 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031.Serv"
+  "erData.PropertyValue\"\270\001\n\022PostPropertyUpd"
+  "ate\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.Cavr"
+  "nusSpaceConnection\022\022\n\nPropertyId\030\003 \001(\t\022\025"
+  "\n\rlocalChangeId\030\004 \001(\005\0220\n\rPropertyValue\030\n"
+  " \001(\0132\031.ServerData.PropertyValue\022\016\n\006smoot"
+  "h\030\024 \001(\010\"\331\001\n\034BeginTransientPropertyUpdate"
+  "\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.Cavrnus"
+  "SpaceConnection\022\025\n\rLiveUpdaterId\030\002 \001(\t\022\022"
+  "\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001("
+  "\005\0220\n\rPropertyValue\030\n \001(\0132\031.ServerData.Pr"
+  "opertyValue\022\016\n\006smooth\030\024 \001(\010\"\334\001\n\037Continue"
+  "TransientPropertyUpdate\0225\n\tSpaceConn\030\001 \001"
+  "(\0132\".ServerData.CavrnusSpaceConnection\022\025"
+  "\n\rLiveUpdaterId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001("
+  "\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rPropertyValu"
+  "e\030\n \001(\0132\031.ServerData.PropertyValue\022\016\n\006sm"
+  "ooth\030\024 \001(\010\"\334\001\n\037FinalizeTransientProperty"
+  "Update\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData.C"
+  "avrnusSpaceConnection\022\025\n\rLiveUpdaterId\030\002"
+  " \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChangeI"
+  "d\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031.ServerD"
+  "ata.PropertyValue\022\016\n\006smooth\030\024 \001(\010\"m\n\035Can"
+  "celTransientPropertyUpdate\0225\n\tSpaceConn\030"
+  "\001 \001(\0132\".ServerData.CavrnusSpaceConnectio"
+  "n\022\025\n\rLiveUpdaterId\030\002 \001(\t\"o\n\026TransformPro"
+  "pertyValue\022\033\n\003pos\030\001 \001(\0132\016.Common.Float3\022"
+  "\033\n\003rot\030\002 \001(\0132\016.Common.Float3\022\033\n\003scl\030\003 \001("
+  "\0132\016.Common.Float3\"(\n\027GetAudioInputDevice"
+  "sReq\022\r\n\005reqId\030\001 \001(\005\")\n\030GetAudioOutputDev"
+  "icesReq\022\r\n\005reqId\030\001 \001(\005\"(\n\027GetVideoInputD"
+  "evicesReq\022\r\n\005reqId\030\001 \001(\005\"z\n\030GetAudioInpu"
+  "tDevicesResp\022\r\n\005reqId\030\001 \001(\005\0226\n\007Devices\030\n"
+  " \001(\0132#.ServerData.RtcAudioInputDeviceLis"
+  "tH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"|\n\031GetAudio"
+  "OutputDevicesResp\022\r\n\005reqId\030\001 \001(\005\0227\n\007Devi"
+  "ces\030\n \001(\0132$.ServerData.RtcAudioOutputDev"
+  "iceListH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"z\n\030Ge"
+  "tVideoInputDevicesResp\022\r\n\005reqId\030\001 \001(\005\0226\n"
+  "\007Devices\030\n \001(\0132#.ServerData.RtcVideoInpu"
+  "tDeviceListH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"X"
+  "\n\026SetAudioInputDeviceReq\022\r\n\005reqId\030\001 \001(\005\022"
+  "/\n\006Device\030\002 \001(\0132\037.ServerData.RtcAudioInp"
+  "utDevice\"Z\n\027SetAudioOutputDeviceReq\022\r\n\005r"
+  "eqId\030\001 \001(\005\0220\n\006Device\030\002 \001(\0132 .ServerData."
+  "RtcAudioOutputDevice\"X\n\026SetVideoInputDev"
+  "iceReq\022\r\n\005reqId\030\001 \001(\005\022/\n\006Device\030\002 \001(\0132\037."
+  "ServerData.RtcVideoInputDevice\"{\n\020PostCr"
+  "eateObject\0225\n\tspaceConn\030\001 \001(\0132\".ServerDa"
+  "ta.CavrnusSpaceConnection\022\025\n\rnewInstance"
+  "Id\030\002 \001(\t\022\031\n\021uniqueObjectIdent\030\n \001(\t\"W\n\020P"
+  "ostRemoveObject\0225\n\tspaceConn\030\001 \001(\0132\".Ser"
+  "verData.CavrnusSpaceConnection\022\014\n\004opId\030\002"
+  " \001(\t\"%\n\020FetchFileByIdReq\022\021\n\tcontentId\030\001 "
+  "\001(\t\"V\n\031FetchFileByIdProgressResp\022\021\n\tcont"
+  "entId\030\001 \001(\t\022\020\n\010progress\030\n \001(\002\022\024\n\014progres"
+  "sStep\030\013 \001(\t\"e\n\032FetchFileByIdCompletedRes"
+  "p\022\021\n\tcontentId\030\001 \001(\t\022\020\n\010filePath\030\n \001(\t\022\""
+  "\n\032finalFileNameWithExtension\030\013 \001(\t\"+\n\032Fe"
+  "tchAllUploadedContentReq\022\r\n\005reqId\030\001 \001(\005\""
+  "_\n\023UploadLocalFileResp\022\r\n\005reqId\030\001 \001(\005\0229\n"
+  "\017uploadedContent\030\n \001(\0132 .ServerData.Cavr"
+  "nusRemoteContent\"Y\n\022UploadLocalFileReq\022\r"
+  "\n\005reqId\030\001 \001(\005\022\020\n\010filePath\030\n \001(\t\022\017\n\007tagKe"
+  "ys\030\013 \003(\t\022\021\n\ttagValues\030\014 \003(\t\"h\n\033FetchAllU"
+  "ploadedContentResp\022\r\n\005reqId\030\001 \001(\005\022:\n\020ava"
+  "ilableContent\030\n \003(\0132 .ServerData.Cavrnus"
+  "RemoteContent\"\223\001\n\022PropMetadataStatus\0225\n\t"
   "spaceConn\030\001 \001(\0132\".ServerData.CavrnusSpac"
-  "eConnection\022%\n\004user\030\002 \001(\0132\027.ServerData.C"
-  "avrnusUser\"T\n\013UserRemoved\0225\n\tspaceConn\030\001"
-  " \001(\0132\".ServerData.CavrnusSpaceConnection"
-  "\022\016\n\006userId\030\002 \001(\t\"\203\001\n\016UserVideoFrame\0225\n\ts"
-  "paceConn\030\001 \001(\0132\".ServerData.CavrnusSpace"
-  "Connection\022\016\n\006userId\030\002 \001(\t\022\014\n\004resX\030\n \001(\005"
-  "\022\014\n\004resY\030\013 \001(\005\022\016\n\006stream\030\024 \001(\014\"\214\001\n\tSpace"
-  "Info\022\017\n\007spaceId\030\001 \001(\t\022\021\n\tspaceName\030\002 \001(\t"
-  "\022\031\n\021spaceThumbnailUrl\030\003 \001(\t\022\020\n\010archived\030"
-  "\004 \001(\010\022.\n\nlastAccess\030\005 \001(\0132\032.google.proto"
-  "buf.Timestamp\"\216\001\n\013ObjectAdded\0225\n\tspaceCo"
-  "nn\030\001 \001(\0132\".ServerData.CavrnusSpaceConnec"
-  "tion\022\024\n\014creationOpId\030\002 \001(\t\022\033\n\023properties"
-  "Container\030\003 \001(\t\022\025\n\robjectCreated\030\004 \001(\t\"c"
-  "\n\rObjectRemoved\0225\n\tspaceConn\030\001 \001(\0132\".Ser"
-  "verData.CavrnusSpaceConnection\022\033\n\023proper"
-  "tiesContainer\030\003 \001(\t\"\\\n\024UpdateLocalUserMu"
-  "ted\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavr"
-  "nusSpaceConnection\022\r\n\005muted\030\002 \001(\010\"\226\001\n\031Up"
-  "dateLocalUserCoPresence\0225\n\tspaceConn\030\001 \001"
-  "(\0132\".ServerData.CavrnusSpaceConnection\022B"
-  "\n\026localUserRootTransform\030\n \001(\0132\".ServerD"
-  "ata.TransformPropertyValue\"f\n\032UpdateLoca"
-  "lUserStreamState\0225\n\tspaceConn\030\001 \001(\0132\".Se"
-  "rverData.CavrnusSpaceConnection\022\021\n\tstrea"
-  "ming\030\002 \001(\010\"s\n\023PermissionStatusReq\022:\n\tspa"
-  "ceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceCo"
-  "nnectionH\000\210\001\001\022\022\n\npermission\030\002 \001(\tB\014\n\n_sp"
-  "aceConn\"\177\n\020PermissionStatus\022:\n\tspaceConn"
+  "eConnection\0222\n\014propertyPath\030\002 \001(\0132\034.Prop"
+  "erty.PropertyIdentifier\022\022\n\nisReadonly\030\n "
+  "\001(\010\"\304\001\n\023PropertyValueStatus\0225\n\tspaceConn"
   "\030\001 \001(\0132\".ServerData.CavrnusSpaceConnecti"
-  "onH\000\210\001\001\022\022\n\npermission\030\002 \001(\t\022\r\n\005value\030\003 \001"
-  "(\010B\014\n\n_spaceConn\"%\n\024AllJoinableSpacesReq"
-  "\022\r\n\005reqId\030\001 \001(\005\"V\n\025AllJoinableSpacesResp"
-  "\022\r\n\005reqId\030\001 \001(\005\022.\n\017availableSpaces\030\n \003(\013"
-  "2\025.ServerData.SpaceInfoB\024\252\002\021CavrnusRelay"
-  "Typesb\006proto3"
+  "on\0222\n\014propertyPath\030\002 \001(\0132\034.Property.Prop"
+  "ertyIdentifier\0220\n\rPropertyValue\030\n \001(\0132\031."
+  "ServerData.PropertyValue\022\020\n\010priority\030\013 \001"
+  "(\005\"\240\001\n\030LocalPropertyHandledResp\0225\n\tspace"
+  "Conn\030\001 \001(\0132\".ServerData.CavrnusSpaceConn"
+  "ection\0222\n\014propertyPath\030\002 \001(\0132\034.Property."
+  "PropertyIdentifier\022\031\n\021localPropChangeId\030"
+  "\n \001(\005\"i\n\tUserAdded\0225\n\tspaceConn\030\001 \001(\0132\"."
+  "ServerData.CavrnusSpaceConnection\022%\n\004use"
+  "r\030\002 \001(\0132\027.ServerData.CavrnusUser\"T\n\013User"
+  "Removed\0225\n\tspaceConn\030\001 \001(\0132\".ServerData."
+  "CavrnusSpaceConnection\022\016\n\006userId\030\002 \001(\t\"\203"
+  "\001\n\016UserVideoFrame\0225\n\tspaceConn\030\001 \001(\0132\".S"
+  "erverData.CavrnusSpaceConnection\022\016\n\006user"
+  "Id\030\002 \001(\t\022\014\n\004resX\030\n \001(\005\022\014\n\004resY\030\013 \001(\005\022\016\n\006"
+  "stream\030\024 \001(\014\"\214\001\n\tSpaceInfo\022\017\n\007spaceId\030\001 "
+  "\001(\t\022\021\n\tspaceName\030\002 \001(\t\022\031\n\021spaceThumbnail"
+  "Url\030\003 \001(\t\022\020\n\010archived\030\004 \001(\010\022.\n\nlastAcces"
+  "s\030\005 \001(\0132\032.google.protobuf.Timestamp\"\277\001\n\013"
+  "ObjectAdded\0225\n\tspaceConn\030\001 \001(\0132\".ServerD"
+  "ata.CavrnusSpaceConnection\022\024\n\014creationOp"
+  "Id\030\002 \001(\t\022\033\n\023propertiesContainer\030\003 \001(\t\022\025\n"
+  "\robjectCreated\030\004 \001(\t\022/\n\013createdTime\030\005 \001("
+  "\0132\032.google.protobuf.Timestamp\"c\n\rObjectR"
+  "emoved\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.C"
+  "avrnusSpaceConnection\022\033\n\023propertiesConta"
+  "iner\030\003 \001(\t\"\\\n\024UpdateLocalUserMuted\0225\n\tsp"
+  "aceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceC"
+  "onnection\022\r\n\005muted\030\002 \001(\010\"\226\001\n\031UpdateLocal"
+  "UserCoPresence\0225\n\tspaceConn\030\001 \001(\0132\".Serv"
+  "erData.CavrnusSpaceConnection\022B\n\026localUs"
+  "erRootTransform\030\n \001(\0132\".ServerData.Trans"
+  "formPropertyValue\"f\n\032UpdateLocalUserStre"
+  "amState\0225\n\tspaceConn\030\001 \001(\0132\".ServerData."
+  "CavrnusSpaceConnection\022\021\n\tstreaming\030\002 \001("
+  "\010\"s\n\023PermissionStatusReq\022:\n\tspaceConn\030\001 "
+  "\001(\0132\".ServerData.CavrnusSpaceConnectionH"
+  "\000\210\001\001\022\022\n\npermission\030\002 \001(\tB\014\n\n_spaceConn\"\177"
+  "\n\020PermissionStatus\022:\n\tspaceConn\030\001 \001(\0132\"."
+  "ServerData.CavrnusSpaceConnectionH\000\210\001\001\022\022"
+  "\n\npermission\030\002 \001(\t\022\r\n\005value\030\003 \001(\010B\014\n\n_sp"
+  "aceConn\"%\n\024AllJoinableSpacesReq\022\r\n\005reqId"
+  "\030\001 \001(\005\"V\n\025AllJoinableSpacesResp\022\r\n\005reqId"
+  "\030\001 \001(\005\022.\n\017availableSpaces\030\n \003(\0132\025.Server"
+  "Data.SpaceInfo\"\202\001\n\tChatAdded\0225\n\tspaceCon"
+  "n\030\001 \001(\0132\".ServerData.CavrnusSpaceConnect"
+  "ion\022\026\n\016ChatPropertyId\030\002 \001(\t\022&\n\010ChatData\030"
+  "\n \001(\0132\024.ServerData.ChatBase\"\204\001\n\013ChatUpda"
+  "ted\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavr"
+  "nusSpaceConnection\022\026\n\016ChatPropertyId\030\002 \001"
+  "(\t\022&\n\010ChatData\030\n \001(\0132\024.ServerData.ChatBa"
+  "se\"\\\n\013ChatRemoved\0225\n\tspaceConn\030\001 \001(\0132\".S"
+  "erverData.CavrnusSpaceConnection\022\026\n\016Chat"
+  "PropertyId\030\002 \001(\t\"S\n\010PostChat\0225\n\tspaceCon"
+  "n\030\001 \001(\0132\".ServerData.CavrnusSpaceConnect"
+  "ion\022\020\n\010ChatText\030\n \001(\t\"\262\002\n\010ChatBase\022@\n\010Ch"
+  "atType\030\001 \001(\0162..ServerData.ChatBase.ChatM"
+  "essageSourceTypeEnum\022\014\n\004Text\030\002 \001(\t\022/\n\013Cr"
+  "eatedTime\030\003 \001(\0132\032.google.protobuf.Timest"
+  "amp\022\020\n\010Complete\030\004 \001(\010\022\025\n\rWasTranslated\030\005"
+  " \001(\010\022\026\n\016CreatorIsLocal\030\n \001(\010\022\023\n\013CreatorN"
+  "ame\030\013 \001(\t\022\025\n\rCreatorPicUrl\030\014 \001(\t\"8\n\031Chat"
+  "MessageSourceTypeEnum\022\010\n\004Chat\020\000\022\021\n\rTrans"
+  "cription\020\001B\024\252\002\021CavrnusRelayTypesb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_relay_2eproto_deps[4] = {
   &::descriptor_table_common_2eproto,
@@ -1916,9 +2082,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_relay_2eproto_deps[
 };
 static ::_pbi::once_flag descriptor_table_relay_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_relay_2eproto = {
-    false, false, 10253, descriptor_table_protodef_relay_2eproto,
+    false, false, 11240, descriptor_table_protodef_relay_2eproto,
     "relay.proto",
-    &descriptor_table_relay_2eproto_once, descriptor_table_relay_2eproto_deps, 4, 61,
+    &descriptor_table_relay_2eproto_once, descriptor_table_relay_2eproto_deps, 4, 66,
     schemas, file_default_instances, TableStruct_relay_2eproto::offsets,
     file_level_metadata_relay_2eproto, file_level_enum_descriptors_relay_2eproto,
     file_level_service_descriptors_relay_2eproto,
@@ -1930,6 +2096,27 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_relay_2e
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_relay_2eproto(&descriptor_table_relay_2eproto);
 namespace ServerData {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ChatBase_ChatMessageSourceTypeEnum_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_relay_2eproto);
+  return file_level_enum_descriptors_relay_2eproto[0];
+}
+bool ChatBase_ChatMessageSourceTypeEnum_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr ChatBase_ChatMessageSourceTypeEnum ChatBase::Chat;
+constexpr ChatBase_ChatMessageSourceTypeEnum ChatBase::Transcription;
+constexpr ChatBase_ChatMessageSourceTypeEnum ChatBase::ChatMessageSourceTypeEnum_MIN;
+constexpr ChatBase_ChatMessageSourceTypeEnum ChatBase::ChatMessageSourceTypeEnum_MAX;
+constexpr int ChatBase::ChatMessageSourceTypeEnum_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 
 // ===================================================================
 
@@ -2149,6 +2336,7 @@ class RelayClientMessage::_Internal {
   static const ::ServerData::FetchFileByIdReq& fetchfilebyidreq(const RelayClientMessage* msg);
   static const ::ServerData::FetchAllUploadedContentReq& fetchalluploadedcontentreq(const RelayClientMessage* msg);
   static const ::ServerData::UploadLocalFileReq& uploadlocalfilereq(const RelayClientMessage* msg);
+  static const ::ServerData::PostChat& postchat(const RelayClientMessage* msg);
 };
 
 const ::ServerData::KeepAlive&
@@ -2266,6 +2454,10 @@ RelayClientMessage::_Internal::fetchalluploadedcontentreq(const RelayClientMessa
 const ::ServerData::UploadLocalFileReq&
 RelayClientMessage::_Internal::uploadlocalfilereq(const RelayClientMessage* msg) {
   return *msg->_impl_.Msg_.uploadlocalfilereq_;
+}
+const ::ServerData::PostChat&
+RelayClientMessage::_Internal::postchat(const RelayClientMessage* msg) {
+  return *msg->_impl_.Msg_.postchat_;
 }
 void RelayClientMessage::set_allocated_keepalive(::ServerData::KeepAlive* keepalive) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -2702,6 +2894,21 @@ void RelayClientMessage::set_allocated_uploadlocalfilereq(::ServerData::UploadLo
   }
   // @@protoc_insertion_point(field_set_allocated:ServerData.RelayClientMessage.UploadLocalFileReq)
 }
+void RelayClientMessage::set_allocated_postchat(::ServerData::PostChat* postchat) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (postchat) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(postchat);
+    if (message_arena != submessage_arena) {
+      postchat = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, postchat, submessage_arena);
+    }
+    set_has_postchat();
+    _impl_.Msg_.postchat_ = postchat;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayClientMessage.PostChat)
+}
 RelayClientMessage::RelayClientMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -2862,6 +3069,11 @@ RelayClientMessage::RelayClientMessage(const RelayClientMessage& from)
     case kUploadLocalFileReq: {
       _this->_internal_mutable_uploadlocalfilereq()->::ServerData::UploadLocalFileReq::MergeFrom(
           from._internal_uploadlocalfilereq());
+      break;
+    }
+    case kPostChat: {
+      _this->_internal_mutable_postchat()->::ServerData::PostChat::MergeFrom(
+          from._internal_postchat());
       break;
     }
     case MSG_NOT_SET: {
@@ -3077,6 +3289,12 @@ void RelayClientMessage::clear_Msg() {
     case kUploadLocalFileReq: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.Msg_.uploadlocalfilereq_;
+      }
+      break;
+    }
+    case kPostChat: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.postchat_;
       }
       break;
     }
@@ -3336,6 +3554,14 @@ const char* RelayClientMessage::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
+      // .ServerData.PostChat PostChat = 120;
+      case 120:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 194)) {
+          ptr = ctx->ParseMessage(_internal_mutable_postchat(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -3568,6 +3794,13 @@ uint8_t* RelayClientMessage::_InternalSerialize(
         _Internal::uploadlocalfilereq(this).GetCachedSize(), target, stream);
   }
 
+  // .ServerData.PostChat PostChat = 120;
+  if (_internal_has_postchat()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(120, _Internal::postchat(this),
+        _Internal::postchat(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3788,6 +4021,13 @@ size_t RelayClientMessage::ByteSizeLong() const {
           *_impl_.Msg_.uploadlocalfilereq_);
       break;
     }
+    // .ServerData.PostChat PostChat = 120;
+    case kPostChat: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.postchat_);
+      break;
+    }
     case MSG_NOT_SET: {
       break;
     }
@@ -3954,6 +4194,11 @@ void RelayClientMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
     case kUploadLocalFileReq: {
       _this->_internal_mutable_uploadlocalfilereq()->::ServerData::UploadLocalFileReq::MergeFrom(
           from._internal_uploadlocalfilereq());
+      break;
+    }
+    case kPostChat: {
+      _this->_internal_mutable_postchat()->::ServerData::PostChat::MergeFrom(
+          from._internal_postchat());
       break;
     }
     case MSG_NOT_SET: {
@@ -4202,6 +4447,9 @@ class RelayRemoteMessage::_Internal {
   static const ::ServerData::FetchFileByIdCompletedResp& fetchfilebyidcompletedresp(const RelayRemoteMessage* msg);
   static const ::ServerData::FetchAllUploadedContentResp& fetchalluploadedcontentresp(const RelayRemoteMessage* msg);
   static const ::ServerData::UploadLocalFileResp& uploadlocalfileresp(const RelayRemoteMessage* msg);
+  static const ::ServerData::ChatAdded& chatadded(const RelayRemoteMessage* msg);
+  static const ::ServerData::ChatUpdated& chatupdated(const RelayRemoteMessage* msg);
+  static const ::ServerData::ChatRemoved& chatremoved(const RelayRemoteMessage* msg);
 };
 
 const ::ServerData::StatusMessage&
@@ -4307,6 +4555,18 @@ RelayRemoteMessage::_Internal::fetchalluploadedcontentresp(const RelayRemoteMess
 const ::ServerData::UploadLocalFileResp&
 RelayRemoteMessage::_Internal::uploadlocalfileresp(const RelayRemoteMessage* msg) {
   return *msg->_impl_.Msg_.uploadlocalfileresp_;
+}
+const ::ServerData::ChatAdded&
+RelayRemoteMessage::_Internal::chatadded(const RelayRemoteMessage* msg) {
+  return *msg->_impl_.Msg_.chatadded_;
+}
+const ::ServerData::ChatUpdated&
+RelayRemoteMessage::_Internal::chatupdated(const RelayRemoteMessage* msg) {
+  return *msg->_impl_.Msg_.chatupdated_;
+}
+const ::ServerData::ChatRemoved&
+RelayRemoteMessage::_Internal::chatremoved(const RelayRemoteMessage* msg) {
+  return *msg->_impl_.Msg_.chatremoved_;
 }
 void RelayRemoteMessage::set_allocated_message(::ServerData::StatusMessage* message) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -4698,6 +4958,51 @@ void RelayRemoteMessage::set_allocated_uploadlocalfileresp(::ServerData::UploadL
   }
   // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.UploadLocalFileResp)
 }
+void RelayRemoteMessage::set_allocated_chatadded(::ServerData::ChatAdded* chatadded) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (chatadded) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(chatadded);
+    if (message_arena != submessage_arena) {
+      chatadded = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, chatadded, submessage_arena);
+    }
+    set_has_chatadded();
+    _impl_.Msg_.chatadded_ = chatadded;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.ChatAdded)
+}
+void RelayRemoteMessage::set_allocated_chatupdated(::ServerData::ChatUpdated* chatupdated) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (chatupdated) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(chatupdated);
+    if (message_arena != submessage_arena) {
+      chatupdated = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, chatupdated, submessage_arena);
+    }
+    set_has_chatupdated();
+    _impl_.Msg_.chatupdated_ = chatupdated;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.ChatUpdated)
+}
+void RelayRemoteMessage::set_allocated_chatremoved(::ServerData::ChatRemoved* chatremoved) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (chatremoved) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(chatremoved);
+    if (message_arena != submessage_arena) {
+      chatremoved = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, chatremoved, submessage_arena);
+    }
+    set_has_chatremoved();
+    _impl_.Msg_.chatremoved_ = chatremoved;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.ChatRemoved)
+}
 RelayRemoteMessage::RelayRemoteMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -4843,6 +5148,21 @@ RelayRemoteMessage::RelayRemoteMessage(const RelayRemoteMessage& from)
     case kUploadLocalFileResp: {
       _this->_internal_mutable_uploadlocalfileresp()->::ServerData::UploadLocalFileResp::MergeFrom(
           from._internal_uploadlocalfileresp());
+      break;
+    }
+    case kChatAdded: {
+      _this->_internal_mutable_chatadded()->::ServerData::ChatAdded::MergeFrom(
+          from._internal_chatadded());
+      break;
+    }
+    case kChatUpdated: {
+      _this->_internal_mutable_chatupdated()->::ServerData::ChatUpdated::MergeFrom(
+          from._internal_chatupdated());
+      break;
+    }
+    case kChatRemoved: {
+      _this->_internal_mutable_chatremoved()->::ServerData::ChatRemoved::MergeFrom(
+          from._internal_chatremoved());
       break;
     }
     case MSG_NOT_SET: {
@@ -5040,6 +5360,24 @@ void RelayRemoteMessage::clear_Msg() {
     case kUploadLocalFileResp: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.Msg_.uploadlocalfileresp_;
+      }
+      break;
+    }
+    case kChatAdded: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.chatadded_;
+      }
+      break;
+    }
+    case kChatUpdated: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.chatupdated_;
+      }
+      break;
+    }
+    case kChatRemoved: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.chatremoved_;
       }
       break;
     }
@@ -5275,6 +5613,30 @@ const char* RelayRemoteMessage::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
+      // .ServerData.ChatAdded ChatAdded = 120;
+      case 120:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 194)) {
+          ptr = ctx->ParseMessage(_internal_mutable_chatadded(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .ServerData.ChatUpdated ChatUpdated = 121;
+      case 121:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 202)) {
+          ptr = ctx->ParseMessage(_internal_mutable_chatupdated(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .ServerData.ChatRemoved ChatRemoved = 122;
+      case 122:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 210)) {
+          ptr = ctx->ParseMessage(_internal_mutable_chatremoved(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -5486,6 +5848,27 @@ uint8_t* RelayRemoteMessage::_InternalSerialize(
         _Internal::uploadlocalfileresp(this).GetCachedSize(), target, stream);
   }
 
+  // .ServerData.ChatAdded ChatAdded = 120;
+  if (_internal_has_chatadded()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(120, _Internal::chatadded(this),
+        _Internal::chatadded(this).GetCachedSize(), target, stream);
+  }
+
+  // .ServerData.ChatUpdated ChatUpdated = 121;
+  if (_internal_has_chatupdated()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(121, _Internal::chatupdated(this),
+        _Internal::chatupdated(this).GetCachedSize(), target, stream);
+  }
+
+  // .ServerData.ChatRemoved ChatRemoved = 122;
+  if (_internal_has_chatremoved()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(122, _Internal::chatremoved(this),
+        _Internal::chatremoved(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5685,6 +6068,27 @@ size_t RelayRemoteMessage::ByteSizeLong() const {
           *_impl_.Msg_.uploadlocalfileresp_);
       break;
     }
+    // .ServerData.ChatAdded ChatAdded = 120;
+    case kChatAdded: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.chatadded_);
+      break;
+    }
+    // .ServerData.ChatUpdated ChatUpdated = 121;
+    case kChatUpdated: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.chatupdated_);
+      break;
+    }
+    // .ServerData.ChatRemoved ChatRemoved = 122;
+    case kChatRemoved: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.chatremoved_);
+      break;
+    }
     case MSG_NOT_SET: {
       break;
     }
@@ -5836,6 +6240,21 @@ void RelayRemoteMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
     case kUploadLocalFileResp: {
       _this->_internal_mutable_uploadlocalfileresp()->::ServerData::UploadLocalFileResp::MergeFrom(
           from._internal_uploadlocalfileresp());
+      break;
+    }
+    case kChatAdded: {
+      _this->_internal_mutable_chatadded()->::ServerData::ChatAdded::MergeFrom(
+          from._internal_chatadded());
+      break;
+    }
+    case kChatUpdated: {
+      _this->_internal_mutable_chatupdated()->::ServerData::ChatUpdated::MergeFrom(
+          from._internal_chatupdated());
+      break;
+    }
+    case kChatRemoved: {
+      _this->_internal_mutable_chatremoved()->::ServerData::ChatRemoved::MergeFrom(
+          from._internal_chatremoved());
       break;
     }
     case MSG_NOT_SET: {
@@ -19383,17 +19802,28 @@ void SpaceInfo::InternalSwap(SpaceInfo* other) {
 class ObjectAdded::_Internal {
  public:
   static const ::ServerData::CavrnusSpaceConnection& spaceconn(const ObjectAdded* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& createdtime(const ObjectAdded* msg);
 };
 
 const ::ServerData::CavrnusSpaceConnection&
 ObjectAdded::_Internal::spaceconn(const ObjectAdded* msg) {
   return *msg->_impl_.spaceconn_;
 }
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+ObjectAdded::_Internal::createdtime(const ObjectAdded* msg) {
+  return *msg->_impl_.createdtime_;
+}
 void ObjectAdded::clear_spaceconn() {
   if (GetArenaForAllocation() == nullptr && _impl_.spaceconn_ != nullptr) {
     delete _impl_.spaceconn_;
   }
   _impl_.spaceconn_ = nullptr;
+}
+void ObjectAdded::clear_createdtime() {
+  if (GetArenaForAllocation() == nullptr && _impl_.createdtime_ != nullptr) {
+    delete _impl_.createdtime_;
+  }
+  _impl_.createdtime_ = nullptr;
 }
 ObjectAdded::ObjectAdded(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -19409,6 +19839,7 @@ ObjectAdded::ObjectAdded(const ObjectAdded& from)
     , decltype(_impl_.propertiescontainer_){}
     , decltype(_impl_.objectcreated_){}
     , decltype(_impl_.spaceconn_){nullptr}
+    , decltype(_impl_.createdtime_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -19439,6 +19870,9 @@ ObjectAdded::ObjectAdded(const ObjectAdded& from)
   if (from._internal_has_spaceconn()) {
     _this->_impl_.spaceconn_ = new ::ServerData::CavrnusSpaceConnection(*from._impl_.spaceconn_);
   }
+  if (from._internal_has_createdtime()) {
+    _this->_impl_.createdtime_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.createdtime_);
+  }
   // @@protoc_insertion_point(copy_constructor:ServerData.ObjectAdded)
 }
 
@@ -19451,6 +19885,7 @@ inline void ObjectAdded::SharedCtor(
     , decltype(_impl_.propertiescontainer_){}
     , decltype(_impl_.objectcreated_){}
     , decltype(_impl_.spaceconn_){nullptr}
+    , decltype(_impl_.createdtime_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.creationopid_.InitDefault();
@@ -19482,6 +19917,7 @@ inline void ObjectAdded::SharedDtor() {
   _impl_.propertiescontainer_.Destroy();
   _impl_.objectcreated_.Destroy();
   if (this != internal_default_instance()) delete _impl_.spaceconn_;
+  if (this != internal_default_instance()) delete _impl_.createdtime_;
 }
 
 void ObjectAdded::SetCachedSize(int size) const {
@@ -19501,6 +19937,10 @@ void ObjectAdded::Clear() {
     delete _impl_.spaceconn_;
   }
   _impl_.spaceconn_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.createdtime_ != nullptr) {
+    delete _impl_.createdtime_;
+  }
+  _impl_.createdtime_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -19545,6 +19985,14 @@ const char* ObjectAdded::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "ServerData.ObjectAdded.objectCreated"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp createdTime = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_createdtime(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -19614,6 +20062,13 @@ uint8_t* ObjectAdded::_InternalSerialize(
         4, this->_internal_objectcreated(), target);
   }
 
+  // .google.protobuf.Timestamp createdTime = 5;
+  if (this->_internal_has_createdtime()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, _Internal::createdtime(this),
+        _Internal::createdtime(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -19658,6 +20113,13 @@ size_t ObjectAdded::ByteSizeLong() const {
         *_impl_.spaceconn_);
   }
 
+  // .google.protobuf.Timestamp createdTime = 5;
+  if (this->_internal_has_createdtime()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.createdtime_);
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -19688,6 +20150,10 @@ void ObjectAdded::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
   if (from._internal_has_spaceconn()) {
     _this->_internal_mutable_spaceconn()->::ServerData::CavrnusSpaceConnection::MergeFrom(
         from._internal_spaceconn());
+  }
+  if (from._internal_has_createdtime()) {
+    _this->_internal_mutable_createdtime()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_createdtime());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -19720,7 +20186,12 @@ void ObjectAdded::InternalSwap(ObjectAdded* other) {
       &_impl_.objectcreated_, lhs_arena,
       &other->_impl_.objectcreated_, rhs_arena
   );
-  swap(_impl_.spaceconn_, other->_impl_.spaceconn_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ObjectAdded, _impl_.createdtime_)
+      + sizeof(ObjectAdded::_impl_.createdtime_)
+      - PROTOBUF_FIELD_OFFSET(ObjectAdded, _impl_.spaceconn_)>(
+          reinterpret_cast<char*>(&_impl_.spaceconn_),
+          reinterpret_cast<char*>(&other->_impl_.spaceconn_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ObjectAdded::GetMetadata() const {
@@ -21628,6 +22099,1563 @@ void AllJoinableSpacesResp::InternalSwap(AllJoinableSpacesResp* other) {
       file_level_metadata_relay_2eproto[60]);
 }
 
+// ===================================================================
+
+class ChatAdded::_Internal {
+ public:
+  static const ::ServerData::CavrnusSpaceConnection& spaceconn(const ChatAdded* msg);
+  static const ::ServerData::ChatBase& chatdata(const ChatAdded* msg);
+};
+
+const ::ServerData::CavrnusSpaceConnection&
+ChatAdded::_Internal::spaceconn(const ChatAdded* msg) {
+  return *msg->_impl_.spaceconn_;
+}
+const ::ServerData::ChatBase&
+ChatAdded::_Internal::chatdata(const ChatAdded* msg) {
+  return *msg->_impl_.chatdata_;
+}
+void ChatAdded::clear_spaceconn() {
+  if (GetArenaForAllocation() == nullptr && _impl_.spaceconn_ != nullptr) {
+    delete _impl_.spaceconn_;
+  }
+  _impl_.spaceconn_ = nullptr;
+}
+ChatAdded::ChatAdded(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ServerData.ChatAdded)
+}
+ChatAdded::ChatAdded(const ChatAdded& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ChatAdded* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.chatpropertyid_){}
+    , decltype(_impl_.spaceconn_){nullptr}
+    , decltype(_impl_.chatdata_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.chatpropertyid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chatpropertyid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_chatpropertyid().empty()) {
+    _this->_impl_.chatpropertyid_.Set(from._internal_chatpropertyid(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_spaceconn()) {
+    _this->_impl_.spaceconn_ = new ::ServerData::CavrnusSpaceConnection(*from._impl_.spaceconn_);
+  }
+  if (from._internal_has_chatdata()) {
+    _this->_impl_.chatdata_ = new ::ServerData::ChatBase(*from._impl_.chatdata_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ServerData.ChatAdded)
+}
+
+inline void ChatAdded::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.chatpropertyid_){}
+    , decltype(_impl_.spaceconn_){nullptr}
+    , decltype(_impl_.chatdata_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.chatpropertyid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chatpropertyid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ChatAdded::~ChatAdded() {
+  // @@protoc_insertion_point(destructor:ServerData.ChatAdded)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ChatAdded::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.chatpropertyid_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.spaceconn_;
+  if (this != internal_default_instance()) delete _impl_.chatdata_;
+}
+
+void ChatAdded::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ChatAdded::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerData.ChatAdded)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.chatpropertyid_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.spaceconn_ != nullptr) {
+    delete _impl_.spaceconn_;
+  }
+  _impl_.spaceconn_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.chatdata_ != nullptr) {
+    delete _impl_.chatdata_;
+  }
+  _impl_.chatdata_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ChatAdded::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_spaceconn(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string ChatPropertyId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_chatpropertyid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.ChatAdded.ChatPropertyId"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .ServerData.ChatBase ChatData = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_chatdata(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ChatAdded::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ServerData.ChatAdded)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+  if (this->_internal_has_spaceconn()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::spaceconn(this),
+        _Internal::spaceconn(this).GetCachedSize(), target, stream);
+  }
+
+  // string ChatPropertyId = 2;
+  if (!this->_internal_chatpropertyid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_chatpropertyid().data(), static_cast<int>(this->_internal_chatpropertyid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.ChatAdded.ChatPropertyId");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_chatpropertyid(), target);
+  }
+
+  // .ServerData.ChatBase ChatData = 10;
+  if (this->_internal_has_chatdata()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(10, _Internal::chatdata(this),
+        _Internal::chatdata(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerData.ChatAdded)
+  return target;
+}
+
+size_t ChatAdded::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ServerData.ChatAdded)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string ChatPropertyId = 2;
+  if (!this->_internal_chatpropertyid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_chatpropertyid());
+  }
+
+  // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+  if (this->_internal_has_spaceconn()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.spaceconn_);
+  }
+
+  // .ServerData.ChatBase ChatData = 10;
+  if (this->_internal_has_chatdata()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.chatdata_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ChatAdded::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ChatAdded::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ChatAdded::GetClassData() const { return &_class_data_; }
+
+
+void ChatAdded::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ChatAdded*>(&to_msg);
+  auto& from = static_cast<const ChatAdded&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.ChatAdded)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_chatpropertyid().empty()) {
+    _this->_internal_set_chatpropertyid(from._internal_chatpropertyid());
+  }
+  if (from._internal_has_spaceconn()) {
+    _this->_internal_mutable_spaceconn()->::ServerData::CavrnusSpaceConnection::MergeFrom(
+        from._internal_spaceconn());
+  }
+  if (from._internal_has_chatdata()) {
+    _this->_internal_mutable_chatdata()->::ServerData::ChatBase::MergeFrom(
+        from._internal_chatdata());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ChatAdded::CopyFrom(const ChatAdded& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.ChatAdded)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ChatAdded::IsInitialized() const {
+  return true;
+}
+
+void ChatAdded::InternalSwap(ChatAdded* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.chatpropertyid_, lhs_arena,
+      &other->_impl_.chatpropertyid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ChatAdded, _impl_.chatdata_)
+      + sizeof(ChatAdded::_impl_.chatdata_)
+      - PROTOBUF_FIELD_OFFSET(ChatAdded, _impl_.spaceconn_)>(
+          reinterpret_cast<char*>(&_impl_.spaceconn_),
+          reinterpret_cast<char*>(&other->_impl_.spaceconn_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ChatAdded::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[61]);
+}
+
+// ===================================================================
+
+class ChatUpdated::_Internal {
+ public:
+  static const ::ServerData::CavrnusSpaceConnection& spaceconn(const ChatUpdated* msg);
+  static const ::ServerData::ChatBase& chatdata(const ChatUpdated* msg);
+};
+
+const ::ServerData::CavrnusSpaceConnection&
+ChatUpdated::_Internal::spaceconn(const ChatUpdated* msg) {
+  return *msg->_impl_.spaceconn_;
+}
+const ::ServerData::ChatBase&
+ChatUpdated::_Internal::chatdata(const ChatUpdated* msg) {
+  return *msg->_impl_.chatdata_;
+}
+void ChatUpdated::clear_spaceconn() {
+  if (GetArenaForAllocation() == nullptr && _impl_.spaceconn_ != nullptr) {
+    delete _impl_.spaceconn_;
+  }
+  _impl_.spaceconn_ = nullptr;
+}
+ChatUpdated::ChatUpdated(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ServerData.ChatUpdated)
+}
+ChatUpdated::ChatUpdated(const ChatUpdated& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ChatUpdated* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.chatpropertyid_){}
+    , decltype(_impl_.spaceconn_){nullptr}
+    , decltype(_impl_.chatdata_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.chatpropertyid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chatpropertyid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_chatpropertyid().empty()) {
+    _this->_impl_.chatpropertyid_.Set(from._internal_chatpropertyid(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_spaceconn()) {
+    _this->_impl_.spaceconn_ = new ::ServerData::CavrnusSpaceConnection(*from._impl_.spaceconn_);
+  }
+  if (from._internal_has_chatdata()) {
+    _this->_impl_.chatdata_ = new ::ServerData::ChatBase(*from._impl_.chatdata_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ServerData.ChatUpdated)
+}
+
+inline void ChatUpdated::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.chatpropertyid_){}
+    , decltype(_impl_.spaceconn_){nullptr}
+    , decltype(_impl_.chatdata_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.chatpropertyid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chatpropertyid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ChatUpdated::~ChatUpdated() {
+  // @@protoc_insertion_point(destructor:ServerData.ChatUpdated)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ChatUpdated::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.chatpropertyid_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.spaceconn_;
+  if (this != internal_default_instance()) delete _impl_.chatdata_;
+}
+
+void ChatUpdated::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ChatUpdated::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerData.ChatUpdated)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.chatpropertyid_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.spaceconn_ != nullptr) {
+    delete _impl_.spaceconn_;
+  }
+  _impl_.spaceconn_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.chatdata_ != nullptr) {
+    delete _impl_.chatdata_;
+  }
+  _impl_.chatdata_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ChatUpdated::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_spaceconn(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string ChatPropertyId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_chatpropertyid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.ChatUpdated.ChatPropertyId"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .ServerData.ChatBase ChatData = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_chatdata(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ChatUpdated::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ServerData.ChatUpdated)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+  if (this->_internal_has_spaceconn()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::spaceconn(this),
+        _Internal::spaceconn(this).GetCachedSize(), target, stream);
+  }
+
+  // string ChatPropertyId = 2;
+  if (!this->_internal_chatpropertyid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_chatpropertyid().data(), static_cast<int>(this->_internal_chatpropertyid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.ChatUpdated.ChatPropertyId");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_chatpropertyid(), target);
+  }
+
+  // .ServerData.ChatBase ChatData = 10;
+  if (this->_internal_has_chatdata()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(10, _Internal::chatdata(this),
+        _Internal::chatdata(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerData.ChatUpdated)
+  return target;
+}
+
+size_t ChatUpdated::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ServerData.ChatUpdated)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string ChatPropertyId = 2;
+  if (!this->_internal_chatpropertyid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_chatpropertyid());
+  }
+
+  // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+  if (this->_internal_has_spaceconn()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.spaceconn_);
+  }
+
+  // .ServerData.ChatBase ChatData = 10;
+  if (this->_internal_has_chatdata()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.chatdata_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ChatUpdated::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ChatUpdated::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ChatUpdated::GetClassData() const { return &_class_data_; }
+
+
+void ChatUpdated::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ChatUpdated*>(&to_msg);
+  auto& from = static_cast<const ChatUpdated&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.ChatUpdated)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_chatpropertyid().empty()) {
+    _this->_internal_set_chatpropertyid(from._internal_chatpropertyid());
+  }
+  if (from._internal_has_spaceconn()) {
+    _this->_internal_mutable_spaceconn()->::ServerData::CavrnusSpaceConnection::MergeFrom(
+        from._internal_spaceconn());
+  }
+  if (from._internal_has_chatdata()) {
+    _this->_internal_mutable_chatdata()->::ServerData::ChatBase::MergeFrom(
+        from._internal_chatdata());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ChatUpdated::CopyFrom(const ChatUpdated& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.ChatUpdated)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ChatUpdated::IsInitialized() const {
+  return true;
+}
+
+void ChatUpdated::InternalSwap(ChatUpdated* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.chatpropertyid_, lhs_arena,
+      &other->_impl_.chatpropertyid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ChatUpdated, _impl_.chatdata_)
+      + sizeof(ChatUpdated::_impl_.chatdata_)
+      - PROTOBUF_FIELD_OFFSET(ChatUpdated, _impl_.spaceconn_)>(
+          reinterpret_cast<char*>(&_impl_.spaceconn_),
+          reinterpret_cast<char*>(&other->_impl_.spaceconn_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ChatUpdated::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[62]);
+}
+
+// ===================================================================
+
+class ChatRemoved::_Internal {
+ public:
+  static const ::ServerData::CavrnusSpaceConnection& spaceconn(const ChatRemoved* msg);
+};
+
+const ::ServerData::CavrnusSpaceConnection&
+ChatRemoved::_Internal::spaceconn(const ChatRemoved* msg) {
+  return *msg->_impl_.spaceconn_;
+}
+void ChatRemoved::clear_spaceconn() {
+  if (GetArenaForAllocation() == nullptr && _impl_.spaceconn_ != nullptr) {
+    delete _impl_.spaceconn_;
+  }
+  _impl_.spaceconn_ = nullptr;
+}
+ChatRemoved::ChatRemoved(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ServerData.ChatRemoved)
+}
+ChatRemoved::ChatRemoved(const ChatRemoved& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ChatRemoved* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.chatpropertyid_){}
+    , decltype(_impl_.spaceconn_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.chatpropertyid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chatpropertyid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_chatpropertyid().empty()) {
+    _this->_impl_.chatpropertyid_.Set(from._internal_chatpropertyid(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_spaceconn()) {
+    _this->_impl_.spaceconn_ = new ::ServerData::CavrnusSpaceConnection(*from._impl_.spaceconn_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ServerData.ChatRemoved)
+}
+
+inline void ChatRemoved::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.chatpropertyid_){}
+    , decltype(_impl_.spaceconn_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.chatpropertyid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chatpropertyid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ChatRemoved::~ChatRemoved() {
+  // @@protoc_insertion_point(destructor:ServerData.ChatRemoved)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ChatRemoved::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.chatpropertyid_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.spaceconn_;
+}
+
+void ChatRemoved::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ChatRemoved::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerData.ChatRemoved)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.chatpropertyid_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.spaceconn_ != nullptr) {
+    delete _impl_.spaceconn_;
+  }
+  _impl_.spaceconn_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ChatRemoved::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_spaceconn(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string ChatPropertyId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_chatpropertyid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.ChatRemoved.ChatPropertyId"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ChatRemoved::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ServerData.ChatRemoved)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+  if (this->_internal_has_spaceconn()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::spaceconn(this),
+        _Internal::spaceconn(this).GetCachedSize(), target, stream);
+  }
+
+  // string ChatPropertyId = 2;
+  if (!this->_internal_chatpropertyid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_chatpropertyid().data(), static_cast<int>(this->_internal_chatpropertyid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.ChatRemoved.ChatPropertyId");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_chatpropertyid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerData.ChatRemoved)
+  return target;
+}
+
+size_t ChatRemoved::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ServerData.ChatRemoved)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string ChatPropertyId = 2;
+  if (!this->_internal_chatpropertyid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_chatpropertyid());
+  }
+
+  // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+  if (this->_internal_has_spaceconn()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.spaceconn_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ChatRemoved::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ChatRemoved::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ChatRemoved::GetClassData() const { return &_class_data_; }
+
+
+void ChatRemoved::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ChatRemoved*>(&to_msg);
+  auto& from = static_cast<const ChatRemoved&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.ChatRemoved)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_chatpropertyid().empty()) {
+    _this->_internal_set_chatpropertyid(from._internal_chatpropertyid());
+  }
+  if (from._internal_has_spaceconn()) {
+    _this->_internal_mutable_spaceconn()->::ServerData::CavrnusSpaceConnection::MergeFrom(
+        from._internal_spaceconn());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ChatRemoved::CopyFrom(const ChatRemoved& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.ChatRemoved)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ChatRemoved::IsInitialized() const {
+  return true;
+}
+
+void ChatRemoved::InternalSwap(ChatRemoved* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.chatpropertyid_, lhs_arena,
+      &other->_impl_.chatpropertyid_, rhs_arena
+  );
+  swap(_impl_.spaceconn_, other->_impl_.spaceconn_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ChatRemoved::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[63]);
+}
+
+// ===================================================================
+
+class PostChat::_Internal {
+ public:
+  static const ::ServerData::CavrnusSpaceConnection& spaceconn(const PostChat* msg);
+};
+
+const ::ServerData::CavrnusSpaceConnection&
+PostChat::_Internal::spaceconn(const PostChat* msg) {
+  return *msg->_impl_.spaceconn_;
+}
+void PostChat::clear_spaceconn() {
+  if (GetArenaForAllocation() == nullptr && _impl_.spaceconn_ != nullptr) {
+    delete _impl_.spaceconn_;
+  }
+  _impl_.spaceconn_ = nullptr;
+}
+PostChat::PostChat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ServerData.PostChat)
+}
+PostChat::PostChat(const PostChat& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  PostChat* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.chattext_){}
+    , decltype(_impl_.spaceconn_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.chattext_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chattext_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_chattext().empty()) {
+    _this->_impl_.chattext_.Set(from._internal_chattext(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_spaceconn()) {
+    _this->_impl_.spaceconn_ = new ::ServerData::CavrnusSpaceConnection(*from._impl_.spaceconn_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ServerData.PostChat)
+}
+
+inline void PostChat::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.chattext_){}
+    , decltype(_impl_.spaceconn_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.chattext_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chattext_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+PostChat::~PostChat() {
+  // @@protoc_insertion_point(destructor:ServerData.PostChat)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void PostChat::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.chattext_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.spaceconn_;
+}
+
+void PostChat::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void PostChat::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerData.PostChat)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.chattext_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.spaceconn_ != nullptr) {
+    delete _impl_.spaceconn_;
+  }
+  _impl_.spaceconn_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* PostChat::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_spaceconn(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string ChatText = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          auto str = _internal_mutable_chattext();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.PostChat.ChatText"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* PostChat::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ServerData.PostChat)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+  if (this->_internal_has_spaceconn()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::spaceconn(this),
+        _Internal::spaceconn(this).GetCachedSize(), target, stream);
+  }
+
+  // string ChatText = 10;
+  if (!this->_internal_chattext().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_chattext().data(), static_cast<int>(this->_internal_chattext().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.PostChat.ChatText");
+    target = stream->WriteStringMaybeAliased(
+        10, this->_internal_chattext(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerData.PostChat)
+  return target;
+}
+
+size_t PostChat::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ServerData.PostChat)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string ChatText = 10;
+  if (!this->_internal_chattext().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_chattext());
+  }
+
+  // .ServerData.CavrnusSpaceConnection spaceConn = 1;
+  if (this->_internal_has_spaceconn()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.spaceconn_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PostChat::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    PostChat::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PostChat::GetClassData() const { return &_class_data_; }
+
+
+void PostChat::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<PostChat*>(&to_msg);
+  auto& from = static_cast<const PostChat&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.PostChat)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_chattext().empty()) {
+    _this->_internal_set_chattext(from._internal_chattext());
+  }
+  if (from._internal_has_spaceconn()) {
+    _this->_internal_mutable_spaceconn()->::ServerData::CavrnusSpaceConnection::MergeFrom(
+        from._internal_spaceconn());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void PostChat::CopyFrom(const PostChat& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.PostChat)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PostChat::IsInitialized() const {
+  return true;
+}
+
+void PostChat::InternalSwap(PostChat* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.chattext_, lhs_arena,
+      &other->_impl_.chattext_, rhs_arena
+  );
+  swap(_impl_.spaceconn_, other->_impl_.spaceconn_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata PostChat::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[64]);
+}
+
+// ===================================================================
+
+class ChatBase::_Internal {
+ public:
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& createdtime(const ChatBase* msg);
+};
+
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+ChatBase::_Internal::createdtime(const ChatBase* msg) {
+  return *msg->_impl_.createdtime_;
+}
+void ChatBase::clear_createdtime() {
+  if (GetArenaForAllocation() == nullptr && _impl_.createdtime_ != nullptr) {
+    delete _impl_.createdtime_;
+  }
+  _impl_.createdtime_ = nullptr;
+}
+ChatBase::ChatBase(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ServerData.ChatBase)
+}
+ChatBase::ChatBase(const ChatBase& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ChatBase* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.text_){}
+    , decltype(_impl_.creatorname_){}
+    , decltype(_impl_.creatorpicurl_){}
+    , decltype(_impl_.createdtime_){nullptr}
+    , decltype(_impl_.chattype_){}
+    , decltype(_impl_.complete_){}
+    , decltype(_impl_.wastranslated_){}
+    , decltype(_impl_.creatorislocal_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.text_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.text_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_text().empty()) {
+    _this->_impl_.text_.Set(from._internal_text(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.creatorname_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.creatorname_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_creatorname().empty()) {
+    _this->_impl_.creatorname_.Set(from._internal_creatorname(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.creatorpicurl_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.creatorpicurl_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_creatorpicurl().empty()) {
+    _this->_impl_.creatorpicurl_.Set(from._internal_creatorpicurl(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_createdtime()) {
+    _this->_impl_.createdtime_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.createdtime_);
+  }
+  ::memcpy(&_impl_.chattype_, &from._impl_.chattype_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.creatorislocal_) -
+    reinterpret_cast<char*>(&_impl_.chattype_)) + sizeof(_impl_.creatorislocal_));
+  // @@protoc_insertion_point(copy_constructor:ServerData.ChatBase)
+}
+
+inline void ChatBase::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.text_){}
+    , decltype(_impl_.creatorname_){}
+    , decltype(_impl_.creatorpicurl_){}
+    , decltype(_impl_.createdtime_){nullptr}
+    , decltype(_impl_.chattype_){0}
+    , decltype(_impl_.complete_){false}
+    , decltype(_impl_.wastranslated_){false}
+    , decltype(_impl_.creatorislocal_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.text_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.text_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.creatorname_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.creatorname_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.creatorpicurl_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.creatorpicurl_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ChatBase::~ChatBase() {
+  // @@protoc_insertion_point(destructor:ServerData.ChatBase)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ChatBase::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.text_.Destroy();
+  _impl_.creatorname_.Destroy();
+  _impl_.creatorpicurl_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.createdtime_;
+}
+
+void ChatBase::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ChatBase::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerData.ChatBase)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.text_.ClearToEmpty();
+  _impl_.creatorname_.ClearToEmpty();
+  _impl_.creatorpicurl_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.createdtime_ != nullptr) {
+    delete _impl_.createdtime_;
+  }
+  _impl_.createdtime_ = nullptr;
+  ::memset(&_impl_.chattype_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.creatorislocal_) -
+      reinterpret_cast<char*>(&_impl_.chattype_)) + sizeof(_impl_.creatorislocal_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ChatBase::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .ServerData.ChatBase.ChatMessageSourceTypeEnum ChatType = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_chattype(static_cast<::ServerData::ChatBase_ChatMessageSourceTypeEnum>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // string Text = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_text();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.ChatBase.Text"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp CreatedTime = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_createdtime(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool Complete = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.complete_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool WasTranslated = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.wastranslated_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool CreatorIsLocal = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
+          _impl_.creatorislocal_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string CreatorName = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          auto str = _internal_mutable_creatorname();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.ChatBase.CreatorName"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string CreatorPicUrl = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
+          auto str = _internal_mutable_creatorpicurl();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.ChatBase.CreatorPicUrl"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ChatBase::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ServerData.ChatBase)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ServerData.ChatBase.ChatMessageSourceTypeEnum ChatType = 1;
+  if (this->_internal_chattype() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_chattype(), target);
+  }
+
+  // string Text = 2;
+  if (!this->_internal_text().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_text().data(), static_cast<int>(this->_internal_text().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.ChatBase.Text");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_text(), target);
+  }
+
+  // .google.protobuf.Timestamp CreatedTime = 3;
+  if (this->_internal_has_createdtime()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::createdtime(this),
+        _Internal::createdtime(this).GetCachedSize(), target, stream);
+  }
+
+  // bool Complete = 4;
+  if (this->_internal_complete() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_complete(), target);
+  }
+
+  // bool WasTranslated = 5;
+  if (this->_internal_wastranslated() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_wastranslated(), target);
+  }
+
+  // bool CreatorIsLocal = 10;
+  if (this->_internal_creatorislocal() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(10, this->_internal_creatorislocal(), target);
+  }
+
+  // string CreatorName = 11;
+  if (!this->_internal_creatorname().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_creatorname().data(), static_cast<int>(this->_internal_creatorname().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.ChatBase.CreatorName");
+    target = stream->WriteStringMaybeAliased(
+        11, this->_internal_creatorname(), target);
+  }
+
+  // string CreatorPicUrl = 12;
+  if (!this->_internal_creatorpicurl().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_creatorpicurl().data(), static_cast<int>(this->_internal_creatorpicurl().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.ChatBase.CreatorPicUrl");
+    target = stream->WriteStringMaybeAliased(
+        12, this->_internal_creatorpicurl(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerData.ChatBase)
+  return target;
+}
+
+size_t ChatBase::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ServerData.ChatBase)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string Text = 2;
+  if (!this->_internal_text().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_text());
+  }
+
+  // string CreatorName = 11;
+  if (!this->_internal_creatorname().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_creatorname());
+  }
+
+  // string CreatorPicUrl = 12;
+  if (!this->_internal_creatorpicurl().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_creatorpicurl());
+  }
+
+  // .google.protobuf.Timestamp CreatedTime = 3;
+  if (this->_internal_has_createdtime()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.createdtime_);
+  }
+
+  // .ServerData.ChatBase.ChatMessageSourceTypeEnum ChatType = 1;
+  if (this->_internal_chattype() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_chattype());
+  }
+
+  // bool Complete = 4;
+  if (this->_internal_complete() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool WasTranslated = 5;
+  if (this->_internal_wastranslated() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool CreatorIsLocal = 10;
+  if (this->_internal_creatorislocal() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ChatBase::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ChatBase::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ChatBase::GetClassData() const { return &_class_data_; }
+
+
+void ChatBase::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ChatBase*>(&to_msg);
+  auto& from = static_cast<const ChatBase&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.ChatBase)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_text().empty()) {
+    _this->_internal_set_text(from._internal_text());
+  }
+  if (!from._internal_creatorname().empty()) {
+    _this->_internal_set_creatorname(from._internal_creatorname());
+  }
+  if (!from._internal_creatorpicurl().empty()) {
+    _this->_internal_set_creatorpicurl(from._internal_creatorpicurl());
+  }
+  if (from._internal_has_createdtime()) {
+    _this->_internal_mutable_createdtime()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_createdtime());
+  }
+  if (from._internal_chattype() != 0) {
+    _this->_internal_set_chattype(from._internal_chattype());
+  }
+  if (from._internal_complete() != 0) {
+    _this->_internal_set_complete(from._internal_complete());
+  }
+  if (from._internal_wastranslated() != 0) {
+    _this->_internal_set_wastranslated(from._internal_wastranslated());
+  }
+  if (from._internal_creatorislocal() != 0) {
+    _this->_internal_set_creatorislocal(from._internal_creatorislocal());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ChatBase::CopyFrom(const ChatBase& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.ChatBase)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ChatBase::IsInitialized() const {
+  return true;
+}
+
+void ChatBase::InternalSwap(ChatBase* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.text_, lhs_arena,
+      &other->_impl_.text_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.creatorname_, lhs_arena,
+      &other->_impl_.creatorname_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.creatorpicurl_, lhs_arena,
+      &other->_impl_.creatorpicurl_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ChatBase, _impl_.creatorislocal_)
+      + sizeof(ChatBase::_impl_.creatorislocal_)
+      - PROTOBUF_FIELD_OFFSET(ChatBase, _impl_.createdtime_)>(
+          reinterpret_cast<char*>(&_impl_.createdtime_),
+          reinterpret_cast<char*>(&other->_impl_.createdtime_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ChatBase::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[65]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace ServerData
 PROTOBUF_NAMESPACE_OPEN
@@ -21874,6 +23902,26 @@ Arena::CreateMaybeMessage< ::ServerData::AllJoinableSpacesReq >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::ServerData::AllJoinableSpacesResp*
 Arena::CreateMaybeMessage< ::ServerData::AllJoinableSpacesResp >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ServerData::AllJoinableSpacesResp >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::ChatAdded*
+Arena::CreateMaybeMessage< ::ServerData::ChatAdded >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::ChatAdded >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::ChatUpdated*
+Arena::CreateMaybeMessage< ::ServerData::ChatUpdated >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::ChatUpdated >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::ChatRemoved*
+Arena::CreateMaybeMessage< ::ServerData::ChatRemoved >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::ChatRemoved >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::PostChat*
+Arena::CreateMaybeMessage< ::ServerData::PostChat >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::PostChat >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::ChatBase*
+Arena::CreateMaybeMessage< ::ServerData::ChatBase >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::ChatBase >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

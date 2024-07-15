@@ -38,7 +38,7 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpaceInfo
 
 	/** @brief The last access time of the space. */
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Spaces")
-	FDateTime LastAccess;
+	FDateTime LastAccess = FDateTime::MinValue();
 
 	FCavrnusSpaceInfo(const FString& SpaceId, const FString& SpaceName, const FString& SpaceThumbnail, const FDateTime& LastAccess)
 		: SpaceId(SpaceId), SpaceName(SpaceName), SpaceThumbnail(SpaceThumbnail), LastAccess(LastAccess)

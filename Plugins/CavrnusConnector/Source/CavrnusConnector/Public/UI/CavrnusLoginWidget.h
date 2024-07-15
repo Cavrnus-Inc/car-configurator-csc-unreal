@@ -3,7 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include <Blueprint/UserWidget.h>
+
+#include "CavrnusBaseUserWidget.h"
 #include "CavrnusLoginWidget.generated.h"
 
 class UTexture2D;
@@ -18,7 +19,7 @@ class UTexture2D;
 DECLARE_MULTICAST_DELEGATE_TwoParams(FOnLoginClicked, FString, FString);
 
 UCLASS(Abstract)
-class CAVRNUSCONNECTOR_API UCavrnusLoginWidget : public UUserWidget
+class CAVRNUSCONNECTOR_API UCavrnusLoginWidget : public UCavrnusBaseUserWidget
 {
 	GENERATED_BODY()
 

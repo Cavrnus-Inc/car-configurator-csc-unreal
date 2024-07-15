@@ -7,6 +7,7 @@
 #include "Types/AbsolutePropertyId.h"
 #include "Types/CavrnusPropertyValue.h"
 #include "Types/CavrnusSpaceConnection.h"
+#include "SpaceChatModel.h"
 
 namespace Cavrnus
 {
@@ -34,6 +35,8 @@ namespace Cavrnus
 	public:
 		SpacePropertyModel();
 		virtual ~SpacePropertyModel();
+
+		SpaceChatModel* ChatModel = nullptr;
 
 		void UpdateServerPropVal(FAbsolutePropertyId fullPropertyId, FPropertyValue value);
 		int SetLocalPropVal(FAbsolutePropertyId fullPropertyId, FPropertyValue value);

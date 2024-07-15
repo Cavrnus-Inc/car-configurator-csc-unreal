@@ -33,6 +33,9 @@ namespace Cavrnus
 		static ServerData::CavrnusSpaceConnection ToPb(FCavrnusSpaceConnection InSpaceConnection);
 		static FCavrnusSpaceInfo ToSpaceInfo(ServerData::SpaceInfo space);
 		static FCavrnusUser ToCavrnusUser(ServerData::CavrnusUser user, const FCavrnusSpaceConnection& spaceConn);
+
+		static FChatEntry ToFChatEntry(FString id, ServerData::ChatBase chat);
+		static const ServerData::RelayClientMessage BuildPostChatEntry(const FCavrnusSpaceConnection& spaceConn, const FString& chat);
 #pragma endregion
 
 

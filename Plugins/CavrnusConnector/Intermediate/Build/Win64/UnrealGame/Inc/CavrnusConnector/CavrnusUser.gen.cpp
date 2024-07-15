@@ -12,7 +12,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUser() {}
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusUser();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpaceConnection();
-	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 // End Cross Module References
 	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_CavrnusUser;
 class UScriptStruct* FCavrnusUser::StaticStruct()
@@ -50,10 +49,6 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusUser>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpaceConn_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_SpaceConn;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_VideoFrameTexture_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_VideoFrameTexture;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -109,21 +104,11 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusUser>()
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_SpaceConn = { "SpaceConn", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusUser, SpaceConn), Z_Construct_UScriptStruct_FCavrnusSpaceConnection, METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_SpaceConn_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_SpaceConn_MetaData)) }; // 423510165
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_VideoFrameTexture_MetaData[] = {
-		{ "Category", "Cavrnus|Users" },
-		{ "Comment", "/** The texture representing the video frame of the user. */" },
-		{ "ModuleRelativePath", "Public/Types/CavrnusUser.h" },
-		{ "ToolTip", "The texture representing the video frame of the user." },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_VideoFrameTexture = { "VideoFrameTexture", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusUser, VideoFrameTexture), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_VideoFrameTexture_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_VideoFrameTexture_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FCavrnusUser_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_IsLocalUser,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_PropertiesContainerName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_UserConnectionId,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_SpaceConn,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewProp_VideoFrameTexture,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FCavrnusUser_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
@@ -151,9 +136,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusUser>()
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusUser_h_Statics::ScriptStructInfo[] = {
-		{ FCavrnusUser::StaticStruct, Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewStructOps, TEXT("CavrnusUser"), &Z_Registration_Info_UScriptStruct_CavrnusUser, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusUser), 933787263U) },
+		{ FCavrnusUser::StaticStruct, Z_Construct_UScriptStruct_FCavrnusUser_Statics::NewStructOps, TEXT("CavrnusUser"), &Z_Registration_Info_UScriptStruct_CavrnusUser, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusUser), 2569896488U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusUser_h_275780944(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusUser_h_348331081(TEXT("/Script/CavrnusConnector"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusUser_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusUser_h_Statics::ScriptStructInfo),
 		nullptr, 0);

@@ -43,8 +43,7 @@ struct CAVRNUSCONNECTOR_API FCavrnusUser
 	UPROPERTY(BlueprintReadonly, Category = "Cavrnus|Users")
 	FCavrnusSpaceConnection SpaceConn;
 
-	/** The texture representing the video frame of the user. */
-	UPROPERTY(BlueprintReadonly, Category = "Cavrnus|Users")
+	/** The texture representing the video frame of the user. Stored here for internal use only.*/
 	UTexture2D* VideoFrameTexture = nullptr;
 
 	/**

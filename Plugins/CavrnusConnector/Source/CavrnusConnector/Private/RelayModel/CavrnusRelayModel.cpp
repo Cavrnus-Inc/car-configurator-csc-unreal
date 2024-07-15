@@ -243,6 +243,15 @@ namespace Cavrnus
 		case ServerData::RelayRemoteMessage::kUploadLocalFileResp:
 			callbackModel->HandleServerCallback(msg.uploadlocalfileresp().reqid(), msg);
 			break;
+		case ServerData::RelayRemoteMessage::kChatAdded:
+			HandleChatAdded(msg.chatadded());
+			break;
+		case ServerData::RelayRemoteMessage::kChatUpdated:
+			HandleChatUpdated(msg.chatupdated());
+			break;
+		case ServerData::RelayRemoteMessage::kChatRemoved:
+			HandleChatRemoved(msg.chatremoved());
+			break;
 		default:
 			UE_LOG(LogCavrnusConnector, Warning, TEXT("Unhandled server message, message type: %d"), static_cast<int>(msg.Msg_case()));
 			break;
@@ -348,6 +357,36 @@ namespace Cavrnus
 
 	void CavrnusRelayModel::HandlePropMetadataStatus(const ServerData::PropMetadataStatus& metadataStatus)
 	{
+	}
+
+	void CavrnusRelayModel::HandleChatAdded(const ServerData::ChatAdded& chatAdded)
+	{
+		int spaceConnId = chatAdded.spaceconn().spaceconnectionid();
+
+		if (!spacePropertyModelLookup.Contains(spaceConnId))
+			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
+
+		spacePropertyModelLookup[spaceConnId]->ChatModel->AddChat(CavrnusProtoTranslation::ToFChatEntry(chatAdded.chatpropertyid().c_str(), chatAdded.chatdata()));
+	}
+
+	void CavrnusRelayModel::HandleChatUpdated(const ServerData::ChatUpdated& chatUpdated)
+	{
+		int spaceConnId = chatUpdated.spaceconn().spaceconnectionid();
+
+		if (!spacePropertyModelLookup.Contains(spaceConnId))
+			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
+
+		spacePropertyModelLookup[spaceConnId]->ChatModel->UpdateChat(CavrnusProtoTranslation::ToFChatEntry(chatUpdated.chatpropertyid().c_str(), chatUpdated.chatdata()));
+	}
+
+	void CavrnusRelayModel::HandleChatRemoved(const ServerData::ChatRemoved& chatRemoved)
+	{
+		int spaceConnId = chatRemoved.spaceconn().spaceconnectionid();
+
+		if (!spacePropertyModelLookup.Contains(spaceConnId))
+			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
+
+		spacePropertyModelLookup[spaceConnId]->ChatModel->RemoveChat(chatRemoved.chatpropertyid().c_str());
 	}
 
 	void CavrnusRelayModel::HandleServerPropertyUpdate(const ServerData::PropertyValueStatus& propStatus)

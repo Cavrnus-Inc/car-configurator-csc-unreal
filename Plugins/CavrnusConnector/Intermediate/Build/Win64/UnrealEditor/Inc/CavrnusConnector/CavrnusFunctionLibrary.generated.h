@@ -20,8 +20,9 @@ struct FCavrnusInputDevice;
 struct FCavrnusOutputDevice;
 struct FCavrnusVideoInputDevice;
 struct FCavrnusRemoteContent;
- 
+struct FChatEntry;
 class UCavrnusBinding;
+ 
 struct FPropertyPostOptions;
 class UCavrnusLiveTransformPropertyUpdate;
 class UCavrnusLiveVectorPropertyUpdate;
@@ -404,9 +405,37 @@ static inline void FCavrnusUploadCompleteFunction_DelegateWrapper(const FScriptD
 }
 
 
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1256_DELEGATE \
+struct CavrnusFunctionLibrary_eventCavrnusChatFunction_Parms \
+{ \
+	FChatEntry chat; \
+}; \
+static inline void FCavrnusChatFunction_DelegateWrapper(const FScriptDelegate& CavrnusChatFunction, FChatEntry const& chat) \
+{ \
+	CavrnusFunctionLibrary_eventCavrnusChatFunction_Parms Parms; \
+	Parms.chat=chat; \
+	CavrnusChatFunction.ProcessDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1257_DELEGATE \
+struct CavrnusFunctionLibrary_eventCavrnusChatRemovedFunction_Parms \
+{ \
+	FString chatId; \
+}; \
+static inline void FCavrnusChatRemovedFunction_DelegateWrapper(const FScriptDelegate& CavrnusChatRemovedFunction, const FString& chatId) \
+{ \
+	CavrnusFunctionLibrary_eventCavrnusChatRemovedFunction_Parms Parms; \
+	Parms.chatId=chatId; \
+	CavrnusChatRemovedFunction.ProcessDelegate<UObject>(&Parms); \
+}
+
+
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_55_SPARSE_DATA
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_55_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execPostChatMessage); \
+	DECLARE_FUNCTION(execBindChatMessages); \
 	DECLARE_FUNCTION(execUploadContentWithTags); \
 	DECLARE_FUNCTION(execUploadContent); \
 	DECLARE_FUNCTION(execFetchAllUploadedContent); \
@@ -477,6 +506,8 @@ static inline void FCavrnusUploadCompleteFunction_DelegateWrapper(const FScriptD
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_55_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execPostChatMessage); \
+	DECLARE_FUNCTION(execBindChatMessages); \
 	DECLARE_FUNCTION(execUploadContentWithTags); \
 	DECLARE_FUNCTION(execUploadContent); \
 	DECLARE_FUNCTION(execFetchAllUploadedContent); \

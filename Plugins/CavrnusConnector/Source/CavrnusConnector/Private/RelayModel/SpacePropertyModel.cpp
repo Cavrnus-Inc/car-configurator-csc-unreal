@@ -6,6 +6,7 @@ namespace Cavrnus
 {
 	SpacePropertyModel::SpacePropertyModel() 
 	{
+		ChatModel = new SpaceChatModel();
 	}
 
 	SpacePropertyModel::~SpacePropertyModel()
@@ -243,10 +244,12 @@ namespace Cavrnus
 	{
 		if (FCavrnusUser* User = CurrSpaceUsers.Find(userId))
 		{
+			bool TextureCreated = false;
 			if (!User->VideoFrameTexture || User->VideoFrameTexture->GetSizeX() != ResX || User->VideoFrameTexture->GetSizeY() != ResY)
 			{
 				FName UniqueName = MakeUniqueObjectName(nullptr, UTexture2D::StaticClass(), "RTCStream");
 				User->VideoFrameTexture = UTexture2D::CreateTransient(ResX, ResY, PF_B8G8R8A8, UniqueName);
+				TextureCreated = true;
 			}
 
 			void* TextureData = User->VideoFrameTexture->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
@@ -254,7 +257,7 @@ namespace Cavrnus
 			User->VideoFrameTexture->GetPlatformData()->Mips[0].BulkData.Unlock();
 			User->VideoFrameTexture->UpdateResource();
 
-			if (UserVideoFrameBindings.Contains(userId))
+			if (TextureCreated && UserVideoFrameBindings.Contains(userId))
 			{
 				for (auto& Binding : UserVideoFrameBindings[userId])
 				{

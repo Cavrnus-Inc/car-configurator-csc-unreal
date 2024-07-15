@@ -1251,6 +1251,24 @@ public:
 
 #pragma endregion
 
+#pragma region Chat
+
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusChatFunction, const FChatEntry&, chat);
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusChatRemovedFunction, const FString&, chatId);
+
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Chat",
+		meta = (ToolTip = "Triggers events when recieving chat messages/updates", ShortToolTip = "Triggers events when recieving chats"))
+	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindChatMessages(const FCavrnusSpaceConnection& spaceConn, const FCavrnusChatFunction& ChatAdded, const FCavrnusChatFunction& ChatUpdated, const FCavrnusChatRemovedFunction& ChatRemoved);
+
+	static UCavrnusBinding* BindChatMessages(const FCavrnusSpaceConnection& spaceConn, const CavrnusChatFunction& ChatAdded, const CavrnusChatFunction& ChatUpdated, const CavrnusChatRemovedFunction& ChatRemoved);
+
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Chat",
+		meta = (ToolTip = "Send a new chat message", ShortToolTip = "Send a new chat message"))
+	static void PostChatMessage(const FCavrnusSpaceConnection& spaceConn, const FString& Chat);
+
+
+#pragma endregion
+
 private:
 
 	/**
