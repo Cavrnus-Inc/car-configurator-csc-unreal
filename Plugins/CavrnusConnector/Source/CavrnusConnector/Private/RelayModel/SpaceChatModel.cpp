@@ -23,6 +23,12 @@ namespace Cavrnus
 
 	void SpaceChatModel::UpdateChat(FChatEntry chat)
 	{
+		if (!CurrChatEntries.Contains(FAbsolutePropertyId(chat.ChatId))) 
+		{
+			UE_LOG(LogTemp, Error, TEXT("CHAT UPDATE ID NOT FOUND IN DICTIONARY!"));
+			return;
+		}
+
 		CurrChatEntries[FAbsolutePropertyId(chat.ChatId)] = chat;
 
 		for (int i = 0; i < ChatUpdatedBindings.Num(); i++)
@@ -31,6 +37,12 @@ namespace Cavrnus
 
 	void SpaceChatModel::RemoveChat(FString chatId)
 	{
+		if (!CurrChatEntries.Contains(FAbsolutePropertyId(chatId)))
+		{
+			UE_LOG(LogTemp, Error, TEXT("CHAT REMOVAL ID NOT FOUND IN DICTIONARY!"));
+			return;
+		}
+
 		CurrChatEntries.Remove(FAbsolutePropertyId(chatId));
 		for (int i = 0; i < ChatRemovedBindings.Num(); i++)
 			(*ChatRemovedBindings[i])(chatId);

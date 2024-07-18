@@ -1,12 +1,3 @@
-Cavrnus-Spatial-Connector-UE5.0-2023.2.760-Dev
-78107955+markvrepo: ue - master [248569c01d0501f8a65f5303729af60cee49a2fd]
-Convenience Functions to FPropertiesContainer
-
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/AbsolutePropertyId.h
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Public/Types/PropertiesContainer.h
-
-bhaddad5: common - master [43230c748e6570f452e3f5e9e1576b344897eece]
-Added wasTranslated flag to chats
-
-	protos/relay.proto
+Cavrnus-Spatial-Connector-UE5.0 from Git commit 4ddf80d3527b8e8eb1b35045bed43e7276fcc93f
+Bert Haddad "fixed smoothed transform bouncebacks"
 

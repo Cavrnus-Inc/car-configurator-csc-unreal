@@ -13,5 +13,4 @@ UCLASS()
 class CAVRNUSCONNECTOR_API UCavrnusBaseUserWidget : public UUserWidget
 {
 	GENERATED_BODY()
-	
 };
