@@ -298,6 +298,7 @@ public:
 	UCavrnusSpatialConnectorSubSystemProxy* GetSystemProxy();
 
 private:
+	/** Pointer to the SubSystem Proxy. */
 	UPROPERTY()
 	UCavrnusSpatialConnectorSubSystemProxy* SystemProxy;
 };

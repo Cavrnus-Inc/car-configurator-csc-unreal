@@ -120,6 +120,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusUserWidget_TriggerMaximizeUserSelected_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Cavrnus|UI" },
 		{ "ModuleRelativePath", "Public/UI/UserMenu/CavrnusUserWidget.h" },
 	};
 #endif
@@ -168,7 +169,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusUserWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCavrnusUserWidget_InitializeComplete, "InitializeComplete" }, // 2003538847
 		{ &Z_Construct_UFunction_UCavrnusUserWidget_InitializeUserConnection, "InitializeUserConnection" }, // 1967057961
-		{ &Z_Construct_UFunction_UCavrnusUserWidget_TriggerMaximizeUserSelected, "TriggerMaximizeUserSelected" }, // 3812948202
+		{ &Z_Construct_UFunction_UCavrnusUserWidget_TriggerMaximizeUserSelected, "TriggerMaximizeUserSelected" }, // 3041856657
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusUserWidget_Statics::Class_MetaDataParams[] = {
@@ -181,7 +182,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusUserWidget_Statics::NewProp_RtcStreamImage_MetaData[] = {
 		{ "BindWidget", "" },
-		{ "Category", "Cavrnus" },
+		{ "Category", "Cavrnus|UI" },
 		{ "Comment", "/** @brief Image widget to display the RTC stream of the user. */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/UserMenu/CavrnusUserWidget.h" },
@@ -191,7 +192,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusUserWidget_Statics::NewProp_RtcStreamImage = { "RtcStreamImage", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusUserWidget, RtcStreamImage), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusUserWidget_Statics::NewProp_RtcStreamImage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusUserWidget_Statics::NewProp_RtcStreamImage_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusUserWidget_Statics::NewProp_User_MetaData[] = {
-		{ "Category", "Cavrnus" },
+		{ "Category", "Cavrnus|UI" },
 		{ "Comment", "/** @brief User data associated with the widget. */" },
 		{ "ModuleRelativePath", "Public/UI/UserMenu/CavrnusUserWidget.h" },
 		{ "ToolTip", "@brief User data associated with the widget." },
@@ -247,9 +248,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusUserWidget, UCavrnusUserWidget::StaticClass, TEXT("UCavrnusUserWidget"), &Z_Registration_Info_UClass_UCavrnusUserWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusUserWidget), 1726766871U) },
+		{ Z_Construct_UClass_UCavrnusUserWidget, UCavrnusUserWidget::StaticClass, TEXT("UCavrnusUserWidget"), &Z_Registration_Info_UClass_UCavrnusUserWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusUserWidget), 2523439793U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_2247527590(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_1224783350(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

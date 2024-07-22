@@ -15,14 +15,14 @@ struct FMenuData
 {
 	GENERATED_BODY()
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Menu")
-	FString Title;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus|SideBarMenu")
+	FString Title = "";
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Menu")
-	TSubclassOf<UUserWidget> TargetMenu;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus|SideBarMenu")
+	TSubclassOf<UUserWidget> TargetMenu = nullptr;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Menu")
-	UTexture2D* Icon;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus|SideBarMenu")
+	UTexture2D* Icon = nullptr;
 };
 
 UCLASS()
@@ -31,9 +31,9 @@ class CAVRNUSCONNECTOR_API UMinimalSideBarMenu : public UCavrnusBaseUserWidget
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus")
-	TSubclassOf<UMinimalSidebarButton> ButtonWidgetClass;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus|SideBarMenu")
+	TSubclassOf<UMinimalSidebarButton> ButtonWidgetClass = nullptr;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus|SideBarMenu")
 	TArray<FMenuData> MenuData;
 };

@@ -17,5 +17,4 @@ UCLASS(Abstract)
 class CAVRNUSCONNECTOR_API USpaceListEntry : public UUserWidget
 {
 	GENERATED_BODY()
-	
 };

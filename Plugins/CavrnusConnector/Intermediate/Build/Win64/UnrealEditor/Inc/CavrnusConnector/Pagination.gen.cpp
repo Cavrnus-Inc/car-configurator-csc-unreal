@@ -143,16 +143,14 @@ void EmptyLinkFunctionForGeneratedCodePagination() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPagination_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * @brief Class representing a pagination system for a list of items in the UI.\n *\n * The UPagination class provides functionality for paginating a list of items, allowing users to navigate through pages\n * of content using \"Next\" and \"Previous\" buttons. It manages the display of items per page and handles the logic for\n * loading different pages.\n */" },
 		{ "IncludePath", "UI/Pagination/Pagination.h" },
 		{ "ModuleRelativePath", "Public/UI/Pagination/Pagination.h" },
-		{ "ToolTip", "@brief Class representing a pagination system for a list of items in the UI.\n\nThe UPagination class provides functionality for paginating a list of items, allowing users to navigate through pages\nof content using \"Next\" and \"Previous\" buttons. It manages the display of items per page and handles the logic for\nloading different pages." },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPagination_Statics::NewProp_ButtonPrevious_MetaData[] = {
 		{ "BindWidget", "" },
-		{ "Category", "PaginationSetup" },
+		{ "Category", "Cavrnus|Pagination" },
 		{ "Comment", "/** Button for navigating to the previous page. */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/Pagination/Pagination.h" },
@@ -163,7 +161,7 @@ void EmptyLinkFunctionForGeneratedCodePagination() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPagination_Statics::NewProp_ButtonNext_MetaData[] = {
 		{ "BindWidget", "" },
-		{ "Category", "PaginationSetup" },
+		{ "Category", "Cavrnus|PaginationSetup" },
 		{ "Comment", "/** Button for navigating to the next page. */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/Pagination/Pagination.h" },
@@ -174,7 +172,7 @@ void EmptyLinkFunctionForGeneratedCodePagination() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPagination_Statics::NewProp_TextBlockCurrentPage_MetaData[] = {
 		{ "BindWidget", "" },
-		{ "Category", "PaginationSetup" },
+		{ "Category", "Cavrnus|Pagination" },
 		{ "Comment", "/** Text block displaying the current page number. */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/Pagination/Pagination.h" },
@@ -184,7 +182,7 @@ void EmptyLinkFunctionForGeneratedCodePagination() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPagination_Statics::NewProp_TextBlockCurrentPage = { "TextBlockCurrentPage", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPagination, TextBlockCurrentPage), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPagination_Statics::NewProp_TextBlockCurrentPage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPagination_Statics::NewProp_TextBlockCurrentPage_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPagination_Statics::NewProp_NoResultsContainer_MetaData[] = {
-		{ "Category", "PaginationSetup" },
+		{ "Category", "Cavrnus|Pagination" },
 		{ "Comment", "/** Widget container to display when there are no results. */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/Pagination/Pagination.h" },
@@ -194,7 +192,7 @@ void EmptyLinkFunctionForGeneratedCodePagination() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPagination_Statics::NewProp_NoResultsContainer = { "NoResultsContainer", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPagination, NoResultsContainer), Z_Construct_UClass_UWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPagination_Statics::NewProp_NoResultsContainer_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPagination_Statics::NewProp_NoResultsContainer_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPagination_Statics::NewProp_ItemContainer_MetaData[] = {
-		{ "Category", "PaginationSetup" },
+		{ "Category", "Cavrnus|Pagination" },
 		{ "Comment", "/** Widget container for displaying paginated items. */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/Pagination/Pagination.h" },
@@ -205,7 +203,7 @@ void EmptyLinkFunctionForGeneratedCodePagination() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPagination_Statics::NewProp_FooterContainer_MetaData[] = {
 		{ "BindWidget", "" },
-		{ "Category", "SpaceList" },
+		{ "Category", "Cavrnus|Pagination" },
 		{ "Comment", "/** Footer container widget. */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/Pagination/Pagination.h" },
@@ -267,9 +265,9 @@ void EmptyLinkFunctionForGeneratedCodePagination() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_Pagination_Pagination_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPagination, UPagination::StaticClass, TEXT("UPagination"), &Z_Registration_Info_UClass_UPagination, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPagination), 3831891507U) },
+		{ Z_Construct_UClass_UPagination, UPagination::StaticClass, TEXT("UPagination"), &Z_Registration_Info_UClass_UPagination, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPagination), 1745993715U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_Pagination_Pagination_h_556099735(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_Pagination_Pagination_h_1056726097(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_Pagination_Pagination_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_Pagination_Pagination_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -37,6 +37,11 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FChatEntry>()
 #endif
 		static const UECodeGen_Private::FStrPropertyParams NewProp_ChatId;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsTranscription_MetaData[];
+#endif
+		static void NewProp_IsTranscription_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsTranscription;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ChatDisplayText_MetaData[];
 #endif
 		static const UECodeGen_Private::FStrPropertyParams NewProp_ChatDisplayText;
@@ -89,6 +94,17 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FChatEntry>()
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_ChatId = { "ChatId", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FChatEntry, ChatId), METADATA_PARAMS(Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_ChatId_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_ChatId_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_IsTranscription_MetaData[] = {
+		{ "Category", "Cavrnus|Chat" },
+		{ "ModuleRelativePath", "Public/Types/ChatEntry.h" },
+	};
+#endif
+	void Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_IsTranscription_SetBit(void* Obj)
+	{
+		((FChatEntry*)Obj)->IsTranscription = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_IsTranscription = { "IsTranscription", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(FChatEntry), &Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_IsTranscription_SetBit, METADATA_PARAMS(Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_IsTranscription_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_IsTranscription_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_ChatDisplayText_MetaData[] = {
 		{ "Category", "Cavrnus|Chat" },
@@ -152,6 +168,7 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FChatEntry>()
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_WasTranslated = { "WasTranslated", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(FChatEntry), &Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_WasTranslated_SetBit, METADATA_PARAMS(Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_WasTranslated_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_WasTranslated_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FChatEntry_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_ChatId,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_IsTranscription,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_ChatDisplayText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_ChatCreatorIsLocalUser,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChatEntry_Statics::NewProp_ChatCreatorName,
@@ -186,9 +203,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FChatEntry>()
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_Statics::ScriptStructInfo[] = {
-		{ FChatEntry::StaticStruct, Z_Construct_UScriptStruct_FChatEntry_Statics::NewStructOps, TEXT("ChatEntry"), &Z_Registration_Info_UScriptStruct_ChatEntry, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FChatEntry), 2836699165U) },
+		{ FChatEntry::StaticStruct, Z_Construct_UScriptStruct_FChatEntry_Statics::NewStructOps, TEXT("ChatEntry"), &Z_Registration_Info_UScriptStruct_ChatEntry, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FChatEntry), 450126859U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_1216472016(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_24273449(TEXT("/Script/CavrnusConnector"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_Statics::ScriptStructInfo),
 		nullptr, 0);

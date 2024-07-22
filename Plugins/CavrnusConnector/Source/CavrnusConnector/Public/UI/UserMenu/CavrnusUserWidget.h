@@ -42,18 +42,18 @@ public:
 	void InitializeComplete();
 
 	/** @brief Image widget to display the RTC stream of the user. */
-	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus", meta = (BindWidget))
-	class UImage* RtcStreamImage;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|UI", meta = (BindWidget))
+	class UImage* RtcStreamImage = nullptr;
 
 	/** @brief User data associated with the widget. */
-	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus")
-	FCavrnusUser User;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|UI")
+	FCavrnusUser User = FCavrnusUser();
 
 	FMaximizeUserSelected MaximizeUserSelected;
 
 private:
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus|UI")
 	void TriggerMaximizeUserSelected();
 	
 	/**
@@ -67,7 +67,7 @@ private:
 
 	/** @brief Binding for the user's video frame updates. */
 	UPROPERTY()
-	UCavrnusBinding* UserVideoFrameBinding;
+	UCavrnusBinding* UserVideoFrameBinding = nullptr;;
 
 	/** @brief Current size of the RTC stream image. */
 	FVector2D CurrentStreamImageSize = FVector2D(0,0);

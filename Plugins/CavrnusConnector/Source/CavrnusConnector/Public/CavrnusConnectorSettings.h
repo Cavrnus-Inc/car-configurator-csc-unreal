@@ -59,4 +59,8 @@ public:
 	//   "-f" or "-F": Logging in the CavrnusRelayNet process saved to a file
 	UPROPERTY(Config, EditAnywhere, Category = "Configuration")
 	bool RelayNetLogOutputToFile;
+
+	//   "-f" or "-F": Logging in the CavrnusRelayNet process saved to a file
+	UPROPERTY(Config, EditAnywhere, Category = "Configuration")
+	bool RelayNetDisableRTC;
 };

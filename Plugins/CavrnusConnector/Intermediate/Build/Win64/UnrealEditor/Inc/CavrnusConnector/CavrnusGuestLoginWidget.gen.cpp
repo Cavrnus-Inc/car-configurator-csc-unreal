@@ -73,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup_Statics::Function_MetaDataParams[] = {
 		{ "BindWidget", "" },
-		{ "Category", "Cavrnus" },
+		{ "Category", "Cavrnus|Login" },
 		{ "Comment", "/**\n\x09 * @brief Sets up the guest login widget.\n\x09 *\n\x09 * This function is responsible for initializing the widget and preparing it for user interaction.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/UI/CavrnusGuestLoginWidget.h" },
 		{ "ToolTip", "@brief Sets up the guest login widget.\n\nThis function is responsible for initializing the widget and preparing it for user interaction." },
@@ -119,7 +119,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCavrnusGuestLoginWidget_OnLoginClicked, "OnLoginClicked" }, // 2193850533
-		{ &Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup, "Setup" }, // 4139970160
+		{ &Z_Construct_UFunction_UCavrnusGuestLoginWidget_Setup, "Setup" }, // 1123202627
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics::Class_MetaDataParams[] = {
@@ -132,7 +132,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics::NewProp_GuestUsernameInput_MetaData[] = {
 		{ "BindWidget", "" },
-		{ "Category", "Cavrnus" },
+		{ "Category", "Cavrnus|Login" },
 		{ "Comment", "/**\n\x09 * @brief Editable text box for guest username input.\n\x09 *\n\x09 * This property binds to a UI widget that allows the user to input their guest username.\n\x09 */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/CavrnusGuestLoginWidget.h" },
@@ -143,7 +143,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusGuestLoginWidget_Statics::NewProp_LoginButton_MetaData[] = {
 		{ "BindWidget", "" },
-		{ "Category", "Cavrnus" },
+		{ "Category", "Cavrnus|Login" },
 		{ "Comment", "/**\n\x09 * @brief Button for initiating guest login.\n\x09 *\n\x09 * This property binds to a UI widget that serves as the login button.\n\x09 */" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/CavrnusGuestLoginWidget.h" },
@@ -191,9 +191,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusGuestLoginWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusGuestLoginWidget, UCavrnusGuestLoginWidget::StaticClass, TEXT("UCavrnusGuestLoginWidget"), &Z_Registration_Info_UClass_UCavrnusGuestLoginWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusGuestLoginWidget), 1889419075U) },
+		{ Z_Construct_UClass_UCavrnusGuestLoginWidget, UCavrnusGuestLoginWidget::StaticClass, TEXT("UCavrnusGuestLoginWidget"), &Z_Registration_Info_UClass_UCavrnusGuestLoginWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusGuestLoginWidget), 1966589674U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_2470324136(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_4090582230(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusGuestLoginWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -44,12 +44,12 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusPropertiesContainer() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusPropertiesContainer_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintSpawnableComponent", "" },
 		{ "BlueprintType", "true" },
-		{ "Comment", "/**\n * @brief UCavrnusPropertiesContainer is a component class used for containing properties within the Cavrnus plugin. This component can be attached to actors and used to manage property containers for Cavrnus.\n */" },
+		{ "Comment", "/**\n * @brief UCavrnusPropertiesContainer is the component class used for storing properties within the Cavrnus system. This component is attached to actors and used to synchronize properties in the Cavrnized project with corresponding values in the Journal of a Cavrnus Space.\n */" },
 		{ "HideCategories", "Transform Physics LOD Collision Rendering ComponentTick Trigger PhysicsVolume" },
 		{ "IncludePath", "CavrnusPropertiesContainer.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/CavrnusPropertiesContainer.h" },
-		{ "ToolTip", "@brief UCavrnusPropertiesContainer is a component class used for containing properties within the Cavrnus plugin. This component can be attached to actors and used to manage property containers for Cavrnus." },
+		{ "ToolTip", "@brief UCavrnusPropertiesContainer is the component class used for storing properties within the Cavrnus system. This component is attached to actors and used to synchronize properties in the Cavrnized project with corresponding values in the Journal of a Cavrnus Space." },
 	};
 #endif
 #if WITH_METADATA
@@ -100,9 +100,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusPropertiesContainer() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusPropertiesContainer, UCavrnusPropertiesContainer::StaticClass, TEXT("UCavrnusPropertiesContainer"), &Z_Registration_Info_UClass_UCavrnusPropertiesContainer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusPropertiesContainer), 2973972859U) },
+		{ Z_Construct_UClass_UCavrnusPropertiesContainer, UCavrnusPropertiesContainer::StaticClass, TEXT("UCavrnusPropertiesContainer"), &Z_Registration_Info_UClass_UCavrnusPropertiesContainer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusPropertiesContainer), 947663780U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_745724958(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_596670913(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusPropertiesContainer_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

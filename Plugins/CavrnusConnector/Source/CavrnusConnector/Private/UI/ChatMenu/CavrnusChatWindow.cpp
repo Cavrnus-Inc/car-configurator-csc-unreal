@@ -7,6 +7,7 @@
 #include "Components/EditableTextBox.h"
 #include "Components/ScrollBox.h"
 #include "UI/ChatMenu/CavrnusChatEntry.h"
+#include "TimerManager.h"
 
 void UCavrnusChatWindow::NativeConstruct()
 {

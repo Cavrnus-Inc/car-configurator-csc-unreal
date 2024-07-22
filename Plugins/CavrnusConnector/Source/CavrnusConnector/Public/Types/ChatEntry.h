@@ -3,17 +3,19 @@
 #include "AbsolutePropertyId.h"
 #include "ChatEntry.generated.h"
 
-// Class definition
 USTRUCT(BlueprintType)
 struct CAVRNUSCONNECTOR_API FChatEntry
 {
 	GENERATED_BODY()
 	
 public:
-	FChatEntry() = default;
+	FChatEntry() = default;	
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Chat")
 	FString ChatId = "";
+
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Chat")
+	bool IsTranscription = false;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Chat")
 	FString ChatDisplayText = "";

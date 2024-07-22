@@ -17,6 +17,6 @@ class CAVRNUSCONNECTOR_API USidebarMenuBase : public UCavrnusBaseUserWidget
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(BlueprintAssignable, Category = "Events")
+	UPROPERTY(BlueprintAssignable, Category = "Cavrnus|SideBarMenuBase")
 	FSecondaryWidgetRequested SecondaryWidgetRequested;
 };

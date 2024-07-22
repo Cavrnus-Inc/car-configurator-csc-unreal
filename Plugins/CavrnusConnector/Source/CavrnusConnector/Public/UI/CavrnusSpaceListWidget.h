@@ -52,7 +52,8 @@ class CAVRNUSCONNECTOR_API UCavrnusSpaceListWidget : public UCavrnusBaseUserWidg
 		virtual void EntryBuilt(UUserWidget* Element) override;
 
 		/** Structure to hold information about a Cavrnus space. */
-		FCavrnusSpaceInfo Content;
+		FCavrnusSpaceInfo Content = FCavrnusSpaceInfo();
+		
 		/** Function to call when the space is selected. */
 		FSpaceSelectedEvent OnSelect;
 	};
@@ -65,9 +66,8 @@ public:
 	/**
 	* @brief Sets up the space list widget.
 	*/
-	UFUNCTION(BlueprintCallable, Category = "SpaceList")
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus|SpaceList")
 	void Setup();
-
 	
 	FSpaceSelectedEvent SpaceSelected;
 
@@ -79,25 +79,25 @@ public:
 	void Search(const FText& SearchValue);
 
 	/** The widget class for pagination items. */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "SpaceList")
-	TSubclassOf<UUserWidget> PaginationItemWidget;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Cavrnus|SpaceList")
+	TSubclassOf<UUserWidget> PaginationItemWidget = nullptr;
 
 	/** The pagination widget for navigating through spaces. */
-	UPROPERTY(BlueprintReadOnly, Category = "SpaceList", meta = (BindWidget))
-	UPagination* SpacePagination;
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|SpaceList", meta = (BindWidget))
+	UPagination* SpacePagination = nullptr;
 
 	/** The text box for entering search terms. */
-	UPROPERTY(EditAnywhere, Category = "SpaceList", meta = (BindWidget))
-	UEditableTextBox* SearchTextBox;
+	UPROPERTY(EditAnywhere, Category = "Cavrnus|SpaceList", meta = (BindWidget))
+	UEditableTextBox* SearchTextBox = nullptr;
 
 	/** Delegate for handling the selection of a Cavrnus space. */
-
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable, Category = "Cavrnus|SpaceList")
 	FOnCavrnusSpaceSelected OnCavrnusSpaceSelected;
 
 private:
 	/** List of all spaces available. */
 	TArray<FCavrnusSpaceInfo> AllSpaces;
+	
 	/** List of currently displayed spaces based on search and pagination. */
 	TArray<FCavrnusSpaceInfo> CurrentDisplayedSpaces;
 	

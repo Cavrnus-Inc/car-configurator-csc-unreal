@@ -173,8 +173,8 @@ namespace Cavrnus
 	{
 		FString UserConnectionId = User.UserConnectionId;
 
-		if (CurrSpaceUsers.Contains(UserConnectionId))
-			Callback(CurrSpaceUsers[UserConnectionId].VideoFrameTexture);
+		if (CurrSpaceUsersVideoTextures.Contains(UserConnectionId))
+			Callback(CurrSpaceUsersVideoTextures[UserConnectionId]);
 
 		VideoFrameUpdateFunction* cb = new VideoFrameUpdateFunction(Callback);
 		UserVideoFrameBindings.FindOrAdd(UserConnectionId);
@@ -208,7 +208,7 @@ namespace Cavrnus
 	}
 
 
-	void SpacePropertyModel::AddSpaceUser(FCavrnusUser user)
+	void SpacePropertyModel::AddSpaceUser(const FCavrnusUser& user)
 	{
 		if (user.IsLocalUser)
 		{
@@ -224,6 +224,7 @@ namespace Cavrnus
 		}
 
 		CurrSpaceUsers.Add(user.UserConnectionId, user);
+		CurrSpaceUsersVideoTextures.Add(user.UserConnectionId, nullptr);
 		for (int i = 0; i < UserAddedBindings.Num(); i++)
 			(*UserAddedBindings[i])(user);
 	}
@@ -232,7 +233,7 @@ namespace Cavrnus
 	{
 		if (CurrSpaceUsers.Contains(userId))
 		{
-			FCavrnusUser removedUser = CurrSpaceUsers[userId];
+			const FCavrnusUser& removedUser = CurrSpaceUsers[userId];
 			CurrSpaceUsers.Remove(userId);
 
 			for (int i = 0; i < UserRemovedBindings.Num(); i++)
@@ -241,28 +242,33 @@ namespace Cavrnus
 	}
 
 	void SpacePropertyModel::UpdateUserVideoTexture(FString userId, int ResX, int ResY, const TArray<uint8>& ByteArray)
-	{
-		if (FCavrnusUser* User = CurrSpaceUsers.Find(userId))
+	{		
+		if (!CurrSpaceUsersVideoTextures.Contains(userId))
+			return;
+
+		UTexture2D* Tex = CurrSpaceUsersVideoTextures[userId];
+
+		bool TextureCreated = false;
+		if (Tex == nullptr || Tex->GetSizeX() != ResX || Tex->GetSizeY() != ResY)
 		{
-			bool TextureCreated = false;
-			if (!User->VideoFrameTexture || User->VideoFrameTexture->GetSizeX() != ResX || User->VideoFrameTexture->GetSizeY() != ResY)
-			{
-				FName UniqueName = MakeUniqueObjectName(nullptr, UTexture2D::StaticClass(), "RTCStream");
-				User->VideoFrameTexture = UTexture2D::CreateTransient(ResX, ResY, PF_B8G8R8A8, UniqueName);
-				TextureCreated = true;
-			}
+			FName UniqueName = MakeUniqueObjectName(nullptr, UTexture2D::StaticClass(), "RTCStream");
+			Tex = UTexture2D::CreateTransient(ResX, ResY, PF_B8G8R8A8, UniqueName);
 
-			void* TextureData = User->VideoFrameTexture->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
-			FMemory::Memcpy(TextureData, ByteArray.GetData(), ByteArray.Num());
-			User->VideoFrameTexture->GetPlatformData()->Mips[0].BulkData.Unlock();
-			User->VideoFrameTexture->UpdateResource();
+			CurrSpaceUsersVideoTextures[userId] = Tex;
 
-			if (TextureCreated && UserVideoFrameBindings.Contains(userId))
+			TextureCreated = true;
+		}
+
+		void* TextureData = Tex->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
+		FMemory::Memcpy(TextureData, ByteArray.GetData(), ByteArray.Num());
+		Tex->GetPlatformData()->Mips[0].BulkData.Unlock();
+		Tex->UpdateResource();
+
+		if (TextureCreated && UserVideoFrameBindings.Contains(userId))
+		{
+			for (auto& Binding : UserVideoFrameBindings[userId])
 			{
-				for (auto& Binding : UserVideoFrameBindings[userId])
-				{
-					(*Binding)(User->VideoFrameTexture);
-				}
+				(*Binding)(Tex);
 			}
 		}
 	}

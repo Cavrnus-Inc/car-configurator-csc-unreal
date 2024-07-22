@@ -51,7 +51,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusAvatarManager() {}
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusAvatarManager_Statics::NewProp_AvatarVis_MetaData[] = {
+		{ "Comment", "/** Binding to track visibility of avatars in the Cavrnus system. */" },
 		{ "ModuleRelativePath", "Private/CavrnusAvatarManager.h" },
+		{ "ToolTip", "Binding to track visibility of avatars in the Cavrnus system." },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusAvatarManager_Statics::NewProp_AvatarVis = { "AvatarVis", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusAvatarManager, AvatarVis), Z_Construct_UClass_UCavrnusBinding_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusAvatarManager_Statics::NewProp_AvatarVis_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusAvatarManager_Statics::NewProp_AvatarVis_MetaData)) };
@@ -94,9 +96,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusAvatarManager() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_CavrnusAvatarManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusAvatarManager, UCavrnusAvatarManager::StaticClass, TEXT("UCavrnusAvatarManager"), &Z_Registration_Info_UClass_UCavrnusAvatarManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusAvatarManager), 2622924143U) },
+		{ Z_Construct_UClass_UCavrnusAvatarManager, UCavrnusAvatarManager::StaticClass, TEXT("UCavrnusAvatarManager"), &Z_Registration_Info_UClass_UCavrnusAvatarManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusAvatarManager), 1400065765U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_CavrnusAvatarManager_h_1179644496(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_CavrnusAvatarManager_h_677674469(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_CavrnusAvatarManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_CavrnusAvatarManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -5,7 +5,7 @@
 #include "CavrnusPropertiesContainer.generated.h"
 
 /**
- * @brief UCavrnusPropertiesContainer is a component class used for containing properties within the Cavrnus plugin. This component can be attached to actors and used to manage property containers for Cavrnus.
+ * @brief UCavrnusPropertiesContainer is the component class used for storing properties within the Cavrnus system. This component is attached to actors and used to synchronize properties in the Cavrnized project with corresponding values in the Journal of a Cavrnus Space.
  */
 UCLASS(BlueprintType, Blueprintable, HideCategories = (Transform, Physics, LOD, Collision, Rendering, ComponentTick), meta = (BlueprintSpawnableComponent))
 class CAVRNUSCONNECTOR_API UCavrnusPropertiesContainer : public USceneComponent

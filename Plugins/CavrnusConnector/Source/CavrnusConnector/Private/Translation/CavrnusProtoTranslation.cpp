@@ -409,7 +409,7 @@ namespace Cavrnus
 	FCavrnusSpaceConnection CavrnusProtoTranslation::FromPb(ServerData::CavrnusSpaceConnection InSpaceConnection)
 	{
 		FString usersContainerPrefix = "users/";
-		return FCavrnusSpaceConnection(InSpaceConnection.spaceconnectionid(), InSpaceConnection.localuserconnectionid().c_str(), usersContainerPrefix + InSpaceConnection.localuserconnectionid().c_str());
+		return FCavrnusSpaceConnection(InSpaceConnection.spaceconnectionid(), UTF8_TO_TCHAR(InSpaceConnection.localuserconnectionid().c_str()), usersContainerPrefix + UTF8_TO_TCHAR(InSpaceConnection.localuserconnectionid().c_str()));
 	}
 
 	ServerData::CavrnusSpaceConnection CavrnusProtoTranslation::ToPb(FCavrnusSpaceConnection InSpaceConnection)
@@ -427,11 +427,11 @@ namespace Cavrnus
 		if (space.has_lastaccess())
 			lastAccess = FDateTime::FromUnixTimestamp(space.lastaccess().seconds());
 
-		return FCavrnusSpaceInfo(space.spaceid().c_str(), space.spacename().c_str(), space.spacethumbnailurl().c_str(), lastAccess);
+		return FCavrnusSpaceInfo(UTF8_TO_TCHAR(space.spaceid().c_str()), UTF8_TO_TCHAR(space.spacename().c_str()), UTF8_TO_TCHAR(space.spacethumbnailurl().c_str()), lastAccess);
 	}
 	FCavrnusUser CavrnusProtoTranslation::ToCavrnusUser(ServerData::CavrnusUser user, const FCavrnusSpaceConnection& spaceConn)
 	{
-		FString UserConnectionId = user.userconnectionid().c_str();
+		FString UserConnectionId = UTF8_TO_TCHAR(user.userconnectionid().c_str());
 
 		return FCavrnusUser(user.islocaluser(), ("users/" + UserConnectionId), UserConnectionId, spaceConn);
 	}
@@ -440,12 +440,13 @@ namespace Cavrnus
 	{
 		FChatEntry entry = FChatEntry();
 		entry.ChatId = id;
-		entry.ChatDisplayText = chat.text().c_str();
+		entry.ChatDisplayText = UTF8_TO_TCHAR(chat.text().c_str());
 		entry.ChatCreatorIsLocalUser = chat.creatorislocal();
-		entry.ChatCreatorName = chat.creatorname().c_str();
-		entry.ChatCreatorPictureUrl = chat.creatorpicurl().c_str();
+		entry.ChatCreatorName = UTF8_TO_TCHAR(chat.creatorname().c_str());
+		entry.ChatCreatorPictureUrl = UTF8_TO_TCHAR(chat.creatorpicurl().c_str());
 		entry.Complete = chat.complete();
 		entry.WasTranslated = chat.wastranslated();
+		entry.IsTranscription = chat.chattype() == ServerData::ChatBase_ChatMessageSourceTypeEnum_Transcription;
 
 		FDateTime createdTime = FDateTime::MinValue();
 		if (chat.has_createdtime())

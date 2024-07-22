@@ -1,3 +1,0 @@
-Cavrnus-Spatial-Connector-UE5.0 from Git commit 4ddf80d3527b8e8eb1b35045bed43e7276fcc93f
-Bert Haddad "fixed smoothed transform bouncebacks"
-

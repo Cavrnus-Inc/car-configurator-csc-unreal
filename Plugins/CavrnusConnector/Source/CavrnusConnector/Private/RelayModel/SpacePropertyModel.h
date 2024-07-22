@@ -54,7 +54,7 @@ namespace Cavrnus
 		void SetIsDefined(FAbsolutePropertyId fullPropertyId);
 		TArray<FAbsolutePropertyId> CurrDefinedProps;
 
-		void AddSpaceUser(FCavrnusUser user);
+		void AddSpaceUser(const FCavrnusUser& user);
 		void RemoveSpaceUser(FString userId);
 		void UpdateUserVideoTexture(FString userId, int ResX, int ResY, const TArray<uint8>& ByteArray);
 
@@ -62,6 +62,7 @@ namespace Cavrnus
 		UCavrnusBinding* BindSpaceUsers(CavrnusSpaceUserEvent userAdded, CavrnusSpaceUserEvent userRemoved);
 
 		CaseSensitiveMap<FString, FCavrnusUser> CurrSpaceUsers;
+		CaseSensitiveMap<FString, UTexture2D*> CurrSpaceUsersVideoTextures;
 
 		FCavrnusUser LocalUser;
 		bool hasLocalUser = false;

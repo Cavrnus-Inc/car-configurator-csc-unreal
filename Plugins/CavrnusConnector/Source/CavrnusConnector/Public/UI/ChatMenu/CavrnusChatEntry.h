@@ -25,33 +25,33 @@ public:
 	void Setup(const FChatEntry& InChatEntry);
 
 	// Chat Metadata References
-	UPROPERTY(BlueprintReadWrite, Category = "ChatEntry", meta = (BindWidget))
-	UTextBlock* CreatorName;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatEntry", meta = (BindWidget))
+	UTextBlock* CreatorName = nullptr;
 
-	UPROPERTY(BlueprintReadWrite, Category = "ChatEntry", meta = (BindWidget))
-	UTextBlock* CreationTime;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatEntry", meta = (BindWidget))
+	UTextBlock* CreationTime = nullptr;
 
-	UPROPERTY(BlueprintReadWrite, Category = "ChatEntry", meta = (BindWidget))
-	UTextBlock* Message;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatEntry", meta = (BindWidget))
+	UTextBlock* Message = nullptr;
 
-	UPROPERTY(BlueprintReadWrite, Category = "ChatEntry", meta = (BindWidget))
-	UImage* ProfilePicImage;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatEntry", meta = (BindWidget))
+	UImage* ProfilePicImage = nullptr;
 
 	// Chat Visuals
-	UPROPERTY(EditAnywhere, Category = "ChatEntry")
+	UPROPERTY(EditAnywhere, Category = "Cavrnus|ChatEntry")
 	FLinearColor LocalUserColor;
 	
-	UPROPERTY(BlueprintReadWrite, Category = "ChatEntry", meta = (BindWidget))
-	UBorder* ChatBubbleBackground;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatEntry", meta = (BindWidget))
+	UBorder* ChatBubbleBackground = nullptr;
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "Cavrnus|Events")
+	UFUNCTION(BlueprintImplementableEvent, Category = "Cavrnus|ChatEntry")
 	void SetupComplete(FChatEntry InChatEntry);
 
 private:
 	UPROPERTY()
-	UAsyncTaskDownloadImage* DownloadTask;
+	UAsyncTaskDownloadImage* DownloadTask = nullptr;
 
-	FChatEntry ChatEntry;
+	FChatEntry ChatEntry = FChatEntry();
 
 	void ImageReceived(UTexture2DDynamic* Texture);
 	void ImageReceiveFailure(UTexture2DDynamic* Texture);

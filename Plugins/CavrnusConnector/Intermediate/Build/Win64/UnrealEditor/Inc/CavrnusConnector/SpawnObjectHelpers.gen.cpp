@@ -37,10 +37,10 @@ void EmptyLinkFunctionForGeneratedCodeSpawnObjectHelpers() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USpawnObjectHelpers_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "// Class definition\n" },
+		{ "Comment", "/**\n * @brief Helper class for spawning and setting up objects and users in the Cavrnus system.\n *\n * The USpawnObjectHelpers class provides utility functions for spawning and initializing\n * actors representing users and objects within the Cavrnus system. It includes methods\n * for handling the setup and configuration of spawned actors.\n */" },
 		{ "IncludePath", "SpawnObjectHelpers.h" },
 		{ "ModuleRelativePath", "Private/SpawnObjectHelpers.h" },
-		{ "ToolTip", "Class definition" },
+		{ "ToolTip", "@brief Helper class for spawning and setting up objects and users in the Cavrnus system.\n\nThe USpawnObjectHelpers class provides utility functions for spawning and initializing\nactors representing users and objects within the Cavrnus system. It includes methods\nfor handling the setup and configuration of spawned actors." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_USpawnObjectHelpers_Statics::StaticCppClassTypeInfo = {
@@ -79,9 +79,9 @@ void EmptyLinkFunctionForGeneratedCodeSpawnObjectHelpers() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_SpawnObjectHelpers_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USpawnObjectHelpers, USpawnObjectHelpers::StaticClass, TEXT("USpawnObjectHelpers"), &Z_Registration_Info_UClass_USpawnObjectHelpers, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpawnObjectHelpers), 391014919U) },
+		{ Z_Construct_UClass_USpawnObjectHelpers, USpawnObjectHelpers::StaticClass, TEXT("USpawnObjectHelpers"), &Z_Registration_Info_UClass_USpawnObjectHelpers, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpawnObjectHelpers), 4168674328U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_SpawnObjectHelpers_h_434317907(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_SpawnObjectHelpers_h_3703143594(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_SpawnObjectHelpers_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_SpawnObjectHelpers_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

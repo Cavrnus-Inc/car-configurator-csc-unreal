@@ -40,23 +40,23 @@ public:
 
 	/** The default thumbnail image displayed before the actual thumbnail is downloaded. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	UImage* ThumbnailDefault;
+	UImage* ThumbnailDefault = nullptr;
 	
 	/** The actual thumbnail image of the space. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	UImage* Thumbnail;
+	UImage* Thumbnail = nullptr;
 	
 	/** The text block displaying the name of the space. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	UTextBlock* SpaceNameTextBlock;
+	UTextBlock* SpaceNameTextBlock = nullptr;
 	
 	/** The button used to select the space. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	UButton* Button;
+	UButton* Button = nullptr;
 
 	/** The async task responsible for downloading the thumbnail image. */
 	UPROPERTY()
-	UAsyncTaskDownloadImage* DownloadTask;
+	UAsyncTaskDownloadImage* DownloadTask = nullptr;
 
 	/**
 	 * @brief Callback function for when the space selection button is clicked.
@@ -66,7 +66,8 @@ public:
 
 private:
 	/** Information about the space. */
-	FCavrnusSpaceInfo SpaceInfo;
+	FCavrnusSpaceInfo SpaceInfo = FCavrnusSpaceInfo();
+	
 	/** The event to be triggered when the space is selected. */
 	FSpaceSelectedEvent OnSelect;
 };

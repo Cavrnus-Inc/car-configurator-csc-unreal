@@ -357,10 +357,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnector() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACavrnusSpatialConnector_Statics::NewProp_AuthMethod_MetaData[] = {
 		{ "Category", "Cavrnus" },
-		{ "Comment", "// ------------------------------------------------------------ Authentication --------------------------------------------------------------------\n" },
+		{ "Comment", "/** Property for selecting the authentication widget class. */" },
 		{ "DisplayName", "Authentication Method" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnector.h" },
-		{ "ToolTip", "------------------------------------------------------------ Authentication --------------------------------------------------------------------" },
+		{ "ToolTip", "Property for selecting the authentication widget class." },
 	};
 #endif
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ACavrnusSpatialConnector_Statics::NewProp_AuthMethod = { "AuthMethod", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACavrnusSpatialConnector, AuthMethod), Z_Construct_UEnum_CavrnusConnector_ECavrnusAuthMethod, METADATA_PARAMS(Z_Construct_UClass_ACavrnusSpatialConnector_Statics::NewProp_AuthMethod_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACavrnusSpatialConnector_Statics::NewProp_AuthMethod_MetaData)) }; // 3363427875
@@ -593,9 +593,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnector() {}
 		{ ECavrnusSpaceJoinMethod_StaticEnum, TEXT("ECavrnusSpaceJoinMethod"), &Z_Registration_Info_UEnum_ECavrnusSpaceJoinMethod, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3919926405U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACavrnusSpatialConnector, ACavrnusSpatialConnector::StaticClass, TEXT("ACavrnusSpatialConnector"), &Z_Registration_Info_UClass_ACavrnusSpatialConnector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACavrnusSpatialConnector), 1431732500U) },
+		{ Z_Construct_UClass_ACavrnusSpatialConnector, ACavrnusSpatialConnector::StaticClass, TEXT("ACavrnusSpatialConnector"), &Z_Registration_Info_UClass_ACavrnusSpatialConnector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACavrnusSpatialConnector), 1333990256U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_26973971(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_1550854836(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnector_h_Statics::EnumInfo));

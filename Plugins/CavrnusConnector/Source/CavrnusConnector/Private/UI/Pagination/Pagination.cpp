@@ -1,6 +1,7 @@
 // Copyright(c) Cavrnus. All rights reserved.
 #include "UI/Pagination/Pagination.h"
 #include "Blueprint/WidgetTree.h"
+#include "Components/Button.h"
 
 void UPagination::Setup(TSubclassOf<UUserWidget>* InItemWidget)
 {

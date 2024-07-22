@@ -18,6 +18,7 @@ class UVerticalBox;
 class UScrollBar;
 class UButton;
 class UEditableTextBox;
+class FTimeManager;
 
 UCLASS(Abstract)
 class CAVRNUSCONNECTOR_API UCavrnusChatWindow : public UCavrnusBaseUserWidget
@@ -25,37 +26,37 @@ class CAVRNUSCONNECTOR_API UCavrnusChatWindow : public UCavrnusBaseUserWidget
 	GENERATED_BODY()
 
 public:
-	FCavrnusUser LocalUser;
-	FCavrnusSpaceConnection SpaceConnection;
+	FCavrnusUser LocalUser = FCavrnusUser();
+	FCavrnusSpaceConnection SpaceConnection = FCavrnusSpaceConnection();
 
-	UPROPERTY(EditAnywhere)
-	FLinearColor ButtonEnabledColor;
+	UPROPERTY(EditAnywhere, Category = "Cavrnus|ChatWindow")
+	FLinearColor ButtonEnabledColor = FLinearColor();
 	
-	UPROPERTY(BlueprintReadWrite, Category = "ChatWindow", meta = (BindWidget))
-	UImage* SubmitButtonIcon;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatWindow", meta = (BindWidget))
+	UImage* SubmitButtonIcon = nullptr;
 	
-	UPROPERTY(BlueprintReadWrite, Category = "ChatWindow", meta = (BindWidget))
-	UScrollBox* ChatParentContainer;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatWindow", meta = (BindWidget))
+	UScrollBox* ChatParentContainer = nullptr;
 
-	UPROPERTY(BlueprintReadWrite, Category = "ChatWindow", meta = (BindWidget))
-	UEditableTextBox* InputTextBox;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatWindow", meta = (BindWidget))
+	UEditableTextBox* InputTextBox = nullptr;
 
-	UPROPERTY(BlueprintReadWrite, Category = "ChatWindow", meta = (BindWidget))
-	UButton* SubmitButton;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatWindow", meta = (BindWidget))
+	UButton* SubmitButton = nullptr;
 
-	UPROPERTY(EditAnywhere, Category = "ChatWindow")
-	TSubclassOf<UCavrnusChatEntry> ChatEntryWidget;
+	UPROPERTY(EditAnywhere, Category = "Cavrnus|ChatWindow")
+	TSubclassOf<UCavrnusChatEntry> ChatEntryWidget = nullptr;
 
-	UPROPERTY(BlueprintReadWrite, Category = "ChatWindow", meta = (BindWidget))
-	UButton* ResetPositionButton;
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|ChatWindow", meta = (BindWidget))
+	UButton* ResetPositionButton = nullptr;
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus|ChatWindow")
 	void ResetPositionButtonClicked();
 
 private:
-	FLinearColor DefaultButtonIconColor;
+	FLinearColor DefaultButtonIconColor = FLinearColor();
 	
-	bool AutoScrollToEnd;
+	bool AutoScrollToEnd = false;
 	
 	TMap<FString, UCavrnusChatEntry*> CreatedChats;
 

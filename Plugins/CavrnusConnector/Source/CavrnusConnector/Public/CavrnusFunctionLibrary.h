@@ -117,7 +117,7 @@ public:
 	static void AuthenticateAsGuest(const FString& Server, const FString& UserName, CavrnusAuthRecv OnSuccess, CavrnusError OnFailure);
 
 	/**
-	 * @brief Awaits user authentication completion.
+	 * @brief Wait for user authentication to finish. Since there is a potential network delay during authentication, this is used to prevent errors that would occur if commands are issued before authorization is complete.
 	 * @param OnAuth Delegate called when authentication is complete.
 	 */
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Authentication",
@@ -147,7 +147,7 @@ public:
 
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSpaceInfoEvent, FCavrnusSpaceInfo, SpaceInfo);
 	/**
-	 * @brief Binds to joinable spaces events.
+	 * @brief Updates the current list of Spaces that can be joined.  Triggers when the metadata of a Space changes, or when the user's access to join it has changed.
 	 * @param SpaceAdded Delegate called when a space is added.
 	 * @param SpaceUpdated Delegate called when a space is updated.
 	 * @param SpaceRemoved Delegate called when a space is removed.
@@ -169,7 +169,7 @@ public:
 
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSpaceConnected, FCavrnusSpaceConnection, SpaceConnection);
 	/**
-	 * @brief Joins a space.
+	 * @brief Connects to a Space, joining voice & video, chat, and recieving/processing Journal updates.
 	 * @param SpaceId The ID of the space to join.
 	 * @param OnConnected Delegate called on successful connection.
 	 * @param OnFailure Delegate called on connection failure.
@@ -181,27 +181,27 @@ public:
 	static void JoinSpace(FString SpaceId, CavrnusSpaceConnected OnConnected, CavrnusError OnFailure);
 
 	/**
-	 * @brief Delegate triggered when the process of joining a space begins.
+	 * @brief Delegate triggered when the process of joining a Space begins.
 	 * @param SpaceIdBeingLoaded The ID of the space being joined.
 	 */
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSpaceBeginLoading, FString, SpaceIdBeingLoaded);
 	
 	/**
-	 * @brief Awaits the beginning of any space loading process, triggering the provided delegate when a space begins loading.
+	 * @brief Awaits the beginning of any Space loading process. This triggers a special delegate to trace the identity of the Space.
 	 * @param OnConnected Delegate to call when a space begins loading.
 	 */
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
-		meta = (ToolTip = "Triggers when you begin attempting to join a space, returning the ID of the space being joined", ShortToolTip = "Triggers when you begin attempting to join a space"))
+		meta = (ToolTip = "Triggers when you begin attempting to join a space, returning the ID of the Space being joined", ShortToolTip = "Triggers when you begin attempting to join a space"))
 	static void AwaitAnySpaceBeginLoading(FCavrnusSpaceBeginLoading OnConnected);
 
 	/**
-	 * @brief Awaits the beginning of any space loading process, triggering the provided delegate when a space begins loading.
+	 * @brief Awaits the beginning of any Space loading process. This triggers a special delegate to trace the identity of the Space.
 	 * @param OnConnected Delegate to call when a space begins loading.
 	 */
 	static void AwaitAnySpaceBeginLoading(CavrnusSpaceBeginLoading OnConnected);
 
 	/**
-	 * @brief Awaits connection to any space, triggering the provided delegate immediately if already connected, or as soon as a connection is made.
+	 * @brief Awaits connection to any Space. This triggers the provided delegate immediately if already connected, or as soon as a connection is made.
 	 * @param OnConnected Delegate to call upon successful connection to a space.
 	 */
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
@@ -316,7 +316,7 @@ public:
 	 */
 	DECLARE_DYNAMIC_DELEGATE_ThreeParams(FColorPropertyUpdated, FLinearColor, Value, FString, ContainerName, FString, PropertyName);
 	/**
-	 * @brief Binds a callback to updates of a color property's value.
+	 * @brief Binds a callback to updates of a color property's value. There is an initial event that occurs when the callback is first bound.
 	 * @param SpaceConnection The space connection containing the property.
 	 * @param ContainerName The name of the container holding the property.
 	 * @param PropertyName The name of the property to bind the update callback to.
@@ -344,7 +344,7 @@ public:
 	static UCavrnusLiveColorPropertyUpdate* BeginTransientColorPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, FLinearColor PropertyValue);
 
 	/**
-	 * @brief Updates the color property value at the given path and synchronizes the data to the server.
+	 * @brief Updates the color property value in the given container and synchronizes the data to the Journal.
 	 * @param SpaceConnection The space connection containing the property.
 	 * @param ContainerName The name of the container holding the property.
 	 * @param PropertyName The name of the property to update.
@@ -775,12 +775,6 @@ public:
 		meta = (ToolTip = "Binds an event to throw when a policy is/isn't allowed for the user (returns false until policies are fetched & resolved)", ShortToolTip = "Throws an event if a policy is allowed"))
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindGlobalPolicy(const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated);
 
-	/**
-	 * @brief Binds a global policy update event for the user.
-	 * @param Policy The name of the policy to bind to.
-	 * @param OnPolicyUpdated The callback to trigger when the policy is updated.
-	 * @return A disposable binding instance.
-	 */
 	static UCavrnusBinding* BindGlobalPolicy(FString Policy, CavrnusPolicyUpdated OnPolicyUpdated);
 
 	/**
@@ -794,13 +788,6 @@ public:
 		meta = (ToolTip = "Binds an event to throw when a policy is/isn't allowed for the user in a given space (returns false until policies are fetched & resolved)", ShortToolTip = "Throws an event if a policy is allowed"))
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated);
 
-	/**
-	 * @brief Binds a space-specific policy update event for the user.
-	 * @param SpaceConnection The space connection containing the policy.
-	 * @param Policy The name of the policy to bind to.
-	 * @param OnPolicyUpdated The callback to trigger when the policy is updated.
-	 * @return A disposable binding instance.
-	 */
 	static UCavrnusBinding* BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, CavrnusPolicyUpdated OnPolicyUpdated);
 #pragma endregion
 
@@ -867,14 +854,6 @@ public:
 		meta = (ToolTip = "Returns all users currently in the space", ShortToolTip = "Returns all users currently in the space"))
 	static void AwaitLocalUser(FCavrnusSpaceConnection SpaceConnection, FCavrnusSpaceUserEvent LocalUserArrived);
 
-	/**
-	 * @brief Awaits the local user in the specified space connection.
-	 *
-	 * This function returns all users currently in the space.
-	 *
-	 * @param SpaceConnection The space connection to check for users.
-	 * @param LocalUserArrived Callback triggered when the local user is found.
-	 */
 	static void AwaitLocalUser(FCavrnusSpaceConnection SpaceConnection, CavrnusSpaceUserEvent LocalUserArrived);
 
 	/**
@@ -1163,7 +1142,7 @@ public:
 	 * @brief Downloads the given content by its ID to a specified disk location and returns the file path.
 	 *
 	 * @param ContentId The ID of the content to download.
-	 * @param FileDestination The file path where the content should be saved.
+	 * @param FolderDestination The folder path where the content should be saved.
 	 * @param OnProgress The delegate to call with progress updates.
 	 * @param OnContentLoaded The delegate to call when the content is loaded.
 	 */
@@ -1212,7 +1191,7 @@ public:
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusUploadCompleteFunction, const FCavrnusRemoteContent&, uploadedContent);
 	
 	/**
-	 * @brief Uploads the given file path to the Cavrnus server.
+	 * @brief Encrypts and uploads a file from your disk to your Cavrnus Server.
 	 *
 	 * @param FilePath The file path of the content to upload.
 	 * @param OnUploadComplete The delegate to call when the upload is complete.
@@ -1222,7 +1201,7 @@ public:
 	static void UploadContent(FString FilePath, FCavrnusUploadCompleteFunction OnUploadComplete);
 	
 	/**
-	 * @brief Uploads the given file path to the Cavrnus server.
+	 * @brief Encrypts and uploads a file from your disk to your Cavrnus Server.
 	 *
 	 * @param FilePath The file path of the content to upload.
 	 * @param OnUploadComplete The delegate to call when the upload is complete.
@@ -1230,7 +1209,7 @@ public:
 	static void UploadContent(FString FilePath, const CavrnusUploadCompleteFunction& OnUploadComplete);
 
 	/**
-	 * @brief Uploads the given file path to the Cavrnus server with specified tags.
+	 * @brief Encrypts and uploads a file from your disk to your Cavrnus Server using tags to filter/organize your objects.
 	 *
 	 * @param FilePath The file path of the content to upload.
 	 * @param Tags The tags to associate with the uploaded content.
@@ -1253,15 +1232,38 @@ public:
 
 #pragma region Chat
 
+	/**
+	 * @brief Delegate for handling the local Chat entry functions.
+	 *
+	 * @param chat The current Chat entry to be handled.
+	 */
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusChatFunction, const FChatEntry&, chat);
+	/**
+	 * @brief Delegate for handling removal of Chat entr(ies).
+	 *
+	 * @param chat The current Chat entry to be handled.
+	 */
 	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusChatRemovedFunction, const FString&, chatId);
 
+	/**
+	 * @brief Binds a callback to chat message updates in a given Cavrnus Space.
+	 * @param spaceConn Identity of the current Cavrnus Space.
+	 * @param ChatAdded Function pointer option to specify the function to add a chat message
+	 * @param ChatUpdated Function pointer option to specify the function to udpate a chat message
+	 * @param ChatRemoved Function pointer option to specify the function to remove a chat message
+	 * @return A disposable binding instance.
+	 */
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Chat",
 		meta = (ToolTip = "Triggers events when recieving chat messages/updates", ShortToolTip = "Triggers events when recieving chats"))
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindChatMessages(const FCavrnusSpaceConnection& spaceConn, const FCavrnusChatFunction& ChatAdded, const FCavrnusChatFunction& ChatUpdated, const FCavrnusChatRemovedFunction& ChatRemoved);
 
 	static UCavrnusBinding* BindChatMessages(const FCavrnusSpaceConnection& spaceConn, const CavrnusChatFunction& ChatAdded, const CavrnusChatFunction& ChatUpdated, const CavrnusChatRemovedFunction& ChatRemoved);
 
+	/**
+	 * @brief Binds a callback to post an updated message to a given Cavrnus Space.
+	 * @param spaceConn Identity of the current Cavrnus Space.
+	 * @param Chat Chat message text to post
+	 */
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Chat",
 		meta = (ToolTip = "Send a new chat message", ShortToolTip = "Send a new chat message"))
 	static void PostChatMessage(const FCavrnusSpaceConnection& spaceConn, const FString& Chat);

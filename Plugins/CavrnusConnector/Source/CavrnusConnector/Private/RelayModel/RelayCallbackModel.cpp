@@ -79,7 +79,7 @@ namespace Cavrnus
 	{
 		if (resp.has_auth())
 		{
-			FString token = resp.auth().token().c_str();
+			FString token = UTF8_TO_TCHAR(resp.auth().token().c_str());
 
 			FCavrnusAuthentication auth = FCavrnusAuthentication(token);
 			HandleAuthRecv(auth);
@@ -93,7 +93,7 @@ namespace Cavrnus
 		}
 		else
 		{
-			FString error = resp.error().c_str();
+			FString error = UTF8_TO_TCHAR(resp.error().c_str());
 			UE_LOG(LogCavrnusConnector, Log, TEXT("[AUTH FAILURE]: %s"), *error);
 
 			if (LoginPasswordErrorCallbacks.Contains(callbackId))
@@ -136,7 +136,7 @@ namespace Cavrnus
 	{
 		if (resp.has_auth())
 		{
-			FString token = resp.auth().token().c_str();
+			FString token = UTF8_TO_TCHAR(resp.auth().token().c_str());
 
 			FCavrnusAuthentication auth = FCavrnusAuthentication(token);
 			HandleAuthRecv(auth);
@@ -150,7 +150,7 @@ namespace Cavrnus
 		}
 		else
 		{
-			FString error = resp.error().c_str();
+			FString error = UTF8_TO_TCHAR(resp.error().c_str());
 			UE_LOG(LogCavrnusConnector, Log, TEXT("[AUTH FAILURE]: %s"), *error);
 
 			if (LoginGuestErrorCallbacks.Contains(callbackId))
@@ -228,7 +228,7 @@ namespace Cavrnus
 		}
 		else
 		{
-			FString error = resp.error().c_str();
+			FString error = UTF8_TO_TCHAR(resp.error().c_str());
 			UE_LOG(LogCavrnusConnector, Log, TEXT("[JOIN SPACE FAILURE]: %s"), *error);
 			if (JoinSpaceErrorCallbacks.Contains(callbackId))
 				(*JoinSpaceErrorCallbacks[callbackId])(error);
@@ -256,7 +256,7 @@ namespace Cavrnus
 		for (int i = 0; i < devices_field.devices_size(); ++i)
 		{
 			const ServerData::RtcAudioInputDevice& device = devices_field.devices(i);
-			FCavrnusInputDevice item = FCavrnusInputDevice(device.name().c_str(), device.id().c_str());
+			FCavrnusInputDevice item = FCavrnusInputDevice(UTF8_TO_TCHAR(device.name().c_str()), UTF8_TO_TCHAR(device.id().c_str()));
 
 			devices.Add(item);
 		}
@@ -283,7 +283,7 @@ namespace Cavrnus
 		for (int i = 0; i < devices_field.devices_size(); ++i)
 		{
 			const ServerData::RtcAudioOutputDevice& device = devices_field.devices(i);
-			FCavrnusOutputDevice item = FCavrnusOutputDevice(device.name().c_str(), device.id().c_str());
+			FCavrnusOutputDevice item = FCavrnusOutputDevice(UTF8_TO_TCHAR(device.name().c_str()), UTF8_TO_TCHAR(device.id().c_str()));
 
 			devices.Add(item);
 		}
@@ -310,7 +310,7 @@ namespace Cavrnus
 		for (int i = 0; i < devices_field.devices_size(); ++i)
 		{
 			const ServerData::RtcVideoInputDevice& device = devices_field.devices(i);
-			FCavrnusVideoInputDevice item = FCavrnusVideoInputDevice(device.name().c_str(), device.id().c_str());
+			FCavrnusVideoInputDevice item = FCavrnusVideoInputDevice(UTF8_TO_TCHAR(device.name().c_str()), UTF8_TO_TCHAR(device.id().c_str()));
 
 			devices.Add(item);
 		}
@@ -338,10 +338,10 @@ namespace Cavrnus
 			TMap<FString, FString> tags;
 			for (int j = 0; j < resp.availablecontent()[i].tagkeys_size(); j++) 
 			{
-				tags.Add(resp.availablecontent()[i].tagkeys()[j].c_str(), resp.availablecontent()[i].tagvalues()[j].c_str());
+				tags.Add(UTF8_TO_TCHAR(resp.availablecontent()[i].tagkeys()[j].c_str()), UTF8_TO_TCHAR(resp.availablecontent()[i].tagvalues()[j].c_str()));
 			}
 
-			remoteContent.Add(FCavrnusRemoteContent(resp.availablecontent()[i].id().c_str(), resp.availablecontent()[i].name().c_str(), resp.availablecontent()[i].filename().c_str(), resp.availablecontent()[i].thumbnailurl().c_str(), tags));
+			remoteContent.Add(FCavrnusRemoteContent(UTF8_TO_TCHAR(resp.availablecontent()[i].id().c_str()), UTF8_TO_TCHAR(resp.availablecontent()[i].name().c_str()), UTF8_TO_TCHAR(resp.availablecontent()[i].filename().c_str()), UTF8_TO_TCHAR(resp.availablecontent()[i].thumbnailurl().c_str()), tags));
 		}
 
 		if (AllRemoteContentCallbacks.Contains(callbackId))
@@ -367,10 +367,10 @@ namespace Cavrnus
 		TMap<FString, FString> tags;
 		for (int j = 0; j < resp.uploadedcontent().tagkeys_size(); j++)
 		{
-			tags.Add(resp.uploadedcontent().tagkeys()[j].c_str(), resp.uploadedcontent().tagvalues()[j].c_str());
+			tags.Add(UTF8_TO_TCHAR(resp.uploadedcontent().tagkeys()[j].c_str()), UTF8_TO_TCHAR(resp.uploadedcontent().tagvalues()[j].c_str()));
 		}
 
-		FCavrnusRemoteContent remoteContent = FCavrnusRemoteContent(resp.uploadedcontent().id().c_str(), resp.uploadedcontent().name().c_str(), resp.uploadedcontent().filename().c_str(), resp.uploadedcontent().thumbnailurl().c_str(), tags);
+		FCavrnusRemoteContent remoteContent = FCavrnusRemoteContent(UTF8_TO_TCHAR(resp.uploadedcontent().id().c_str()), UTF8_TO_TCHAR(resp.uploadedcontent().name().c_str()), UTF8_TO_TCHAR(resp.uploadedcontent().filename().c_str()), UTF8_TO_TCHAR(resp.uploadedcontent().thumbnailurl().c_str()), tags);
 
 		if (AllUploadContentCallbacks.Contains(callbackId))
 		{

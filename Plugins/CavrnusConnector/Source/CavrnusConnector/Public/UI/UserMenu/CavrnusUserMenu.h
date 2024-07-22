@@ -19,14 +19,14 @@ class CAVRNUSCONNECTOR_API UCavrnusUserMenu : public USidebarMenuBase
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	UScrollBox* ScrollBox;
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|UserMenu", meta = (BindWidget))
+	UScrollBox* ScrollBox = nullptr;
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus")
-	TSubclassOf<UCavrnusUserWidget> WidgetEntry;
+	UPROPERTY(EditAnywhere, Category = "Cavrnus|UserMenu")
+	TSubclassOf<UCavrnusUserWidget> WidgetEntry = nullptr;
 
-	UPROPERTY(EditAnywhere, Category = "Cavrnus")
-	TSubclassOf<UCavrnusMaximizedUser> MaximizedUserEntry;
+	UPROPERTY(EditAnywhere, Category = "Cavrnus|UserMenu")
+	TSubclassOf<UCavrnusMaximizedUser> MaximizedUserEntry = nullptr;
 
 private:
 	TMap<FString, UCavrnusUserWidget*> Entries;

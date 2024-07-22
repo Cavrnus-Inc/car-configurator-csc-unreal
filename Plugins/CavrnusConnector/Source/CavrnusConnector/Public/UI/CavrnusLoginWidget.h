@@ -29,7 +29,7 @@ public:
 	 *
 	 * This function initializes the widget and prepares it for user interaction.
 	 */
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus|Login")
 	void Setup();
 	
 	/**
@@ -40,18 +40,17 @@ public:
 	UFUNCTION()
 	void OnLoginClicked();
 
-public:
 	/** The text box for entering the email address. */
-	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UEditableTextBox* EmailInput;
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
+	class UEditableTextBox* EmailInput = nullptr;
 
 	/** The text box for entering the password. */
-	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UEditableTextBox* PasswordInput;
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
+	class UEditableTextBox* PasswordInput = nullptr;
 
 	/** The button for initiating the login process. */
-	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UButton* LoginButton;
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
+	class UButton* LoginButton = nullptr;
 
 	/** Delegate for handling the login click event. */
 	FOnLoginClicked OnLogin;

@@ -31,7 +31,7 @@ public:
 	 *
 	 * This function is responsible for initializing the widget and preparing it for user interaction.
 	 */
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus", meta = (BindWidget))
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus|Login", meta = (BindWidget))
 	void Setup();
 
 	/**
@@ -42,23 +42,21 @@ public:
 	UFUNCTION()
 	void OnLoginClicked();
 
-public:
-
 	/**
 	 * @brief Editable text box for guest username input.
 	 *
 	 * This property binds to a UI widget that allows the user to input their guest username.
 	 */
-	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UEditableTextBox* GuestUsernameInput;
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
+	class UEditableTextBox* GuestUsernameInput = nullptr;;
 
 	/**
 	 * @brief Button for initiating guest login.
 	 *
 	 * This property binds to a UI widget that serves as the login button.
 	 */
-	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
-	class UButton* LoginButton;
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
+	class UButton* LoginButton = nullptr;;
 
 	/**
 	 * @brief Delegate for handling guest login click events.

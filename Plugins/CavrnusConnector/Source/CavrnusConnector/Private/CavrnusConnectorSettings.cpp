@@ -49,5 +49,10 @@ FString UCavrnusConnectorSettings::GetRelayNetOptionalParameters() const
 		result.Append(result.IsEmpty() ? "-f" : " -f");
 	}
 
+	if (RelayNetDisableRTC)
+	{
+		result.Append(result.IsEmpty() ? "-d" : " -d");
+	}
+
 	return result;
 }
