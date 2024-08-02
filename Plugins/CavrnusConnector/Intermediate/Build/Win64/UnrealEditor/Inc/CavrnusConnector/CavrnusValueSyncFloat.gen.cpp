@@ -67,7 +67,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncFloat() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Blueprint-callable getter function for the float property value.\n\x09 * @param PropertyValue The new float value to set.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncFloat.h" },
+		{ "ToolTip", "@brief Blueprint-callable getter function for the float property value.\n@param PropertyValue The new float value to set." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncFloat, nullptr, "GetFloat", nullptr, nullptr, sizeof(CavrnusValueSyncFloat_eventGetFloat_Parms), Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat_Statics::Function_MetaDataParams)) };
@@ -95,7 +97,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncFloat() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncFloat_SetFloat_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Blueprint-callable setter function for the float property value.\n\x09 * @param PropertyValue The new float value to set.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncFloat.h" },
+		{ "ToolTip", "@brief Blueprint-callable setter function for the float property value.\n@param PropertyValue The new float value to set." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncFloat_SetFloat_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncFloat, nullptr, "SetFloat", nullptr, nullptr, sizeof(CavrnusValueSyncFloat_eventSetFloat_Parms), Z_Construct_UFunction_UCavrnusValueSyncFloat_SetFloat_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncFloat_SetFloat_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncFloat_SetFloat_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncFloat_SetFloat_Statics::Function_MetaDataParams)) };
@@ -128,18 +132,18 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncFloat() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusValueSyncFloat_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat, "GetFloat" }, // 2005406967
-		{ &Z_Construct_UFunction_UCavrnusValueSyncFloat_SetFloat, "SetFloat" }, // 1638962623
+		{ &Z_Construct_UFunction_UCavrnusValueSyncFloat_GetFloat, "GetFloat" }, // 1230302888
+		{ &Z_Construct_UFunction_UCavrnusValueSyncFloat_SetFloat, "SetFloat" }, // 1250767287
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusValueSyncFloat_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "// Class definition\n" },
+		{ "Comment", "/**\n * @brief Class responsible for synchronizing float properties between Unreal Engine and Cavrnus.\n * This class extends UCavrnusValueSyncBase and implements specific functionality to handle float values.\n */" },
 		{ "HideCategories", "Transform Physics Collision Rendering Trigger PhysicsVolume" },
 		{ "IncludePath", "ValueSyncs/CavrnusValueSyncFloat.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncFloat.h" },
-		{ "ToolTip", "Class definition" },
+		{ "ToolTip", "@brief Class responsible for synchronizing float properties between Unreal Engine and Cavrnus.\nThis class extends UCavrnusValueSyncBase and implements specific functionality to handle float values." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusValueSyncFloat_Statics::StaticCppClassTypeInfo = {
@@ -178,9 +182,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncFloat() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusValueSyncFloat, UCavrnusValueSyncFloat::StaticClass, TEXT("UCavrnusValueSyncFloat"), &Z_Registration_Info_UClass_UCavrnusValueSyncFloat, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncFloat), 1982718469U) },
+		{ Z_Construct_UClass_UCavrnusValueSyncFloat, UCavrnusValueSyncFloat::StaticClass, TEXT("UCavrnusValueSyncFloat"), &Z_Registration_Info_UClass_UCavrnusValueSyncFloat, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncFloat), 2792548764U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_1707384846(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_2708455460(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncFloat_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

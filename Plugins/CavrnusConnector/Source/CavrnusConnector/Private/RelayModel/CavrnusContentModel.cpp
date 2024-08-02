@@ -1,4 +1,5 @@
-﻿#include "RelayModel/CavrnusContentModel.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayModel/CavrnusContentModel.h"
 #include <Misc/FileHelper.h>
 
 namespace Cavrnus
@@ -35,7 +36,7 @@ namespace Cavrnus
 	{
 		if (CompletedContentPaths.Contains(contentId))
 		{
-			complete(CompletionToStream(CompletedContentPaths[contentId]));
+			complete(CompletionToStream(CompletedContentPaths[contentId]), CompletedContentFileNames[contentId]);
 			return;
 		}
 
@@ -59,7 +60,7 @@ namespace Cavrnus
 			(*ProgressBindings[contentId][i])(progress, step);
 	}
 
-	void CavrnusContentModel::HandleCompletionCallback(FString contentId, FString filePath)
+	void CavrnusContentModel::HandleCompletionCallback(FString contentId, FString filePath, FString fileNameWithExt)
 	{
 		if (!CompletionBindings.Contains(contentId))
 			return;
@@ -67,7 +68,7 @@ namespace Cavrnus
 		// Call the CompletionBindings callbacks for this contentId now, and clean them up
 		for (auto callback : CompletionBindings[contentId])
 		{
-			(*callback)(CompletionToStream(filePath));
+			(*callback)(CompletionToStream(filePath), fileNameWithExt);
 			delete callback;
 		}
 		CompletionBindings.Remove(contentId);
@@ -80,6 +81,7 @@ namespace Cavrnus
 		ProgressBindings.Remove(contentId);
 
 		CompletedContentPaths.Add(contentId, filePath);
+		CompletedContentFileNames.Add(contentId, fileNameWithExt);
 	}
 
 	TArray<uint8> CavrnusContentModel::CompletionToStream(FString filePath)

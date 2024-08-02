@@ -124,7 +124,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Cavrnus" },
+		{ "Comment", "/**\n\x09 * @brief Gets the current spatial connector.\n\x09 * @return Pointer to the current spatial connector.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Gets the current spatial connector.\n@return Pointer to the current spatial connector." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "GetCavrnusSpatialConnector", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector_Statics::CavrnusSpatialConnectorSubSystemProxy_eventGetCavrnusSpatialConnector_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector_Statics::Function_MetaDataParams)) };
@@ -156,7 +158,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Called on authentication failure.\n\x09 * @param Error Error message.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Called on authentication failure.\n@param Error Error message." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "OnAuthFailure", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure_Statics::CavrnusSpatialConnectorSubSystemProxy_eventOnAuthFailure_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure_Statics::Function_MetaDataParams)) };
@@ -182,13 +186,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::NewProp_Authentication = { "Authentication", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnectorSubSystemProxy_eventOnAuthSuccess_Parms, Authentication), Z_Construct_UScriptStruct_FCavrnusAuthentication, METADATA_PARAMS(nullptr, 0) }; // 1318212557
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::NewProp_Authentication = { "Authentication", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnectorSubSystemProxy_eventOnAuthSuccess_Parms, Authentication), Z_Construct_UScriptStruct_FCavrnusAuthentication, METADATA_PARAMS(nullptr, 0) }; // 2705796156
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::NewProp_Authentication,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Called on authentication success.\n\x09 * @param Authentication Authentication details.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Called on authentication success.\n@param Authentication Authentication details." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "OnAuthSuccess", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::CavrnusSpatialConnectorSubSystemProxy_eventOnAuthSuccess_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess_Statics::Function_MetaDataParams)) };
@@ -224,7 +230,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Called when the pawn controller changes.\n\x09 * @param InPawn Pointer to the new pawn.\n\x09 * @param InController Pointer to the new controller.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Called when the pawn controller changes.\n@param InPawn Pointer to the new pawn.\n@param InController Pointer to the new controller." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "OnPawnControllerChanged", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged_Statics::CavrnusSpatialConnectorSubSystemProxy_eventOnPawnControllerChanged_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged_Statics::Function_MetaDataParams)) };
@@ -260,7 +268,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Called when the possessed pawn changes.\n\x09 * @param OldPawn Pointer to the old pawn.\n\x09 * @param NewPawn Pointer to the new pawn.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Called when the possessed pawn changes.\n@param OldPawn Pointer to the old pawn.\n@param NewPawn Pointer to the new pawn." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "OnPossessedPawnChanged", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged_Statics::CavrnusSpatialConnectorSubSystemProxy_eventOnPossessedPawnChanged_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged_Statics::Function_MetaDataParams)) };
@@ -292,7 +302,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Called on space connection failure.\n\x09 * @param Error Error message.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Called on space connection failure.\n@param Error Error message." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "OnSpaceConnectionFailure", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure_Statics::CavrnusSpatialConnectorSubSystemProxy_eventOnSpaceConnectionFailure_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure_Statics::Function_MetaDataParams)) };
@@ -318,13 +330,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::NewProp_SpaceConnection = { "SpaceConnection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnectorSubSystemProxy_eventOnSpaceConnectionSuccess_Parms, SpaceConnection), Z_Construct_UScriptStruct_FCavrnusSpaceConnection, METADATA_PARAMS(nullptr, 0) }; // 3908145014
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::NewProp_SpaceConnection = { "SpaceConnection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpatialConnectorSubSystemProxy_eventOnSpaceConnectionSuccess_Parms, SpaceConnection), Z_Construct_UScriptStruct_FCavrnusSpaceConnection, METADATA_PARAMS(nullptr, 0) }; // 423510165
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::NewProp_SpaceConnection,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Called on space connection success.\n\x09 * @param SpaceConnection Space connection details.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Called on space connection success.\n@param SpaceConnection Space connection details." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "OnSpaceConnectionSuccess", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::CavrnusSpatialConnectorSubSystemProxy_eventOnSpaceConnectionSuccess_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess_Statics::Function_MetaDataParams)) };
@@ -346,7 +360,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SetupLocalUserPawn_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Sets up the local user pawn.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Sets up the local user pawn." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SetupLocalUserPawn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, nullptr, "SetupLocalUserPawn", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SetupLocalUserPawn_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SetupLocalUserPawn_Statics::Function_MetaDataParams)) };
@@ -397,45 +413,55 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector, "GetCavrnusSpatialConnector" }, // 1938082408
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure, "OnAuthFailure" }, // 2515410594
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess, "OnAuthSuccess" }, // 1610404855
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged, "OnPawnControllerChanged" }, // 1420126048
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged, "OnPossessedPawnChanged" }, // 609138142
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure, "OnSpaceConnectionFailure" }, // 3809005008
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess, "OnSpaceConnectionSuccess" }, // 1591242161
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SetupLocalUserPawn, "SetupLocalUserPawn" }, // 1860020692
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_GetCavrnusSpatialConnector, "GetCavrnusSpatialConnector" }, // 1931857022
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthFailure, "OnAuthFailure" }, // 186821955
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnAuthSuccess, "OnAuthSuccess" }, // 3429897353
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPawnControllerChanged, "OnPawnControllerChanged" }, // 1181656916
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnPossessedPawnChanged, "OnPossessedPawnChanged" }, // 1762469856
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionFailure, "OnSpaceConnectionFailure" }, // 3935007075
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_OnSpaceConnectionSuccess, "OnSpaceConnectionSuccess" }, // 1986783224
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystemProxy_SetupLocalUserPawn, "SetupLocalUserPawn" }, // 2057116415
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+		{ "Comment", "/**\n * @brief Proxy class for interacting with the Cavrnus Spatial Connector subsystem.\n */" },
 		{ "IncludePath", "CavrnusSpatialConnectorSubSystem.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Proxy class for interacting with the Cavrnus Spatial Connector subsystem." },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_Authentication_MetaData[] = {
+		{ "Comment", "/** Property for authentication details. */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "Property for authentication details." },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_Authentication = { "Authentication", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystemProxy, Authentication), Z_Construct_UScriptStruct_FCavrnusAuthentication, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_Authentication_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_Authentication_MetaData)) }; // 1318212557
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_Authentication = { "Authentication", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystemProxy, Authentication), Z_Construct_UScriptStruct_FCavrnusAuthentication, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_Authentication_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_Authentication_MetaData)) }; // 2705796156
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_SpawnHelpers_MetaData[] = {
+		{ "Comment", "/** Pointer to the spawn object helpers. */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "Pointer to the spawn object helpers." },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_SpawnHelpers = { "SpawnHelpers", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystemProxy, SpawnHelpers), Z_Construct_UClass_USpawnObjectHelpers_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_SpawnHelpers_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_SpawnHelpers_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_AvatarManager_MetaData[] = {
+		{ "Comment", "/** Pointer to the avatar manager. */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "Pointer to the avatar manager." },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_AvatarManager = { "AvatarManager", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystemProxy, AvatarManager), Z_Construct_UClass_UCavrnusAvatarManager_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_AvatarManager_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_AvatarManager_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bInEditorMode_MetaData[] = {
 		{ "Category", "Cavrnus" },
+		{ "Comment", "/** Boolean indicating if the subsystem is in editor mode. */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "Boolean indicating if the subsystem is in editor mode." },
 	};
 #endif
 	void Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_Statics::NewProp_bInEditorMode_SetBit(void* Obj)
@@ -515,7 +541,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystem_GetSystemProxy_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Cavrnus" },
+		{ "Comment", "/**\n\x09 * @brief Gets the subsystem proxy.\n\x09 * @return Pointer to the subsystem proxy.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "@brief Gets the subsystem proxy.\n@return Pointer to the subsystem proxy." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystem_GetSystemProxy_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem, nullptr, "GetSystemProxy", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystem_GetSystemProxy_Statics::CavrnusSpatialConnectorSubSystem_eventGetSystemProxy_Parms), Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystem_GetSystemProxy_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystem_GetSystemProxy_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystem_GetSystemProxy_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystem_GetSystemProxy_Statics::Function_MetaDataParams)) };
@@ -553,21 +581,23 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystem_GetSystemProxy, "GetSystemProxy" }, // 1042218453
+		{ &Z_Construct_UFunction_UCavrnusSpatialConnectorSubSystem_GetSystemProxy, "GetSystemProxy" }, // 1880063052
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "// Class definition\n" },
+		{ "Comment", "/**\n * @brief Subsystem class for managing the lifecycle of the Cavrnus Spatial Connector.\n */" },
 		{ "IncludePath", "CavrnusSpatialConnectorSubSystem.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
-		{ "ToolTip", "Class definition" },
+		{ "ToolTip", "@brief Subsystem class for managing the lifecycle of the Cavrnus Spatial Connector." },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem_Statics::NewProp_SystemProxy_MetaData[] = {
+		{ "Comment", "/** Pointer to the SubSystem Proxy. */" },
 		{ "ModuleRelativePath", "Public/CavrnusSpatialConnectorSubSystem.h" },
+		{ "ToolTip", "Pointer to the SubSystem Proxy." },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem_Statics::NewProp_SystemProxy = { "SystemProxy", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpatialConnectorSubSystem, SystemProxy), Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem_Statics::NewProp_SystemProxy_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem_Statics::NewProp_SystemProxy_MetaData)) };
@@ -610,10 +640,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpatialConnectorSubSystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, UCavrnusSpatialConnectorSubSystemProxy::StaticClass, TEXT("UCavrnusSpatialConnectorSubSystemProxy"), &Z_Registration_Info_UClass_UCavrnusSpatialConnectorSubSystemProxy, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpatialConnectorSubSystemProxy), 316943517U) },
-		{ Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem, UCavrnusSpatialConnectorSubSystem::StaticClass, TEXT("UCavrnusSpatialConnectorSubSystem"), &Z_Registration_Info_UClass_UCavrnusSpatialConnectorSubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpatialConnectorSubSystem), 700046752U) },
+		{ Z_Construct_UClass_UCavrnusSpatialConnectorSubSystemProxy, UCavrnusSpatialConnectorSubSystemProxy::StaticClass, TEXT("UCavrnusSpatialConnectorSubSystemProxy"), &Z_Registration_Info_UClass_UCavrnusSpatialConnectorSubSystemProxy, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpatialConnectorSubSystemProxy), 1320559176U) },
+		{ Z_Construct_UClass_UCavrnusSpatialConnectorSubSystem, UCavrnusSpatialConnectorSubSystem::StaticClass, TEXT("UCavrnusSpatialConnectorSubSystem"), &Z_Registration_Info_UClass_UCavrnusSpatialConnectorSubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpatialConnectorSubSystem), 2759567807U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_2783065830(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_1616207146(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusSpatialConnectorSubSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -41,8 +41,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusAuthenticati
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusAuthentication_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "/**\n *\n */" },
+		{ "Comment", "/**\n * @brief Structure to hold authentication data.\n *\n * The FCavrnusAuthentication structure contains the token received from a successful login attempt.\n * This token can be used to keep a user logged in, although this is typically managed automatically by the CavrnusSpatialConnector component.\n */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusAuthentication.h" },
+		{ "ToolTip", "@brief Structure to hold authentication data.\n\nThe FCavrnusAuthentication structure contains the token received from a successful login attempt.\nThis token can be used to keep a user logged in, although this is typically managed automatically by the CavrnusSpatialConnector component." },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FCavrnusAuthentication_Statics::NewStructOps()
@@ -52,7 +53,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusAuthenticati
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusAuthentication_Statics::NewProp_Token_MetaData[] = {
 		{ "Category", "Cavrnus|Authorization" },
+		{ "Comment", "/** The authentication token received after a successful login. */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusAuthentication.h" },
+		{ "ToolTip", "The authentication token received after a successful login." },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusAuthentication_Statics::NewProp_Token = { "Token", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusAuthentication, Token), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusAuthentication_Statics::NewProp_Token_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusAuthentication_Statics::NewProp_Token_MetaData)) };
@@ -85,9 +88,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusAuthenticati
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusAuthentication_h_Statics::ScriptStructInfo[] = {
-		{ FCavrnusAuthentication::StaticStruct, Z_Construct_UScriptStruct_FCavrnusAuthentication_Statics::NewStructOps, TEXT("CavrnusAuthentication"), &Z_Registration_Info_UScriptStruct_CavrnusAuthentication, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusAuthentication), 1318212557U) },
+		{ FCavrnusAuthentication::StaticStruct, Z_Construct_UScriptStruct_FCavrnusAuthentication_Statics::NewStructOps, TEXT("CavrnusAuthentication"), &Z_Registration_Info_UScriptStruct_CavrnusAuthentication, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusAuthentication), 2705796156U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusAuthentication_h_1587815595(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusAuthentication_h_1177684672(TEXT("/Script/CavrnusConnector"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusAuthentication_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusAuthentication_h_Statics::ScriptStructInfo),
 		nullptr, 0);

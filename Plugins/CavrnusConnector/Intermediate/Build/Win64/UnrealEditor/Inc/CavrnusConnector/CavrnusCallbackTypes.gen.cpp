@@ -37,8 +37,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusCallbackTypes() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusCallbackTypes_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/**\n * @brief Abstract class providing blueprint function library for Cavrnus callback types.\n */" },
 		{ "IncludePath", "Types/CavrnusCallbackTypes.h" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusCallbackTypes.h" },
+		{ "ToolTip", "@brief Abstract class providing blueprint function library for Cavrnus callback types." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusCallbackTypes_Statics::StaticCppClassTypeInfo = {
@@ -77,9 +79,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusCallbackTypes() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusCallbackTypes, UCavrnusCallbackTypes::StaticClass, TEXT("UCavrnusCallbackTypes"), &Z_Registration_Info_UClass_UCavrnusCallbackTypes, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusCallbackTypes), 1817766196U) },
+		{ Z_Construct_UClass_UCavrnusCallbackTypes, UCavrnusCallbackTypes::StaticClass, TEXT("UCavrnusCallbackTypes"), &Z_Registration_Info_UClass_UCavrnusCallbackTypes, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusCallbackTypes), 1332164929U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_425720129(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_2661822411(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusCallbackTypes_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

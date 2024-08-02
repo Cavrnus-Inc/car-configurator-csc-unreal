@@ -40,6 +40,13 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 		P_THIS->OnShowSplashScreenOnStartupClicked(Z_Param_bCheckboxState);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UCavrnusSplashScreenWidget::execOnJoinDiscordClicked)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnJoinDiscordClicked();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCavrnusSplashScreenWidget::execOnOpenDocsClicked)
 	{
 		P_FINISH;
@@ -66,6 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 		UClass* Class = UCavrnusSplashScreenWidget::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "OnDismissClicked", &UCavrnusSplashScreenWidget::execOnDismissClicked },
+			{ "OnJoinDiscordClicked", &UCavrnusSplashScreenWidget::execOnJoinDiscordClicked },
 			{ "OnOpenDocsClicked", &UCavrnusSplashScreenWidget::execOnOpenDocsClicked },
 			{ "OnServerInputFieldChanged", &UCavrnusSplashScreenWidget::execOnServerInputFieldChanged },
 			{ "OnSetupSpaceClicked", &UCavrnusSplashScreenWidget::execOnSetupSpaceClicked },
@@ -93,6 +101,28 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnDismissClicked_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnJoinDiscordClicked_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnJoinDiscordClicked_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CavrnusSplashScreenWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnJoinDiscordClicked_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSplashScreenWidget, nullptr, "OnJoinDiscordClicked", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnJoinDiscordClicked_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnJoinDiscordClicked_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnJoinDiscordClicked()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnJoinDiscordClicked_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -268,6 +298,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_OpenDocumentationButton;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ButtonJoinDiscord_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ButtonJoinDiscord;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ShowOnStartupCheckbox_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ShowOnStartupCheckbox;
@@ -275,6 +309,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DismissButton_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_DismissButton;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DiscordURL_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_DiscordURL;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_WebConsoleURL_MetaData[];
 #endif
@@ -297,6 +335,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnDismissClicked, "OnDismissClicked" }, // 1165552982
+		{ &Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnJoinDiscordClicked, "OnJoinDiscordClicked" }, // 3717885882
 		{ &Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnOpenDocsClicked, "OnOpenDocsClicked" }, // 3470839165
 		{ &Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnServerInputFieldChanged, "OnServerInputFieldChanged" }, // 4271582417
 		{ &Z_Construct_UFunction_UCavrnusSplashScreenWidget_OnSetupSpaceClicked, "OnSetupSpaceClicked" }, // 910241377
@@ -346,6 +385,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_OpenDocumentationButton = { "OpenDocumentationButton", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSplashScreenWidget, OpenDocumentationButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_OpenDocumentationButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_OpenDocumentationButton_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_ButtonJoinDiscord_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "Cavrnus" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/CavrnusSplashScreenWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_ButtonJoinDiscord = { "ButtonJoinDiscord", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSplashScreenWidget, ButtonJoinDiscord), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_ButtonJoinDiscord_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_ButtonJoinDiscord_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_ShowOnStartupCheckbox_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "Cavrnus" },
@@ -363,6 +411,13 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DismissButton = { "DismissButton", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSplashScreenWidget, DismissButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DismissButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DismissButton_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DiscordURL_MetaData[] = {
+		{ "Category", "Cavrnus" },
+		{ "ModuleRelativePath", "Public/CavrnusSplashScreenWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DiscordURL = { "DiscordURL", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSplashScreenWidget, DiscordURL), METADATA_PARAMS(Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DiscordURL_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DiscordURL_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_WebConsoleURL_MetaData[] = {
 		{ "Category", "Cavrnus" },
@@ -390,8 +445,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_SetupSpaceButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_OpenWebConsoleButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_OpenDocumentationButton,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_ButtonJoinDiscord,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_ShowOnStartupCheckbox,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DismissButton,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DiscordURL,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_WebConsoleURL,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_DocumentationURL,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSplashScreenWidget_Statics::NewProp_TabID,
@@ -432,9 +489,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSplashScreenWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnectorEditor_Public_CavrnusSplashScreenWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusSplashScreenWidget, UCavrnusSplashScreenWidget::StaticClass, TEXT("UCavrnusSplashScreenWidget"), &Z_Registration_Info_UClass_UCavrnusSplashScreenWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSplashScreenWidget), 1677470537U) },
+		{ Z_Construct_UClass_UCavrnusSplashScreenWidget, UCavrnusSplashScreenWidget::StaticClass, TEXT("UCavrnusSplashScreenWidget"), &Z_Registration_Info_UClass_UCavrnusSplashScreenWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSplashScreenWidget), 1086388648U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnectorEditor_Public_CavrnusSplashScreenWidget_h_796853985(TEXT("/Script/CavrnusConnectorEditor"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnectorEditor_Public_CavrnusSplashScreenWidget_h_2931753445(TEXT("/Script/CavrnusConnectorEditor"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnectorEditor_Public_CavrnusSplashScreenWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnectorEditor_Public_CavrnusSplashScreenWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

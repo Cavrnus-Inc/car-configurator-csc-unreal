@@ -53,6 +53,21 @@ struct OpCreateObject_V2DefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OpCreateObject_V2DefaultTypeInternal _OpCreateObject_V2_default_instance_;
+PROTOBUF_CONSTEXPR OpCreateObject_V3::OpCreateObject_V3(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.contextpath_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.creatorid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.contentid_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct OpCreateObject_V3DefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OpCreateObject_V3DefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~OpCreateObject_V3DefaultTypeInternal() {}
+  union {
+    OpCreateObject_V3 _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OpCreateObject_V3DefaultTypeInternal _OpCreateObject_V3_default_instance_;
 PROTOBUF_CONSTEXPR OpCreateObject::OpCreateObject(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.V_)*/{}
@@ -68,7 +83,7 @@ struct OpCreateObjectDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OpCreateObjectDefaultTypeInternal _OpCreateObject_default_instance_;
 }  // namespace Journal
-static ::_pb::Metadata file_level_metadata_journal_5foperations_5fclient_2eproto[3];
+static ::_pb::Metadata file_level_metadata_journal_5foperations_5fclient_2eproto[4];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_journal_5foperations_5fclient_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_journal_5foperations_5fclient_2eproto = nullptr;
 
@@ -124,23 +139,35 @@ const uint32_t TableStruct_journal_5foperations_5fclient_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::Journal::OpCreateObject_V2, _impl_.contentid_),
   PROTOBUF_FIELD_OFFSET(::Journal::OpCreateObject_V2, _impl_.creatorid_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::Journal::OpCreateObject_V3, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::Journal::OpCreateObject_V3, _impl_.contextpath_),
+  PROTOBUF_FIELD_OFFSET(::Journal::OpCreateObject_V3, _impl_.contentid_),
+  PROTOBUF_FIELD_OFFSET(::Journal::OpCreateObject_V3, _impl_.creatorid_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Journal::OpCreateObject, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::Journal::OpCreateObject, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::Journal::OpCreateObject, _impl_.V_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 24, -1, sizeof(::Journal::Operation)},
   { 41, -1, -1, sizeof(::Journal::OpCreateObject_V2)},
-  { 50, -1, -1, sizeof(::Journal::OpCreateObject)},
+  { 50, -1, -1, sizeof(::Journal::OpCreateObject_V3)},
+  { 59, -1, -1, sizeof(::Journal::OpCreateObject)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::Journal::_Operation_default_instance_._instance,
   &::Journal::_OpCreateObject_V2_default_instance_._instance,
+  &::Journal::_OpCreateObject_V3_default_instance_._instance,
   &::Journal::_OpCreateObject_default_instance_._instance,
 };
 
@@ -174,12 +201,15 @@ const char descriptor_table_protodef_journal_5foperations_5fclient_2eproto[] PRO
   "J\004\010\025\020\026J\004\010\026\020\027J\004\010(\020)J\004\010)\020*J\004\010*\020+J\004\010+\020,J\004\010,"
   "\020-J\004\0102\0203J\004\0103\0204J\004\0104\0205J\004\0105\0206J\004\0107\0208J\004\010U\020VJ\004"
   "\010\017\020\020J\004\010\021\020\022J\004\010]\020^J\004\010\036\020\037J\004\010\037\020 J\004\010<\020=J\004\010Z\020["
-  "\"\237\001\n\016OpCreateObject\022(\n\002v2\030\002 \001(\0132\032.Journa"
-  "l.OpCreateObject.V2H\000\032X\n\002V2\022\023\n\013newObject"
-  "Id\030\001 \001(\t\022*\n\tcontentId\030\002 \001(\0132\027.JournalDat"
-  "a.ObjectType\022\021\n\tcreatorId\030\007 \001(\tB\003\n\001VJ\004\010\001"
-  "\020\002B\036\252\002\033Collab.Proxy.Comm.LiveTypesb\006prot"
-  "o3"
+  "\"\243\002\n\016OpCreateObject\022(\n\002v2\030\002 \001(\0132\032.Journa"
+  "l.OpCreateObject.V2H\000\022(\n\002v3\030\003 \001(\0132\032.Jour"
+  "nal.OpCreateObject.V3H\000\032X\n\002V2\022\023\n\013newObje"
+  "ctId\030\001 \001(\t\022*\n\tcontentId\030\002 \001(\0132\027.JournalD"
+  "ata.ObjectType\022\021\n\tcreatorId\030\007 \001(\t\032X\n\002V3\022"
+  "\023\n\013contextPath\030\001 \001(\t\022*\n\tcontentId\030\002 \001(\0132"
+  "\027.JournalData.ObjectType\022\021\n\tcreatorId\030\007 "
+  "\001(\tB\003\n\001VJ\004\010\001\020\002B\036\252\002\033Collab.Proxy.Comm.Liv"
+  "eTypesb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_journal_5foperations_5fclient_2eproto_deps[2] = {
   &::descriptor_table_journal_5foperations_5fcommon_2eproto,
@@ -187,9 +217,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_journal_5foperation
 };
 static ::_pbi::once_flag descriptor_table_journal_5foperations_5fclient_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_journal_5foperations_5fclient_2eproto = {
-    false, false, 1362, descriptor_table_protodef_journal_5foperations_5fclient_2eproto,
+    false, false, 1494, descriptor_table_protodef_journal_5foperations_5fclient_2eproto,
     "journal_operations_client.proto",
-    &descriptor_table_journal_5foperations_5fclient_2eproto_once, descriptor_table_journal_5foperations_5fclient_2eproto_deps, 2, 3,
+    &descriptor_table_journal_5foperations_5fclient_2eproto_once, descriptor_table_journal_5foperations_5fclient_2eproto_deps, 2, 4,
     schemas, file_default_instances, TableStruct_journal_5foperations_5fclient_2eproto::offsets,
     file_level_metadata_journal_5foperations_5fclient_2eproto, file_level_enum_descriptors_journal_5foperations_5fclient_2eproto,
     file_level_service_descriptors_journal_5foperations_5fclient_2eproto,
@@ -1818,14 +1848,320 @@ void OpCreateObject_V2::InternalSwap(OpCreateObject_V2* other) {
 
 // ===================================================================
 
+class OpCreateObject_V3::_Internal {
+ public:
+  static const ::JournalData::ObjectType& contentid(const OpCreateObject_V3* msg);
+};
+
+const ::JournalData::ObjectType&
+OpCreateObject_V3::_Internal::contentid(const OpCreateObject_V3* msg) {
+  return *msg->_impl_.contentid_;
+}
+void OpCreateObject_V3::clear_contentid() {
+  if (GetArenaForAllocation() == nullptr && _impl_.contentid_ != nullptr) {
+    delete _impl_.contentid_;
+  }
+  _impl_.contentid_ = nullptr;
+}
+OpCreateObject_V3::OpCreateObject_V3(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:Journal.OpCreateObject.V3)
+}
+OpCreateObject_V3::OpCreateObject_V3(const OpCreateObject_V3& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  OpCreateObject_V3* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.contextpath_){}
+    , decltype(_impl_.creatorid_){}
+    , decltype(_impl_.contentid_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.contextpath_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.contextpath_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_contextpath().empty()) {
+    _this->_impl_.contextpath_.Set(from._internal_contextpath(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.creatorid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.creatorid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_creatorid().empty()) {
+    _this->_impl_.creatorid_.Set(from._internal_creatorid(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_contentid()) {
+    _this->_impl_.contentid_ = new ::JournalData::ObjectType(*from._impl_.contentid_);
+  }
+  // @@protoc_insertion_point(copy_constructor:Journal.OpCreateObject.V3)
+}
+
+inline void OpCreateObject_V3::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.contextpath_){}
+    , decltype(_impl_.creatorid_){}
+    , decltype(_impl_.contentid_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.contextpath_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.contextpath_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.creatorid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.creatorid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+OpCreateObject_V3::~OpCreateObject_V3() {
+  // @@protoc_insertion_point(destructor:Journal.OpCreateObject.V3)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void OpCreateObject_V3::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.contextpath_.Destroy();
+  _impl_.creatorid_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.contentid_;
+}
+
+void OpCreateObject_V3::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void OpCreateObject_V3::Clear() {
+// @@protoc_insertion_point(message_clear_start:Journal.OpCreateObject.V3)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.contextpath_.ClearToEmpty();
+  _impl_.creatorid_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.contentid_ != nullptr) {
+    delete _impl_.contentid_;
+  }
+  _impl_.contentid_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* OpCreateObject_V3::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string contextPath = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_contextpath();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "Journal.OpCreateObject.V3.contextPath"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .JournalData.ObjectType contentId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_contentid(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string creatorId = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          auto str = _internal_mutable_creatorid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "Journal.OpCreateObject.V3.creatorId"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* OpCreateObject_V3::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:Journal.OpCreateObject.V3)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string contextPath = 1;
+  if (!this->_internal_contextpath().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_contextpath().data(), static_cast<int>(this->_internal_contextpath().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Journal.OpCreateObject.V3.contextPath");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_contextpath(), target);
+  }
+
+  // .JournalData.ObjectType contentId = 2;
+  if (this->_internal_has_contentid()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::contentid(this),
+        _Internal::contentid(this).GetCachedSize(), target, stream);
+  }
+
+  // string creatorId = 7;
+  if (!this->_internal_creatorid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_creatorid().data(), static_cast<int>(this->_internal_creatorid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Journal.OpCreateObject.V3.creatorId");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_creatorid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:Journal.OpCreateObject.V3)
+  return target;
+}
+
+size_t OpCreateObject_V3::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Journal.OpCreateObject.V3)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string contextPath = 1;
+  if (!this->_internal_contextpath().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_contextpath());
+  }
+
+  // string creatorId = 7;
+  if (!this->_internal_creatorid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_creatorid());
+  }
+
+  // .JournalData.ObjectType contentId = 2;
+  if (this->_internal_has_contentid()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.contentid_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData OpCreateObject_V3::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    OpCreateObject_V3::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*OpCreateObject_V3::GetClassData() const { return &_class_data_; }
+
+
+void OpCreateObject_V3::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<OpCreateObject_V3*>(&to_msg);
+  auto& from = static_cast<const OpCreateObject_V3&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:Journal.OpCreateObject.V3)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_contextpath().empty()) {
+    _this->_internal_set_contextpath(from._internal_contextpath());
+  }
+  if (!from._internal_creatorid().empty()) {
+    _this->_internal_set_creatorid(from._internal_creatorid());
+  }
+  if (from._internal_has_contentid()) {
+    _this->_internal_mutable_contentid()->::JournalData::ObjectType::MergeFrom(
+        from._internal_contentid());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void OpCreateObject_V3::CopyFrom(const OpCreateObject_V3& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Journal.OpCreateObject.V3)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool OpCreateObject_V3::IsInitialized() const {
+  return true;
+}
+
+void OpCreateObject_V3::InternalSwap(OpCreateObject_V3* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.contextpath_, lhs_arena,
+      &other->_impl_.contextpath_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.creatorid_, lhs_arena,
+      &other->_impl_.creatorid_, rhs_arena
+  );
+  swap(_impl_.contentid_, other->_impl_.contentid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata OpCreateObject_V3::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_journal_5foperations_5fclient_2eproto_getter, &descriptor_table_journal_5foperations_5fclient_2eproto_once,
+      file_level_metadata_journal_5foperations_5fclient_2eproto[2]);
+}
+
+// ===================================================================
+
 class OpCreateObject::_Internal {
  public:
   static const ::Journal::OpCreateObject_V2& v2(const OpCreateObject* msg);
+  static const ::Journal::OpCreateObject_V3& v3(const OpCreateObject* msg);
 };
 
 const ::Journal::OpCreateObject_V2&
 OpCreateObject::_Internal::v2(const OpCreateObject* msg) {
   return *msg->_impl_.V_.v2_;
+}
+const ::Journal::OpCreateObject_V3&
+OpCreateObject::_Internal::v3(const OpCreateObject* msg) {
+  return *msg->_impl_.V_.v3_;
 }
 void OpCreateObject::set_allocated_v2(::Journal::OpCreateObject_V2* v2) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -1841,6 +2177,21 @@ void OpCreateObject::set_allocated_v2(::Journal::OpCreateObject_V2* v2) {
     _impl_.V_.v2_ = v2;
   }
   // @@protoc_insertion_point(field_set_allocated:Journal.OpCreateObject.v2)
+}
+void OpCreateObject::set_allocated_v3(::Journal::OpCreateObject_V3* v3) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_V();
+  if (v3) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(v3);
+    if (message_arena != submessage_arena) {
+      v3 = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, v3, submessage_arena);
+    }
+    set_has_v3();
+    _impl_.V_.v3_ = v3;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Journal.OpCreateObject.v3)
 }
 OpCreateObject::OpCreateObject(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1862,6 +2213,11 @@ OpCreateObject::OpCreateObject(const OpCreateObject& from)
     case kV2: {
       _this->_internal_mutable_v2()->::Journal::OpCreateObject_V2::MergeFrom(
           from._internal_v2());
+      break;
+    }
+    case kV3: {
+      _this->_internal_mutable_v3()->::Journal::OpCreateObject_V3::MergeFrom(
+          from._internal_v3());
       break;
     }
     case V_NOT_SET: {
@@ -1912,6 +2268,12 @@ void OpCreateObject::clear_V() {
       }
       break;
     }
+    case kV3: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.V_.v3_;
+      }
+      break;
+    }
     case V_NOT_SET: {
       break;
     }
@@ -1940,6 +2302,14 @@ const char* OpCreateObject::_InternalParse(const char* ptr, ::_pbi::ParseContext
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_v2(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .Journal.OpCreateObject.V3 v3 = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_v3(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1980,6 +2350,13 @@ uint8_t* OpCreateObject::_InternalSerialize(
         _Internal::v2(this).GetCachedSize(), target, stream);
   }
 
+  // .Journal.OpCreateObject.V3 v3 = 3;
+  if (_internal_has_v3()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::v3(this),
+        _Internal::v3(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2002,6 +2379,13 @@ size_t OpCreateObject::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *_impl_.V_.v2_);
+      break;
+    }
+    // .Journal.OpCreateObject.V3 v3 = 3;
+    case kV3: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.V_.v3_);
       break;
     }
     case V_NOT_SET: {
@@ -2032,6 +2416,11 @@ void OpCreateObject::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
           from._internal_v2());
       break;
     }
+    case kV3: {
+      _this->_internal_mutable_v3()->::Journal::OpCreateObject_V3::MergeFrom(
+          from._internal_v3());
+      break;
+    }
     case V_NOT_SET: {
       break;
     }
@@ -2060,7 +2449,7 @@ void OpCreateObject::InternalSwap(OpCreateObject* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata OpCreateObject::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_journal_5foperations_5fclient_2eproto_getter, &descriptor_table_journal_5foperations_5fclient_2eproto_once,
-      file_level_metadata_journal_5foperations_5fclient_2eproto[2]);
+      file_level_metadata_journal_5foperations_5fclient_2eproto[3]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -2073,6 +2462,10 @@ Arena::CreateMaybeMessage< ::Journal::Operation >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::Journal::OpCreateObject_V2*
 Arena::CreateMaybeMessage< ::Journal::OpCreateObject_V2 >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Journal::OpCreateObject_V2 >(arena);
+}
+template<> PROTOBUF_NOINLINE ::Journal::OpCreateObject_V3*
+Arena::CreateMaybeMessage< ::Journal::OpCreateObject_V3 >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Journal::OpCreateObject_V3 >(arena);
 }
 template<> PROTOBUF_NOINLINE ::Journal::OpCreateObject*
 Arena::CreateMaybeMessage< ::Journal::OpCreateObject >(Arena* arena) {

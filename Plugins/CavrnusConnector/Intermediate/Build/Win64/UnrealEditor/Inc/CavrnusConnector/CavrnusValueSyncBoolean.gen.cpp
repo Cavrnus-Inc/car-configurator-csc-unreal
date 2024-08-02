@@ -72,7 +72,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBoolean() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Gets the current boolean property value.\n\x09 * @return The current boolean property value.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncBoolean.h" },
+		{ "ToolTip", "@brief Gets the current boolean property value.\n@return The current boolean property value." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncBoolean, nullptr, "GetBoolean", nullptr, nullptr, sizeof(CavrnusValueSyncBoolean_eventGetBoolean_Parms), Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean_Statics::Function_MetaDataParams)) };
@@ -105,7 +107,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBoolean() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Sets the boolean property value.\n\x09 * @param bPropertyValue The new boolean property value.\n\x09 */" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncBoolean.h" },
+		{ "ToolTip", "@brief Sets the boolean property value.\n@param bPropertyValue The new boolean property value." },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusValueSyncBoolean, nullptr, "SetBoolean", nullptr, nullptr, sizeof(CavrnusValueSyncBoolean_eventSetBoolean_Parms), Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean_Statics::Function_MetaDataParams)) };
@@ -138,18 +142,18 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBoolean() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusValueSyncBoolean_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean, "GetBoolean" }, // 2834185852
-		{ &Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean, "SetBoolean" }, // 1903974778
+		{ &Z_Construct_UFunction_UCavrnusValueSyncBoolean_GetBoolean, "GetBoolean" }, // 1481497867
+		{ &Z_Construct_UFunction_UCavrnusValueSyncBoolean_SetBoolean, "SetBoolean" }, // 2328576536
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusValueSyncBoolean_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "// Class definition\n" },
+		{ "Comment", "/**\n * @brief Class responsible for synchronizing a boolean property between Cavrnus and Unreal Engine.\n *\n * The UCavrnusValueSyncBoolean class provides mechanisms to get and set a boolean property value,\n * and ensures that these values are synchronized with the Cavrnus platform.\n */" },
 		{ "HideCategories", "Transform Physics Collision Rendering Trigger PhysicsVolume" },
 		{ "IncludePath", "ValueSyncs/CavrnusValueSyncBoolean.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/ValueSyncs/CavrnusValueSyncBoolean.h" },
-		{ "ToolTip", "Class definition" },
+		{ "ToolTip", "@brief Class responsible for synchronizing a boolean property between Cavrnus and Unreal Engine.\n\nThe UCavrnusValueSyncBoolean class provides mechanisms to get and set a boolean property value,\nand ensures that these values are synchronized with the Cavrnus platform." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusValueSyncBoolean_Statics::StaticCppClassTypeInfo = {
@@ -188,9 +192,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusValueSyncBoolean() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusValueSyncBoolean, UCavrnusValueSyncBoolean::StaticClass, TEXT("UCavrnusValueSyncBoolean"), &Z_Registration_Info_UClass_UCavrnusValueSyncBoolean, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncBoolean), 1639202738U) },
+		{ Z_Construct_UClass_UCavrnusValueSyncBoolean, UCavrnusValueSyncBoolean::StaticClass, TEXT("UCavrnusValueSyncBoolean"), &Z_Registration_Info_UClass_UCavrnusValueSyncBoolean, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusValueSyncBoolean), 3316931257U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_98058810(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_3295313967(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_ValueSyncs_CavrnusValueSyncBoolean_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

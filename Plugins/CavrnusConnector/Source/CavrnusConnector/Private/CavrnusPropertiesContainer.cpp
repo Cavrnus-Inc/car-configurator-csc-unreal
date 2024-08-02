@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "CavrnusPropertiesContainer.h"
 #include "CavrnusSpatialConnectorSubSystem.h"
 #include "CavrnusFunctionLibrary.h"

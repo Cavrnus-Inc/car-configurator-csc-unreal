@@ -137,8 +137,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveFloatPropertyUpdate() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusLiveFloatPropertyUpdate_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+		{ "Comment", "/**\n * @brief UCavrnusLiveFloatPropertyUpdate class for managing live float property updates in Cavrnus.\n *\n * This class provides functionality to handle the initialization, updating, and finalization of live float property updates.\n */" },
 		{ "IncludePath", "LivePropertyUpdates/CavrnusLiveFloatPropertyUpdate.h" },
 		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveFloatPropertyUpdate.h" },
+		{ "ToolTip", "@brief UCavrnusLiveFloatPropertyUpdate class for managing live float property updates in Cavrnus.\n\nThis class provides functionality to handle the initialization, updating, and finalization of live float property updates." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusLiveFloatPropertyUpdate_Statics::StaticCppClassTypeInfo = {
@@ -177,9 +179,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveFloatPropertyUpdate() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLiveFloatPropertyUpdate, UCavrnusLiveFloatPropertyUpdate::StaticClass, TEXT("UCavrnusLiveFloatPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveFloatPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveFloatPropertyUpdate), 3454316191U) },
+		{ Z_Construct_UClass_UCavrnusLiveFloatPropertyUpdate, UCavrnusLiveFloatPropertyUpdate::StaticClass, TEXT("UCavrnusLiveFloatPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveFloatPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveFloatPropertyUpdate), 1243271353U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_4002355480(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_2394583224(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveFloatPropertyUpdate_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

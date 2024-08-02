@@ -21,7 +21,7 @@ private: \
 	static void StaticRegisterNativesACavrnusLocalCharacter(); \
 	friend struct Z_Construct_UClass_ACavrnusLocalCharacter_Statics; \
 public: \
-	DECLARE_CLASS(ACavrnusLocalCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/CavrnusConnector"), NO_API) \
+	DECLARE_CLASS(ACavrnusLocalCharacter, ACharacter, COMPILED_IN_FLAGS(CLASS_Abstract | CLASS_Config), CASTCLASS_None, TEXT("/Script/CavrnusConnector"), NO_API) \
 	DECLARE_SERIALIZER(ACavrnusLocalCharacter)
 
 
@@ -30,14 +30,14 @@ private: \
 	static void StaticRegisterNativesACavrnusLocalCharacter(); \
 	friend struct Z_Construct_UClass_ACavrnusLocalCharacter_Statics; \
 public: \
-	DECLARE_CLASS(ACavrnusLocalCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/CavrnusConnector"), NO_API) \
+	DECLARE_CLASS(ACavrnusLocalCharacter, ACharacter, COMPILED_IN_FLAGS(CLASS_Abstract | CLASS_Config), CASTCLASS_None, TEXT("/Script/CavrnusConnector"), NO_API) \
 	DECLARE_SERIALIZER(ACavrnusLocalCharacter)
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_CavrnusLocalCharacter_h_11_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ACavrnusLocalCharacter(const FObjectInitializer& ObjectInitializer); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ACavrnusLocalCharacter) \
+	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ACavrnusLocalCharacter) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ACavrnusLocalCharacter); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ACavrnusLocalCharacter); \
 private: \
@@ -55,7 +55,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ACavrnusLocalCharacter); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ACavrnusLocalCharacter); \
-	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ACavrnusLocalCharacter)
+	DEFINE_ABSTRACT_DEFAULT_CONSTRUCTOR_CALL(ACavrnusLocalCharacter)
 
 
 #define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Private_CavrnusLocalCharacter_h_8_PROLOG

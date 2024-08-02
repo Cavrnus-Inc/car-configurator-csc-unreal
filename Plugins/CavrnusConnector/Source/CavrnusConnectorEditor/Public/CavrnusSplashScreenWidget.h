@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #pragma once
 #include <EditorUtilityWidget.h>
 
@@ -27,10 +28,16 @@ public:
 	UButton* OpenDocumentationButton;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
+	UButton* ButtonJoinDiscord;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
 	UCheckBox* ShowOnStartupCheckbox;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus", meta = (BindWidget))
 	UButton* DismissButton;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus")
+	FString DiscordURL;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cavrnus")
 	FString WebConsoleURL;
@@ -50,6 +57,9 @@ public:
 
 	UFUNCTION()
 	void OnOpenDocsClicked();
+
+	UFUNCTION()
+	void OnJoinDiscordClicked();
 
 	UFUNCTION()
 	void OnShowSplashScreenOnStartupClicked(bool bCheckboxState);

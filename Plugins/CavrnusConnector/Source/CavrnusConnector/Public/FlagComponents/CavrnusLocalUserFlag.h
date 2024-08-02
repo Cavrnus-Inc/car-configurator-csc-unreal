@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #pragma once
 #include "CoreMinimal.h"
 #include "CavrnusFunctionLibrary.h"
@@ -18,6 +19,7 @@ public:
 	// Destructor
 	~UCavrnusLocalUserFlag(){}
 
+	/** Reference to the local user. */
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus")
 	FCavrnusUser LocalUser = FCavrnusUser();
 };

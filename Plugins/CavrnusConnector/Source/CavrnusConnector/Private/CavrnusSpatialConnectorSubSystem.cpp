@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "CavrnusSpatialConnectorSubSystem.h"
 #include "CavrnusFunctionLibrary.h"
 #include "CavrnusSpatialConnector.h"
@@ -9,6 +10,7 @@
 #include "Engine/World.h" 
 #include "CavrnusPropertiesContainer.h"
 #include "SpawnObjectHelpers.h"
+#include "RelayModel\CavrnusRelayModel.h"
 
 #include <GameFramework/Pawn.h>
 #include <GameFramework/PlayerController.h>
@@ -172,17 +174,14 @@ void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowSpaceList()
 	ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
 	if (UCavrnusSpaceListWidget* SpaceListWidget = Cast<UCavrnusSpaceListWidget>(SpawnWidget(CavrnusSpatialConnector->SpaceJoinMenu)))
 	{
-		SpaceListWidget->OnCavrnusSpaceSelected.AddLambda
-		(
-			[this, SpaceListWidget](FString SpaceJoinId)
+		SpaceListWidget->SpaceSelected = [this, SpaceListWidget](const FCavrnusSpaceInfo& SpaceInfo)
+		{
+			RemoveWidget(SpaceListWidget);
+			if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy =UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
 			{
-				RemoveWidget(SpaceListWidget);
-				if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
-				{
-					SubProxy->AttemptToJoinSpace(SpaceJoinId);
-				}
+				SubProxy->AttemptToJoinSpace(SpaceInfo.SpaceId);
 			}
-		);
+		};
 	}
 }
 
@@ -233,22 +232,24 @@ void UCavrnusSpatialConnectorSubSystemProxy::Initialize()
 
 	SpawnManager = new SpawnedObjectsManager();
 
-	TFunction<void(FCavrnusSpawnedObject, FString)> onObjectCreation = [this](const FCavrnusSpawnedObject& ob, FString uniqueId)
+	TFunction<AActor* (FCavrnusSpawnedObject, FString)> onObjectCreation = [this](const FCavrnusSpawnedObject& ob, FString uniqueId)
 	{
+		AActor* actor = nullptr;
+
 		if (!GetCavrnusSpatialConnector()->SpawnableIdentifiers.Contains(uniqueId))
 		{
 			UE_LOG(LogCavrnusConnector, Error, TEXT("Could not find spawnable object with Unique ID %s in the Cavrnus Spatial Connector"), *uniqueId);
-			return;
+			return actor;
 		}
-		SpawnManager->RegisterSpawnedObject(ob, GetCavrnusSpatialConnector()->SpawnableIdentifiers[uniqueId], GetWorld(), SpawnHelpers);
+		return SpawnManager->RegisterSpawnedObject(ob, GetCavrnusSpatialConnector()->SpawnableIdentifiers[uniqueId], GetWorld(), SpawnHelpers);
 	};
-	UCavrnusFunctionLibrary::GetDataModel()->RegisterObjectCreationCallback(onObjectCreation);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->RegisterObjectCreationCallback(onObjectCreation);
 
 	TFunction<void(FCavrnusSpawnedObject)> onObjectDestruction = [this](const FCavrnusSpawnedObject& ob)
 	{
 		SpawnManager->UnregisterSpawnedObject(ob, GetWorld());
 	};
-	UCavrnusFunctionLibrary::GetDataModel()->RegisterObjectDestructionCallback(onObjectDestruction);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->RegisterObjectDestructionCallback(onObjectDestruction);
 }
 
 void UCavrnusSpatialConnectorSubSystemProxy::Deinitialize()
@@ -256,7 +257,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::Deinitialize()
 	AvatarManager = nullptr;
 	SpawnManager = nullptr;
 	hasSpaceConn = false;
-	UCavrnusFunctionLibrary::KillDataModel();
+	Cavrnus::CavrnusRelayModel::KillDataModel();
 }
 
 void UCavrnusSpatialConnectorSubSystemProxy::SetObjectOwner(UObject* Owner)

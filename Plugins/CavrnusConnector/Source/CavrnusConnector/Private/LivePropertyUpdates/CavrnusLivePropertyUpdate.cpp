@@ -1,8 +1,9 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "LivePropertyUpdates/CavrnusLivePropertyUpdate.h"
 #include "RelayModel/CavrnusVirtualPropertyUpdate.h"
 #include "Translation/CavrnusProtoTranslation.h"
 #include "Types/CavrnusPropertyValue.h"
-#include "Types/PropertyId.h"
+#include "Types/AbsolutePropertyId.h"
 
 UCavrnusLivePropertyUpdate::UCavrnusLivePropertyUpdate() : livePropertyUpdate(nullptr)
 {
@@ -30,4 +31,19 @@ double UCavrnusLivePropertyUpdate::GetLastUpdatedTimeSeconds()
 		return livePropertyUpdate->lastUpdatedTimeSec;
 	
 	return 0.0f;
+}
+
+void UCavrnusLivePropertyUpdate::TrySendUpdateData(const Cavrnus::FPropertyValue& propVal)
+{
+	if (livePropertyUpdate && !(lastSentPropValue == propVal))
+	{
+		livePropertyUpdate->UpdateWithNewData(propVal);
+		lastSentPropValue = propVal;
+	}
+}
+
+void UCavrnusLivePropertyUpdate::FinalizeCurrentValue()
+{
+	if (livePropertyUpdate)
+		livePropertyUpdate->Finalize();
 }

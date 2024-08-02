@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#pragma once
 
 #include "CavrnusRelayLibrary.h"
 #include <Containers/UnrealString.h>

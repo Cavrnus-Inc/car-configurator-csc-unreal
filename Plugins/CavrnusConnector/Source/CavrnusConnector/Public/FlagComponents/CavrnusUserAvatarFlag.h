@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
@@ -18,6 +19,7 @@ public:
 	// Destructor
 	~UCavrnusUserAvatarFlag(){}
 
+	/** The Cavrnus user associated with the avatar. */
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus")
-	FCavrnusUser CavrnusUser;
+	FCavrnusUser CavrnusUser = FCavrnusUser();
 };

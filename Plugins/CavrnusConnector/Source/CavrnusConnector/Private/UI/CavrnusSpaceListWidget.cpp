@@ -1,5 +1,5 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "UI/CavrnusSpaceListWidget.h"
-#include "CavrnusConnectorModule.h"
 
 #include "CavrnusSpatialConnectorSubSystem.h"
 #include "CavrnusFunctionLibrary.h"
@@ -15,7 +15,7 @@ void UCavrnusSpaceListWidget::NativeConstruct()
 void UCavrnusSpaceListWidget::Setup()
 {
 	SearchTextBox->SetIsEnabled(false);
-	SpacePagination->Setup(&PaginationItemWidget);
+	SpacePagination->Setup(PaginationItemWidget);
 
 	UCavrnusFunctionLibrary::FetchJoinableSpaces([this](const TArray<FCavrnusSpaceInfo>& Spaces)
 	{
@@ -63,13 +63,16 @@ void UCavrnusSpaceListWidget::UpdatePagination(TArray<FCavrnusSpaceInfo>& Spaces
 	{
 		const FSpaceSelectedEvent Callback = [this](const FCavrnusSpaceInfo& space)
 		{
+			if (SpaceSelected)
+				SpaceSelected(space);
+			
 			OnCavrnusSpaceSelected.Broadcast(space.SpaceId);
 		};
 
 		Options.Add(new FSpaceListOption(Space, Callback));
 	}
 	
-	SpacePagination->NewPagination(&PaginationItemWidget, Options);
+	SpacePagination->NewPagination(PaginationItemWidget, Options);
 }
 
 UCavrnusSpaceListWidget::FSpaceListOption::FSpaceListOption(const FCavrnusSpaceInfo& SpaceInfo, const FSpaceSelectedEvent& OnSelectSpace)

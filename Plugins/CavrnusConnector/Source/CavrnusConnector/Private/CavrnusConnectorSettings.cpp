@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "CavrnusConnectorSettings.h"
 #include "Engine/Engine.h"
 
@@ -46,6 +47,11 @@ FString UCavrnusConnectorSettings::GetRelayNetOptionalParameters() const
 	if (RelayNetLogOutputToFile)
 	{
 		result.Append(result.IsEmpty() ? "-f" : " -f");
+	}
+
+	if (RelayNetDisableRTC)
+	{
+		result.Append(result.IsEmpty() ? "-d" : " -d");
 	}
 
 	return result;

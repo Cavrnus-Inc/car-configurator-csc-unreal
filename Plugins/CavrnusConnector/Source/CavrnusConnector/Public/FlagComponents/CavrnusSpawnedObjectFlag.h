@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
@@ -17,6 +18,7 @@ public:
 	// Destructor
 	~UCavrnusSpawnedObjectFlag(){}
 
+	/** The spawned object referenced by the component. */
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus")
 	FCavrnusSpawnedObject SpawnedObject;
 };

@@ -1,4 +1,5 @@
-﻿#include "RelayModel/SpacePermissionsModel.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayModel/SpacePermissionsModel.h"
 
 namespace Cavrnus
 {

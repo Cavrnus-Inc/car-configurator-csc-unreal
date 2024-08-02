@@ -49,8 +49,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusSpaceConnect
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "/**\n *\n */" },
+		{ "Comment", "/**\n * @brief Represents a connection to a Cavrnus Space.\n *\n * This struct holds information about the connection to a specific space in Cavrnus,\n * including the connection ID, user connection ID, and container name.\n */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusSpaceConnection.h" },
+		{ "ToolTip", "@brief Represents a connection to a Cavrnus Space.\n\nThis struct holds information about the connection to a specific space in Cavrnus,\nincluding the connection ID, user connection ID, and container name." },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewStructOps()
@@ -60,21 +61,27 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusSpaceConnect
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_SpaceConnectionId_MetaData[] = {
 		{ "Category", "Cavrnus|Spaces" },
+		{ "Comment", "/** Unique identifier for the space connection */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusSpaceConnection.h" },
+		{ "ToolTip", "Unique identifier for the space connection" },
 	};
 #endif
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_SpaceConnectionId = { "SpaceConnectionId", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusSpaceConnection, SpaceConnectionId), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_SpaceConnectionId_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_SpaceConnectionId_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_LocalUserConnectionId_MetaData[] = {
 		{ "Category", "Cavrnus|Spaces" },
+		{ "Comment", "/** Identifier for the local user's connection */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusSpaceConnection.h" },
+		{ "ToolTip", "Identifier for the local user's connection" },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_LocalUserConnectionId = { "LocalUserConnectionId", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusSpaceConnection, LocalUserConnectionId), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_LocalUserConnectionId_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_LocalUserConnectionId_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_LocalUserContainerName_MetaData[] = {
 		{ "Category", "Cavrnus|Spaces" },
+		{ "Comment", "/** Name of the container associated with the local user */" },
 		{ "ModuleRelativePath", "Public/Types/CavrnusSpaceConnection.h" },
+		{ "ToolTip", "Name of the container associated with the local user" },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_LocalUserContainerName = { "LocalUserContainerName", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCavrnusSpaceConnection, LocalUserContainerName), METADATA_PARAMS(Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_LocalUserContainerName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewProp_LocalUserContainerName_MetaData)) };
@@ -109,9 +116,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FCavrnusSpaceConnect
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceConnection_h_Statics::ScriptStructInfo[] = {
-		{ FCavrnusSpaceConnection::StaticStruct, Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewStructOps, TEXT("CavrnusSpaceConnection"), &Z_Registration_Info_UScriptStruct_CavrnusSpaceConnection, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusSpaceConnection), 3908145014U) },
+		{ FCavrnusSpaceConnection::StaticStruct, Z_Construct_UScriptStruct_FCavrnusSpaceConnection_Statics::NewStructOps, TEXT("CavrnusSpaceConnection"), &Z_Registration_Info_UScriptStruct_CavrnusSpaceConnection, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCavrnusSpaceConnection), 423510165U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceConnection_h_2671445911(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceConnection_h_311214058(TEXT("/Script/CavrnusConnector"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceConnection_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusSpaceConnection_h_Statics::ScriptStructInfo),
 		nullptr, 0);

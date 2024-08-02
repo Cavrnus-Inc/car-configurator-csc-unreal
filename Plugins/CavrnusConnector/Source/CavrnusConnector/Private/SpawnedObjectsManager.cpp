@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #include "SpawnedObjectsManager.h"
 #include "CavrnusConnectorModule.h"
 #include "CavrnusSpatialConnector.h"
@@ -18,21 +19,22 @@ SpawnedObjectsManager::~SpawnedObjectsManager()
 {
 }
 
-void SpawnedObjectsManager::RegisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, TSubclassOf<AActor> ActorClass, UWorld* world, USpawnObjectHelpers* spawnHelpers)
+AActor* SpawnedObjectsManager::RegisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, TSubclassOf<AActor> ActorClass, UWorld* world, USpawnObjectHelpers* spawnHelpers)
 {
 	auto actor = spawnHelpers->SpawnObjectAndSetup(world, ActorClass, SpawnedObject);
 
-	spawnedActors.Add(SpawnedObject.PropertiesContainerName, actor);
+	spawnedActors.Add(FPropertiesContainer(SpawnedObject.PropertiesContainerName), actor);
 
+	return actor;
 }
 
 void SpawnedObjectsManager::UnregisterSpawnedObject(const FCavrnusSpawnedObject& SpawnedObject, UWorld* World)
 {
-	if (!spawnedActors.Contains(SpawnedObject.PropertiesContainerName))
+	if (!spawnedActors.Contains(FPropertiesContainer(SpawnedObject.PropertiesContainerName)))
 	{
 		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to destroy actor, could not find spawned object with Container Name %s"), *SpawnedObject.PropertiesContainerName);
 		return;
 	}
 
-	spawnedActors[SpawnedObject.PropertiesContainerName]->Destroy();
+	spawnedActors[FPropertiesContainer(SpawnedObject.PropertiesContainerName)]->Destroy();
 }

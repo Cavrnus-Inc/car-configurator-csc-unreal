@@ -1,4 +1,5 @@
-﻿#include "RelayModel/CavrnusRelayModel.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayModel/CavrnusRelayModel.h"
 #include "CavrnusConnectorSettings.h"
 #include "RelayModel/SpacePropertyModel.h"
 #include "RelayModel/SpacePermissionsModel.h"
@@ -11,6 +12,8 @@
 
 namespace Cavrnus
 {
+	CavrnusRelayModel* CavrnusRelayModel::Instance = nullptr;
+
 	CavrnusRelayModel::CavrnusRelayModel()
 	{
 		// Get settings class
@@ -47,6 +50,22 @@ namespace Cavrnus
 			delete kvp.Value;
 		}
 		spacePropertyModelLookup.Empty();
+	}
+
+	CavrnusRelayModel* CavrnusRelayModel::GetDataModel()
+	{
+		if (Instance == nullptr)
+			Instance = new Cavrnus::CavrnusRelayModel();
+		return Instance;
+	}
+
+	void CavrnusRelayModel::KillDataModel()
+	{
+		if (Instance != nullptr)
+		{
+			delete Instance;
+			Instance = nullptr;
+		}
 	}
 
 	bool CavrnusRelayModel::IsTickableInEditor() const
@@ -118,9 +137,9 @@ namespace Cavrnus
 		interopLayer->SendMessage(msg);
 	}
 
-	void CavrnusRelayModel::RegisterObjectCreationCallback(TFunction<void(FCavrnusSpawnedObject, FString)> cb)
+	void CavrnusRelayModel::RegisterObjectCreationCallback(TFunction<AActor* (FCavrnusSpawnedObject, FString)> cb)
 	{
-		ObjectCreationCallback = new TFunction<void(FCavrnusSpawnedObject, FString)>(cb);
+		ObjectCreationCallback = new TFunction<AActor* (FCavrnusSpawnedObject, FString)>(cb);
 	}
 
 	void CavrnusRelayModel::RegisterObjectDestructionCallback(TFunction<void(FCavrnusSpawnedObject)> cb)
@@ -213,16 +232,25 @@ namespace Cavrnus
 			HandlePropMetadataStatus(msg.propmetadatastatus());
 			break;
 		case ServerData::RelayRemoteMessage::kFetchFileByIdProgressResp:
-			ContentModel.HandleProgressCallback(msg.fetchfilebyidprogressresp().contentid().c_str(), msg.fetchfilebyidprogressresp().progress(), msg.fetchfilebyidprogressresp().progressstep().c_str());
+			ContentModel.HandleProgressCallback(UTF8_TO_TCHAR(msg.fetchfilebyidprogressresp().contentid().c_str()), msg.fetchfilebyidprogressresp().progress(), UTF8_TO_TCHAR(msg.fetchfilebyidprogressresp().progressstep().c_str()));
 			break;
 		case ServerData::RelayRemoteMessage::kFetchFileByIdCompletedResp:
-			ContentModel.HandleCompletionCallback(msg.fetchfilebyidcompletedresp().contentid().c_str(), msg.fetchfilebyidcompletedresp().filepath().c_str());
+			ContentModel.HandleCompletionCallback(UTF8_TO_TCHAR(msg.fetchfilebyidcompletedresp().contentid().c_str()), UTF8_TO_TCHAR(msg.fetchfilebyidcompletedresp().filepath().c_str()), UTF8_TO_TCHAR(msg.fetchfilebyidcompletedresp().finalfilenamewithextension().c_str()));
 			break;
 		case ServerData::RelayRemoteMessage::kFetchAllUploadedContentResp:
 			callbackModel->HandleServerCallback(msg.fetchalluploadedcontentresp().reqid(), msg);
 			break;
 		case ServerData::RelayRemoteMessage::kUploadLocalFileResp:
 			callbackModel->HandleServerCallback(msg.uploadlocalfileresp().reqid(), msg);
+			break;
+		case ServerData::RelayRemoteMessage::kChatAdded:
+			HandleChatAdded(msg.chatadded());
+			break;
+		case ServerData::RelayRemoteMessage::kChatUpdated:
+			HandleChatUpdated(msg.chatupdated());
+			break;
+		case ServerData::RelayRemoteMessage::kChatRemoved:
+			HandleChatRemoved(msg.chatremoved());
 			break;
 		default:
 			UE_LOG(LogCavrnusConnector, Warning, TEXT("Unhandled server message, message type: %d"), static_cast<int>(msg.Msg_case()));
@@ -235,13 +263,13 @@ namespace Cavrnus
 		switch (message.Message_case())
 		{
 		case ServerData::StatusMessage::kLog:
-			UE_LOG(LogCavrnusConnector, Log, TEXT("%hs"), message.log().c_str());
+			UE_LOG(LogCavrnusConnector, Log, TEXT("%s"), UTF8_TO_TCHAR(message.log().c_str()));
 			break;
 		case ServerData::StatusMessage::kWarning:
-			UE_LOG(LogCavrnusConnector, Warning, TEXT("%hs"), message.warning().c_str());
+			UE_LOG(LogCavrnusConnector, Warning, TEXT("%s"), UTF8_TO_TCHAR(message.warning().c_str()));
 			break;
 		case ServerData::StatusMessage::kError:
-			UE_LOG(LogCavrnusConnector, Error, TEXT("%hs"), message.error().c_str());
+			UE_LOG(LogCavrnusConnector, Error, TEXT("%s"), UTF8_TO_TCHAR(message.error().c_str()));
 			break;
 		default:
 			break;
@@ -261,7 +289,9 @@ namespace Cavrnus
 		if (!spacePropertyModelLookup.Contains(spaceConn.spaceconnectionid()))
 			spacePropertyModelLookup.Add(spaceConn.spaceconnectionid(), new SpacePropertyModel());
 
-		spacePropertyModelLookup[spaceConn.spaceconnectionid()]->RemoveSpaceUser(userId.c_str());
+		auto spm = spacePropertyModelLookup[spaceConn.spaceconnectionid()];
+		FString fUserId = UTF8_TO_TCHAR(userId.c_str());
+		spm->RemoveSpaceUser(fUserId);
 	}
 
 	void CavrnusRelayModel::HandleSpaceUserVideoFrame(const ServerData::UserVideoFrame& VideoFrame)
@@ -269,31 +299,44 @@ namespace Cavrnus
 		if (spacePropertyModelLookup.Contains(VideoFrame.spaceconn().spaceconnectionid()))
 		{
 			TArray<uint8> StreamArray((uint8*)VideoFrame.stream().c_str(), VideoFrame.stream().size());
-			spacePropertyModelLookup[VideoFrame.spaceconn().spaceconnectionid()]->UpdateUserVideoTexture(VideoFrame.userid().c_str(), VideoFrame.resx(), VideoFrame.resy(), StreamArray);
+			spacePropertyModelLookup[VideoFrame.spaceconn().spaceconnectionid()]->UpdateUserVideoTexture(UTF8_TO_TCHAR(VideoFrame.userid().c_str()), VideoFrame.resx(), VideoFrame.resy(), StreamArray);
 		}
 	}
 
 	void CavrnusRelayModel::HandleSpaceObjectAdded(const ServerData::ObjectAdded& ObjectAdded)
 	{
+		FCavrnusSpaceConnection spaceConn = Cavrnus::CavrnusProtoTranslation::FromPb(ObjectAdded.spaceconn());
+		if (!spacePropertyModelLookup.Contains(spaceConn.SpaceConnectionId))
+			return;
+
+		FString propsContainerName = FString(UTF8_TO_TCHAR(ObjectAdded.propertiescontainer().c_str()));
+
+		if (spacePropertyModelLookup[spaceConn.SpaceConnectionId]->SpawnedObjects.Contains(propsContainerName))
+			return;
+
 		FCavrnusSpawnedObject SpawnedObject;
-		SpawnedObject.SpaceConnection = Cavrnus::CavrnusProtoTranslation::FromPb(ObjectAdded.spaceconn());
-		SpawnedObject.CreationOpId = (FString(UTF8_TO_TCHAR(ObjectAdded.creationopid().c_str())));
-		SpawnedObject.PropertiesContainerName = (FString(UTF8_TO_TCHAR(ObjectAdded.propertiescontainer().c_str())));
+		SpawnedObject.SpaceConnection = spaceConn;
+		SpawnedObject.PropertiesContainerName = propsContainerName;
 
-		(*ObjectCreationCallback)(SpawnedObject, ObjectAdded.objectcreated().c_str());
+		AActor* spawnedInstance = (*ObjectCreationCallback)(SpawnedObject, UTF8_TO_TCHAR(ObjectAdded.objectcreated().c_str()));
 
-		if (ObjectCreationCallbacks.Contains(SpawnedObject.PropertiesContainerName)) {
-			(*ObjectCreationCallbacks[SpawnedObject.PropertiesContainerName])(SpawnedObject);
-			ObjectCreationCallbacks.Remove(SpawnedObject.PropertiesContainerName);
-		}
+		SpawnedObject.SpawnedActorInstance = spawnedInstance;
+
+		spacePropertyModelLookup[spaceConn.SpaceConnectionId]->SpawnedObjects.Add(propsContainerName, SpawnedObject);
 	}
 
 	void CavrnusRelayModel::HandleSpaceObjectRemoved(const ServerData::ObjectRemoved& ObjectRemoved)
 	{
 		FCavrnusSpawnedObject SpawnedObject;
-		SpawnedObject.PropertiesContainerName = (FString(UTF8_TO_TCHAR(ObjectRemoved.propertiescontainer().c_str())));
+		FString propsContainerName = (FString(UTF8_TO_TCHAR(ObjectRemoved.propertiescontainer().c_str())));
+		SpawnedObject.PropertiesContainerName = propsContainerName;
 
 		(*ObjectDestructionCallback)(SpawnedObject);
+
+		if (!spacePropertyModelLookup.Contains(ObjectRemoved.spaceconn().spaceconnectionid()))
+			return;
+
+		spacePropertyModelLookup[ObjectRemoved.spaceconn().spaceconnectionid()]->SpawnedObjects.Remove(propsContainerName);
 	}
 
 	void CavrnusRelayModel::HandlePermissionStatus(const ServerData::PermissionStatus& PermissionStatus)
@@ -305,11 +348,11 @@ namespace Cavrnus
 			if (!spacePermissionsModelLookup.Contains(spaceConnId))
 				spacePermissionsModelLookup[spaceConnId] = new SpacePermissionsModel();
 
-			spacePermissionsModelLookup[spaceConnId]->UpdatePolicyAllowed(PermissionStatus.permission().c_str(), PermissionStatus.value());
+			spacePermissionsModelLookup[spaceConnId]->UpdatePolicyAllowed(UTF8_TO_TCHAR(PermissionStatus.permission().c_str()), PermissionStatus.value());
 		}
 		else
 		{
-			GetGlobalPermissionsModel()->UpdatePolicyAllowed(PermissionStatus.permission().c_str(), PermissionStatus.value());
+			GetGlobalPermissionsModel()->UpdatePolicyAllowed(UTF8_TO_TCHAR(PermissionStatus.permission().c_str()), PermissionStatus.value());
 		}
 	}
 
@@ -320,11 +363,41 @@ namespace Cavrnus
 		if (!spacePropertyModelLookup.Contains(spaceConnId))
 			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
 
-		spacePropertyModelLookup[spaceConnId]->InvalidateLocalPropValue(FPropertyId(localPropHandled.propertypath().id().c_str()), localPropHandled.localpropchangeid());
+		spacePropertyModelLookup[spaceConnId]->InvalidateLocalPropValue(FAbsolutePropertyId(UTF8_TO_TCHAR(localPropHandled.propertypath().id().c_str())), localPropHandled.localpropchangeid());
 	}
 
 	void CavrnusRelayModel::HandlePropMetadataStatus(const ServerData::PropMetadataStatus& metadataStatus)
 	{
+	}
+
+	void CavrnusRelayModel::HandleChatAdded(const ServerData::ChatAdded& chatAdded)
+	{
+		int spaceConnId = chatAdded.spaceconn().spaceconnectionid();
+
+		if (!spacePropertyModelLookup.Contains(spaceConnId))
+			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
+
+		spacePropertyModelLookup[spaceConnId]->ChatModel->AddChat(CavrnusProtoTranslation::ToFChatEntry(UTF8_TO_TCHAR(chatAdded.chatpropertyid().c_str()), chatAdded.chatdata()));
+	}
+
+	void CavrnusRelayModel::HandleChatUpdated(const ServerData::ChatUpdated& chatUpdated)
+	{
+		int spaceConnId = chatUpdated.spaceconn().spaceconnectionid();
+
+		if (!spacePropertyModelLookup.Contains(spaceConnId))
+			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
+
+		spacePropertyModelLookup[spaceConnId]->ChatModel->UpdateChat(CavrnusProtoTranslation::ToFChatEntry(UTF8_TO_TCHAR(chatUpdated.chatpropertyid().c_str()), chatUpdated.chatdata()));
+	}
+
+	void CavrnusRelayModel::HandleChatRemoved(const ServerData::ChatRemoved& chatRemoved)
+	{
+		int spaceConnId = chatRemoved.spaceconn().spaceconnectionid();
+
+		if (!spacePropertyModelLookup.Contains(spaceConnId))
+			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
+
+		spacePropertyModelLookup[spaceConnId]->ChatModel->RemoveChat(UTF8_TO_TCHAR(chatRemoved.chatpropertyid().c_str()));
 	}
 
 	void CavrnusRelayModel::HandleServerPropertyUpdate(const ServerData::PropertyValueStatus& propStatus)
@@ -334,7 +407,7 @@ namespace Cavrnus
 		if (!spacePropertyModelLookup.Contains(spaceConnId))
 			spacePropertyModelLookup.Add(spaceConnId, new SpacePropertyModel());
 
-		const FString& propId = propStatus.propertypath().id().c_str();
+		const FString& propId = UTF8_TO_TCHAR(propStatus.propertypath().id().c_str());
 
 		FPropertyValue val;
 
@@ -350,7 +423,7 @@ namespace Cavrnus
 			val = FPropertyValue::FloatPropValue(propStatus.propertyvalue().scalarval());
 			break;
 		case ServerData::PropertyValue::kStringVal:
-			val = FPropertyValue::StringPropValue(propStatus.propertyvalue().stringval().c_str());
+			val = FPropertyValue::StringPropValue(UTF8_TO_TCHAR(propStatus.propertyvalue().stringval().c_str()));
 			break;
 		case ServerData::PropertyValue::kVectorVal:
 			val = FPropertyValue::VectorPropValue(Cavrnus::CavrnusProtoTranslation::ToFVector4(propStatus.propertyvalue().vectorval()));

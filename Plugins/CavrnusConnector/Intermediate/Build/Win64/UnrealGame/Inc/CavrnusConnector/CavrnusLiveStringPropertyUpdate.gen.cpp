@@ -137,8 +137,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveStringPropertyUpdate() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusLiveStringPropertyUpdate_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+		{ "Comment", "/**\n * @brief UCavrnusLiveStringPropertyUpdate class for handling live string property updates in Cavrnus.\n *\n * This class provides functionality to initialize, update, and finalize string property values within the Cavrnus system.\n * It ensures that the temporary values are sent to the server and can be finalized to persist the changes.\n */" },
 		{ "IncludePath", "LivePropertyUpdates/CavrnusLiveStringPropertyUpdate.h" },
 		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveStringPropertyUpdate.h" },
+		{ "ToolTip", "@brief UCavrnusLiveStringPropertyUpdate class for handling live string property updates in Cavrnus.\n\nThis class provides functionality to initialize, update, and finalize string property values within the Cavrnus system.\nIt ensures that the temporary values are sent to the server and can be finalized to persist the changes." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusLiveStringPropertyUpdate_Statics::StaticCppClassTypeInfo = {
@@ -177,9 +179,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveStringPropertyUpdate() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveStringPropertyUpdate_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLiveStringPropertyUpdate, UCavrnusLiveStringPropertyUpdate::StaticClass, TEXT("UCavrnusLiveStringPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveStringPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveStringPropertyUpdate), 1307568255U) },
+		{ Z_Construct_UClass_UCavrnusLiveStringPropertyUpdate, UCavrnusLiveStringPropertyUpdate::StaticClass, TEXT("UCavrnusLiveStringPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveStringPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveStringPropertyUpdate), 3933889219U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveStringPropertyUpdate_h_3868252719(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveStringPropertyUpdate_h_83973929(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveStringPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveStringPropertyUpdate_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

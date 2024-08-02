@@ -1,3 +1,4 @@
+// Copyright(c) Cavrnus. All rights reserved.
 #pragma once
 
 #include "CoreMinimal.h"
@@ -13,7 +14,7 @@ public:
 
 	// Functions
 
-		// Constructor
+	// Constructor
 	UCavrnusConnectorSettings(const FObjectInitializer& obj);
 
 	// Initialization
@@ -58,4 +59,8 @@ public:
 	//   "-f" or "-F": Logging in the CavrnusRelayNet process saved to a file
 	UPROPERTY(Config, EditAnywhere, Category = "Configuration")
 	bool RelayNetLogOutputToFile;
+
+	//   "-f" or "-F": Logging in the CavrnusRelayNet process saved to a file
+	UPROPERTY(Config, EditAnywhere, Category = "Configuration")
+	bool RelayNetDisableRTC;
 };

@@ -1,10 +1,12 @@
-﻿#include "RelayModel/SpacePropertyModel.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayModel/SpacePropertyModel.h"
 #include <TextureResource.h>
 
 namespace Cavrnus
 {
 	SpacePropertyModel::SpacePropertyModel() 
 	{
+		ChatModel = new SpaceChatModel();
 	}
 
 	SpacePropertyModel::~SpacePropertyModel()
@@ -28,7 +30,7 @@ namespace Cavrnus
 		UserRemovedBindings.Empty();
 	}
 
-	void SpacePropertyModel::UpdateServerPropVal(FPropertyId fullPropertyId, FPropertyValue value)
+	void SpacePropertyModel::UpdateServerPropVal(FAbsolutePropertyId fullPropertyId, FPropertyValue value)
 	{
 		if (!CurrServerPropValues.Contains(fullPropertyId))
 		{
@@ -39,7 +41,7 @@ namespace Cavrnus
 		TryExecPropBindings(fullPropertyId);
 	}
 
-	int SpacePropertyModel::SetLocalPropVal(FPropertyId fullPropertyId, FPropertyValue value)
+	int SpacePropertyModel::SetLocalPropVal(FAbsolutePropertyId fullPropertyId, FPropertyValue value)
 	{
 		//We treat this like a has, but use a dict cuz stupid string comparison stuff
 		if (CurrPropReadonlyMetadata.Contains(fullPropertyId)) 
@@ -61,7 +63,7 @@ namespace Cavrnus
 		return validationIdIncrementer;
 	}
 
-	FPropertyValue SpacePropertyModel::GetCurrentPropValue(FPropertyId fullPropertyId)
+	FPropertyValue SpacePropertyModel::GetCurrentPropValue(FAbsolutePropertyId fullPropertyId)
 	{
 		//Returns an invalid value
 		if (!PropValueExists(fullPropertyId))
@@ -79,7 +81,7 @@ namespace Cavrnus
 		return CurrLocalPropValues[fullPropertyId];
 	}
 
-	void SpacePropertyModel::InvalidateLocalPropValue(FPropertyId fullPropertyId, int propValidationId)
+	void SpacePropertyModel::InvalidateLocalPropValue(FAbsolutePropertyId fullPropertyId, int propValidationId)
 	{
 		if (LocalPropValidationIds.Contains(fullPropertyId) && LocalPropValidationIds[fullPropertyId] == propValidationId)
 		{
@@ -97,7 +99,7 @@ namespace Cavrnus
 		}
 	}
 
-	void SpacePropertyModel::UpdatePropMetadata(FPropertyId fullPropertyId, bool isReadonly)
+	void SpacePropertyModel::UpdatePropMetadata(FAbsolutePropertyId fullPropertyId, bool isReadonly)
 	{
 		if (!isReadonly && CurrPropReadonlyMetadata.Contains(fullPropertyId)) 
 		{
@@ -124,7 +126,7 @@ namespace Cavrnus
 		}
 	}
 
-	void SpacePropertyModel::TryExecPropBindings(FPropertyId fullPropertyId)
+	void SpacePropertyModel::TryExecPropBindings(FAbsolutePropertyId fullPropertyId)
 	{
 		const FPropertyValue& activePropVal = GetCurrentPropValue(fullPropertyId);
 
@@ -140,12 +142,12 @@ namespace Cavrnus
 		}
 	}
 
-	bool SpacePropertyModel::PropValueExists(FPropertyId fullPropertyId)
+	bool SpacePropertyModel::PropValueExists(FAbsolutePropertyId fullPropertyId)
 	{
 		return CurrLocalPropValues.Contains(fullPropertyId) || CurrServerPropValues.Contains(fullPropertyId);
 	}
 
-	UCavrnusBinding* SpacePropertyModel::BindProperty(FPropertyId fullPropertyId, CavrnusPropertyFunction callback)
+	UCavrnusBinding* SpacePropertyModel::BindProperty(FAbsolutePropertyId fullPropertyId, CavrnusPropertyFunction callback)
 	{
 		CavrnusPropertyFunction* cb = new CavrnusPropertyFunction(callback);
 		PropBindings.FindOrAdd(fullPropertyId);
@@ -171,8 +173,8 @@ namespace Cavrnus
 	{
 		FString UserConnectionId = User.UserConnectionId;
 
-		if (CurrSpaceUsers.Contains(UserConnectionId))
-			Callback(CurrSpaceUsers[UserConnectionId].VideoFrameTexture);
+		if (CurrSpaceUsersVideoTextures.Contains(UserConnectionId))
+			Callback(CurrSpaceUsersVideoTextures[UserConnectionId]);
 
 		VideoFrameUpdateFunction* cb = new VideoFrameUpdateFunction(Callback);
 		UserVideoFrameBindings.FindOrAdd(UserConnectionId);
@@ -193,20 +195,20 @@ namespace Cavrnus
 		return binding;
 	}
 	
-	Cavrnus::FPropertyValue SpacePropertyModel::GetPropValue(FPropertyId fullPropertyId)
+	Cavrnus::FPropertyValue SpacePropertyModel::GetPropValue(FAbsolutePropertyId fullPropertyId)
 	{
 		if (PropValueExists(fullPropertyId))
 			return GetCurrentPropValue(fullPropertyId);
 		return Cavrnus::FPropertyValue();
 	}
 
-	void SpacePropertyModel::SetIsDefined(FPropertyId fullPropertyId)
+	void SpacePropertyModel::SetIsDefined(FAbsolutePropertyId fullPropertyId)
 	{
 		CurrDefinedProps.Add(fullPropertyId);
 	}
 
 
-	void SpacePropertyModel::AddSpaceUser(FCavrnusUser user)
+	void SpacePropertyModel::AddSpaceUser(const FCavrnusUser& user)
 	{
 		if (user.IsLocalUser)
 		{
@@ -222,6 +224,7 @@ namespace Cavrnus
 		}
 
 		CurrSpaceUsers.Add(user.UserConnectionId, user);
+		CurrSpaceUsersVideoTextures.Add(user.UserConnectionId, nullptr);
 		for (int i = 0; i < UserAddedBindings.Num(); i++)
 			(*UserAddedBindings[i])(user);
 	}
@@ -239,26 +242,33 @@ namespace Cavrnus
 	}
 
 	void SpacePropertyModel::UpdateUserVideoTexture(FString userId, int ResX, int ResY, const TArray<uint8>& ByteArray)
-	{
-		if (FCavrnusUser* User = CurrSpaceUsers.Find(userId))
+	{		
+		if (!CurrSpaceUsersVideoTextures.Contains(userId))
+			return;
+
+		UTexture2D* Tex = CurrSpaceUsersVideoTextures[userId];
+
+		bool TextureCreated = false;
+		if (Tex == nullptr || Tex->GetSizeX() != ResX || Tex->GetSizeY() != ResY)
 		{
-			if (!User->VideoFrameTexture || User->VideoFrameTexture->GetSizeX() != ResX || User->VideoFrameTexture->GetSizeY() != ResY)
-			{
-				FName UniqueName = MakeUniqueObjectName(nullptr, UTexture2D::StaticClass(), "RTCStream");
-				User->VideoFrameTexture = UTexture2D::CreateTransient(ResX, ResY, PF_B8G8R8A8, UniqueName);
-			}
+			FName UniqueName = MakeUniqueObjectName(nullptr, UTexture2D::StaticClass(), "RTCStream");
+			Tex = UTexture2D::CreateTransient(ResX, ResY, PF_B8G8R8A8, UniqueName);
 
-			void* TextureData = User->VideoFrameTexture->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
-			FMemory::Memcpy(TextureData, ByteArray.GetData(), ByteArray.Num());
-			User->VideoFrameTexture->GetPlatformData()->Mips[0].BulkData.Unlock();
-			User->VideoFrameTexture->UpdateResource();
+			CurrSpaceUsersVideoTextures[userId] = Tex;
 
-			if (UserVideoFrameBindings.Contains(userId))
+			TextureCreated = true;
+		}
+
+		void* TextureData = Tex->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
+		FMemory::Memcpy(TextureData, ByteArray.GetData(), ByteArray.Num());
+		Tex->GetPlatformData()->Mips[0].BulkData.Unlock();
+		Tex->UpdateResource();
+
+		if (TextureCreated && UserVideoFrameBindings.Contains(userId))
+		{
+			for (auto& Binding : UserVideoFrameBindings[userId])
 			{
-				for (auto& Binding : UserVideoFrameBindings[userId])
-				{
-					(*Binding)(User->VideoFrameTexture);
-				}
+				(*Binding)(Tex);
 			}
 		}
 	}

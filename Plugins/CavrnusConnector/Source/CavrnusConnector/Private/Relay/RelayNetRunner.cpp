@@ -1,4 +1,5 @@
-﻿#include "RelayNetRunner.h"
+﻿// Copyright(c) Cavrnus. All rights reserved.
+#include "RelayNetRunner.h"
 
 namespace Cavrnus
 {
