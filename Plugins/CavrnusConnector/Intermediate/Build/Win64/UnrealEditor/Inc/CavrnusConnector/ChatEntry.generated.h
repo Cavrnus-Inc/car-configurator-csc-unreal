@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CAVRNUSCONNECTOR_ChatEntry_generated_h
 
-#define FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_10_GENERATED_BODY \
+#define FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_9_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FChatEntry_Statics; \
 	static class UScriptStruct* StaticStruct();
 

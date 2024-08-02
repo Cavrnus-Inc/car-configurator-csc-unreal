@@ -32,3 +32,18 @@ double UCavrnusLivePropertyUpdate::GetLastUpdatedTimeSeconds()
 	
 	return 0.0f;
 }
+
+void UCavrnusLivePropertyUpdate::TrySendUpdateData(const Cavrnus::FPropertyValue& propVal)
+{
+	if (livePropertyUpdate && !(lastSentPropValue == propVal))
+	{
+		livePropertyUpdate->UpdateWithNewData(propVal);
+		lastSentPropValue = propVal;
+	}
+}
+
+void UCavrnusLivePropertyUpdate::FinalizeCurrentValue()
+{
+	if (livePropertyUpdate)
+		livePropertyUpdate->Finalize();
+}

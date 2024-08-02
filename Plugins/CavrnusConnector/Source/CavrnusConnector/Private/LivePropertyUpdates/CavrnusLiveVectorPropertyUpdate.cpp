@@ -18,18 +18,11 @@ void UCavrnusLiveVectorPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* re
 
 void UCavrnusLiveVectorPropertyUpdate::UpdateWithNewData(FVector value)
 {
-	if (livePropertyUpdate)
-		livePropertyUpdate->UpdateWithNewData(Cavrnus::FPropertyValue::VectorPropValue(value));
+	TrySendUpdateData(Cavrnus::FPropertyValue::VectorPropValue(value));
 }
 
 void UCavrnusLiveVectorPropertyUpdate::Finalize(FVector value)
 {
 	if (livePropertyUpdate)
 		livePropertyUpdate->Finalize(Cavrnus::FPropertyValue::VectorPropValue(value));
-}
-
-void UCavrnusLiveVectorPropertyUpdate::FinalizeCurrentValue()
-{
-	if (livePropertyUpdate)
-		livePropertyUpdate->Finalize();
 }

@@ -18,18 +18,11 @@ void UCavrnusLiveBoolPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* rela
 
 void UCavrnusLiveBoolPropertyUpdate::UpdateWithNewData(bool value)
 {
-	if (livePropertyUpdate)
-		livePropertyUpdate->UpdateWithNewData(Cavrnus::FPropertyValue::BoolPropValue(value));
+	TrySendUpdateData(Cavrnus::FPropertyValue::BoolPropValue(value));
 }
 
 void UCavrnusLiveBoolPropertyUpdate::Finalize(bool value)
 {
 	if (livePropertyUpdate)
 		livePropertyUpdate->Finalize(Cavrnus::FPropertyValue::BoolPropValue(value));
-}
-
-void UCavrnusLiveBoolPropertyUpdate::FinalizeCurrentValue()
-{
-	if (livePropertyUpdate)
-		livePropertyUpdate->Finalize();
 }

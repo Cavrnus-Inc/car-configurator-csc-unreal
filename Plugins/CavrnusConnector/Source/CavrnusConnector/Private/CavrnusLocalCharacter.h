@@ -5,7 +5,7 @@
 #include "CavrnusLocalCharacter.generated.h"
 
 // Class definition
-UCLASS()
+UCLASS(Abstract)
 class CAVRNUSCONNECTOR_API ACavrnusLocalCharacter : public ACharacter
 {
 	GENERATED_BODY()

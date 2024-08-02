@@ -17,12 +17,16 @@ struct FCavrnusUser;
 #define FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_26_SPARSE_DATA
 #define FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_26_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execUnbindUserVideo); \
+	DECLARE_FUNCTION(execBindUserVideo); \
 	DECLARE_FUNCTION(execTriggerMaximizeUserSelected); \
 	DECLARE_FUNCTION(execInitializeUserConnection);
 
 
 #define FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execUnbindUserVideo); \
+	DECLARE_FUNCTION(execBindUserVideo); \
 	DECLARE_FUNCTION(execTriggerMaximizeUserSelected); \
 	DECLARE_FUNCTION(execInitializeUserConnection);
 

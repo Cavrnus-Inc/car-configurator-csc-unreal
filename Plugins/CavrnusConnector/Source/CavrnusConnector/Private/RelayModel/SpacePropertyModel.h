@@ -6,6 +6,7 @@
 #include "Types/CavrnusCallbackTypes.h"
 #include "Types/AbsolutePropertyId.h"
 #include "Types/CavrnusPropertyValue.h"
+#include "Types/PropertiesContainer.h"
 #include "Types/CavrnusSpaceConnection.h"
 #include "SpaceChatModel.h"
 
@@ -63,6 +64,7 @@ namespace Cavrnus
 
 		CaseSensitiveMap<FString, FCavrnusUser> CurrSpaceUsers;
 		CaseSensitiveMap<FString, UTexture2D*> CurrSpaceUsersVideoTextures;
+		TMap<FPropertiesContainer, FCavrnusSpawnedObject> SpawnedObjects;
 
 		FCavrnusUser LocalUser;
 		bool hasLocalUser = false;

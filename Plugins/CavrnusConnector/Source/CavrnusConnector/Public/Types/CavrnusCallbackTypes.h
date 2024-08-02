@@ -191,14 +191,6 @@ typedef TFunction<void(UTexture2D*)> VideoFrameUpdateFunction;
 typedef TFunction<void(const FString&, bool)> CavrnusPolicyUpdated;
 
 /**
- * @brief Callback type for handling spawned object events.
- *
- * @param FCavrnusSpawnedObject The spawned object data.
- * @param AActor
- */
-typedef TFunction<void(const FCavrnusSpawnedObject&, AActor*)> CavrnusSpawnedObjectFunction;
-
-/**
  * @brief Callback type for handling content progress updates.
  *
  * @param float The progress percentage.
@@ -227,8 +219,8 @@ typedef TFunction<void(const TArray<FCavrnusRemoteContent>&)> CavrnusRemoteConte
  */
 typedef TFunction<void(const FCavrnusRemoteContent&)> CavrnusUploadCompleteFunction;
 
-typedef TFunction<void(const FChatEntry&)> CavrnusChatFunction;
-typedef TFunction<void(const FString&)> CavrnusChatRemovedFunction;
+typedef TFunction<void(FChatEntry)> CavrnusChatFunction;
+typedef TFunction<void(FString)> CavrnusChatRemovedFunction;
 
 /**
  * @brief Abstract class providing blueprint function library for Cavrnus callback types.

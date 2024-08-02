@@ -2,6 +2,7 @@
 #include "LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h"
 #include "RelayModel/CavrnusVirtualPropertyUpdate.h"
 #include "Translation/CavrnusProtoTranslation.h"
+#include "Types\CavrnusPropertyValue.h"
 
 UCavrnusLiveTransformPropertyUpdate::UCavrnusLiveTransformPropertyUpdate()
 {
@@ -18,18 +19,11 @@ void UCavrnusLiveTransformPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel*
 
 void UCavrnusLiveTransformPropertyUpdate::UpdateWithNewData(FTransform value)
 {
-	if (livePropertyUpdate)
-		livePropertyUpdate->UpdateWithNewData(Cavrnus::FPropertyValue::TransformPropValue(value));
+	TrySendUpdateData(Cavrnus::FPropertyValue::TransformPropValue(value));
 }
 
 void UCavrnusLiveTransformPropertyUpdate::Finalize(FTransform value)
 {
 	if (livePropertyUpdate)
 		livePropertyUpdate->Finalize(Cavrnus::FPropertyValue::TransformPropValue(value));
-}
-
-void UCavrnusLiveTransformPropertyUpdate::FinalizeCurrentValue()
-{
-	if (livePropertyUpdate)
-		livePropertyUpdate->Finalize();
 }

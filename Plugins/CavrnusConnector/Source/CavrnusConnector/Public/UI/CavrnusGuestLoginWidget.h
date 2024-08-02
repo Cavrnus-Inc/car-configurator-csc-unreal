@@ -34,6 +34,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus|Login", meta = (BindWidget))
 	void Setup();
 
+	virtual void NativeDestruct() override;
+
 	/**
 	 * @brief Handles the login button click event.
 	 *

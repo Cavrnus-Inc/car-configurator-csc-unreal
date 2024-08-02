@@ -31,7 +31,7 @@ void UCavrnusAvatarManager::RegisterUser(const FCavrnusUser& User, TSubclassOf<A
 
 	auto actor = spawnHelpers->SpawnUserAndSetup(World, ActorClass, User);
 
-	SpawnedAvatars.Add(User.PropertiesContainerName, actor);
+	SpawnedAvatars.Add(FPropertiesContainer(User.PropertiesContainerName), actor);
 
 	UCavrnusFunctionLibrary::DefineBoolPropertyDefaultValue(User.SpaceConn, User.PropertiesContainerName, "AvatarVis", false);
 	auto OnAvatarVisUpdated = [this, actor](bool bIsVisble, FString, FString)
@@ -41,16 +41,19 @@ void UCavrnusAvatarManager::RegisterUser(const FCavrnusUser& User, TSubclassOf<A
 	AvatarVis = UCavrnusFunctionLibrary::BindBooleanPropertyValue(User.SpaceConn, User.PropertiesContainerName, "AvatarVis", OnAvatarVisUpdated);
 }
 
-void UCavrnusAvatarManager::UnregisterUser(const FCavrnusUser& SpawnedObject, UWorld* World)
+void UCavrnusAvatarManager::UnregisterUser(const FCavrnusUser& User, UWorld* World)
 {
-	if (!SpawnedAvatars.Contains(SpawnedObject.PropertiesContainerName))
+	if (User.IsLocalUser)
+		return;
+
+	if (!SpawnedAvatars.Contains(FPropertiesContainer(User.PropertiesContainerName)))
 	{
-		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to destroy actor, could not find spawned object with Container Name %s"), *SpawnedObject.PropertiesContainerName);
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to destroy actor, could not find spawned object with Container Name %s"), *User.PropertiesContainerName);
 		return;
 	}
 
 	if (AvatarVis)
 		AvatarVis->Unbind();
 
-	SpawnedAvatars[SpawnedObject.PropertiesContainerName]->Destroy();
+	SpawnedAvatars[FPropertiesContainer(User.PropertiesContainerName)]->Destroy();
 }

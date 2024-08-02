@@ -10,6 +10,7 @@
 
 #include "CoreMinimal.h"
 #include "Types/CavrnusSpaceConnection.h"
+#include "Types/CavrnusPropertyValue.h"
 
 #include "CavrnusLivePropertyUpdate.generated.h"		// Always last
 
@@ -56,8 +57,16 @@ public:
 	 */
 	double GetLastUpdatedTimeSeconds();
 
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Properties",
+		meta = (ToolTip = "Posts and finalizes the most recent data to the server.  This object will no longer be valid to use afterwards.", ShortToolTip = "Posts and finalizes the most recent data to the server"))
+	void FinalizeCurrentValue();
+
 protected:
 
 	/** Pointer to the live property update instance */
 	Cavrnus::CavrnusVirtualPropertyUpdate* livePropertyUpdate = nullptr;
+
+	Cavrnus::FPropertyValue lastSentPropValue;
+
+	void TrySendUpdateData(const Cavrnus::FPropertyValue& propVal);
 };

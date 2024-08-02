@@ -51,15 +51,14 @@ class CAVRNUSCONNECTOR_API ACavrnusSpatialConnector : public AActor
 {
 	GENERATED_BODY()
 
-/** Functions **/
-public:		
+public:
 	// Sets default values for this actor's properties
 	ACavrnusSpatialConnector();
 
 	void CavrnusBeginPlay();
 	void CavrnusEndPlay();
 
-protected:	
+protected:
 	/** Registers the Cavrnus subsystem proxy */
 	virtual void PostInitializeComponents() override;
 
@@ -69,9 +68,7 @@ protected:
 	/** Overridable function called whenever this actor is being removed from a level */
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
-
-/** Properties **/
-public:		
+public:
 
 	/** Server address */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")

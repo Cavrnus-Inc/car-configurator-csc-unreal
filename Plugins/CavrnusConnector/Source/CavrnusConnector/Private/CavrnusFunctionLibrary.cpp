@@ -758,19 +758,7 @@ UCavrnusBinding* UCavrnusFunctionLibrary::BindSpacePolicy(FCavrnusSpaceConnectio
 
 #pragma region Spawned Objects
 
-UPARAM(DisplayName = "Container Name")FString UCavrnusFunctionLibrary::SpawnObject(FCavrnusSpaceConnection SpaceConnection, const FString& UniqueIdentifier, const FCavrnusSpawnedObjectArrived& spawnedObjectArrived)
-{
-	CheckErrors(SpaceConnection);
-
-	CavrnusSpawnedObjectFunction propUpdateCallback = [spawnedObjectArrived](const FCavrnusSpawnedObject& SpawnedOb, AActor* ActorInstance)
-	{
-		spawnedObjectArrived.ExecuteIfBound(SpawnedOb, ActorInstance);
-	};
-
-	return SpawnObject(SpaceConnection, UniqueIdentifier, propUpdateCallback).ContainerName;
-}
-
-FPropertiesContainer UCavrnusFunctionLibrary::SpawnObject(FCavrnusSpaceConnection SpaceConnection, const FString& UniqueIdentifier, CavrnusSpawnedObjectFunction spawnedObjectArrived)
+const FCavrnusSpawnedObject& UCavrnusFunctionLibrary::SpawnObject(FCavrnusSpaceConnection SpaceConnection, const FString& UniqueIdentifier)
 {
 	CheckErrors(SpaceConnection);
 
@@ -778,16 +766,17 @@ FPropertiesContainer UCavrnusFunctionLibrary::SpawnObject(FCavrnusSpaceConnectio
 
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildCreateOp(SpaceConnection, UniqueIdentifier, InstanceId));
 
-	CavrnusSpawnedObjectFunction* CallbackPtr = new CavrnusSpawnedObjectFunction(spawnedObjectArrived);
-	Cavrnus::CavrnusRelayModel::GetDataModel()->ObjectCreationCallbacks.Add(FAbsolutePropertyId(InstanceId), CallbackPtr);
+	//CavrnusSpawnedObjectFunction* CallbackPtr = new CavrnusSpawnedObjectFunction(spawnedObjectArrived);
+	//Cavrnus::CavrnusRelayModel::GetDataModel()->ObjectCreationCallbacks.Add(FAbsolutePropertyId(InstanceId), CallbackPtr);
 
-	return FPropertiesContainer(InstanceId);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->HandleSpaceObjectAdded(Cavrnus::CavrnusProtoTranslation::BuildObjectAdded(SpaceConnection, UniqueIdentifier, InstanceId));
+	return Cavrnus::CavrnusRelayModel::GetDataModel()->GetSpacePropertyModel(SpaceConnection)->SpawnedObjects[InstanceId];
 }
 
-void UCavrnusFunctionLibrary::DestroyObject(FCavrnusSpawnedObject SpawnedObject)
+void UCavrnusFunctionLibrary::DestroyObject(const FCavrnusSpawnedObject& SpawnedObject)
 {
 	CheckErrors(SpawnedObject.SpaceConnection);
-	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildDestroyOp(SpawnedObject.SpaceConnection, SpawnedObject.CreationOpId));
+	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildDestroyOp(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName));
 
 }
 

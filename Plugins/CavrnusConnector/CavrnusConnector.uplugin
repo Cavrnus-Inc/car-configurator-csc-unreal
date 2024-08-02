@@ -10,7 +10,6 @@
 	"DocsURL": "https://cavrnus.atlassian.net/wiki/spaces/CSM/overview",
 	"MarketplaceURL": "",
 	"SupportURL": "https://cavrnus.atlassian.net/servicedesk/customer/portal/1/group/-1",
-	"EngineVersion": "5.x.0",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,

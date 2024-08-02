@@ -101,9 +101,6 @@ namespace Cavrnus
 
 		CavrnusContentModel ContentModel;
 
-		/** Map for storing object creation callbacks */
-		TMap<FAbsolutePropertyId, const CavrnusSpawnedObjectFunction*> ObjectCreationCallbacks;
-
 		/**
 		 * @brief Registers a callback for object creation.
 		 *
@@ -118,6 +115,8 @@ namespace Cavrnus
 		 */
 		void RegisterObjectDestructionCallback(TFunction<void (FCavrnusSpawnedObject)> cb);
 
+		void HandleSpaceObjectAdded(const ServerData::ObjectAdded& ObjectAdded);
+
 	private:
 		static CavrnusRelayModel* Instance;
 
@@ -128,7 +127,7 @@ namespace Cavrnus
 		SpacePermissionsModel* globalPermissionsModel;
 		TMap<int, SpacePermissionsModel*> spacePermissionsModelLookup;
 		TMap<int, SpacePropertyModel*> spacePropertyModelLookup;
-		
+
 		/** Handles server messages */
 		void HandleServerMsg(const ServerData::RelayRemoteMessage& msg);
 
@@ -141,7 +140,6 @@ namespace Cavrnus
 		void HandleSpaceUserRemoved(ServerData::CavrnusSpaceConnection spaceConn, std::string userId);
 		void HandleSpaceUserVideoFrame(const ServerData::UserVideoFrame& VideoFrame);
 		void HandleServerPropertyUpdate(const ServerData::PropertyValueStatus& propStatus);
-		void HandleSpaceObjectAdded(const ServerData::ObjectAdded& ObjectAdded);
 		void HandleSpaceObjectRemoved(const ServerData::ObjectRemoved& ObjectRemoved);
 		void HandlePermissionStatus(const ServerData::PermissionStatus& PermissionStatus);
 		void HandleLocalPropHandledResp(const ServerData::LocalPropertyHandledResp& localPropHandled);

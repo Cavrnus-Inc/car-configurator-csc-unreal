@@ -15,13 +15,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
 // End Cross Module References
-	DEFINE_FUNCTION(UCavrnusLiveTransformPropertyUpdate::execFinalizeCurrentValue)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->FinalizeCurrentValue();
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(UCavrnusLiveTransformPropertyUpdate::execFinalize)
 	{
 		P_GET_STRUCT(FTransform,Z_Param_PropertyValue);
@@ -43,7 +36,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 		UClass* Class = UCavrnusLiveTransformPropertyUpdate::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Finalize", &UCavrnusLiveTransformPropertyUpdate::execFinalize },
-			{ "FinalizeCurrentValue", &UCavrnusLiveTransformPropertyUpdate::execFinalizeCurrentValue },
 			{ "UpdateWithNewData", &UCavrnusLiveTransformPropertyUpdate::execUpdateWithNewData },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -81,32 +73,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_Finalize_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_FinalizeCurrentValue_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_FinalizeCurrentValue_Statics::Function_MetaDataParams[] = {
-		{ "CallInEditor", "true" },
-		{ "Category", "Cavrnus|Properties" },
-		{ "ModuleRelativePath", "Public/LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h" },
-		{ "ShortToolTip", "Posts and finalizes the most recent data to the server" },
-		{ "ToolTip", "Posts and finalizes the most recent data to the server.  This object will no longer be valid to use afterwards." },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_FinalizeCurrentValue_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusLiveTransformPropertyUpdate, nullptr, "FinalizeCurrentValue", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020601, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_FinalizeCurrentValue_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_FinalizeCurrentValue_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_FinalizeCurrentValue()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_FinalizeCurrentValue_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -167,7 +133,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusLiveTransformPropertyUpdate_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_Finalize, "Finalize" }, // 3087789644
-		{ &Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_FinalizeCurrentValue, "FinalizeCurrentValue" }, // 3563433088
 		{ &Z_Construct_UFunction_UCavrnusLiveTransformPropertyUpdate_UpdateWithNewData, "UpdateWithNewData" }, // 2476636746
 	};
 #if WITH_METADATA
@@ -215,9 +180,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusLiveTransformPropertyUpdate() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusLiveTransformPropertyUpdate, UCavrnusLiveTransformPropertyUpdate::StaticClass, TEXT("UCavrnusLiveTransformPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveTransformPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveTransformPropertyUpdate), 3853400499U) },
+		{ Z_Construct_UClass_UCavrnusLiveTransformPropertyUpdate, UCavrnusLiveTransformPropertyUpdate::StaticClass, TEXT("UCavrnusLiveTransformPropertyUpdate"), &Z_Registration_Info_UClass_UCavrnusLiveTransformPropertyUpdate, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusLiveTransformPropertyUpdate), 1264806403U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_1388149403(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_2490008587(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_LivePropertyUpdates_CavrnusLiveTransformPropertyUpdate_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

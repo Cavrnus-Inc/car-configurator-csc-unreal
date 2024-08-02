@@ -3,7 +3,7 @@
 #include "Blueprint/WidgetTree.h"
 #include "Components/Button.h"
 
-void UPagination::Setup(TSubclassOf<UUserWidget>* InItemWidget)
+void UPagination::Setup(const TSubclassOf<UUserWidget> InItemWidget)
 {
 	ItemWidget = InItemWidget;
 
@@ -23,7 +23,18 @@ void UPagination::Setup(TSubclassOf<UUserWidget>* InItemWidget)
 	}
 }
 
-void UPagination::NewPagination(TSubclassOf<UUserWidget>* InItemWidget, const TArray<IListElementInterface*>& InDisplayContent)
+void UPagination::NativeDestruct()
+{
+	Super::NativeDestruct();
+
+	if (ButtonNext)
+		ButtonNext->OnClicked.RemoveDynamic(this, &UPagination::Next);
+
+	if (ButtonPrevious)
+		ButtonPrevious->OnClicked.RemoveDynamic(this, &UPagination::Previous);
+}
+
+void UPagination::NewPagination(TSubclassOf<UUserWidget> InItemWidget, const TArray<IListElementInterface*>& InDisplayContent)
 {
 	ItemWidget = InItemWidget;
 	Content = InDisplayContent;
@@ -60,7 +71,7 @@ void UPagination::ResetPagination()
 			Item.Key->RemoveFromParent();
 		}
 
-		CurrentItems.Empty(); // Also, same here...Clear()?
+		CurrentItems.Empty();
 	}
 }
 
@@ -84,8 +95,7 @@ void UPagination::LoadPage(const int Page)
 	int start = (Page - 1) * ItemsPerPage;
 	int end = std::min(start + ItemsPerPage, Content.Num());
 
-	UVerticalBox* VerticalBox = Cast<UVerticalBox>(ItemContainer);
-	if (VerticalBox)
+	if (UVerticalBox* VerticalBox = Cast<UVerticalBox>(ItemContainer))
 	{
 		for (int i = start; i < end; i++)
 		{

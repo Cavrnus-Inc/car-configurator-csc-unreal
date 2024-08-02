@@ -34,19 +34,9 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpawnedObject
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Objects")
 	FString PropertiesContainerName = "";
 
-	/** The unique ID of the operation that created this object instance. */
-	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Objects")
-	FString CreationOpId = "";
-
 	/** The Actor instance corresponding to this creation. */
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Objects")
 	AActor* SpawnedActorInstance = nullptr;
-
-	/** Default constructor for FCavrnusSpawnedObject. */
-	FCavrnusSpawnedObject(const FString& PropertiesContainerName, const FString& CreationOpId, AActor* Actor)
-		: PropertiesContainerName(PropertiesContainerName), CreationOpId(CreationOpId)
-	{
-	}
 
 	/**
 	 * @brief Constructor to initialize the FCavrnusSpawnedObject with given values.

@@ -273,10 +273,22 @@ namespace Cavrnus
 		return msg;
 	}
 
-	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildDestroyOp(const FCavrnusSpaceConnection& spaceConn, const FString& opId)
+	const ServerData::ObjectAdded CavrnusProtoTranslation::BuildObjectAdded(const FCavrnusSpaceConnection& spaceConn, const FString& uniqueObjectId, const FString& instanceId)
+	{
+		ServerData::ObjectAdded added;
+		added.set_objectcreated(TCHAR_TO_UTF8(*uniqueObjectId));
+		added.set_propertiescontainer(TCHAR_TO_UTF8(*instanceId));
+		added.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
+		//We don't currently use this anywhere
+		//added.mutable_createdtime()->CopyFrom();
+
+		return added;
+	}
+
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildDestroyOp(const FCavrnusSpaceConnection& spaceConn, const FString& containerName)
 	{
 		ServerData::PostRemoveObject req;
-		req.set_opid(TCHAR_TO_UTF8(*opId));
+		req.set_containerid(TCHAR_TO_UTF8(*containerName));
 		req.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
 
 		ServerData::RelayClientMessage msg;
@@ -429,6 +441,7 @@ namespace Cavrnus
 
 		return FCavrnusSpaceInfo(UTF8_TO_TCHAR(space.spaceid().c_str()), UTF8_TO_TCHAR(space.spacename().c_str()), UTF8_TO_TCHAR(space.spacethumbnailurl().c_str()), lastAccess);
 	}
+
 	FCavrnusUser CavrnusProtoTranslation::ToCavrnusUser(ServerData::CavrnusUser user, const FCavrnusSpaceConnection& spaceConn)
 	{
 		FString UserConnectionId = UTF8_TO_TCHAR(user.userconnectionid().c_str());

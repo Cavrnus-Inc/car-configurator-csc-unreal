@@ -18,18 +18,11 @@ void UCavrnusLiveFloatPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* rel
 
 void UCavrnusLiveFloatPropertyUpdate::UpdateWithNewData(float value)
 {
-	if (livePropertyUpdate)
-		livePropertyUpdate->UpdateWithNewData(Cavrnus::FPropertyValue::FloatPropValue(value));
+	TrySendUpdateData(Cavrnus::FPropertyValue::FloatPropValue(value));
 }
 
 void UCavrnusLiveFloatPropertyUpdate::Finalize(float value)
 {
 	if (livePropertyUpdate)
 		livePropertyUpdate->Finalize(Cavrnus::FPropertyValue::FloatPropValue(value));
-}
-
-void UCavrnusLiveFloatPropertyUpdate::FinalizeCurrentValue()
-{
-	if (livePropertyUpdate)
-		livePropertyUpdate->Finalize();
 }

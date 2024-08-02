@@ -2,7 +2,7 @@
 /**
  * @file CavrnusSpaceConnection.h
  * @brief Declaration of the FCavrnusSpaceConnection struct, which is one of the most important objects in Cavrnus.  
- * It represents a user’s connection to a Space.  As such it is used to access Properties, hook Users, etc.
+ * It represents a userâ€™s connection to a Space.  As such it is used to access Properties, hook Users, etc.
  * 
  */
 

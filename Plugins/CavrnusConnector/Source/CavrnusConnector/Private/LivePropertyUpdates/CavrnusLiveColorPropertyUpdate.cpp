@@ -18,18 +18,11 @@ void UCavrnusLiveColorPropertyUpdate::Initialize(Cavrnus::CavrnusRelayModel* rel
 
 void UCavrnusLiveColorPropertyUpdate::UpdateWithNewData(FLinearColor value)
 {
-	if (livePropertyUpdate)
-		livePropertyUpdate->UpdateWithNewData(Cavrnus::FPropertyValue::ColorPropValue(value));
+	TrySendUpdateData(Cavrnus::FPropertyValue::ColorPropValue(value));
 }
 
 void UCavrnusLiveColorPropertyUpdate::Finalize(FLinearColor value)
 {
 	if (livePropertyUpdate)
 		livePropertyUpdate->Finalize(Cavrnus::FPropertyValue::ColorPropValue(value));
-}
-
-void UCavrnusLiveColorPropertyUpdate::FinalizeCurrentValue()
-{
-	if (livePropertyUpdate)
-		livePropertyUpdate->Finalize();
 }

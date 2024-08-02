@@ -17,6 +17,20 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusBinding_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UCavrnusUserWidget::execUnbindUserVideo)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UnbindUserVideo();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UCavrnusUserWidget::execBindUserVideo)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->BindUserVideo();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCavrnusUserWidget::execTriggerMaximizeUserSelected)
 	{
 		P_FINISH;
@@ -41,10 +55,36 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 	{
 		UClass* Class = UCavrnusUserWidget::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "BindUserVideo", &UCavrnusUserWidget::execBindUserVideo },
 			{ "InitializeUserConnection", &UCavrnusUserWidget::execInitializeUserConnection },
 			{ "TriggerMaximizeUserSelected", &UCavrnusUserWidget::execTriggerMaximizeUserSelected },
+			{ "UnbindUserVideo", &UCavrnusUserWidget::execUnbindUserVideo },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UCavrnusUserWidget_BindUserVideo_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusUserWidget_BindUserVideo_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Binds the user video to the widget.\n\x09 */" },
+		{ "ModuleRelativePath", "Public/UI/UserMenu/CavrnusUserWidget.h" },
+		{ "ToolTip", "@brief Binds the user video to the widget." },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusUserWidget_BindUserVideo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusUserWidget, nullptr, "BindUserVideo", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusUserWidget_BindUserVideo_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusUserWidget_BindUserVideo_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusUserWidget_BindUserVideo()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusUserWidget_BindUserVideo_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UCavrnusUserWidget_InitializeComplete_Statics
 	{
@@ -134,6 +174,30 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCavrnusUserWidget_UnbindUserVideo_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusUserWidget_UnbindUserVideo_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/**\n\x09 * @brief Unbinds the user video from the widget.\n\x09 */" },
+		{ "ModuleRelativePath", "Public/UI/UserMenu/CavrnusUserWidget.h" },
+		{ "ToolTip", "@brief Unbinds the user video from the widget." },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusUserWidget_UnbindUserVideo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusUserWidget, nullptr, "UnbindUserVideo", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusUserWidget_UnbindUserVideo_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusUserWidget_UnbindUserVideo_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusUserWidget_UnbindUserVideo()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusUserWidget_UnbindUserVideo_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCavrnusUserWidget);
 	UClass* Z_Construct_UClass_UCavrnusUserWidget_NoRegister()
 	{
@@ -167,9 +231,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusUserWidget_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UCavrnusUserWidget_BindUserVideo, "BindUserVideo" }, // 3458373125
 		{ &Z_Construct_UFunction_UCavrnusUserWidget_InitializeComplete, "InitializeComplete" }, // 2003538847
 		{ &Z_Construct_UFunction_UCavrnusUserWidget_InitializeUserConnection, "InitializeUserConnection" }, // 1967057961
 		{ &Z_Construct_UFunction_UCavrnusUserWidget_TriggerMaximizeUserSelected, "TriggerMaximizeUserSelected" }, // 3041856657
+		{ &Z_Construct_UFunction_UCavrnusUserWidget_UnbindUserVideo, "UnbindUserVideo" }, // 2722908833
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusUserWidget_Statics::Class_MetaDataParams[] = {
@@ -248,9 +314,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusUserWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusUserWidget, UCavrnusUserWidget::StaticClass, TEXT("UCavrnusUserWidget"), &Z_Registration_Info_UClass_UCavrnusUserWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusUserWidget), 2523439793U) },
+		{ Z_Construct_UClass_UCavrnusUserWidget, UCavrnusUserWidget::StaticClass, TEXT("UCavrnusUserWidget"), &Z_Registration_Info_UClass_UCavrnusUserWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusUserWidget), 1481300692U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_1224783350(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_3261623436(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_UserMenu_CavrnusUserWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

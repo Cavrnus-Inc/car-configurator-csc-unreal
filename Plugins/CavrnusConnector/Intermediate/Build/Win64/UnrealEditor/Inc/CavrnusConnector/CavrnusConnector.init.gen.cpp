@@ -29,7 +29,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusConnector_init() {}
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceConnected__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceUserEvent__DelegateSignature();
-	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusUploadCompleteFunction__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusUserVideoFrameEvent__DelegateSignature();
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_ColorPropertyUpdated__DelegateSignature();
@@ -65,7 +64,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusConnector_init() {}
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceConnected__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceInfoEvent__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpaceUserEvent__DelegateSignature,
-				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusSpawnedObjectArrived__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusUploadCompleteFunction__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_CavrnusUserVideoFrameEvent__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UCavrnusFunctionLibrary_ColorPropertyUpdated__DelegateSignature,
@@ -79,13 +77,13 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusConnector_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xB7C7A63B,
-				0xB4724BA9,
+				0x2B412C31,
+				0x06A47B3D,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_CavrnusConnector.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_CavrnusConnector.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_CavrnusConnector(Z_Construct_UPackage__Script_CavrnusConnector, TEXT("/Script/CavrnusConnector"), Z_Registration_Info_UPackage__Script_CavrnusConnector, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xB7C7A63B, 0xB4724BA9));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_CavrnusConnector(Z_Construct_UPackage__Script_CavrnusConnector, TEXT("/Script/CavrnusConnector"), Z_Registration_Info_UPackage__Script_CavrnusConnector, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x2B412C31, 0x06A47B3D));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

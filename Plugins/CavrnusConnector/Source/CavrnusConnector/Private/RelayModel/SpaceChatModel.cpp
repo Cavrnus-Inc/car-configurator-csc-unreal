@@ -73,6 +73,6 @@ namespace Cavrnus
 			ChatRemovedBindings.Remove(removedPtr);
 		});
 
-		return nullptr;
+		return binding;
 	}
 }

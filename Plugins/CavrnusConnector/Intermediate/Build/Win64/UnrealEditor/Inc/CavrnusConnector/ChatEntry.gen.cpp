@@ -78,9 +78,7 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FChatEntry>()
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FChatEntry_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "// Class definition\n" },
 		{ "ModuleRelativePath", "Public/Types/ChatEntry.h" },
-		{ "ToolTip", "Class definition" },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FChatEntry_Statics::NewStructOps()
@@ -203,9 +201,9 @@ template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<FChatEntry>()
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_Statics::ScriptStructInfo[] = {
-		{ FChatEntry::StaticStruct, Z_Construct_UScriptStruct_FChatEntry_Statics::NewStructOps, TEXT("ChatEntry"), &Z_Registration_Info_UScriptStruct_ChatEntry, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FChatEntry), 450126859U) },
+		{ FChatEntry::StaticStruct, Z_Construct_UScriptStruct_FChatEntry_Statics::NewStructOps, TEXT("ChatEntry"), &Z_Registration_Info_UScriptStruct_ChatEntry, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FChatEntry), 2742298316U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_24273449(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_2245954896(TEXT("/Script/CavrnusConnector"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_ChatEntry_h_Statics::ScriptStructInfo),
 		nullptr, 0);

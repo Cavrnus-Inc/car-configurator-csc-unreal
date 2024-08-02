@@ -29,6 +29,8 @@ public:
 	 * @param InOnSelect The event to be triggered when the space is selected.
 	 */
 	void Setup(const FCavrnusSpaceInfo& InSpaceInfo, const FSpaceSelectedEvent& InOnSelect);
+
+	virtual void NativeDestruct() override;
 	
 	/**
 	 * @brief Callback function for when the thumbnail image is downloaded.
@@ -66,6 +68,7 @@ public:
 
 private:
 	/** Information about the space. */
+	UPROPERTY()
 	FCavrnusSpaceInfo SpaceInfo = FCavrnusSpaceInfo();
 	
 	/** The event to be triggered when the space is selected. */

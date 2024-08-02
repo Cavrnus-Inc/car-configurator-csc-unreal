@@ -31,6 +31,8 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus|Login")
 	void Setup();
+
+	virtual void NativeDestruct() override;
 	
 	/**
 	 * @brief Handles the login button click event.

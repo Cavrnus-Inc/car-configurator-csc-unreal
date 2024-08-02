@@ -7,6 +7,7 @@
 #include "CavrnusBaseUserWidget.h"
 #include "Components/EditableTextBox.h"
 #include "Pagination/Pagination.h"
+#include "Types/CavrnusBinding.h"
 #include "Types/CavrnusSpaceInfo.h"
 #include "CavrnusSpaceListWidget.generated.h"
 
@@ -70,7 +71,7 @@ public:
 	void Setup();
 	
 	FSpaceSelectedEvent SpaceSelected;
-
+	
 	/**
 	 * @brief Searches the space list based on the input search value.
 	 * @param SearchValue The text to search for.
@@ -95,10 +96,15 @@ public:
 	FOnCavrnusSpaceSelected OnCavrnusSpaceSelected;
 
 private:
+	UPROPERTY()
+	UCavrnusBinding* JoinableSpacesBinding;
+	
 	/** List of all spaces available. */
+	UPROPERTY()
 	TArray<FCavrnusSpaceInfo> AllSpaces;
 	
 	/** List of currently displayed spaces based on search and pagination. */
+	UPROPERTY()
 	TArray<FCavrnusSpaceInfo> CurrentDisplayedSpaces;
 	
 	/**

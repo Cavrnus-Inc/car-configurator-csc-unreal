@@ -17,6 +17,9 @@ class CAVRNUSCONNECTOR_API USidebarMenuBase : public UCavrnusBaseUserWidget
 	GENERATED_BODY()
 
 public:
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus|SiceBarMenuBase")
+	virtual void ForceChildrenRebuild();
+	
 	UPROPERTY(BlueprintAssignable, Category = "Cavrnus|SideBarMenuBase")
 	FSecondaryWidgetRequested SecondaryWidgetRequested;
 };

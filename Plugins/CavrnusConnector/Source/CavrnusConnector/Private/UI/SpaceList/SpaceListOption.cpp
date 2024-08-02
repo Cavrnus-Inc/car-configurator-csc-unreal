@@ -1,6 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
 #include "UI/SpaceList/SpaceListOption.h"
-
 #include "Blueprint/AsyncTaskDownloadImage.h"
 #include "Components/Button.h"
 
@@ -12,14 +11,10 @@ void USpaceListOption::Setup(const FCavrnusSpaceInfo& InSpaceInfo, const FSpaceS
 	OnSelect = InOnSelect;
 	
 	if (Button)
-	{
 		Button->OnClicked.AddDynamic(this, &USpaceListOption::ButtonSpaceSelected);
-	}
 
 	if (SpaceNameTextBlock)
-	{
 		SpaceNameTextBlock->SetText(FText::FromString(SpaceInfo.SpaceName));
-	}
 
 	Thumbnail->SetVisibility(ESlateVisibility::Hidden);
 	ThumbnailDefault->SetVisibility(ESlateVisibility::Visible);
@@ -30,6 +25,14 @@ void USpaceListOption::Setup(const FCavrnusSpaceInfo& InSpaceInfo, const FSpaceS
 		DownloadTask->OnSuccess.AddDynamic(this, &USpaceListOption::OnGetThumbnail);
 		DownloadTask->Start(SpaceInfo.SpaceThumbnail);
 	}
+}
+
+void USpaceListOption::NativeDestruct()
+{
+	Super::NativeDestruct();
+
+	if (Button)
+		Button->OnClicked.RemoveDynamic(this, &USpaceListOption::ButtonSpaceSelected);
 }
 
 void USpaceListOption::OnGetThumbnail(UTexture2DDynamic* Texture)

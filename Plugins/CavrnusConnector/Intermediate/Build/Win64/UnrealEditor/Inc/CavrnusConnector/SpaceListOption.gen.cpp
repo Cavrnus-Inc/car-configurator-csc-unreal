@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeSpaceListOption() {}
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UAsyncTaskDownloadImage_NoRegister();
+	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpaceInfo();
 // End Cross Module References
 	DEFINE_FUNCTION(USpaceListOption::execButtonSpaceSelected)
 	{
@@ -133,6 +134,10 @@ void EmptyLinkFunctionForGeneratedCodeSpaceListOption() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DownloadTask_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_DownloadTask;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpaceInfo_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_SpaceInfo;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -205,12 +210,21 @@ void EmptyLinkFunctionForGeneratedCodeSpaceListOption() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USpaceListOption_Statics::NewProp_DownloadTask = { "DownloadTask", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USpaceListOption, DownloadTask), Z_Construct_UClass_UAsyncTaskDownloadImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_USpaceListOption_Statics::NewProp_DownloadTask_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USpaceListOption_Statics::NewProp_DownloadTask_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USpaceListOption_Statics::NewProp_SpaceInfo_MetaData[] = {
+		{ "Comment", "/** Information about the space. */" },
+		{ "ModuleRelativePath", "Public/UI/SpaceList/SpaceListOption.h" },
+		{ "ToolTip", "Information about the space." },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USpaceListOption_Statics::NewProp_SpaceInfo = { "SpaceInfo", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USpaceListOption, SpaceInfo), Z_Construct_UScriptStruct_FCavrnusSpaceInfo, METADATA_PARAMS(Z_Construct_UClass_USpaceListOption_Statics::NewProp_SpaceInfo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USpaceListOption_Statics::NewProp_SpaceInfo_MetaData)) }; // 25966878
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USpaceListOption_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpaceListOption_Statics::NewProp_ThumbnailDefault,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpaceListOption_Statics::NewProp_Thumbnail,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpaceListOption_Statics::NewProp_SpaceNameTextBlock,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpaceListOption_Statics::NewProp_Button,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpaceListOption_Statics::NewProp_DownloadTask,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpaceListOption_Statics::NewProp_SpaceInfo,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_USpaceListOption_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<USpaceListOption>::IsAbstract,
@@ -248,9 +262,9 @@ void EmptyLinkFunctionForGeneratedCodeSpaceListOption() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_SpaceList_SpaceListOption_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USpaceListOption, USpaceListOption::StaticClass, TEXT("USpaceListOption"), &Z_Registration_Info_UClass_USpaceListOption, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpaceListOption), 3585455223U) },
+		{ Z_Construct_UClass_USpaceListOption, USpaceListOption::StaticClass, TEXT("USpaceListOption"), &Z_Registration_Info_UClass_USpaceListOption, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpaceListOption), 39845868U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_SpaceList_SpaceListOption_h_288746669(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_SpaceList_SpaceListOption_h_598661820(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_SpaceList_SpaceListOption_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_SpaceList_SpaceListOption_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -31,7 +31,7 @@ public:
      * @param spawnHelpers Helpers to initialize the spawned actor.
      * @return A pointer to the newly spawned actor.
      */
-    void RegisterUser(const FCavrnusUser& SpawnedObject, TSubclassOf<AActor> ActorClass, UWorld* World, USpawnObjectHelpers* spawnHelpers);
+    void RegisterUser(const FCavrnusUser& User, TSubclassOf<AActor> ActorClass, UWorld* World, USpawnObjectHelpers* spawnHelpers);
 
     /**
      * @brief Unregisters a spawned avatar from the Cavrnus system.
@@ -42,11 +42,11 @@ public:
      * @param SpawnedObject The spawned object data to unregister.
      * @param World The world from which to remove the actor.
      */
-    void UnregisterUser(const FCavrnusUser& SpawnedObject, UWorld* World);
+    void UnregisterUser(const FCavrnusUser& User, UWorld* World);
 
 private:
     /** Map of spawned actors, keyed by a unique identifier string. */
-    TMap<FString, AActor*> SpawnedAvatars;
+    TMap<FPropertiesContainer, AActor*> SpawnedAvatars;
 
     /** Binding to track visibility of avatars in the Cavrnus system. */
 	UPROPERTY()

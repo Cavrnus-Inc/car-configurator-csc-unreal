@@ -8686,21 +8686,21 @@ class PostRemoveObject final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOpIdFieldNumber = 2,
+    kContainerIdFieldNumber = 2,
     kSpaceConnFieldNumber = 1,
   };
-  // string opId = 2;
-  void clear_opid();
-  const std::string& opid() const;
+  // string containerId = 2;
+  void clear_containerid();
+  const std::string& containerid() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_opid(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_opid();
-  PROTOBUF_NODISCARD std::string* release_opid();
-  void set_allocated_opid(std::string* opid);
+  void set_containerid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_containerid();
+  PROTOBUF_NODISCARD std::string* release_containerid();
+  void set_allocated_containerid(std::string* containerid);
   private:
-  const std::string& _internal_opid() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_opid(const std::string& value);
-  std::string* _internal_mutable_opid();
+  const std::string& _internal_containerid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_containerid(const std::string& value);
+  std::string* _internal_mutable_containerid();
   public:
 
   // .ServerData.CavrnusSpaceConnection spaceConn = 1;
@@ -8729,7 +8729,7 @@ class PostRemoveObject final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr opid_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr containerid_;
     ::ServerData::CavrnusSpaceConnection* spaceconn_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -11438,26 +11438,11 @@ class ObjectAdded final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kCreationOpIdFieldNumber = 2,
     kPropertiesContainerFieldNumber = 3,
     kObjectCreatedFieldNumber = 4,
     kSpaceConnFieldNumber = 1,
     kCreatedTimeFieldNumber = 5,
   };
-  // string creationOpId = 2;
-  void clear_creationopid();
-  const std::string& creationopid() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_creationopid(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_creationopid();
-  PROTOBUF_NODISCARD std::string* release_creationopid();
-  void set_allocated_creationopid(std::string* creationopid);
-  private:
-  const std::string& _internal_creationopid() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_creationopid(const std::string& value);
-  std::string* _internal_mutable_creationopid();
-  public:
-
   // string propertiesContainer = 3;
   void clear_propertiescontainer();
   const std::string& propertiescontainer() const;
@@ -11530,7 +11515,6 @@ class ObjectAdded final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr creationopid_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr propertiescontainer_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr objectcreated_;
     ::ServerData::CavrnusSpaceConnection* spaceconn_;
@@ -23841,54 +23825,54 @@ inline void PostRemoveObject::set_allocated_spaceconn(::ServerData::CavrnusSpace
   // @@protoc_insertion_point(field_set_allocated:ServerData.PostRemoveObject.spaceConn)
 }
 
-// string opId = 2;
-inline void PostRemoveObject::clear_opid() {
-  _impl_.opid_.ClearToEmpty();
+// string containerId = 2;
+inline void PostRemoveObject::clear_containerid() {
+  _impl_.containerid_.ClearToEmpty();
 }
-inline const std::string& PostRemoveObject::opid() const {
-  // @@protoc_insertion_point(field_get:ServerData.PostRemoveObject.opId)
-  return _internal_opid();
+inline const std::string& PostRemoveObject::containerid() const {
+  // @@protoc_insertion_point(field_get:ServerData.PostRemoveObject.containerId)
+  return _internal_containerid();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void PostRemoveObject::set_opid(ArgT0&& arg0, ArgT... args) {
+void PostRemoveObject::set_containerid(ArgT0&& arg0, ArgT... args) {
  
- _impl_.opid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:ServerData.PostRemoveObject.opId)
+ _impl_.containerid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ServerData.PostRemoveObject.containerId)
 }
-inline std::string* PostRemoveObject::mutable_opid() {
-  std::string* _s = _internal_mutable_opid();
-  // @@protoc_insertion_point(field_mutable:ServerData.PostRemoveObject.opId)
+inline std::string* PostRemoveObject::mutable_containerid() {
+  std::string* _s = _internal_mutable_containerid();
+  // @@protoc_insertion_point(field_mutable:ServerData.PostRemoveObject.containerId)
   return _s;
 }
-inline const std::string& PostRemoveObject::_internal_opid() const {
-  return _impl_.opid_.Get();
+inline const std::string& PostRemoveObject::_internal_containerid() const {
+  return _impl_.containerid_.Get();
 }
-inline void PostRemoveObject::_internal_set_opid(const std::string& value) {
+inline void PostRemoveObject::_internal_set_containerid(const std::string& value) {
   
-  _impl_.opid_.Set(value, GetArenaForAllocation());
+  _impl_.containerid_.Set(value, GetArenaForAllocation());
 }
-inline std::string* PostRemoveObject::_internal_mutable_opid() {
+inline std::string* PostRemoveObject::_internal_mutable_containerid() {
   
-  return _impl_.opid_.Mutable(GetArenaForAllocation());
+  return _impl_.containerid_.Mutable(GetArenaForAllocation());
 }
-inline std::string* PostRemoveObject::release_opid() {
-  // @@protoc_insertion_point(field_release:ServerData.PostRemoveObject.opId)
-  return _impl_.opid_.Release();
+inline std::string* PostRemoveObject::release_containerid() {
+  // @@protoc_insertion_point(field_release:ServerData.PostRemoveObject.containerId)
+  return _impl_.containerid_.Release();
 }
-inline void PostRemoveObject::set_allocated_opid(std::string* opid) {
-  if (opid != nullptr) {
+inline void PostRemoveObject::set_allocated_containerid(std::string* containerid) {
+  if (containerid != nullptr) {
     
   } else {
     
   }
-  _impl_.opid_.SetAllocated(opid, GetArenaForAllocation());
+  _impl_.containerid_.SetAllocated(containerid, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.opid_.IsDefault()) {
-    _impl_.opid_.Set("", GetArenaForAllocation());
+  if (_impl_.containerid_.IsDefault()) {
+    _impl_.containerid_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:ServerData.PostRemoveObject.opId)
+  // @@protoc_insertion_point(field_set_allocated:ServerData.PostRemoveObject.containerId)
 }
 
 // -------------------------------------------------------------------
@@ -26201,56 +26185,6 @@ inline void ObjectAdded::set_allocated_spaceconn(::ServerData::CavrnusSpaceConne
   }
   _impl_.spaceconn_ = spaceconn;
   // @@protoc_insertion_point(field_set_allocated:ServerData.ObjectAdded.spaceConn)
-}
-
-// string creationOpId = 2;
-inline void ObjectAdded::clear_creationopid() {
-  _impl_.creationopid_.ClearToEmpty();
-}
-inline const std::string& ObjectAdded::creationopid() const {
-  // @@protoc_insertion_point(field_get:ServerData.ObjectAdded.creationOpId)
-  return _internal_creationopid();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ObjectAdded::set_creationopid(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.creationopid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:ServerData.ObjectAdded.creationOpId)
-}
-inline std::string* ObjectAdded::mutable_creationopid() {
-  std::string* _s = _internal_mutable_creationopid();
-  // @@protoc_insertion_point(field_mutable:ServerData.ObjectAdded.creationOpId)
-  return _s;
-}
-inline const std::string& ObjectAdded::_internal_creationopid() const {
-  return _impl_.creationopid_.Get();
-}
-inline void ObjectAdded::_internal_set_creationopid(const std::string& value) {
-  
-  _impl_.creationopid_.Set(value, GetArenaForAllocation());
-}
-inline std::string* ObjectAdded::_internal_mutable_creationopid() {
-  
-  return _impl_.creationopid_.Mutable(GetArenaForAllocation());
-}
-inline std::string* ObjectAdded::release_creationopid() {
-  // @@protoc_insertion_point(field_release:ServerData.ObjectAdded.creationOpId)
-  return _impl_.creationopid_.Release();
-}
-inline void ObjectAdded::set_allocated_creationopid(std::string* creationopid) {
-  if (creationopid != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.creationopid_.SetAllocated(creationopid, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.creationopid_.IsDefault()) {
-    _impl_.creationopid_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:ServerData.ObjectAdded.creationOpId)
 }
 
 // string propertiesContainer = 3;

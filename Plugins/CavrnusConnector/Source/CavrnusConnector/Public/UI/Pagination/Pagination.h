@@ -28,31 +28,33 @@ public:
 	 *
 	 * @param InItemWidget The class of the item widget to use for pagination.
 	 */
-	void Setup(TSubclassOf<UUserWidget>* InItemWidget);
+	void Setup(TSubclassOf<UUserWidget> InItemWidget);
+
+	virtual void NativeDestruct() override;
 
 	/** Button for navigating to the previous page. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Pagination", meta = (BindWidget))
-	UButton* ButtonPrevious = nullptr;;
-
+	UButton* ButtonPrevious = nullptr;
+	
 	/** Button for navigating to the next page. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|PaginationSetup", meta = (BindWidget))
-	UButton* ButtonNext = nullptr;;
+	UButton* ButtonNext = nullptr;
 
 	/** Text block displaying the current page number. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Pagination", meta = (BindWidget))
-	UTextBlock* TextBlockCurrentPage = nullptr;;
+	UTextBlock* TextBlockCurrentPage = nullptr;
 
 	/** Widget container to display when there are no results. */
 	UPROPERTY(EditAnywhere, Category = "Cavrnus|Pagination")
-	UWidget* NoResultsContainer = nullptr;;
+	UWidget* NoResultsContainer = nullptr;
 
 	/** Widget container for displaying paginated items. */
 	UPROPERTY(EditAnywhere, Category = "Cavrnus|Pagination")
-	UWidget* ItemContainer = nullptr;;
+	UWidget* ItemContainer = nullptr;
 
 	/** Footer container widget. */
 	UPROPERTY(EditAnywhere, Category = "Cavrnus|Pagination", meta = (BindWidget))
-	UPanelWidget* FooterContainer = nullptr;;
+	UPanelWidget* FooterContainer = nullptr;
 
 	/**
 	 * @brief Initializes a new pagination with the specified item widget class and content to display.
@@ -60,7 +62,7 @@ public:
 	 * @param InItemWidget The class of the item widget to use for pagination.
 	 * @param InDisplayContent The content to display in the pagination.
 	 */
-	void NewPagination(TSubclassOf<UUserWidget>* InItemWidget, const TArray<IListElementInterface*>& InDisplayContent);
+	void NewPagination(TSubclassOf<UUserWidget> InItemWidget, const TArray<IListElementInterface*>& InDisplayContent);
 	
 	/** Resets the pagination, clearing any current items and content. */
 	void ResetPagination();
@@ -89,7 +91,7 @@ private:
 	TMap<UUserWidget*, IListElementInterface*> CurrentItems;
 
 	/** Class of the item widget used for pagination. */
-	TSubclassOf<UUserWidget>* ItemWidget = nullptr;;
+	TSubclassOf<UUserWidget> ItemWidget = nullptr;
 	
 	/** Array of content to paginate and display. */
 	TArray<IListElementInterface*> Content;

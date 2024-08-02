@@ -289,7 +289,9 @@ namespace Cavrnus
 		if (!spacePropertyModelLookup.Contains(spaceConn.spaceconnectionid()))
 			spacePropertyModelLookup.Add(spaceConn.spaceconnectionid(), new SpacePropertyModel());
 
-		spacePropertyModelLookup[spaceConn.spaceconnectionid()]->RemoveSpaceUser(UTF8_TO_TCHAR(userId.c_str()));
+		auto spm = spacePropertyModelLookup[spaceConn.spaceconnectionid()];
+		FString fUserId = UTF8_TO_TCHAR(userId.c_str());
+		spm->RemoveSpaceUser(fUserId);
 	}
 
 	void CavrnusRelayModel::HandleSpaceUserVideoFrame(const ServerData::UserVideoFrame& VideoFrame)
@@ -303,29 +305,38 @@ namespace Cavrnus
 
 	void CavrnusRelayModel::HandleSpaceObjectAdded(const ServerData::ObjectAdded& ObjectAdded)
 	{
-		FCavrnusSpawnedObject SpawnedObject;
-		SpawnedObject.SpaceConnection = Cavrnus::CavrnusProtoTranslation::FromPb(ObjectAdded.spaceconn());
-		SpawnedObject.CreationOpId = (FString(UTF8_TO_TCHAR(ObjectAdded.creationopid().c_str())));
-		SpawnedObject.PropertiesContainerName = (FString(UTF8_TO_TCHAR(ObjectAdded.propertiescontainer().c_str())));
+		FCavrnusSpaceConnection spaceConn = Cavrnus::CavrnusProtoTranslation::FromPb(ObjectAdded.spaceconn());
+		if (!spacePropertyModelLookup.Contains(spaceConn.SpaceConnectionId))
+			return;
 
-		AActor* spawnedInstance = (*ObjectCreationCallback)(SpawnedObject, ObjectAdded.objectcreated().c_str());
+		FString propsContainerName = FString(UTF8_TO_TCHAR(ObjectAdded.propertiescontainer().c_str()));
+
+		if (spacePropertyModelLookup[spaceConn.SpaceConnectionId]->SpawnedObjects.Contains(propsContainerName))
+			return;
+
+		FCavrnusSpawnedObject SpawnedObject;
+		SpawnedObject.SpaceConnection = spaceConn;
+		SpawnedObject.PropertiesContainerName = propsContainerName;
+
+		AActor* spawnedInstance = (*ObjectCreationCallback)(SpawnedObject, UTF8_TO_TCHAR(ObjectAdded.objectcreated().c_str()));
 
 		SpawnedObject.SpawnedActorInstance = spawnedInstance;
 
-		auto propId = FAbsolutePropertyId(SpawnedObject.PropertiesContainerName);
-
-		if (ObjectCreationCallbacks.Contains(propId)) {
-			(*ObjectCreationCallbacks[propId])(SpawnedObject, spawnedInstance);
-			ObjectCreationCallbacks.Remove(propId);
-		}
+		spacePropertyModelLookup[spaceConn.SpaceConnectionId]->SpawnedObjects.Add(propsContainerName, SpawnedObject);
 	}
 
 	void CavrnusRelayModel::HandleSpaceObjectRemoved(const ServerData::ObjectRemoved& ObjectRemoved)
 	{
 		FCavrnusSpawnedObject SpawnedObject;
-		SpawnedObject.PropertiesContainerName = (FString(UTF8_TO_TCHAR(ObjectRemoved.propertiescontainer().c_str())));
+		FString propsContainerName = (FString(UTF8_TO_TCHAR(ObjectRemoved.propertiescontainer().c_str())));
+		SpawnedObject.PropertiesContainerName = propsContainerName;
 
 		(*ObjectDestructionCallback)(SpawnedObject);
+
+		if (!spacePropertyModelLookup.Contains(ObjectRemoved.spaceconn().spaceconnectionid()))
+			return;
+
+		spacePropertyModelLookup[ObjectRemoved.spaceconn().spaceconnectionid()]->SpawnedObjects.Remove(propsContainerName);
 	}
 
 	void CavrnusRelayModel::HandlePermissionStatus(const ServerData::PermissionStatus& PermissionStatus)

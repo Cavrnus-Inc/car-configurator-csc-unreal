@@ -537,7 +537,7 @@ void FCavrnusConnectorEditorModule::AddCavrnusSpatialConnectorToLevel()
 					CavrnusSpatialConnector->SpaceJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/SpaceListMenu/WBP_SpaceSelection.WBP_SpaceSelection_C"), UCavrnusSpaceListWidget::StaticClass());
 					CavrnusSpatialConnector->LoadingWidgetClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoadingMenu/WBP_LoadingWidget.WBP_LoadingWidget_C"), UUserWidget::StaticClass());
 					CavrnusSpatialConnector->AuthenticationWidgetClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoadingMenu/WBP_AuthenticationWidget.WBP_AuthenticationWidget_C"), UUserWidget::StaticClass());
-					CavrnusSpatialConnector->RemoteAvatarClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/Pawns/Blueprints/BP_CavrnusPawn.BP_CavrnusPawn_C"), AActor::StaticClass());
+					CavrnusSpatialConnector->RemoteAvatarClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/Pawns/Blueprints/BP_Cavrnus_RemoteAvatarLoader.BP_Cavrnus_RemoteAvatarLoader_C"), AActor::StaticClass());
 					
 					TArray<TSubclassOf<UUserWidget>> WidgetsToLoad;
 					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/MinimalUI/WBP_MinimalUI.WBP_MinimalUI_C"), UUserWidget::StaticClass()));

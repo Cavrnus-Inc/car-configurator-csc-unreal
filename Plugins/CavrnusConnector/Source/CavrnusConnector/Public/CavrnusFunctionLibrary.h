@@ -797,12 +797,6 @@ public:
 	// ============================================
 
 	/**
-	 * @brief Delegate triggered when a spawned object arrives.
-	 * @param spawnedObject The object that has been spawned.
-	 */
-	DECLARE_DYNAMIC_DELEGATE_TwoParams(FCavrnusSpawnedObjectArrived, FCavrnusSpawnedObject, spawnedObject, AActor*, spawedActorInstance);
-	
-	/**
 	 * @brief Instantiates the given object with no set properties.
 	 *
 	 * Note: You will need to pull the Container ID out of the Spawned Object and assign property values to it.
@@ -814,9 +808,7 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Objects",
 		meta = (AutoCreateRefTerm = "spawnedObjectArrived",	ToolTip = "Instantiates the given object with no set properties (note you will need to pull the Container ID out of the Spawned Object and assign property values to it)", ShortToolTip = "Instantiates the given object"))
-	static UPARAM(DisplayName = "Container Name") FString SpawnObject(FCavrnusSpaceConnection SpaceConnection, const FString& UniqueIdentifier, const FCavrnusSpawnedObjectArrived& spawnedObjectArrived);
-
-	static FPropertiesContainer SpawnObject(FCavrnusSpaceConnection SpaceConnection, const FString& UniqueIdentifier, CavrnusSpawnedObjectFunction spawnedObjectArrived);
+	static const FCavrnusSpawnedObject& SpawnObject(FCavrnusSpaceConnection SpaceConnection, const FString& UniqueIdentifier);
 
 	/**
 	 * @brief Destroys the given object.
@@ -825,7 +817,7 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Objects",
 		meta = (ToolTip = "Destroys the given object", ShortToolTip = "Destroys the given object"))
-	static void DestroyObject(FCavrnusSpawnedObject SpawnedObject);
+	static void DestroyObject(const FCavrnusSpawnedObject& SpawnedObject);
 
 #pragma endregion
 

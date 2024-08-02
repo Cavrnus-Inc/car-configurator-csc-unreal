@@ -233,7 +233,7 @@ namespace Cavrnus
 	{
 		if (CurrSpaceUsers.Contains(userId))
 		{
-			const FCavrnusUser& removedUser = CurrSpaceUsers[userId];
+			FCavrnusUser removedUser = CurrSpaceUsers[userId];
 			CurrSpaceUsers.Remove(userId);
 
 			for (int i = 0; i < UserRemovedBindings.Num(); i++)

@@ -59,15 +59,17 @@ private:
 	/**
 	 * @brief Binds the user video to the widget.
 	 */
+	UFUNCTION()
 	void BindUserVideo();
 	/**
 	 * @brief Unbinds the user video from the widget.
 	 */
-	void UnbindUserVideo() const;
+	UFUNCTION()
+	void UnbindUserVideo();
 
 	/** @brief Binding for the user's video frame updates. */
 	UPROPERTY()
-	UCavrnusBinding* UserVideoFrameBinding = nullptr;;
+	UCavrnusBinding* UserVideoFrameBinding = nullptr;
 
 	/** @brief Current size of the RTC stream image. */
 	FVector2D CurrentStreamImageSize = FVector2D(0,0);

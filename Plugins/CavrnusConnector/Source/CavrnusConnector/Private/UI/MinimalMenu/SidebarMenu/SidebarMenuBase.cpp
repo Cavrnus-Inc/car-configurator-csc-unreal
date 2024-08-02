@@ -3,3 +3,6 @@
 
 #include "UI/MinimalMenu/SidebarMenu/SidebarMenuBase.h"
 
+void USidebarMenuBase::ForceChildrenRebuild()
+{
+}

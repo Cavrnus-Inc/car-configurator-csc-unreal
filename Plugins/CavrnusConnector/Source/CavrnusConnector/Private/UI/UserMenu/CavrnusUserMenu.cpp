@@ -9,25 +9,39 @@ void UCavrnusUserMenu::NativeConstruct()
 {
 	Super::NativeConstruct();
 
+	if (!ScrollBox)
+	{
+		UE_LOG(LogTemp, Error, TEXT("UserMenu Scrollbox is not valid!"));
+		return;
+	}
+
+	if (!WidgetEntry)
+	{
+		UE_LOG(LogTemp, Error, TEXT("UserMenu WidgetEntry is not valid!"));
+		return;
+	}
+
 	UCavrnusFunctionLibrary::AwaitAnySpaceConnection([this](const FCavrnusSpaceConnection& CavrnusSpaceConnection)
 	{
-		UCavrnusFunctionLibrary::BindSpaceUsers(CavrnusSpaceConnection, [this, CavrnusSpaceConnection](const FCavrnusUser& AddedUser)
+		UsersBinding = UCavrnusFunctionLibrary::BindSpaceUsers(CavrnusSpaceConnection, [this, CavrnusSpaceConnection](const FCavrnusUser& AddedUser)
 		{
-			if (WidgetEntry && ScrollBox)
-			{
-				UCavrnusUserWidget* Widget = CreateWidget<UCavrnusUserWidget>(this, WidgetEntry);
-				if (Widget)
-				{
-					Widget->InitializeUserConnection(AddedUser);
-					ScrollBox->AddChild(Widget);
+			if (ScrollBox == nullptr)
+				return;
 
-					Widget->MaximizeUserSelected = [this](const FCavrnusUser& CavrnusUser)
-					{
-						MaximizeUserSelected(CavrnusUser);
-					};
-					
-					Entries.Add(AddedUser.UserConnectionId, Widget);
-				}
+			if (WidgetEntry == nullptr)
+				return;
+
+			if (UCavrnusUserWidget* Widget = CreateWidget<UCavrnusUserWidget>(this, WidgetEntry))
+			{
+				Widget->InitializeUserConnection(AddedUser);
+				ScrollBox->AddChild(Widget);
+
+				Widget->MaximizeUserSelected = [this](const FCavrnusUser& CavrnusUser)
+				{
+					MaximizeUserSelected(CavrnusUser);
+				};
+				
+				Entries.Add(AddedUser.UserConnectionId, Widget);
 			}
 		}, [this](const FCavrnusUser& RemovedUser)
 		{
@@ -40,6 +54,13 @@ void UCavrnusUserMenu::NativeConstruct()
 			}
 		});
 	});
+}
+
+void UCavrnusUserMenu::NativeDestruct()
+{
+	Super::NativeDestruct();
+
+	UsersBinding->Unbind();
 }
 
 void UCavrnusUserMenu::MaximizeUserSelected(const FCavrnusUser& MaximizedUser)

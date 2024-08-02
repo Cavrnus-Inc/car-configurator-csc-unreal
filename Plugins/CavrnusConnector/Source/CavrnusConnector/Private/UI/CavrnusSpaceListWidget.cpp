@@ -15,7 +15,7 @@ void UCavrnusSpaceListWidget::NativeConstruct()
 void UCavrnusSpaceListWidget::Setup()
 {
 	SearchTextBox->SetIsEnabled(false);
-	SpacePagination->Setup(&PaginationItemWidget);
+	SpacePagination->Setup(PaginationItemWidget);
 
 	UCavrnusFunctionLibrary::FetchJoinableSpaces([this](const TArray<FCavrnusSpaceInfo>& Spaces)
 	{
@@ -72,7 +72,7 @@ void UCavrnusSpaceListWidget::UpdatePagination(TArray<FCavrnusSpaceInfo>& Spaces
 		Options.Add(new FSpaceListOption(Space, Callback));
 	}
 	
-	SpacePagination->NewPagination(&PaginationItemWidget, Options);
+	SpacePagination->NewPagination(PaginationItemWidget, Options);
 }
 
 UCavrnusSpaceListWidget::FSpaceListOption::FSpaceListOption(const FCavrnusSpaceInfo& SpaceInfo, const FSpaceSelectedEvent& OnSelectSpace)

@@ -3,6 +3,7 @@
 
 #include "CoreMinimal.h"
 #include "Types/CavrnusSpawnedObject.h"
+#include "Types/PropertiesContainer.h"
 
 class USpawnObjectHelpers;
 
@@ -46,5 +47,5 @@ public:
 
 private:
     /** Map of spawned actors, keyed by a unique identifier string. */
-    TMap<FString, AActor*> spawnedActors;
+    TMap<FPropertiesContainer, AActor*> spawnedActors;
 };

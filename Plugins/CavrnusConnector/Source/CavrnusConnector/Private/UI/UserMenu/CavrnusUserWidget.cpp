@@ -12,6 +12,10 @@ void UCavrnusUserWidget::NativeDestruct()
 	Super::NativeDestruct();
 
 	UnbindUserVideo();
+	if (UserVideoFrameBinding)
+		UserVideoFrameBinding->Unbind();
+
+	RtcStreamImage = nullptr;
 }
 
 void UCavrnusUserWidget::InitializeUserConnection(const FCavrnusUser& InUser)
@@ -31,7 +35,7 @@ void UCavrnusUserWidget::TriggerMaximizeUserSelected()
 
 void UCavrnusUserWidget::BindUserVideo()
 {
-	auto UserVideoFrameUpdate = [this](UTexture2D* InTexture) {
+	VideoFrameUpdateFunction UserVideoFrameUpdate = [this](UTexture2D* InTexture) {
 		if (!RtcStreamImage)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("RtcStreamImage is not valid"));
@@ -41,12 +45,6 @@ void UCavrnusUserWidget::BindUserVideo()
 		if (!InTexture)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("InTexture is null"));
-			return;
-		}
-
-		if (!IsValid(InTexture))
-		{
-			UE_LOG(LogTemp, Warning, TEXT("InTexture is not valid"));
 			return;
 		}
 
@@ -82,7 +80,7 @@ bool UCavrnusUserWidget::TextureSizeChanged(const FVector2D NewSize) const
 	return CurrentStreamImageSize != NewSize;
 }
 
-void UCavrnusUserWidget::UnbindUserVideo() const
+void UCavrnusUserWidget::UnbindUserVideo()
 {
 	if(UserVideoFrameBinding)
 		UserVideoFrameBinding->Unbind();

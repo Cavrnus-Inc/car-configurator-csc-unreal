@@ -29,9 +29,16 @@ public:
 	TSubclassOf<UCavrnusMaximizedUser> MaximizedUserEntry = nullptr;
 
 private:
+	UPROPERTY()
 	TMap<FString, UCavrnusUserWidget*> Entries;
 
-	virtual void NativeConstruct() override;
+	UPROPERTY()
+	UCavrnusBinding* UsersBinding;
 	
+	virtual void NativeConstruct() override;
+	virtual void NativeDestruct() override;
+
+	CavrnusSpaceUserEvent SpaceUserEvent;
+
 	void MaximizeUserSelected(const FCavrnusUser& MaximizedUser);
 };
