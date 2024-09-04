@@ -16,8 +16,8 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusChatEntry() {}
 	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FChatEntry();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FLinearColor();
 	UMG_API UClass* Z_Construct_UClass_UBorder_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FLinearColor();
 // End Cross Module References
 	static FName NAME_UCavrnusChatEntry_SetupComplete = FName(TEXT("SetupComplete"));
 	void UCavrnusChatEntry::SetupComplete(FChatEntry InChatEntry)
@@ -87,13 +87,13 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusChatEntry() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ProfilePicImage;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_LocalUserColor_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_LocalUserColor;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ChatBubbleBackground_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ChatBubbleBackground;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LocalUserColor_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_LocalUserColor;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -113,7 +113,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusChatEntry() {}
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreatorName_MetaData[] = {
-		{ "BindWidget", "" },
+		{ "BindWidgetOptional", "" },
 		{ "Category", "Cavrnus|ChatEntry" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/MessageMenus/ChatMenu/CavrnusChatEntry.h" },
@@ -122,7 +122,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusChatEntry() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreatorName = { "CreatorName", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusChatEntry, CreatorName), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreatorName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreatorName_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreationTime_MetaData[] = {
-		{ "BindWidget", "" },
+		{ "BindWidgetOptional", "" },
 		{ "Category", "Cavrnus|ChatEntry" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/MessageMenus/ChatMenu/CavrnusChatEntry.h" },
@@ -131,7 +131,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusChatEntry() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreationTime = { "CreationTime", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusChatEntry, CreationTime), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreationTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreationTime_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_Message_MetaData[] = {
-		{ "BindWidget", "" },
+		{ "BindWidgetOptional", "" },
 		{ "Category", "Cavrnus|ChatEntry" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/MessageMenus/ChatMenu/CavrnusChatEntry.h" },
@@ -140,7 +140,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusChatEntry() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_Message = { "Message", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusChatEntry, Message), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_Message_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_Message_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ProfilePicImage_MetaData[] = {
-		{ "BindWidget", "" },
+		{ "BindWidgetOptional", "" },
 		{ "Category", "Cavrnus|ChatEntry" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/MessageMenus/ChatMenu/CavrnusChatEntry.h" },
@@ -148,30 +148,28 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusChatEntry() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ProfilePicImage = { "ProfilePicImage", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusChatEntry, ProfilePicImage), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ProfilePicImage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ProfilePicImage_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor_MetaData[] = {
-		{ "Category", "Cavrnus|ChatEntry" },
-		{ "Comment", "// Chat Visuals\n" },
-		{ "ModuleRelativePath", "Public/UI/MessageMenus/ChatMenu/CavrnusChatEntry.h" },
-		{ "ToolTip", "Chat Visuals" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor = { "LocalUserColor", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusChatEntry, LocalUserColor), Z_Construct_UScriptStruct_FLinearColor, METADATA_PARAMS(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor_MetaData)) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ChatBubbleBackground_MetaData[] = {
-		{ "BindWidget", "" },
+		{ "BindWidgetOptional", "" },
 		{ "Category", "Cavrnus|ChatEntry" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/MessageMenus/ChatMenu/CavrnusChatEntry.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ChatBubbleBackground = { "ChatBubbleBackground", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusChatEntry, ChatBubbleBackground), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ChatBubbleBackground_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ChatBubbleBackground_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor_MetaData[] = {
+		{ "Category", "Cavrnus|ChatEntry" },
+		{ "ModuleRelativePath", "Public/UI/MessageMenus/ChatMenu/CavrnusChatEntry.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor = { "LocalUserColor", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusChatEntry, LocalUserColor), Z_Construct_UScriptStruct_FLinearColor, METADATA_PARAMS(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCavrnusChatEntry_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreatorName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_CreationTime,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_Message,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ProfilePicImage,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_ChatBubbleBackground,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusChatEntry_Statics::NewProp_LocalUserColor,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCavrnusChatEntry_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCavrnusChatEntry>::IsAbstract,
@@ -209,9 +207,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusChatEntry() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatEntry_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusChatEntry, UCavrnusChatEntry::StaticClass, TEXT("UCavrnusChatEntry"), &Z_Registration_Info_UClass_UCavrnusChatEntry, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusChatEntry), 4233401719U) },
+		{ Z_Construct_UClass_UCavrnusChatEntry, UCavrnusChatEntry::StaticClass, TEXT("UCavrnusChatEntry"), &Z_Registration_Info_UClass_UCavrnusChatEntry, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusChatEntry), 912415784U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatEntry_h_3609038986(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatEntry_h_3422470651(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatEntry_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatEntry_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

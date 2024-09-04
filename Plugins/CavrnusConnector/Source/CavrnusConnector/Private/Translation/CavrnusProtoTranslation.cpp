@@ -295,6 +295,18 @@ namespace Cavrnus
 		msg.mutable_postremoveobject()->CopyFrom(req);
 		return msg;
 	}
+
+	const ServerData::ObjectRemoved CavrnusProtoTranslation::BuildObjectRemoved(const FCavrnusSpaceConnection& spaceConn, const FString& instanceId)
+	{
+		ServerData::ObjectRemoved added;
+		added.set_propertiescontainer(TCHAR_TO_UTF8(*instanceId));
+		added.mutable_spaceconn()->CopyFrom(ToPb(spaceConn));
+		//We don't currently use this anywhere
+		//added.mutable_createdtime()->CopyFrom();
+
+		return added;
+	}
+
 	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildRequestGlobalPermission(const FString& permission)
 	{
 		ServerData::PermissionStatusReq req;

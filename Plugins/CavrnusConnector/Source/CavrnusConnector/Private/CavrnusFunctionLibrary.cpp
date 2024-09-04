@@ -254,6 +254,30 @@ UCavrnusBinding* UCavrnusFunctionLibrary::BindGenericPropertyValue(FCavrnusSpace
 	return Cavrnus::CavrnusRelayModel::GetDataModel()->GetSpacePropertyModel(SpaceConnection)->BindProperty(FAbsolutePropertyId(ContainerName, PropertyName), OnPropertyUpdated);
 }
 
+UCavrnusLivePropertyUpdate* UCavrnusFunctionLibrary::BeginTransientGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue)
+{
+	CheckErrors(SpaceConnection);
+
+	UCavrnusLivePropertyUpdate* res = nullptr;
+
+	if(PropertyValue.PropType == Cavrnus::FPropertyValue::PropertyType::Bool)
+		res = NewObject<UCavrnusLiveBoolPropertyUpdate>();
+	if (PropertyValue.PropType == Cavrnus::FPropertyValue::PropertyType::String)
+		res = NewObject<UCavrnusLiveStringPropertyUpdate>();
+	if (PropertyValue.PropType == Cavrnus::FPropertyValue::PropertyType::Color)
+		res = NewObject<UCavrnusLiveColorPropertyUpdate>();
+	if (PropertyValue.PropType == Cavrnus::FPropertyValue::PropertyType::Float)
+		res = NewObject<UCavrnusLiveFloatPropertyUpdate>();
+	if (PropertyValue.PropType == Cavrnus::FPropertyValue::PropertyType::Vector)
+		res = NewObject<UCavrnusLiveVectorPropertyUpdate>();
+	if (PropertyValue.PropType == Cavrnus::FPropertyValue::PropertyType::Transform)
+		res = NewObject<UCavrnusLiveTransformPropertyUpdate>();
+
+	res->InitializeGeneric(Cavrnus::CavrnusRelayModel::GetDataModel(), SpaceConnection, FAbsolutePropertyId(ContainerName, PropertyName), PropertyValue);
+
+	return res;
+}
+
 void UCavrnusFunctionLibrary::PostGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue, const FPropertyPostOptions& options)
 {
 	CheckErrors(SpaceConnection);
@@ -297,7 +321,7 @@ UCavrnusBinding* UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceCo
 {
 	CavrnusPropertyFunction propUpdateCallback = [PropertyUpdateEvent](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Exec color prop binding: %s"), *Prop.ColorValue.ToString())
+		UE_LOG(LogCavrnusConnector, Warning, TEXT("Exec color prop binding: %s"), *Prop.ColorValue.ToString())
 
 		PropertyUpdateEvent.ExecuteIfBound(Prop.ColorValue, ContainerName, PropertyName);
 	};
@@ -778,6 +802,7 @@ void UCavrnusFunctionLibrary::DestroyObject(const FCavrnusSpawnedObject& Spawned
 	CheckErrors(SpawnedObject.SpaceConnection);
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildDestroyOp(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName));
 
+	Cavrnus::CavrnusRelayModel::GetDataModel()->HandleSpaceObjectRemoved(Cavrnus::CavrnusProtoTranslation::BuildObjectRemoved(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName));
 }
 
 #pragma endregion

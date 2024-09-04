@@ -282,9 +282,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusChatWindow() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatWindow_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusChatWindow, UCavrnusChatWindow::StaticClass, TEXT("UCavrnusChatWindow"), &Z_Registration_Info_UClass_UCavrnusChatWindow, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusChatWindow), 3264679356U) },
+		{ Z_Construct_UClass_UCavrnusChatWindow, UCavrnusChatWindow::StaticClass, TEXT("UCavrnusChatWindow"), &Z_Registration_Info_UClass_UCavrnusChatWindow, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusChatWindow), 2432530934U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatWindow_h_931710180(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatWindow_h_2844480724(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatWindow_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_ChatMenu_CavrnusChatWindow_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
