@@ -1,6 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
 #include "RelayModel/SpaceChatModel.h"
-#include "CavrnusConnectorModule.h"
 
 namespace Cavrnus
 {
@@ -26,7 +25,7 @@ namespace Cavrnus
 	{
 		if (!CurrChatEntries.Contains(FAbsolutePropertyId(chat.ChatId))) 
 		{
-			UE_LOG(LogCavrnusConnector, Error, TEXT("CHAT UPDATE ID NOT FOUND IN DICTIONARY!"));
+			UE_LOG(LogTemp, Error, TEXT("CHAT UPDATE ID NOT FOUND IN DICTIONARY!"));
 			return;
 		}
 
@@ -40,7 +39,7 @@ namespace Cavrnus
 	{
 		if (!CurrChatEntries.Contains(FAbsolutePropertyId(chatId)))
 		{
-			UE_LOG(LogCavrnusConnector, Error, TEXT("CHAT REMOVAL ID NOT FOUND IN DICTIONARY!"));
+			UE_LOG(LogTemp, Error, TEXT("CHAT REMOVAL ID NOT FOUND IN DICTIONARY!"));
 			return;
 		}
 

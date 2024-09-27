@@ -71,7 +71,6 @@ namespace Cavrnus
 		static const ServerData::RelayClientMessage BuildCreateOp(const FCavrnusSpaceConnection& spaceConn, const FString& uniqueObjectId, const FString& instanceId);
 		static const ServerData::ObjectAdded BuildObjectAdded(const FCavrnusSpaceConnection& spaceConn, const FString& uniqueObjectId, const FString& instanceId);
 		static const ServerData::RelayClientMessage BuildDestroyOp(const FCavrnusSpaceConnection& spaceConn, const FString& containerName);
-		static const ServerData::ObjectRemoved BuildObjectRemoved(const FCavrnusSpaceConnection& spaceConn, const FString& instanceId);
 
 		static const ServerData::RelayClientMessage BuildRequestGlobalPermission(const FString& permission);
 		static const ServerData::RelayClientMessage BuildRequestSpacePermission(const FCavrnusSpaceConnection& spaceConn, const FString& permission);

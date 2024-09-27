@@ -12,7 +12,4 @@ class CAVRNUSCONNECTOR_API ACavrnusLocalCharacter : public ACharacter
 	
 public:
 	ACavrnusLocalCharacter();
-
-private:
-	void SetupInputs();
 };

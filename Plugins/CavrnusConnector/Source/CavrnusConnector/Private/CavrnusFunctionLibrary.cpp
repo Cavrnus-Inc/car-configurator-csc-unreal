@@ -321,7 +321,7 @@ UCavrnusBinding* UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceCo
 {
 	CavrnusPropertyFunction propUpdateCallback = [PropertyUpdateEvent](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
-		UE_LOG(LogCavrnusConnector, Warning, TEXT("Exec color prop binding: %s"), *Prop.ColorValue.ToString())
+		UE_LOG(LogTemp, Warning, TEXT("Exec color prop binding: %s"), *Prop.ColorValue.ToString())
 
 		PropertyUpdateEvent.ExecuteIfBound(Prop.ColorValue, ContainerName, PropertyName);
 	};
@@ -802,7 +802,6 @@ void UCavrnusFunctionLibrary::DestroyObject(const FCavrnusSpawnedObject& Spawned
 	CheckErrors(SpawnedObject.SpaceConnection);
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildDestroyOp(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName));
 
-	Cavrnus::CavrnusRelayModel::GetDataModel()->HandleSpaceObjectRemoved(Cavrnus::CavrnusProtoTranslation::BuildObjectRemoved(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName));
 }
 
 #pragma endregion

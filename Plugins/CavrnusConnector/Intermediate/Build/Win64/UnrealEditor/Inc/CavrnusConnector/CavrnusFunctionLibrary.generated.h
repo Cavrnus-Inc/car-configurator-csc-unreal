@@ -36,7 +36,7 @@ class UCavrnusSpatialConnectorSubSystemProxy;
 #endif
 #define CAVRNUSCONNECTOR_CavrnusFunctionLibrary_generated_h
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_55_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_55_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusError_Parms \
 { \
 	FString Error; \
@@ -49,7 +49,7 @@ static inline void FCavrnusError_DelegateWrapper(const FScriptDelegate& CavrnusE
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_80_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_80_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAuthRecv_Parms \
 { \
 	FCavrnusAuthentication Auth; \
@@ -62,7 +62,7 @@ static inline void FCavrnusAuthRecv_DelegateWrapper(const FScriptDelegate& Cavrn
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_126_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_126_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAllSpacesInfoEvent_Parms \
 { \
 	TArray<FCavrnusSpaceInfo> SpacesInfo; \
@@ -75,7 +75,7 @@ static inline void FCavrnusAllSpacesInfoEvent_DelegateWrapper(const FScriptDeleg
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_137_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_137_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSpaceInfoEvent_Parms \
 { \
 	FCavrnusSpaceInfo SpaceInfo; \
@@ -88,7 +88,7 @@ static inline void FCavrnusSpaceInfoEvent_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_159_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_159_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSpaceConnected_Parms \
 { \
 	FCavrnusSpaceConnection SpaceConnection; \
@@ -101,7 +101,7 @@ static inline void FCavrnusSpaceConnected_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_176_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_176_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSpaceBeginLoading_Parms \
 { \
 	FString SpaceIdBeingLoaded; \
@@ -114,7 +114,7 @@ static inline void FCavrnusSpaceBeginLoading_DelegateWrapper(const FScriptDelega
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_308_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_308_DELEGATE \
 struct CavrnusFunctionLibrary_eventColorPropertyUpdated_Parms \
 { \
 	FLinearColor Value; \
@@ -131,7 +131,7 @@ static inline void FColorPropertyUpdated_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_387_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_387_DELEGATE \
 struct CavrnusFunctionLibrary_eventBoolPropertyUpdated_Parms \
 { \
 	bool Value; \
@@ -148,7 +148,7 @@ static inline void FBoolPropertyUpdated_DelegateWrapper(const FScriptDelegate& B
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_465_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_465_DELEGATE \
 struct CavrnusFunctionLibrary_eventFloatPropertyUpdated_Parms \
 { \
 	float Value; \
@@ -165,7 +165,7 @@ static inline void FFloatPropertyUpdated_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_544_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_544_DELEGATE \
 struct CavrnusFunctionLibrary_eventStringPropertyUpdated_Parms \
 { \
 	FString Value; \
@@ -182,7 +182,7 @@ static inline void FStringPropertyUpdated_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_623_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_623_DELEGATE \
 struct CavrnusFunctionLibrary_eventVectorPropertyUpdated_Parms \
 { \
 	FVector4 Value; \
@@ -199,7 +199,7 @@ static inline void FVectorPropertyUpdated_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_702_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_702_DELEGATE \
 struct CavrnusFunctionLibrary_eventTransformPropertyUpdated_Parms \
 { \
 	FTransform Value; \
@@ -216,7 +216,7 @@ static inline void FTransformPropertyUpdated_DelegateWrapper(const FScriptDelega
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_757_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_757_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusPolicyUpdated_Parms \
 { \
 	FString Policy; \
@@ -231,7 +231,7 @@ static inline void FCavrnusPolicyUpdated_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_826_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_826_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSpaceUserEvent_Parms \
 { \
 	FCavrnusUser User; \
@@ -244,7 +244,7 @@ static inline void FCavrnusSpaceUserEvent_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_882_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_882_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusUserVideoFrameEvent_Parms \
 { \
 	UTexture2D* UserVideoFrame; \
@@ -257,7 +257,7 @@ static inline void FCavrnusUserVideoFrameEvent_DelegateWrapper(const FScriptDele
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_941_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_941_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSavedInputDevice_Parms \
 { \
 	FCavrnusInputDevice InputDevice; \
@@ -270,7 +270,7 @@ static inline void FCavrnusSavedInputDevice_DelegateWrapper(const FScriptDelegat
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_964_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_964_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAvailableInputDevices_Parms \
 { \
 	TArray<FCavrnusInputDevice> InputDevices; \
@@ -283,7 +283,7 @@ static inline void FCavrnusAvailableInputDevices_DelegateWrapper(const FScriptDe
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_996_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_996_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusSavedOutputDevice_Parms \
 { \
 	FCavrnusOutputDevice OutputDevice; \
@@ -296,7 +296,7 @@ static inline void FCavrnusSavedOutputDevice_DelegateWrapper(const FScriptDelega
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1019_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1019_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAvailableOutputDevices_Parms \
 { \
 	TArray<FCavrnusOutputDevice> OutputDevices; \
@@ -309,7 +309,7 @@ static inline void FCavrnusAvailableOutputDevices_DelegateWrapper(const FScriptD
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1051_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1051_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusAvailableVideoInputDevices_Parms \
 { \
 	TArray<FCavrnusVideoInputDevice> VideoInputDevices; \
@@ -322,7 +322,7 @@ static inline void FCavrnusAvailableVideoInputDevices_DelegateWrapper(const FScr
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1088_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1088_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusContentProgressFunction_Parms \
 { \
 	float Progress; \
@@ -337,7 +337,7 @@ static inline void FCavrnusContentProgressFunction_DelegateWrapper(const FScript
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1095_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1095_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusContentFunction_Parms \
 { \
 	TArray<uint8> bytes; \
@@ -350,7 +350,7 @@ static inline void FCavrnusContentFunction_DelegateWrapper(const FScriptDelegate
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1122_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1122_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusContentFileFunction_Parms \
 { \
 	FString fileDest; \
@@ -363,7 +363,7 @@ static inline void FCavrnusContentFileFunction_DelegateWrapper(const FScriptDele
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1151_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1151_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusRemoteContentFunction_Parms \
 { \
 	TArray<FCavrnusRemoteContent> availableContent; \
@@ -376,7 +376,7 @@ static inline void FCavrnusRemoteContentFunction_DelegateWrapper(const FScriptDe
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1174_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1174_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusUploadCompleteFunction_Parms \
 { \
 	FCavrnusRemoteContent uploadedContent; \
@@ -389,7 +389,7 @@ static inline void FCavrnusUploadCompleteFunction_DelegateWrapper(const FScriptD
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1223_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1223_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusChatFunction_Parms \
 { \
 	FChatEntry chat; \
@@ -402,7 +402,7 @@ static inline void FCavrnusChatFunction_DelegateWrapper(const FScriptDelegate& C
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1229_DELEGATE \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_1229_DELEGATE \
 struct CavrnusFunctionLibrary_eventCavrnusChatRemovedFunction_Parms \
 { \
 	FString chatId; \
@@ -415,8 +415,8 @@ static inline void FCavrnusChatRemovedFunction_DelegateWrapper(const FScriptDele
 }
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_SPARSE_DATA
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_SPARSE_DATA
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execPostChatMessage); \
 	DECLARE_FUNCTION(execBindChatMessages); \
@@ -488,7 +488,7 @@ static inline void FCavrnusChatRemovedFunction_DelegateWrapper(const FScriptDele
 	DECLARE_FUNCTION(execGetCavrnusSpatialConnectorSubSystemProxy);
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execPostChatMessage); \
 	DECLARE_FUNCTION(execBindChatMessages); \
@@ -560,7 +560,7 @@ static inline void FCavrnusChatRemovedFunction_DelegateWrapper(const FScriptDele
 	DECLARE_FUNCTION(execGetCavrnusSpatialConnectorSubSystemProxy);
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_INCLASS_NO_PURE_DECLS \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUCavrnusFunctionLibrary(); \
 	friend struct Z_Construct_UClass_UCavrnusFunctionLibrary_Statics; \
@@ -569,7 +569,7 @@ public: \
 	DECLARE_SERIALIZER(UCavrnusFunctionLibrary)
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_INCLASS \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_INCLASS \
 private: \
 	static void StaticRegisterNativesUCavrnusFunctionLibrary(); \
 	friend struct Z_Construct_UClass_UCavrnusFunctionLibrary_Statics; \
@@ -578,7 +578,7 @@ public: \
 	DECLARE_SERIALIZER(UCavrnusFunctionLibrary)
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_STANDARD_CONSTRUCTORS \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCavrnusFunctionLibrary(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCavrnusFunctionLibrary) \
@@ -591,7 +591,7 @@ private: \
 public:
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_ENHANCED_CONSTRUCTORS \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCavrnusFunctionLibrary(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -604,25 +604,25 @@ public: \
 	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCavrnusFunctionLibrary)
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_40_PROLOG
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_GENERATED_BODY_LEGACY \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_40_PROLOG
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_SPARSE_DATA \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_INCLASS \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_STANDARD_CONSTRUCTORS \
+	FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_SPARSE_DATA \
+	FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS \
+	FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_INCLASS \
+	FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_GENERATED_BODY \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_SPARSE_DATA \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_INCLASS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_ENHANCED_CONSTRUCTORS \
+	FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_SPARSE_DATA \
+	FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_INCLASS_NO_PURE_DECLS \
+	FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h_44_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -630,7 +630,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> CAVRNUSCONNECTOR_API UClass* StaticClass<class UCavrnusFunctionLibrary>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h
+#define CURRENT_FILE_ID FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_CavrnusFunctionLibrary_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

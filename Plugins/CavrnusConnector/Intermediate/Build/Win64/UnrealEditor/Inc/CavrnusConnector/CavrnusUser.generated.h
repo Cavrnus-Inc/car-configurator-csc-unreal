@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CAVRNUSCONNECTOR_CavrnusUser_generated_h
 
-#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusUser_h_28_GENERATED_BODY \
+#define FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusUser_h_28_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FCavrnusUser_Statics; \
 	static class UScriptStruct* StaticStruct();
 
@@ -21,7 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<struct FCavrnusUser>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusUser_h
+#define CURRENT_FILE_ID FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusUser_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

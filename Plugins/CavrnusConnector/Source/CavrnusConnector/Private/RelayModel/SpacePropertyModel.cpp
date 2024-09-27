@@ -137,9 +137,8 @@ namespace Cavrnus
 
 		if (PropBindings.Contains(fullPropertyId))
 		{
-			auto bindings = PropBindings[fullPropertyId];
-			for (int i = 0; i < bindings.Num(); i++)
-				(*bindings[i])(activePropVal, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
+			for (int i = 0; i < PropBindings[fullPropertyId].Num(); i++)
+				(*PropBindings[fullPropertyId][i])(activePropVal, fullPropertyId.ContainerName, fullPropertyId.PropValueId);
 		}
 	}
 

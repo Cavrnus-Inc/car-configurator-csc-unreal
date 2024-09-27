@@ -34,7 +34,7 @@ protected:
 	bool AutoScrollToEnd = false;
 
 	UPROPERTY()
-	TMap<FString, UCavrnusChatEntry*> AllWidgetsMap;
+	TMap<FString, UCavrnusChatEntry*> CreatedWidgetsMap;
 
 	UPROPERTY()
 	TArray<UCavrnusChatEntry*> SortedChatWidgets;
@@ -67,5 +67,5 @@ protected:
 
 	virtual void ForceChildrenRebuild() override;
 
-	virtual void RebuildChildren();
+	void RebuildChildren();
 };

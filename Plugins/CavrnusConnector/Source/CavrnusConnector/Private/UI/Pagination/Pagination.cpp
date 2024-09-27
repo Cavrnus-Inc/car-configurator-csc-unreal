@@ -1,6 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
 #include "UI/Pagination/Pagination.h"
-#include "CavrnusConnectorModule.h"
 #include "Blueprint/WidgetTree.h"
 #include "Components/Button.h"
 
@@ -110,7 +109,7 @@ void UPagination::LoadPage(const int Page)
 	}
 	else
 	{
-		UE_LOG(LogCavrnusConnector, Warning, TEXT("ItemContainer is not a VerticalBox!."));
+		UE_LOG(LogTemp, Warning, TEXT("ItemContainer is not a VerticalBox!."));
 	}
 	
 	const FString CurrentPageText = FString::Printf(TEXT("%d of %d"), Page, TotalPages);

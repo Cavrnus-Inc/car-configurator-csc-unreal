@@ -38,13 +38,13 @@ void UCavrnusUserWidget::BindUserVideo()
 	VideoFrameUpdateFunction UserVideoFrameUpdate = [this](UTexture2D* InTexture) {
 		if (!RtcStreamImage)
 		{
-			UE_LOG(LogCavrnusConnector, Warning, TEXT("RtcStreamImage is not valid"));
+			UE_LOG(LogTemp, Warning, TEXT("RtcStreamImage is not valid"));
 			return;
 		}
 
 		if (!InTexture)
 		{
-			UE_LOG(LogCavrnusConnector, Warning, TEXT("InTexture is null"));
+			UE_LOG(LogTemp, Warning, TEXT("InTexture is null"));
 			return;
 		}
 
@@ -53,7 +53,7 @@ void UCavrnusUserWidget::BindUserVideo()
 
 		if (TextureSizeX <= 0 || TextureSizeY <= 0)
 		{
-			UE_LOG(LogCavrnusConnector, Warning, TEXT("InTexture has invalid dimensions: %d x %d"), TextureSizeX, TextureSizeY);
+			UE_LOG(LogTemp, Warning, TEXT("InTexture has invalid dimensions: %d x %d"), TextureSizeX, TextureSizeY);
 			return;
 		}
 
@@ -68,7 +68,7 @@ void UCavrnusUserWidget::BindUserVideo()
 		}
 		else
 		{
-			UE_LOG(LogCavrnusConnector, Warning, TEXT("InTexture has invalid size: %d x %d"), TextureSizeX, TextureSizeY);
+			UE_LOG(LogTemp, Warning, TEXT("InTexture has invalid size: %d x %d"), TextureSizeX, TextureSizeY);
 		}
 	};
 

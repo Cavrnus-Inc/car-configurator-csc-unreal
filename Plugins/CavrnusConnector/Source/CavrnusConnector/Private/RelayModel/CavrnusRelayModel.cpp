@@ -327,20 +327,14 @@ namespace Cavrnus
 
 	void CavrnusRelayModel::HandleSpaceObjectRemoved(const ServerData::ObjectRemoved& ObjectRemoved)
 	{
-		FCavrnusSpaceConnection spaceConn = Cavrnus::CavrnusProtoTranslation::FromPb(ObjectRemoved.spaceconn());
-		if (!spacePropertyModelLookup.Contains(spaceConn.SpaceConnectionId))
-			return;
-
-		FString propsContainerName = FString(UTF8_TO_TCHAR(ObjectRemoved.propertiescontainer().c_str()));
-
-		if (!spacePropertyModelLookup[spaceConn.SpaceConnectionId]->SpawnedObjects.Contains(propsContainerName))
-			return;
-
 		FCavrnusSpawnedObject SpawnedObject;
-		SpawnedObject.SpaceConnection = spaceConn;
+		FString propsContainerName = (FString(UTF8_TO_TCHAR(ObjectRemoved.propertiescontainer().c_str())));
 		SpawnedObject.PropertiesContainerName = propsContainerName;
 
 		(*ObjectDestructionCallback)(SpawnedObject);
+
+		if (!spacePropertyModelLookup.Contains(ObjectRemoved.spaceconn().spaceconnectionid()))
+			return;
 
 		spacePropertyModelLookup[ObjectRemoved.spaceconn().spaceconnectionid()]->SpawnedObjects.Remove(propsContainerName);
 	}

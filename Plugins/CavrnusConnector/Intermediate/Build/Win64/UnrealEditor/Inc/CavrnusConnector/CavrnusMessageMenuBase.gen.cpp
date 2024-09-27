@@ -256,12 +256,12 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusMessageMenuBase() {}
 #endif
 		static void NewProp_AutoScrollToEnd_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_AutoScrollToEnd;
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_AllWidgetsMap_ValueProp;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_AllWidgetsMap_Key_KeyProp;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CreatedWidgetsMap_ValueProp;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_CreatedWidgetsMap_Key_KeyProp;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_AllWidgetsMap_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CreatedWidgetsMap_MetaData[];
 #endif
-		static const UECodeGen_Private::FMapPropertyParams NewProp_AllWidgetsMap;
+		static const UECodeGen_Private::FMapPropertyParams NewProp_CreatedWidgetsMap;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SortedChatWidgets_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SortedChatWidgets_MetaData[];
@@ -333,15 +333,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusMessageMenuBase() {}
 		((UCavrnusMessageMenuBase*)Obj)->AutoScrollToEnd = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AutoScrollToEnd = { "AutoScrollToEnd", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UCavrnusMessageMenuBase), &Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AutoScrollToEnd_SetBit, METADATA_PARAMS(Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AutoScrollToEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AutoScrollToEnd_MetaData)) };
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AllWidgetsMap_ValueProp = { "AllWidgetsMap", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UCavrnusChatEntry_NoRegister, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AllWidgetsMap_Key_KeyProp = { "AllWidgetsMap_Key", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_CreatedWidgetsMap_ValueProp = { "CreatedWidgetsMap", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UCavrnusChatEntry_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_CreatedWidgetsMap_Key_KeyProp = { "CreatedWidgetsMap_Key", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AllWidgetsMap_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_CreatedWidgetsMap_MetaData[] = {
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/MessageMenus/CavrnusMessageMenuBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AllWidgetsMap = { "AllWidgetsMap", nullptr, (EPropertyFlags)0x0020088000000008, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusMessageMenuBase, AllWidgetsMap), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AllWidgetsMap_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AllWidgetsMap_MetaData)) };
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_CreatedWidgetsMap = { "CreatedWidgetsMap", nullptr, (EPropertyFlags)0x0020088000000008, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusMessageMenuBase, CreatedWidgetsMap), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_CreatedWidgetsMap_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_CreatedWidgetsMap_MetaData)) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_SortedChatWidgets_Inner = { "SortedChatWidgets", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UCavrnusChatEntry_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_SortedChatWidgets_MetaData[] = {
@@ -362,9 +362,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusMessageMenuBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_ResetPositionButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_SpaceConnection,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AutoScrollToEnd,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AllWidgetsMap_ValueProp,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AllWidgetsMap_Key_KeyProp,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_AllWidgetsMap,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_CreatedWidgetsMap_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_CreatedWidgetsMap_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_CreatedWidgetsMap,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_SortedChatWidgets_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_SortedChatWidgets,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusMessageMenuBase_Statics::NewProp_ChatEventsBinding,
@@ -400,15 +400,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusMessageMenuBase() {}
 		return UCavrnusMessageMenuBase::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCavrnusMessageMenuBase);
-	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusMessageMenuBase, UCavrnusMessageMenuBase::StaticClass, TEXT("UCavrnusMessageMenuBase"), &Z_Registration_Info_UClass_UCavrnusMessageMenuBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusMessageMenuBase), 2422352851U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCavrnusMessageMenuBase, UCavrnusMessageMenuBase::StaticClass, TEXT("UCavrnusMessageMenuBase"), &Z_Registration_Info_UClass_UCavrnusMessageMenuBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusMessageMenuBase), 1868176397U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_755502806(TEXT("/Script/CavrnusConnector"),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_3086282351(TEXT("/Script/CavrnusConnector"),
+		Z_CompiledInDeferFile_FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_car_configurator_csc_unreal_refactor_for_MAIN_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_MessageMenus_CavrnusMessageMenuBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
