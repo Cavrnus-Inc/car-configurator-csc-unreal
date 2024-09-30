@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CAVRNUSCONNECTOR_CavrnusAuthentication_generated_h
 
-#define FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusAuthentication_h_27_GENERATED_BODY \
+#define FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusAuthentication_h_27_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FCavrnusAuthentication_Statics; \
 	static class UScriptStruct* StaticStruct();
 
@@ -21,7 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> CAVRNUSCONNECTOR_API UScriptStruct* StaticStruct<struct FCavrnusAuthentication>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusAuthentication_h
+#define CURRENT_FILE_ID FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Types_CavrnusAuthentication_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

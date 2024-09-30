@@ -1,0 +1,17 @@
+{
+	"OutputFiles": [
+		"Module.CavrnusConnector.cpp.obj",
+		"Module.CavrnusConnector.gen.1_of_3.cpp.obj",
+		"Module.CavrnusConnector.gen.2_of_3.cpp.obj",
+		"Module.CavrnusConnector.gen.3_of_3.cpp.obj",
+		"common.pb.cc.obj",
+		"journaldata.pb.cc.obj",
+		"journal_client.pb.cc.obj",
+		"journal_operations_client.pb.cc.obj",
+		"journal_operations_common.pb.cc.obj",
+		"properties.pb.cc.obj",
+		"relay.pb.cc.obj",
+		"relay_types.pb.cc.obj",
+		"transient_events_client.pb.cc.obj"
+	]
+}

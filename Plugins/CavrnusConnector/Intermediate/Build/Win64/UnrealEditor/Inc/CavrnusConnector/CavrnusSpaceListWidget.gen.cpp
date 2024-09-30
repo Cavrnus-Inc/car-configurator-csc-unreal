@@ -11,6 +11,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 // Cross Module References
 	CAVRNUSCONNECTOR_API UFunction* Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_CavrnusConnector();
+	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpaceInfo();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusSpaceListWidget_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusSpaceListWidget();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusBaseUserWidget();
@@ -18,25 +19,25 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UPagination_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UEditableTextBox_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
 	CAVRNUSCONNECTOR_API UClass* Z_Construct_UClass_UCavrnusBinding_NoRegister();
-	CAVRNUSCONNECTOR_API UScriptStruct* Z_Construct_UScriptStruct_FCavrnusSpaceInfo();
 // End Cross Module References
 	struct Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature_Statics
 	{
 		struct _Script_CavrnusConnector_eventOnCavrnusSpaceSelected_Parms
 		{
-			FString SpaceId;
+			FCavrnusSpaceInfo SpaceInfo;
 		};
-		static const UECodeGen_Private::FStrPropertyParams NewProp_SpaceId;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_SpaceInfo;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature_Statics::NewProp_SpaceId = { "SpaceId", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventOnCavrnusSpaceSelected_Parms, SpaceId), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature_Statics::NewProp_SpaceInfo = { "SpaceInfo", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CavrnusConnector_eventOnCavrnusSpaceSelected_Parms, SpaceInfo), Z_Construct_UScriptStruct_FCavrnusSpaceInfo, METADATA_PARAMS(nullptr, 0) }; // 25966878
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature_Statics::NewProp_SpaceId,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature_Statics::NewProp_SpaceInfo,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature_Statics::Function_MetaDataParams[] = {
@@ -55,6 +56,14 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		}
 		return ReturnFunction;
 	}
+	DEFINE_FUNCTION(UCavrnusSpaceListWidget::execBlueprintSelectedSpaceToJoin)
+	{
+		P_GET_STRUCT(FCavrnusSpaceInfo,Z_Param_SpaceInfo);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->BlueprintSelectedSpaceToJoin(Z_Param_SpaceInfo);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCavrnusSpaceListWidget::execSearch)
 	{
 		P_GET_PROPERTY_REF(FTextProperty,Z_Param_Out_SearchValue);
@@ -63,21 +72,46 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		P_THIS->Search(Z_Param_Out_SearchValue);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UCavrnusSpaceListWidget::execSetup)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->Setup();
-		P_NATIVE_END;
-	}
 	void UCavrnusSpaceListWidget::StaticRegisterNativesUCavrnusSpaceListWidget()
 	{
 		UClass* Class = UCavrnusSpaceListWidget::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "BlueprintSelectedSpaceToJoin", &UCavrnusSpaceListWidget::execBlueprintSelectedSpaceToJoin },
 			{ "Search", &UCavrnusSpaceListWidget::execSearch },
-			{ "Setup", &UCavrnusSpaceListWidget::execSetup },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics
+	{
+		struct CavrnusSpaceListWidget_eventBlueprintSelectedSpaceToJoin_Parms
+		{
+			FCavrnusSpaceInfo SpaceInfo;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_SpaceInfo;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::NewProp_SpaceInfo = { "SpaceInfo", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CavrnusSpaceListWidget_eventBlueprintSelectedSpaceToJoin_Parms, SpaceInfo), Z_Construct_UScriptStruct_FCavrnusSpaceInfo, METADATA_PARAMS(nullptr, 0) }; // 25966878
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::NewProp_SpaceInfo,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpaceListWidget, nullptr, "BlueprintSelectedSpaceToJoin", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::CavrnusSpaceListWidget_eventBlueprintSelectedSpaceToJoin_Parms), Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UCavrnusSpaceListWidget_Search_Statics
 	{
@@ -121,31 +155,6 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Cavrnus|SpaceList" },
-		{ "Comment", "/**\n\x09* @brief Sets up the space list widget.\n\x09*/" },
-		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
-		{ "ToolTip", "@brief Sets up the space list widget." },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCavrnusSpaceListWidget, nullptr, "Setup", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCavrnusSpaceListWidget);
 	UClass* Z_Construct_UClass_UCavrnusSpaceListWidget_NoRegister()
 	{
@@ -170,6 +179,10 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SearchTextBox_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SearchTextBox;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ButtonCreateSpace_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ButtonCreateSpace;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnCavrnusSpaceSelected_MetaData[];
 #endif
@@ -197,8 +210,8 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CavrnusConnector,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UCavrnusSpaceListWidget_BlueprintSelectedSpaceToJoin, "BlueprintSelectedSpaceToJoin" }, // 3403013500
 		{ &Z_Construct_UFunction_UCavrnusSpaceListWidget_Search, "Search" }, // 2897231799
-		{ &Z_Construct_UFunction_UCavrnusSpaceListWidget_Setup, "Setup" }, // 2498567532
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::Class_MetaDataParams[] = {
@@ -240,6 +253,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SearchTextBox = { "SearchTextBox", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpaceListWidget, SearchTextBox), Z_Construct_UClass_UEditableTextBox_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SearchTextBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SearchTextBox_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_ButtonCreateSpace_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "Cavrnus|SpaceList" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_ButtonCreateSpace = { "ButtonCreateSpace", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpaceListWidget, ButtonCreateSpace), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_ButtonCreateSpace_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_ButtonCreateSpace_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_OnCavrnusSpaceSelected_MetaData[] = {
 		{ "Category", "Cavrnus|SpaceList" },
 		{ "Comment", "/** Delegate for handling the selection of a Cavrnus space. */" },
@@ -247,7 +269,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		{ "ToolTip", "Delegate for handling the selection of a Cavrnus space." },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_OnCavrnusSpaceSelected = { "OnCavrnusSpaceSelected", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpaceListWidget, OnCavrnusSpaceSelected), Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_OnCavrnusSpaceSelected_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_OnCavrnusSpaceSelected_MetaData)) }; // 3932877962
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_OnCavrnusSpaceSelected = { "OnCavrnusSpaceSelected", nullptr, (EPropertyFlags)0x0010100010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSpaceListWidget, OnCavrnusSpaceSelected), Z_Construct_UDelegateFunction_CavrnusConnector_OnCavrnusSpaceSelected__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_OnCavrnusSpaceSelected_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_OnCavrnusSpaceSelected_MetaData)) }; // 2874705462
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_JoinableSpacesBinding_MetaData[] = {
 		{ "ModuleRelativePath", "Public/UI/CavrnusSpaceListWidget.h" },
@@ -276,6 +298,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_PaginationItemWidget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SpacePagination,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_SearchTextBox,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_ButtonCreateSpace,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_OnCavrnusSpaceSelected,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_JoinableSpacesBinding,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSpaceListWidget_Statics::NewProp_AllSpaces_Inner,
@@ -314,15 +337,15 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSpaceListWidget() {}
 		return UCavrnusSpaceListWidget::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCavrnusSpaceListWidget);
-	struct Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics
+	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusSpaceListWidget, UCavrnusSpaceListWidget::StaticClass, TEXT("UCavrnusSpaceListWidget"), &Z_Registration_Info_UClass_UCavrnusSpaceListWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpaceListWidget), 339094125U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCavrnusSpaceListWidget, UCavrnusSpaceListWidget::StaticClass, TEXT("UCavrnusSpaceListWidget"), &Z_Registration_Info_UClass_UCavrnusSpaceListWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSpaceListWidget), 1935807608U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_1331194885(TEXT("/Script/CavrnusConnector"),
-		Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CavrnusPlugin_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_3708251562(TEXT("/Script/CavrnusConnector"),
+		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_UI_CavrnusSpaceListWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

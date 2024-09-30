@@ -185,6 +185,26 @@ void UCavrnusFunctionLibrary::JoinSpace(FString SpaceId, CavrnusSpaceConnected O
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildJoinSpaceWithId(RequestId, SpaceId));
 }
 
+void UCavrnusFunctionLibrary::CreateSpace(FString SpaceName, FCavrnusSpaceCreated OnCreation, FCavrnusError OnFailure)
+{
+	CavrnusSpaceCreated callback = [OnCreation](const FCavrnusSpaceInfo& val)
+	{
+		OnCreation.ExecuteIfBound(val);
+	};
+	CavrnusError errorCallback = [OnFailure](const FString& val)
+	{
+		OnFailure.ExecuteIfBound(val);
+	};
+
+	CreateSpace(SpaceName, callback, errorCallback);
+}
+
+void UCavrnusFunctionLibrary::CreateSpace(FString SpaceName, CavrnusSpaceCreated OnCreation, CavrnusError OnFailure)
+{
+	int RequestId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetCallbackModel()->RegisterCreateSpaceCallback(OnCreation, OnFailure);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildCreateSpaceMsg(RequestId, SpaceName));
+}
+
 void UCavrnusFunctionLibrary::AwaitAnySpaceBeginLoading(FCavrnusSpaceBeginLoading OnBeginLoading)
 {
 	CavrnusSpaceBeginLoading callback = [OnBeginLoading](const FString& val)
@@ -281,9 +301,7 @@ UCavrnusLivePropertyUpdate* UCavrnusFunctionLibrary::BeginTransientGenericProper
 void UCavrnusFunctionLibrary::PostGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue, const FPropertyPostOptions& options)
 {
 	CheckErrors(SpaceConnection);
-	int localChangeId = -1;
-	if(!options.Smoothed)
-		localChangeId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetSpacePropertyModel(SpaceConnection)->SetLocalPropVal(FAbsolutePropertyId(ContainerName, PropertyName), PropertyValue);
+	int localChangeId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetSpacePropertyModel(SpaceConnection)->SetLocalPropVal(FAbsolutePropertyId(ContainerName, PropertyName), PropertyValue);
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildUpdatePropMsg(SpaceConnection, FAbsolutePropertyId(ContainerName, PropertyName), PropertyValue, localChangeId, options));
 }
 
@@ -321,7 +339,7 @@ UCavrnusBinding* UCavrnusFunctionLibrary::BindColorPropertyValue(FCavrnusSpaceCo
 {
 	CavrnusPropertyFunction propUpdateCallback = [PropertyUpdateEvent](const Cavrnus::FPropertyValue& Prop, const FString& ContainerName, const FString& PropertyName)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Exec color prop binding: %s"), *Prop.ColorValue.ToString())
+		UE_LOG(LogCavrnusConnector, Warning, TEXT("Exec color prop binding: %s"), *Prop.ColorValue.ToString())
 
 		PropertyUpdateEvent.ExecuteIfBound(Prop.ColorValue, ContainerName, PropertyName);
 	};
@@ -802,6 +820,7 @@ void UCavrnusFunctionLibrary::DestroyObject(const FCavrnusSpawnedObject& Spawned
 	CheckErrors(SpawnedObject.SpaceConnection);
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildDestroyOp(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName));
 
+	Cavrnus::CavrnusRelayModel::GetDataModel()->HandleSpaceObjectRemoved(Cavrnus::CavrnusProtoTranslation::BuildObjectRemoved(SpawnedObject.SpaceConnection, SpawnedObject.PropertiesContainerName));
 }
 
 #pragma endregion

@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0",
+	"VersionName": "2024.2.870-Dev",
 	"FriendlyName": "Cavrnus",
 	"Description": "Cavrnus enhances 3D workflows by providing developers a seamless drag-and-drop toolkit for embedding collaborative features directly into Unreal Engine projects.",
 	"Category": "Multi-user Collaboration Plugin",
@@ -10,10 +10,13 @@
 	"DocsURL": "https://cavrnus.atlassian.net/wiki/spaces/CSM/overview",
 	"MarketplaceURL": "",
 	"SupportURL": "https://cavrnus.atlassian.net/servicedesk/customer/portal/1/group/-1",
+	"EngineVersion": "5.0.0",
 	"CanContainContent": true,
-	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
-	"Installed": false,
+	"EnabledByDefault": false,
+	"Installed": true,
+	"SupportedTargetPlatforms": [
+		"Win64"
+	],
 	"Modules": [
 		{
 			"Name": "CavrnusConnector",
@@ -35,8 +38,5 @@
 			"Name": "JsonBlueprintUtilities",
 			"Enabled": true
 		}
-	],
-	"SupportedTargetPlatforms": [
-		"Win64"
 	]
 }
