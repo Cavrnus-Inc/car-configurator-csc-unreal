@@ -1,8 +1,6 @@
-C:\_Tools\1_DEV\Cavrnus-Spatial-Connector-UE5.0-2024.2.870-Dev
-josh.criz: ue - master [092b33b0612110004577e8eb2278d5b90a5e3989]
-Fix User Widget copies
+Cavrnus-Spatial-Connector-UE5.0-2024.2.873-Dev
+bhaddad5: ue - master [e07dddf979c2a613e9dd256a8bab24497bfae631]
+Fixed callbacks not firing for initial journal values when those values are Unset
 
-User Menu removes user widgets from parent before throwing them away.
-
-	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/UI/UserMenu/CavrnusUserMenu.cpp
+	CavrnusPlugin/Plugins/CavrnusConnector/Source/CavrnusConnector/Private/RelayModel/SpacePropertyModel.cpp
 

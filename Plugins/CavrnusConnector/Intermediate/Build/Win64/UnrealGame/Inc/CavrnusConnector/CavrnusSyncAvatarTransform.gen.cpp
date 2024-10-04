@@ -29,6 +29,11 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSyncAvatarTransform() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SendCameraTransform_MetaData[];
+#endif
+		static void NewProp_SendCameraTransform_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_SendCameraTransform;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_UseHeightOffset_MetaData[];
 #endif
 		static void NewProp_UseHeightOffset_SetBit(void* Obj);
@@ -77,6 +82,17 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSyncAvatarTransform() {}
 		{ "ModuleRelativePath", "Public/Avatar/CavrnusSyncAvatarTransform.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_SendCameraTransform_MetaData[] = {
+		{ "Category", "Cavrnus|AvatarTransform" },
+		{ "ModuleRelativePath", "Public/Avatar/CavrnusSyncAvatarTransform.h" },
+	};
+#endif
+	void Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_SendCameraTransform_SetBit(void* Obj)
+	{
+		((UCavrnusSyncAvatarTransform*)Obj)->SendCameraTransform = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_SendCameraTransform = { "SendCameraTransform", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UCavrnusSyncAvatarTransform), &Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_SendCameraTransform_SetBit, METADATA_PARAMS(Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_SendCameraTransform_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_SendCameraTransform_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_UseHeightOffset_MetaData[] = {
 		{ "Category", "Cavrnus|AvatarTransform" },
@@ -147,6 +163,7 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSyncAvatarTransform() {}
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_HeightOffset = { "HeightOffset", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCavrnusSyncAvatarTransform, HeightOffset), METADATA_PARAMS(Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_HeightOffset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_HeightOffset_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_SendCameraTransform,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_UseHeightOffset,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_ForceSetHeight,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCavrnusSyncAvatarTransform_Statics::NewProp_LimitRoll,
@@ -191,9 +208,9 @@ void EmptyLinkFunctionForGeneratedCodeCavrnusSyncAvatarTransform() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Avatar_CavrnusSyncAvatarTransform_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCavrnusSyncAvatarTransform, UCavrnusSyncAvatarTransform::StaticClass, TEXT("UCavrnusSyncAvatarTransform"), &Z_Registration_Info_UClass_UCavrnusSyncAvatarTransform, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSyncAvatarTransform), 629732119U) },
+		{ Z_Construct_UClass_UCavrnusSyncAvatarTransform, UCavrnusSyncAvatarTransform::StaticClass, TEXT("UCavrnusSyncAvatarTransform"), &Z_Registration_Info_UClass_UCavrnusSyncAvatarTransform, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCavrnusSyncAvatarTransform), 408970356U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Avatar_CavrnusSyncAvatarTransform_h_546108656(TEXT("/Script/CavrnusConnector"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Avatar_CavrnusSyncAvatarTransform_h_793828365(TEXT("/Script/CavrnusConnector"),
 		Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Avatar_CavrnusSyncAvatarTransform_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_CavrnusConnector_Source_CavrnusConnector_Public_Avatar_CavrnusSyncAvatarTransform_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
